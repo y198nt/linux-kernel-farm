@@ -1,0 +1,111 @@
+QEMU emulator version 6.2.0 (Debian 1:6.2+dfsg-2ubuntu6.24)
+qemu-system-x86_64 ["-m" "2048" "-smp" "2" "-chardev" "socket,id=SOCKSYZ,server=on,wait=off,host=localhost,port=7903" "-mon" "chardev=SOCKSYZ,mode=control" "-display" "none" "-serial" "stdio" "-no-reboot" "-name" "VM-1" "-device" "virtio-rng-pci" "-enable-kvm" "-cpu" "host,migratable=off" "-device" "e1000,netdev=net0" "-netdev" "user,id=net0,restrict=on,hostfwd=tcp:127.0.0.1:63620-:22" "-hda" "/home/cpu12462/p2o_2025/bullseye.img" "-snapshot" "-kernel" "/home/cpu12462/p2o_2025/linux/arch/x86/boot/bzImage" "-append" "root=/dev/sda console=ttyS0 "]
+
+[CPU Info]
+processor           : 0, 1
+vendor_id           : GenuineIntel
+cpu family          : 6
+model               : 158
+model name          : Intel(R) Core(TM) i5-9600K CPU @ 3.70GHz
+stepping            : 12
+microcode           : 0xf8
+cpu MHz             : 3695.990
+cache size          : 16384 KB
+physical id         : 0
+siblings            : 2
+core id             : 0, 1
+cpu cores           : 2
+apicid              : 0, 1
+initial apicid      : 0, 1
+fpu                 : yes
+fpu_exception       : yes
+cpuid level         : 22
+wp                  : yes
+flags               : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq vmx ssse3 fma cx16 pdcm sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault ssbd ibrs ibpb stibp tpr_shadow flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt xsaveopt xsavec xgetbv1 xsaves arat vnmi umip md_clear flush_l1d arch_capabilities
+vmx flags           : vnmi preemption_timer invvpid ept_x_only ept_ad ept_1gb flexpriority tsc_offset vtpr mtf vapic ept vpid unrestricted_guest shadow_vmcs pml
+bugs                : spectre_v1 spectre_v2 spec_store_bypass mds swapgs srbds mmio_stale_data retbleed bhi ibpb_no_ret
+bogomips            : 7391.98
+clflush size        : 64
+cache_alignment     : 64
+address sizes       : 39 bits physical, 48 bits virtual
+power management    : 
+
+--------------------------------------------------------------------------------
+
+[KVM]
+/sys/module/kvm_amd:
+	vnmi: Y
+	vls: 1
+	npt: Y
+	pause_filter_count_max: 65535
+	lbrv: 1
+	vgif: 1
+	avic: N
+	pause_filter_count: 3000
+	dump_invalid_vmcb: N
+	tsc_scaling: 1
+	nested: 1
+	intercept_smi: Y
+	pause_filter_thresh: 128
+	pause_filter_count_grow: 2
+	pause_filter_count_shrink: 0
+	force_avic: N
+	nrips: 1
+
+/sys/module/kvm:
+	halt_poll_ns_shrink: 2
+	halt_poll_ns_grow: 2
+	pi_inject_timer: 0
+	halt_poll_ns: 200000
+	allow_unsafe_mappings: N
+	eager_page_split: Y
+	tdp_mmu: Y
+	lapic_timer_advance: Y
+	ignore_msrs: N
+	kvmclock_periodic_sync: Y
+	enable_pmu: Y
+	nx_huge_pages_recovery_ratio: 60
+	force_emulation_prefix: 0
+	nx_huge_pages_recovery_period_ms: 0
+	mitigate_smt_rsb: N
+	mmio_caching: Y
+	halt_poll_ns_grow_start: 10000
+	flush_on_reuse: N
+	enable_vmware_backdoor: N
+	min_timer_period_us: 200
+	vector_hashing: Y
+	nx_huge_pages: N
+	report_ignored_msrs: Y
+	tsc_tolerance_ppm: 250
+	enable_virt_at_load: Y
+
+/sys/module/kvm_intel:
+	error_on_inconsistent_vmcs_config: Y
+	flexpriority: Y
+	ple_gap: 0
+	emulate_invalid_guest_state: Y
+	unrestricted_guest: Y
+	vmentry_l1d_flush: not required
+	eptad: Y
+	vnmi: Y
+	preemption_timer: Y
+	ept: Y
+	sgx: N
+	pml: Y
+	allow_smaller_maxphyaddr: N
+	nested_early_check: N
+	ple_window_shrink: 0
+	ple_window_max: 0
+	dump_invalid_vmcs: N
+	ple_window: 0
+	nested: Y
+	enable_shadow_vmcs: Y
+	ple_window_grow: 0
+	enable_ipiv: N
+	fasteoi: Y
+	enable_apicv: N
+	vpid: Y
+
+
+--------------------------------------------------------------------------------
+

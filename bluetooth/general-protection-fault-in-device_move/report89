@@ -1,0 +1,73 @@
+Bluetooth: hci7: killing stalled connection 10:aa:aa:aa:aa:aa
+Oops: general protection fault, probably for non-canonical address 0xdffffc000000000b: 0000 [#1] PREEMPT SMP KASAN NOPTI
+KASAN: null-ptr-deref in range [0x0000000000000058-0x000000000000005f]
+CPU: 0 UID: 0 PID: 9440 Comm: kworker/u15:5 Not tainted 6.14.0-rc1-dirty #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.15.0-1 04/01/2014
+Workqueue: hci7 hci_cmd_sync_work
+RIP: 0010:klist_put+0x4e/0x1c0 lib/klist.c:212
+Code: ea 03 80 3c 02 00 0f 85 68 01 00 00 48 b8 00 00 00 00 00 fc ff df 4c 8b 65 00 49 83 e4 fe 49 8d 7c 24 58 48 89 fa 48 c1 ea 03 <80> 3c 02 00 0f 85 36 01 00 00 4c 89 e7 4d 8b 74 24 58 e8 1b 89 0c
+RSP: 0018:ffffc900030f7820 EFLAGS: 00010202
+RAX: dffffc0000000000 RBX: 0000000000000001 RCX: 0000000000000000
+RDX: 000000000000000b RSI: ffffffff8b278465 RDI: 0000000000000058
+RBP: ffff88807bf11460 R08: 0000000000000000 R09: fffffbfff2046084
+R10: ffffffff90230423 R11: 0000000000000005 R12: 0000000000000000
+R13: 0000000000000001 R14: 1ffff9200061ef0c R15: ffffffff902303e0
+FS:  0000000000000000(0000) GS:ffff88802b800000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00005555743bbe72 CR3: 000000004d7f8000 CR4: 0000000000352ef0
+DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
+DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400
+Call Trace:
+ <TASK>
+ klist_del lib/klist.c:230 [inline]
+ klist_remove+0x12b/0x290 lib/klist.c:249
+ device_move+0x123/0xe50 drivers/base/core.c:4591
+ hci_conn_del_sysfs+0x87/0x180 net/bluetooth/hci_sysfs.c:75
+ hci_conn_cleanup net/bluetooth/hci_conn.c:174 [inline]
+ hci_conn_del+0x563/0xde0 net/bluetooth/hci_conn.c:1164
+ hci_conn_failed+0x2a5/0x3d0 net/bluetooth/hci_conn.c:1267
+ hci_abort_conn_sync+0x8f0/0xfb0 net/bluetooth/hci_sync.c:5588
+ abort_conn_sync+0x199/0x350 net/bluetooth/hci_conn.c:3023
+ hci_cmd_sync_work+0x1c5/0x440 net/bluetooth/hci_sync.c:332
+ process_one_work+0x99f/0x1bb0 kernel/workqueue.c:3236
+ process_scheduled_works kernel/workqueue.c:3317 [inline]
+ worker_thread+0x677/0xe90 kernel/workqueue.c:3398
+ kthread+0x3b0/0x760 kernel/kthread.c:464
+ ret_from_fork+0x45/0x80 arch/x86/kernel/process.c:148
+ ret_from_fork_asm+0x1a/0x30
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:klist_put+0x4e/0x1c0 lib/klist.c:212
+Code: ea 03 80 3c 02 00 0f 85 68 01 00 00 48 b8 00 00 00 00 00 fc ff df 4c 8b 65 00 49 83 e4 fe 49 8d 7c 24 58 48 89 fa 48 c1 ea 03 <80> 3c 02 00 0f 85 36 01 00 00 4c 89 e7 4d 8b 74 24 58 e8 1b 89 0c
+RSP: 0018:ffffc900030f7820 EFLAGS: 00010202
+RAX: dffffc0000000000 RBX: 0000000000000001 RCX: 0000000000000000
+RDX: 000000000000000b RSI: ffffffff8b278465 RDI: 0000000000000058
+RBP: ffff88807bf11460 R08: 0000000000000000 R09: fffffbfff2046084
+R10: ffffffff90230423 R11: 0000000000000005 R12: 0000000000000000
+R13: 0000000000000001 R14: 1ffff9200061ef0c R15: ffffffff902303e0
+FS:  0000000000000000(0000) GS:ffff88802b900000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000055556f87ce72 CR3: 000000004d7f8000 CR4: 0000000000352ef0
+DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
+DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400
+----------------
+Code disassembly (best guess), 1 bytes skipped:
+   0:	03 80 3c 02 00 0f    	add    0xf00023c(%rax),%eax
+   6:	85 68 01             	test   %ebp,0x1(%rax)
+   9:	00 00                	add    %al,(%rax)
+   b:	48 b8 00 00 00 00 00 	movabs $0xdffffc0000000000,%rax
+  12:	fc ff df
+  15:	4c 8b 65 00          	mov    0x0(%rbp),%r12
+  19:	49 83 e4 fe          	and    $0xfffffffffffffffe,%r12
+  1d:	49 8d 7c 24 58       	lea    0x58(%r12),%rdi
+  22:	48 89 fa             	mov    %rdi,%rdx
+  25:	48 c1 ea 03          	shr    $0x3,%rdx
+* 29:	80 3c 02 00          	cmpb   $0x0,(%rdx,%rax,1) <-- trapping instruction
+  2d:	0f 85 36 01 00 00    	jne    0x169
+  33:	4c 89 e7             	mov    %r12,%rdi
+  36:	4d 8b 74 24 58       	mov    0x58(%r12),%r14
+  3b:	e8                   	.byte 0xe8
+  3c:	1b                   	.byte 0x1b
+  3d:	89                   	.byte 0x89
+  3e:	0c                   	.byte 0xc

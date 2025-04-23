@@ -1,0 +1,2135 @@
+last executing test programs:
+
+6.618969425s ago: executing program 2 (id=4297):
+r0 = syz_init_net_socket$bt_rfcomm(0x1f, 0x3, 0x3)
+shutdown$bt_sco(0xffffffffffffffff, 0x0)
+r1 = syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x0)
+connect$bt_l2cap(r1, &(0x7f00000007c0)={0x1f, 0x0, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}, 0x6}, 0xc)
+r2 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+sendmsg$bt_sco(r2, &(0x7f0000000140)={0x0, 0x10000, &(0x7f00000000c0)={0x0}, 0x9, &(0x7f0000000100), 0xfff, 0x3}, 0x757e)
+setsockopt$bt_BT_SECURITY(r1, 0x112, 0x4, &(0x7f0000000000)={0x4, 0x2}, 0x2)
+r3 = syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x0)
+getsockopt$bt_hci(r3, 0x0, 0x3, 0x0, 0x0)
+sendmsg$bt_sco(0xffffffffffffffff, &(0x7f0000000180)={0x0, 0xfc58, &(0x7f0000000100)={0x0}, 0x8, &(0x7f0000000140), 0x2, 0x2}, 0x6)
+setsockopt$bt_BT_DEFER_SETUP(r0, 0x112, 0x7, 0x0, 0x0)
+
+5.711541548s ago: executing program 2 (id=4318):
+r0 = syz_init_net_socket$bt_l2cap(0x1f, 0x5, 0x0)
+bind$bt_hci(r0, &(0x7f0000000080)={0x1f, 0x1}, 0x6)
+r1 = syz_init_net_socket$bt_l2cap(0x1f, 0x5, 0x0)
+getsockopt$bt_BT_FLUSHABLE(r1, 0x112, 0x8, 0x0, &(0x7f00000000c0))
+
+5.64812711s ago: executing program 2 (id=4320):
+r0 = syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x0)
+r1 = syz_init_net_socket$bt_rfcomm(0x1f, 0x3, 0x3)
+accept$bt_rfcomm(r1, 0x0, 0x0)
+connect$bt_l2cap(r0, &(0x7f00000001c0)={0x1f, 0xfffc}, 0xe)
+r2 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+r3 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+bind$bt_hci(r3, &(0x7f0000000180)={0x1f, 0x4, 0x3}, 0x6) (async)
+bind$bt_hci(r3, &(0x7f0000000180)={0x1f, 0x4, 0x3}, 0x6)
+r4 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+r5 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+syz_init_net_socket$bt_rfcomm(0x1f, 0x1, 0x3) (async)
+r6 = syz_init_net_socket$bt_rfcomm(0x1f, 0x1, 0x3)
+bind$bt_rfcomm(r6, &(0x7f0000001600)={0x1f, @none}, 0xa) (async)
+bind$bt_rfcomm(r6, &(0x7f0000001600)={0x1f, @none}, 0xa)
+listen$bt_rfcomm(r6, 0x0)
+ioctl$sock_bt_hci(r5, 0x400448e4, 0x0) (async)
+ioctl$sock_bt_hci(r5, 0x400448e4, 0x0)
+bind$bt_hci(r5, &(0x7f0000000200)={0x1f, 0xffffffffffffffff}, 0x6) (async)
+bind$bt_hci(r5, &(0x7f0000000200)={0x1f, 0xffffffffffffffff}, 0x6)
+bind$bt_sco(r4, &(0x7f0000000080), 0x8)
+listen$bt_sco(r4, 0x0)
+setsockopt$bt_BT_DEFER_SETUP(r4, 0x112, 0x7, &(0x7f0000000000)=0x1, 0x4)
+ioctl$sock_bt_hidp_HIDPCONNADD(r2, 0x400448c8, &(0x7f0000000240)={r0, r0, 0x200, 0x20, 0x0, 0x4, 0x9, 0xfe, 0x7, 0x319, 0x0, 0x1, 'syz0\x00'}) (async)
+ioctl$sock_bt_hidp_HIDPCONNADD(r2, 0x400448c8, &(0x7f0000000240)={r0, r0, 0x200, 0x20, 0x0, 0x4, 0x9, 0xfe, 0x7, 0x319, 0x0, 0x1, 'syz0\x00'})
+r7 = syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x0)
+bind$bt_hci(r7, &(0x7f0000000a00)={0x1f, 0xffffffffffffffff, 0x4}, 0x6)
+r8 = openat$6lowpan_enable(0xffffffffffffff9c, &(0x7f0000000040), 0x2, 0x0)
+ioctl$sock_bt_hci(r8, 0x400448e2, 0x0) (async)
+ioctl$sock_bt_hci(r8, 0x400448e2, 0x0)
+r9 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+ioctl$sock_bt_hidp_HIDPCONNDEL(r9, 0x8903, &(0x7f0000001cc0)={@any, 0x8})
+syz_init_net_socket$bt_bnep(0x1f, 0x3, 0x4) (async)
+r10 = syz_init_net_socket$bt_bnep(0x1f, 0x3, 0x4)
+ioctl$sock_bt_hidp_HIDPCONNADD(r2, 0x400448c8, &(0x7f00000000c0)={r10, r2, 0x0, 0xa6, &(0x7f0000000000)="5aa334d4aae26bc8590f272ae74742b5d35792ca7fb00d1637e77636883a8d9b6489809053b5bc6a1333e532dbcd3baa7d1a68e758a95e51948812ee237201539d55593a6e196c597a42810b84b53b4e98b194440086f6e03e802dd8ecae8ea3c6958533a2746c12ed12e2bfc394e3110284191f0a20679580c38c3ad6406278162085bd71494955967ee2b47678ccf282059baf22a77262e4d03aacb7f5ee3b6e5078ee8f9a", 0x9, 0x4, 0x1, 0x0, 0x4, 0x0, 0x8, 'syz0\x00'})
+
+5.521743082s ago: executing program 2 (id=4322):
+r0 = openat$6lowpan_control(0xffffffffffffff9c, &(0x7f0000000000), 0x2, 0x0)
+write$6lowpan_control(r0, &(0x7f0000000cc0)='connect aa:aa:aa:aa:aa:11 1', 0x1b)
+bind$bt_hci(0xffffffffffffffff, &(0x7f0000000040)={0x1f, 0x1, 0x4}, 0x5)
+syz_init_net_socket$bt_bnep(0x1f, 0x3, 0x4)
+
+5.521630145s ago: executing program 2 (id=4323):
+r0 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+ioctl$sock_bt_hci(r0, 0x8971, &(0x7f0000000000))
+r1 = syz_init_net_socket$bt_l2cap(0x1f, 0x5, 0x0)
+r2 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+r3 = syz_init_net_socket$bt_l2cap(0x1f, 0x5, 0x0)
+bind$bt_l2cap(r3, &(0x7f00000003c0)={0x1f, 0x0, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x12}, 0x9}, 0xe)
+listen$bt_l2cap(r3, 0x0)
+ioctl$sock_bt_hidp_HIDPCONNADD(r2, 0x400448c8, &(0x7f0000000200)={r1, r1, 0x6, 0x0, 0x0, 0x9, 0x4, 0x7, 0x1, 0x1ff, 0x1, 0x8, 'syz1\x00'})
+syz_init_net_socket$bt_l2cap(0x1f, 0x1, 0x0)
+
+5.411852349s ago: executing program 2 (id=4325):
+r0 = syz_init_net_socket$bt_bnep(0x1f, 0x3, 0x4)
+bind$bt_l2cap(r0, 0x0, 0x0)
+r1 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+r2 = syz_init_net_socket$bt_rfcomm(0x1f, 0x1, 0x3)
+recvmsg$bt_rfcomm(r2, &(0x7f0000000140)={0x0, 0x0, 0x0, 0x0, 0x0}, 0xd9e, 0x1)
+r3 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+ioctl$sock_bt_hci(r3, 0x800448d4, 0x0)
+getsockopt$bt_sco_SCO_OPTIONS(r1, 0x11, 0x1, 0x0, &(0x7f0000000380))
+r4 = accept4$bt_l2cap(0xffffffffffffffff, &(0x7f00000000c0)={0x1f, 0x0, @fixed}, &(0x7f0000000180)=0xe, 0x80000)
+recvmsg$bt_l2cap(r4, &(0x7f0000000300)={&(0x7f00000001c0), 0x0, &(0x7f0000000280)={&(0x7f0000000200)="70af20a3", 0x4}, 0x0, &(0x7f00000002c0)}, 0x8, 0x10000)
+syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+syz_init_net_socket$bt_l2cap(0x1f, 0x1, 0x0)
+r5 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+r6 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+ioctl$sock_bt_hci(r6, 0x8910, &(0x7f0000000000)="9473ae693a45fde7bd8282465a778a062c")
+connect$bt_rfcomm(r2, &(0x7f0000000080)={0x1f, @any, 0x8}, 0xa)
+r7 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+bind$bt_hci(r7, &(0x7f0000000080)={0x1f, 0xffffffffffffffff, 0x3}, 0x6)
+write$bt_hci(r7, &(0x7f0000000300)=ANY=[], 0x5)
+r8 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+bind$bt_hci(r8, &(0x7f0000000240)={0x1f, 0xffffffffffffffff, 0x3}, 0x6)
+recvmsg$bt_sco(r8, &(0x7f0000000940)={0x0, 0x0, 0x0, 0x0, 0x0}, 0x4, 0x2)
+ioctl$sock_bt_hci(r8, 0x8910, &(0x7f0000000100)="0000000000006370c1b40007798282465a7e8a062c8524e2ea78843015ef97203538f06d")
+r9 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+ioctl$sock_bt_hci(r9, 0x8971, &(0x7f0000000000))
+ioctl$sock_bt_hci(r5, 0x800448d4, &(0x7f0000000040)="2e30395ce1051fc1b05ccb6f9490e0778f23ba3a34")
+syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+
+4.321139305s ago: executing program 5 (id=4349):
+r0 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1) (async)
+syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6) (async, rerun: 64)
+r1 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6) (rerun: 64)
+ioctl$sock_bt_hidp_HIDPCONNDEL(r1, 0x400448c9, &(0x7f0000000000)={@fixed={'\xaa\xaa\xaa\xaa\xaa', 0x12}, 0x7}) (async)
+write$bt_hci(r0, &(0x7f0000000080)={0x1, @write_current_iac_lap={{0xc3a, 0x7}, {0x6, "cf634b8bf011"}}}, 0xb) (async)
+ioctl$sock_bt_hci(r0, 0x800448d5, &(0x7f0000000040)="f90a18d5d811cfbddcfd4a393e23382eb5d8e69dc5617d60ff0ac8fab5dfd5f843359ffca140")
+r2 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+ioctl$sock_bt_hci(r2, 0x8946, &(0x7f0000000000)) (async)
+r3 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+shutdown$bt_sco(r3, 0x0) (async)
+r4 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+ioctl$sock_bt_hci(r4, 0x89ff, 0x0)
+syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+
+4.138479391s ago: executing program 5 (id=4351):
+r0 = syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x0)
+connect$bt_l2cap(r0, &(0x7f00000007c0)={0x1f, 0x0, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}, 0x6ce}, 0xe)
+sendmsg$bt_l2cap(r0, &(0x7f0000000140)={0x0, 0x6, &(0x7f00000000c0)={0x0}, 0x3, &(0x7f0000000100), 0x453, 0x3}, 0xee, 0x4)
+
+3.331039776s ago: executing program 3 (id=4368):
+r0 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+listen$bt_l2cap(r0, 0x0)
+r1 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+shutdown$bt_sco(r1, 0x0)
+r2 = syz_init_net_socket$bt_l2cap(0x1f, 0x5, 0x0)
+r3 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+ioctl$sock_bt_hidp_HIDPCONNDEL(r3, 0x400448c9, &(0x7f0000000340)={@fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}}) (async)
+r4 = syz_init_net_socket$bt_l2cap(0x1f, 0x1, 0x0)
+bind$bt_l2cap(r4, &(0x7f0000000380)={0x1f, 0x4, @none, 0x0, 0x2}, 0xe) (async)
+getsockopt$bt_BT_SNDMTU(r2, 0x112, 0xc, 0x0, &(0x7f0000000040)) (async, rerun: 64)
+r5 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6) (rerun: 64)
+syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+r6 = syz_init_net_socket$bt_rfcomm(0x1f, 0x3, 0x3)
+ioctl$sock_bt_hci(r6, 0x5411, 0x0)
+r7 = syz_init_net_socket$bt_bnep(0x1f, 0x3, 0x4)
+accept$bt_rfcomm(r7, 0x0, 0x0)
+r8 = syz_init_net_socket$bt_rfcomm(0x1f, 0x1, 0x3) (async, rerun: 32)
+r9 = syz_init_net_socket$bt_bnep(0x1f, 0x3, 0x4) (rerun: 32)
+ioctl$sock_bt_bnep_BNEPGETCONNLIST(r9, 0x800442d2, &(0x7f0000000980)={0x0, 0x0}) (async)
+sendmsg$bt_rfcomm(r8, &(0x7f0000001e00)={0x0, 0x100, &(0x7f0000001d80)={0x0}, 0x80, &(0x7f0000001dc0), 0x1, 0x6}, 0x10, 0x0) (async)
+ioctl$sock_bt_hidp_HIDPCONNDEL(r5, 0x8912, &(0x7f0000001cc0)={@any, 0x8}) (async)
+ioctl$sock_bt_hidp_HIDPCONNDEL(r5, 0x89a1, &(0x7f0000000000)={@any, 0x4}) (async, rerun: 64)
+sendmsg$bt_l2cap(0xffffffffffffffff, 0x0, 0xfffffff7, 0x0) (rerun: 64)
+
+3.220807164s ago: executing program 5 (id=4370):
+r0 = syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x0)
+write$bt_hci(r0, 0x0, 0x5) (async)
+r1 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+r2 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1) (async)
+ioctl$sock_bt_hidp_HIDPCONNDEL(0xffffffffffffffff, 0x400448c9, &(0x7f0000000000)={@fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}, 0x53ee})
+ioctl$sock_bt_hci(r2, 0x8937, &(0x7f0000000000))
+r3 = syz_init_net_socket$bt_l2cap(0x1f, 0x6, 0x0)
+getsockopt$bt_l2cap_L2CAP_OPTIONS(r3, 0x6, 0x1, &(0x7f0000000000), &(0x7f0000000040)=0xc) (async, rerun: 32)
+r4 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6) (rerun: 32)
+recvmsg$bt_rfcomm(r4, &(0x7f00000017c0)={0x0, 0x0, 0x0, 0x0, 0x0}, 0x9, 0x2023)
+syz_init_net_socket$bt_l2cap(0x1f, 0x2, 0x0) (async)
+r5 = syz_init_net_socket$bt_l2cap(0x1f, 0x2, 0x0)
+connect$bt_l2cap(r5, &(0x7f00000007c0)={0x1f, 0x0, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}, 0x6}, 0xc)
+getsockopt$bt_l2cap_L2CAP_CONNINFO(r5, 0x6, 0x2, 0x0, &(0x7f0000000080)) (async)
+ioctl$sock_bt_hci(r1, 0x400448e4, &(0x7f00000001c0))
+
+3.220621559s ago: executing program 3 (id=4371):
+r0 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+ioctl$sock_bt_hidp_HIDPCONNDEL(r0, 0x40086602, &(0x7f0000001cc0)={@any, 0x8})
+r1 = syz_init_net_socket$bt_rfcomm(0x1f, 0x1, 0x3)
+r2 = syz_init_net_socket$bt_rfcomm(0x1f, 0x3, 0x3)
+bind$bt_rfcomm(r2, &(0x7f0000000000)={0x1f, @none, 0x1}, 0xa)
+r3 = syz_init_net_socket$bt_l2cap(0x1f, 0x5, 0x0)
+connect$bt_l2cap(r3, &(0x7f00000007c0)={0x1f, 0x0, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x11}, 0x7600}, 0xe)
+r4 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+ioctl$sock_bt_hci(r4, 0x400448dd, &(0x7f0000001a80)="3d56b625")
+listen$bt_rfcomm(r2, 0x0)
+getsockopt$bt_BT_DEFER_SETUP(r2, 0x112, 0x7, &(0x7f0000000040), &(0x7f0000000080)=0x4)
+r5 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+ioctl$sock_bt_hidp_HIDPGETCONNLIST(r5, 0x800448d2, &(0x7f0000000940)={0x0, 0x0})
+bind$bt_sco(0xffffffffffffffff, &(0x7f0000000080), 0x8)
+setsockopt$bt_BT_DEFER_SETUP(0xffffffffffffffff, 0x112, 0x7, 0x0, 0x300)
+ioctl$sock_bt_hidp_HIDPCONNDEL(0xffffffffffffffff, 0x89a0, &(0x7f0000000000)={@none, 0xd4})
+recvmsg$bt_sco(0xffffffffffffffff, 0x0, 0x0, 0x40000102)
+sendmsg$bt_rfcomm(r1, &(0x7f0000000100)={&(0x7f0000000000), 0x7, &(0x7f0000000080)={&(0x7f00000000c0)="6b94", 0x2}, 0x0, &(0x7f0000000140), 0x401, 0x6}, 0x2, 0x404c891)
+sendmsg$bt_rfcomm(r1, &(0x7f0000001340)={0x0, 0x0, &(0x7f00000012c0)={&(0x7f00000002c0)="6af494e5bb9e90e118cf7697aa7a0203832e2c0b9af3c8594d16b26ea03ff5fd79c409aed3664c05a8128e2e7aae0bb0b8a3a21f96ab6ae4a123818557f2096b6a49bdda5af9b5d498b5d1ea634d3e6d6ce51c7f6ca8502d22c90a2850451c281f4f208c59f652188dd0c836659d885dbd2066964b41dd002a5ad61b071d1ec0682cf4f27105bb6d8961473b4b6dddc9de302abb0df9b405979c64063628aafa5a35b6c8896f1e072bb96914886c0828de55fe6b6c786c69510424d0d6cbfcf3022b0c859cddee6334d7eccb26c644559917bc833feff32a84b6cad55d5d43e6bc6fbaae30176b1c5704ce9fe54805c9daae68defbb79abbc4d1160559df846c02d84cc368a36a13a35fa0e3575662207ba941d0fee48412e8e1fddc0be6f0d6772650cbca8174f5f2be0c6b67596bae8c1e04400ef9489723f521c9c3ff1f8afbf40319b506657784d7e5f001938ed4dc0dab2ef4299e5d71bcdc8e0878317221aa73db840327ee6ddad8c9d2cf5525b505d6840e7613da0251f1d2015476d28f00586e5ebbaa9dde64eca81f5d3867a3ad5dbf24509191297a12fbd12cae6e95abbfac31c22918fbbe63af75f6679f87c28aab4d39208289ea438fb16d27ac1d14497ab05bcad6eaf7f343c9a3bc418349ca0b7cf6424e97cb9909c132f15f7013a37fab76cc8967a96884b763c5a318214b8a6ec2ac569415620dec746416383b6eecd1bd686748345e9dbc71e32820b8bf3a644e5073f2532defecef11d44d7bde6e7b10287527cfaf19115a568fcc3367ca87ab96b6c4736546edc27687bed96abf5996ecfe5bd38de924eff6b40bd6e696ef3aee6b8a7c8bed51ade6f9c871f366cd840bb62ce85486080a7cb5a04db60dce4c5d75041f497908c7cccfe9beb4aaea5a7ebbec917f6c810c042f763220ee1ac9a04cc15fea439a28c8a3b16188b8b8da252947fb6476490f9a1a53b12a2c5582f04be206e7b4f4911f87efa84ee3a29f52ae525121a92d3acae4cd84ab95bc8e5bf430c112fa61e863256d783c3c113764cbb0de07e5769ffcd08f9aceb1795f7b6326cbb09fac625e20d9cee9d4fa8cc9d80ffe29ea79f49d436b36a6db643d26ba6c6d053469b965e5542d3e5b1753b1844bde1f53b63144abeb0aff1d5e6e3bad2bf1a40d77544113ff87e198e1f2c7edbb92124a8ef38c513626b76677f451b1d072d9e6c8a85bf98d579a4e3a594d91ca2a5fe243b3cd61a20a41f24b5197f39729c45f6df8e1f3dbf119818e43424f33118bb0d2747658eeeeffc3a433f2a2b10e5a436ca0970023794cd5f47f402424a74febd728fda5b05d907ce1573897e523896dee7a82bbc5c78daf307c705d26bbcfb9834ab7d48dc62c5c5cb57955ff442422fda30c5ae525f20a51672b39591c693158995007d2cb37608da2c98d46c2d9d812250d927b4f460073a2787722897b26961302e6e2637a360e1a0e53c3538ddb58a0a1ba58b5b156362f1311b15fb0cfd825fae92e1e38ba525aa14950e5e7e186a790b5be8f89aa942af7a25793755c713df859344a11505a8e485c031d9ffebff309c48ca4138923df5c9ae62e0f9558abd17bb24d91fe9c8acd40e5f81a4cd155881bdc8179bc0273c6bec24743d5bac388ad2743bba02c25f906c39857797348fc343159ad595990314d763ef77f326355a2d609103b0fe2eacaa0af94a199bd22c516a4c45d01ec0d658039a991776a3023097cd55bfb8df2757d7034d8814f1aa093417017b7da7165e67fb1a52f02d2838c05140cd3f2b3ed994360035a213c01685b83f03bb3cb1188ab3822e8ac3f6143a67c9c8263ee5b7d093e6fb8b59bf28e30461dd560c961a4e4fcbb1523856f3e044b6de5912343d2c45a11b83b4a67616a5a49f2b626512758cb5e808278204f8d40020a108d1d6e073321bfcf5dd1281e1f0bdc2467585a2c0819f35c3775fb337f77c64a99c807ec63794ebe9125a8f0a8a9514e0f191e054bd07d16017425dc9fd72b3d21f1af6754ba2afbd7873409db9d93f412b498d5e3e66cff9a325ae9bf254eaa4102c04f25c0278e5ce2fa70584a955d74b5f50091d855661ec4d057960fae98dfa58f45991689585e0c1422fd639f3ddd26870820064cf7a7088f9305154aa97c237441c31d46c602f6fcd8da088c1317d894e82f372c57c6ed5ff8d76447744ab0341118279d6a670529d155ac19f3c115164dc3c1ba6f8a28b9ba8da2d34fb5c8a6c907fa5e227d6a95310e9dd411cb7d603cf6b3aa08431d3398cbe7ebbc446c140130dd838e14f470968eb4a58387b0a7e92dca35c1b64035a3552d26eb772aace80860ba95168f2bac89b5a6d95c4b28b7bb3b9e49a7c044e1abfb03f39760fe06e6d1780ecbbf03af86330123df788525c4c5f823540bd24659362bdc5015d238d4a2da75c427d66e72e304aa442730cfe57e6cf9090f2f8b6ff5d5629d59ad0f4d632ede82fb45491498837557a1ecd21b53da11068550cfc32a899944a0bfde81944f482bd9613cec5ea57cf7f3626cc0f6809b69d9ff0c14eaeb76ddb787288ac8f54e1ddc912356d85054d9cbeadea29091ce8d7181fe2c513a0b693f854b254511d4101d6a29d1447d44b59c48576f36fc31a50a70a93de28f88fe65c1c13f51d4e70aac78b688079bb7cdcc184c24198ac3f0589bec32101894de05b9e559e67fd0b444707bc02b8def4d1b0fa8a41e843f04559377196e47ca1d2e0f82c97377e9b0082b9f2a9db22a44bfb8ca646754f12f1b4d44b291438f404d80b946839555f57d2af151365a9334ab42da51c8ff11ebbf5a56e5382d9e724b139449343cfd1eb2ffd835c144e47bbc5ef9e0ca7a2f52a8d7e52140d5a5670709408d454eb1993b8f2c6c571e9b4edd76a2c5ed94e97b86c221623a09e77eb742882ce800dd7d634a5857a9475f2bd2b81801e02f1313ee34273305712ff9681083f42c09000000000000008f1732f047a651723cb9dc9fb06f3f1cedfa6829dd0b74b5fcff27a2e34ab1caf5a660924ef1f96ba89ad469a5501acf7be56702de3074c283f2c91a29f1994b04daa9f5527da713550af96dfffe1e947a43b8f3e516a3024001aa9a86a214ee7f13487e6a0635747cba07e3a1f7871659f69759c1e9a7e8f669e59fb1dbf95814cb3fe837ae837c454b962a217f1f7822d1bee1944a3b0b5d16a0166ce40c8c1289ea9b03cfcfe77de4be6393aad438b4dc457ac345cb58d946ef56575e182363b51ded2ccd068569a3bd6c81e96298336fb120154a459f63581151f4340467e54d0faf87280698e18eecadeeb94e2c0be4b9d9e2057c2fbeb10f593749bfb77ac8d1e53b2bd7cf3eef752a7257a9eb65d3b8f1cfc93aa0bb68923edc9dcee499e5edca969d02f55065d827aff7349d40d35ee7bbd8b9eebac677658cfb296b2455b052e080c0059011634a185642d3576e192e4078c2b8e765276497d0429cd92fdf004a554c9f34e60c1b43c484a4767e780940aa57095b87677f9a2afe22cd27c3afa5e60232ace7c1818ce4ec11ecf3d0f9cd9094034df99006a6e2aaad686fedcd8a3868bf4b626b348e855253562fb8fa1dcc4346d12eede902be488663f99cfe4427ac1f4908613c9a09ef5cb2a4039da773509bdb5e21e75dd31fbc2c681bf3fb671344b14f186ba8da6d310558992343d05c43960040ec86237b921187a118d2c2d0f65e1059e63e5989955ce2cfda26c8712580d72a0456dfafc787b3b02e9495b7cf8a36ef555f3ed7d7cc189c3052c28586d2cec8228006a07cfc6ca61700bcb8e901cdb4ac8dc0009a9a1ebdc1d6d5ada9f56bb3f7c97b22d1eb895f61d492ebff71c404d8d4d6ed30974159bc0cbe0a499f5c89f065f58e794bd710c6fb391600a42ff00cd0b4fa7a083529a1e01aa886247501eb72252ff0eb95e9237675a4e90d47668f04c57624f02062d2e32d3ba9c1f6fcf2d6a374d2679fae23005340c001d8128ee08ad4a27dfa525de7ec10a2882fa8131794620427f28c3a4b2aef95e7718842667d4b428eea49b03e3773705a5266844fb4667fbbf0f39df213b8d9275463d4975a5c306e5602645d9d1ba93d4d66b145577ced4a79cffca72d4edac83e44abedb977e23738d4c679d9341a289b88e48a63a5bd25dbc72358595b6615bf7cb7dcce33ac61b645881d7cec779b1126ecf54d777b636c04f8ecada4eb996a95264f726688a4a37b2e2a0f33a7670402e075a2bb8615840bef5a0eb45bae778438e79a92cf4da9bfcb9fb527d0c61c957d07f9201fcfb9870921a01f399887bf1941b5f9875f05c42a9c392d8c4f35abfe6047624f54cf21ad2830cd7090ce113fb65a47eb51dfa9eecd575d9c476858acb9deaca1c940aaf843ea1ebc894ab034f803a54ef7f8ec5acbe02e3d8f77782f24112ab3b17bb8d3e9a7f7bfd3c686f40aa207bdaf74ea1169365a8908143e6692dfe1c0290a54468c0abc65b29e8a01bb35b32f924e17766ff8c82a38e925a27f0d75a44b532ccf2e8c1ee669410730bff795ab15befe0bf4b49cf26655ab02db5860443302ce184bed734a88f5f765457fe2d35d33472ac15dd225c3c46eec05fe3aed3b55d20fc3e2debdde575a611f4d7a879eb2b55db1df95862a779a043f87178e3bf3c1bf88589e299d7bc8233d0794bb3d8c7a5ddecf4a14a44c7f89956486e510be6699bc88389f50530d7fd44d77f990ad8c2e6c32796ccc19be773545d492c261a6a427e35701cc38752861b359b4d7f3e18a12ec7043318b35235a27f491e4e01c63d06fca3c84f6077df49a351ad4144e9b012551b9b5cfb85c977e756f5c5d97ea64aaf65b611aa31ef066825eba7c683c339cad45945ab2a1961d39db221e8863a15f8eb09bc12c8c1fcb4f048e95036b07a1fd7838cfc556e52577519b085cf11eac8ec347ca29435d3788cf9a35662cb56697b098efa63dbcc26d2d4c2d2f", 0xdc7}, 0x9c, &(0x7f0000001300), 0x1, 0x81}, 0x10000, 0x40000)
+r6 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+ioctl$sock_bt_hidp_HIDPCONNDEL(r6, 0x400448c9, &(0x7f0000000340)={@fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}})
+accept4$bt_sco(0xffffffffffffffff, 0x0, &(0x7f00000000c0))
+r7 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+bind$bt_sco(r7, &(0x7f0000000040), 0x8)
+setsockopt$bt_BT_DEFER_SETUP(r7, 0x112, 0x7, &(0x7f0000000000), 0x4)
+r8 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+ioctl$sock_bt_hci(r8, 0x2, 0x0)
+ioctl$sock_bt_hci(r8, 0x800448d3, 0x0)
+sendmsg$bt_sco(0xffffffffffffffff, 0x0, 0x2)
+syz_init_net_socket$bt_l2cap(0x1f, 0x5, 0x0)
+
+3.050605457s ago: executing program 3 (id=4373):
+r0 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+r1 = syz_init_net_socket$bt_rfcomm(0x1f, 0x3, 0x3)
+getsockopt$bt_rfcomm_RFCOMM_CONNINFO(r1, 0x12, 0x2, 0x0, 0x0)
+r2 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+connect$bt_sco(r2, &(0x7f0000000140)={0x1f, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x11}}, 0x8)
+setsockopt$bt_BT_SNDMTU(r2, 0x112, 0x13, 0x0, 0x0)
+r3 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+ioctl$sock_bt_hci(r3, 0x400448cb, &(0x7f0000000240)="16893bb4621b3d45862b40273df06288e3cb6299fbaab3631b4da1af7653ad02e805a5355fc4634bfaa2e9b80001f93f8d324b7803180fb3a0e8df06bb77cfbca1ed9b943f4ffc2684ff8fcc072307aa192170de061fca5344e8916752c245dc5dfd40545c53a37c21c593b56077c5b2d2e803a468485f62d5fdffaf5b60936720e4f9f6fe91c8d0191c908c0cdc2764f39543902c203dd8525bb594f21cf0c3f58d1a60af895a2dbb108e54d5ae95ddcac7368bf65517e035e9aa6f4eda7516a6dd81f01838e8439d4a198fdf51d4fe42f8c6d10f2a61078564acf7a5d471908c67d023664c1d090e35a03738e25ded925951ccfd2162738f1d6d8503ffcf0d32259e2ec5f8798dcb423e68e92d5b029561effa0af7c4c3e0223424f44475d3b385e1328133326b49742d7a5b833fb0a88b1fa91dba75625100f800716a17695ae67cc5a89025d99604a14b411bddedc20aba0765cb1e1f9944cb645e009d6fac16a5dfaa863b5401948bb524b38a62c5a1")
+r4 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+getsockopt$bt_BT_POWER(r4, 0x112, 0x9, 0x0, &(0x7f0000000a40))
+ioctl$sock_bt_hci(r0, 0x400448e0, &(0x7f0000001a80))
+r5 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+r6 = syz_init_net_socket$bt_l2cap(0x1f, 0x2, 0x0)
+bind$bt_l2cap(r6, &(0x7f0000001680)={0x1f, 0x4b, @none, 0x0, 0x1}, 0xe)
+setsockopt$bt_l2cap_L2CAP_OPTIONS(r6, 0x6, 0x1, 0x0, 0x0)
+bind$bt_sco(r5, &(0x7f0000000040), 0x8)
+syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+listen$bt_sco(r5, 0x0)
+ioctl$sock_bt_hci(r0, 0x400448e0, &(0x7f0000000080)="b2147d6baba641547774719551f6d1b854f534cc01c73f6318424ddb47b1327a5436e124b6fc05b0bd93af918e776c1e5532cae2eef8060b0e3ae98ace5126422fe54694a4ea06e2766c4a4b13894c6f088e5919fc36cbeb892165644241493b1e41099820c085e2d1d6b836f200d1c729c4720c5f48fd68803aad5042736997f327269775f75e8e9bbb86e77ee11dfe27e8a2d95c8a6f35a1cede255b3b0087db40af7bd68671b56fc587306c20b62962616ce4aae8917d404a242ed826626de03df9587b69320e95f0807d2fefaf8e614bc952d302aeae820ff05c3987236980ba1205488b8df59bb9c77e3bc91cdb7d")
+getsockopt$bt_BT_DEFER_SETUP(r5, 0x112, 0x7, &(0x7f0000000180), &(0x7f00000001c0)=0x4)
+r7 = syz_init_net_socket$bt_l2cap(0x1f, 0x1, 0x0)
+bind$bt_sco(r5, &(0x7f00000003c0)={0x1f, @none}, 0x8)
+getsockopt$bt_BT_VOICE(r7, 0x112, 0xb, 0x0, &(0x7f0000000200))
+accept4$bt_sco(r4, &(0x7f0000000000), &(0x7f0000000240))
+
+2.930372707s ago: executing program 3 (id=4375):
+r0 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+getsockopt$bt_hci(r0, 0x0, 0x2, &(0x7f0000000940)=""/192, &(0x7f0000000a00)=0xc0)
+ioctl$sock_bt_hci(r0, 0x400448c9, &(0x7f0000000140)="ac8490e76ac6c5451dc3e7b320c238904790cdb3fabe39128883254d855dd7b79deb7d8b57dda5803b8061d1c98c03fc9871c0dddc28df862ffcdff3d8eba394c87ede143af658ca7f66b9016b6cff5029a5137435a08f74e0297f393a2c24ee578b8bc3a9ff07ec96e30d8da46f5ce62635ffe75c8b6b7f9b9be5d1098ba258534a7d798c8630ea7c53dfd4224998174af21f750d43bb4703c231ab340e3f86d70a4d51362ab6c507a3c307b2fcebbc0a3eb168d38322f64a590e59d6e85310698668704183b2579e2c9592f6f2c7181d1dad0eb7b172f46840b6bd755d9d33357c5a971d3fd6640f87bf47619cd400a950bc89e853d91ef3bb40fc")
+r1 = accept4$bt_sco(0xffffffffffffffff, &(0x7f0000000000), &(0x7f0000000040))
+listen$bt_sco(r1, 0x0)
+r2 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+getsockopt$bt_BT_DEFER_SETUP(0xffffffffffffffff, 0x112, 0x7, &(0x7f0000000100)=0x1, 0x0)
+syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+ioctl$sock_bt_hci(r2, 0x8913, 0x0)
+ioctl$sock_bt_hci(r2, 0x800448d2, &(0x7f0000000100))
+syz_init_net_socket$bt_bnep(0x1f, 0x3, 0x4)
+
+2.86938648s ago: executing program 3 (id=4376):
+r0 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+syz_init_net_socket$bt_sco(0xffffffffffffffff, 0x5, 0x2)
+ioctl$sock_bt_hidp_HIDPCONNDEL(r0, 0x89a0, &(0x7f0000001cc0)={@any, 0x8})
+
+2.594576609s ago: executing program 5 (id=4380):
+r0 = syz_init_net_socket$bt_rfcomm(0x1f, 0x2, 0x3)
+setsockopt$bt_rfcomm_RFCOMM_LM(r0, 0x12, 0x3, &(0x7f0000000000)=0x23, 0x4)
+
+2.409654059s ago: executing program 0 (id=4385):
+r0 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+bind$bt_hci(r0, &(0x7f0000000240)={0x1f, 0xffffffffffffffff, 0x2}, 0x6) (async)
+recvmsg$bt_sco(r0, &(0x7f0000000940)={0x0, 0x0, 0x0, 0x0, &(0x7f0000000900)}, 0xac, 0x2) (async)
+r1 = syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x0)
+connect$bt_l2cap(r1, &(0x7f00000001c0)={0x1f, 0xfffc, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}}, 0xe)
+r2 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+ioctl$sock_bt_hidp_HIDPCONNADD(r2, 0x400448c8, &(0x7f0000000240)={r1, r1, 0x200, 0x3f, 0x0, 0x4, 0x9, 0xfe, 0x7, 0x319, 0x0, 0x1, 'syz0\x00'})
+
+2.409157041s ago: executing program 5 (id=4386):
+r0 = syz_init_net_socket$bt_l2cap(0x1f, 0x2, 0x0)
+bind$bt_l2cap(r0, &(0x7f0000000380)={0x1f, 0xd6, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}, 0x0, 0x1}, 0xe)
+openat$6lowpan_control(0xffffffffffffff9c, &(0x7f0000000000), 0x2, 0x0)
+r1 = syz_init_net_socket$bt_l2cap(0x1f, 0x2, 0x0)
+connect$bt_l2cap(r1, &(0x7f00000007c0)={0x1f, 0x0, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}, 0x6}, 0xc)
+sendmsg$bt_l2cap(r1, &(0x7f0000001140)={&(0x7f0000000040), 0x7, &(0x7f00000010c0)={&(0x7f0000002180)="0429867092167e474b0e05e8d5f8fd8fd0ff9f58ae8712811720459c6a49e82bfa925c974a639a7a3aa2cdec1b331012128cccc5707a6d5bd70549e1aa364469c8101534e5a78e0ac21191430a319da1ce930550aca166b94956a2866882992ad3bd3b56ae6ac6e1d3717ee408273e684edf30807608edf426a030e772e992941b864e5665ae259fbc37a074a870961307c4c329428cba73b4e7471a5d47265378a653cf06000f0fd5fd17ba6e15523d87d7edb45daab1b4792f468218276e7d3ce7faf3dc9758e9becdc958d423bdf14f5dda828b5c72df5bb5fbe7e58fb693d07b6e051b23926cc072d78f5910006c9d14df141e51565eda90e87883410f6fbe2c9600803ce6df43198a7d38acd4a2456f5f9dec562a7880fc855b92d65561c2f3b25a3d6b3a647c440537346c3f500c7ee458ded8b5d16799af517ad2367a92a93f810e624f397143fa57fe29be5ae659839c03b37a8ea1a74f4ad002ac153aff2cc8d62ad8612c75e915be19ea7130444c80e217a0754fb677d345c71b4e207ecee03888bfbef8cd7c6c9a6f6c231e94c0f92c7679d1786ad453f7188f0dda27c0408cdaad2c8294f2da80abd9629dd96ac6b4ac6004cbd2b90fd50572ad62e1dc93b3222f4b30b869de2add61727f48894b764451e9d791818a4a5ebd24b5e61bf99e81f4075408f7bb31a5ee00d0a3799f61bf5ada079d7363a0aa36c01f6d1127732d8324fab1018dbe722a03ca5643cce6e5c8faf2fa0e501842f075ae1e7974dc8d5f0c025356ff61785db3e648097edcedc8823ecebd582e5d80c3aa8e80b87e03c80a1eb3ee33802e5d09d8ee8f55c9f85608896603055f7655c3846cc915b281fac59da6902442ce917c14da58db50e9abef817212545fa644e5048cdc97e37c92db181da2930656da2ddaec443e5ba6e396c341ae26a2ded9353334c8a6a0bb813be20aaede8594b95ea0df776de2f293f683251a5b5d1ad5ac1fd92f19317a8d337549b6c237136dc18c9262529ca11756ec609fdcc8bc717df9cd9feefa9be30d2078062afae071c4e8780f5d8659f5a8ee9b22540358f867a624727fa071cf2fd81e57e278f2e8be970d226fd124e1fc5440341ab52cef67eac54a1f643fce86c7bc53e374d63440d388a105d14f6dbac2fe3a3c8f180b2d2e544d25a26f5a89f5165e16682fca1dd789a39e09d462a29b062b7275909d1c366fee0f92b0d7992113e33cb233199b32e30ab66cddfa7bc2220123fb972f536fc73496468a4e283487a946c09ff75164e9e4ba6f994df974c86e1d653dd06cd7196e52a0aae054dabd99ad506139c08eb6d0cc591b4a22e332547ee031aaf45dcda84e97ba54c06c6c3ad974478c06f16c591131d2f0dde9ed1dfc8952618e405a729ada5b5f0f2468cc3a4c34e09011b9c7cb65736d5c78f4cbfd4389ed4beca8b99c373485773ce176a3ffdcbb964011ea272c00759a01922e2ce8eba04a9f74a1d592017011b5be1e5ff7179e6eaf7310c164b528a61849469d4131fae926ef824086c556c1c2b9b96ce17e18dcd1a7f4afe4fc4a61266979fec19fefea8ae9b016cb8df95c549c93eae49f936873793bd5f55aabca943064fc7ea2a9c8b9ac58e743cbeafcce1922639b584a159b794611830e0c8cf7f1e0d7a44162a1e0e4a162be38a46cac62fbee4bc347a95b666f384af7b269bbdec3f924a624bd2d58cc834d53e1e7c97357964d72aebeceb6a8f83843aad6327ec09a7fb92c9092cd043d8ec3ad08fa8c81245264803b7b8499ce41bef22251d38f6f18266a13c4da5f6787e6af506626d35192fce88e2b63159b8fcb2a089c573cd3bdd588da6f702a1ba1ba33ebe4b854654056ac2cdc01c63d76a9585c71559ae61c6994973c4e610a5d47c3491e1e74417db3f5e262364c09997b6e455de50ebcc5d9e5bf0044279420b32c22807e4bf2f1a95d87f7ac58813bad8a4d9c89b74916d4077d2dbd999f14c3e137b186acfa0855b17ba786796ae99ee880dd9701a3560848076e5e3a2a8482ab3720da3f72d8d4707fe9df7d18497602e82291d47d9e1a752d3d4156a1370e396048cea40acb97522e7cc51e86034cee82866bde5ddcc48139770b907a778873d7dcbc22d069a9e76223d15755ead63a782113cce0ea81e0d051e6f8ca95a6b983d1099282baa5b4833cf1455cd3b2ad55e38c9775d730b11a49db7a47c9825bee91971dd802b4deb8a2e4ec874f9ca199d5b97dc53e8fe71bfcf9a651031ac77ecaa33b3eea1bb7cb6bfee18b1bd3843d1ef3aa26d3880d99806f26d0eb6b5494954e2eb4aeab33dd91f3fdfb9882eb83abbe3f0bbbe9af60b543b6f13d7efd553d6afabccd845409cd9c0a6cd49c37f08e724965b475362f948358215e9883e4ca3fbe6a1d54c9e8f658e923db9a4e39307c2fdc06c2b910125152f6531e6b5d93ec2505e19b9918d606fb02fa1f52054b459dbd2c2e32ab79926198cc14d0fd8e1362cf3eb469c29b18ec741bda46ac7b486985cc57f4aaa9cc2cbdc52221322b8bceaaa3e4a587f50f13509618f40d64b9d306da51f22631fbbffc04cceaf0ffb9be153571b06b47da6e484b06101e9b9992aa5926074238de6070211ddd5f8bf80a5054ada70d8510be81b16ba2ad2d1a0961123caeb4b3f92a45a1b7625068278f0263a745e3225bdf97fb070c0ec88132e60814eb898abed0ffc1d6f894dc083094a6a10519f54d7f055348db4418868918310e0207ffb0ff40b9dd35b35ed3d02e74713b101554849d49f2b83610ecbf3db60f4673457e50967c5dd6fbc37d19b9934fd98d17907e1090f3322f3f06730c18b96e4cfc535757b32456038bf73fa613deaad932f3fd4a37b494ae9590b6b9d787bbd721d64370f7c7116786bbba425a3cd6de8a26e57534c70b43c300086dc51911e3c84bb04b5fd0793cdb08c39e9d2d806fec5081c249f34e715cde179adab7aa2777d854e6d0bfdeeddbbe6afb5340882b1390334a475c96ff7358d8f5d2357ef9f47eda53276aee74b7c09dc406c6bfeaa5f955fef84e0d46dcff9c663315c28fbf9ca3a81956f59ea6e559359be7cc8e6e7645209b636fcd4d59cd6f238ebd01129b9e82201ac7a5e853c57333e8da6d06e13c1b143d1b54a609faa3b7820abb803c256f099d874e853ea16de8eaecd8674279e91867e082b90389d4a243b08ed1ce81bc8e8d486f9a39c340916dc33ce906c02bf3eb15e476d55df41b4a0e3f5d8b145be3ba985fed54fbd30da16fb2300af91e0a450042e4b697c104134ce92fdd1d3993a0249f2fe905e9085e32e8e9c44eab6ab1d5c48179c6f0cdd0d9f9024de84dd619f1dd84bfad554e437a4640634d70c0176b5a354443365348eb31f73f4ef96d688ec18a41037cda78bc730807cf716b1c77532d8ac67815f8edf1e565f55acbe33f0c009b15d2d8e38109692ee4eeaf2a749038388fb35ba229056ccfe7663e79c3fbc558a9221ccb9c4312d11c50edc2c8f4c0f2b5d7afe19c8d663127ddd2768e837b360b5e4bfc652c175fd3207615ab4fcfb725aa81d474769638413bbf10fcbc8aea973076a75ca5dc50d3d5056ad261f62351f44f9375c3ede8477908289f73b84604d165565a2493e2285d4d9cf1a94cad91b1e35415b43081a0767ce140c3c0fd6f2b10dea16479adedad2cc6cf63a5a2f61ea377ab2e3c411b02d0c1b560bbc11fd9cf77a90becff981f016bc8866d3b7885dd0a1b9b1c83d34437d27ef215f0879e732a267558ddb482c078ac52c193aec996eb5c85bfb9532e41e459535cf12964a59568d94167273e4e19549bea1735f08a820af8e2bd14b5ae8d17504fa333e3f4e4cd3d95a01a2fc2d47936549e4d7c579bc490c1ec2444bbdc367fb45db6bb9e6fcc4286bc301f2bdfbc6b83189d3e740d8b25c9ba08ec776cb4513529edc0914e62e2eddc58dd9e2ede4a155759bbbe33a96f417bd2f4efcc10bab4bc9685dd29017ba529035bb7247d467cb2eabb537012db60b95231fad5ea76e7ed1a7a9bcf2c7cf7a96ab8de5c63fac749d1116ec16d7233fb6a7b3a7536699d69e3888b67b49434fc6c0feee5a62b3619b63b23ddb70796015a7bd99acab6da680f86274cbc4ca616a2de89371462a8acb18cb1c013565275164822e517dc3cc77cb728c8d445490d64bde016a8dbcd22e1f6347e8f6a262ab4fe583ff6d95a986d843404c94a5b2f2ed5cc19e84c9593d9862ce016c57ce399879751960477571a27f4130ecd97915e9061332f640a7bd5ccb48b60b2a77c17fb036becbd0699ea7521f517f553ada8b716ecfdec8ac5dd4863bb54cfb2d4439757622aa4a2bf7976875a77bb405ecbc0b6b8c1d0ac6a9346667ab667adcc06d6d145a7f87c881135b7b99c293a34d9c947a624ba2e0c989c4e0f46c3b438e52ac9da19ede45e7947b9ca6749c306d06fe60dd62c8cee5d321b012aa17d7c7675388d585f713aea1b917e024be9bf5fa817ca4316636c1af2da3c00eccd468c1ebfcafbd46018d7c26a53248d034023420ef249bd7f32e6202ed3f711866410357f9577649decfcb16ede8a7c69be49b66a21c66415d31e4b8f509fe5ce2f7365a74b0bfd3d1c314db153556ea23166590044a458972620b0135098cd86eabf9f75ba878c5533df7b621c65a219cfbb66145806d7d53c8974f82ceef9b2676256452e3c4c8fbda9d12d31f8e96fcc03066bd0987e42f03bd1114bea38a865a3879ded37762e632632b533bc3d24ddec32b58eb02b101ac7854243de65e443215135fbf85ae41bcd29ebb1f2339f0d168359a7242f453d1a387b6339a8c496fbc03bf6c78be823733b5b1c7ccfca81d72d99b5d3d5125cf53e8ba45962043bf05a7d02402b047ee6b6c207b8f89538ff6b7b22c4c21e312a4683d7c657886ebb5eb8455ce62662ba7187e2682c0ef374fe1a26c1ad7e5327208f25e5207dc43a235134d8a1cd255945974b9c45fb700dfd9dbcadb4aaeea8e30dc4a9a8e4b97a893f1720e01f14dd4879e896e2dbeba89fb61d9654af372913f9f1878bcccecd13a60b31617042c0be78c1764928e13c2f702d7ad1df6944d5b243f775cd08549b5701d410d55d182fe5201982c907f504bacc5142f1032fdabd16e564b93bd9ef9da24bb6c4fb90e97a5a3832138cfa383d32e7821fc16431e53f80a508e2a46de6834bc7eebfb3a192f21f7a079056b178fdc674f57c6adab512842a9bd057a97241ad505d2391adf828cd9497de043800a2bd6e389c1a35c508ca6d307b62c8459410a8219879e410ea21895e58dda26b8e71e9d48494d672b184e5a88468ac8c728532e8686fb99e9170cfe0dd6d52ee944b3b0ee81733819837698c888fccc799910ecd82b012363251ade807fc897b88d59f1205340c1c70f91c47ec2028352e823340abe898f2836ef04a168438356c7047348e8d4f0e18a745799c46e47a7c2ab8ed10b6f62808b29aa6336254dffb596c36f60e2b807eee9f6d89a76abf4159a675d17f91f722b9fe3375a1ee47a37920f34e7088156953eb9975e33f66797e7740c8939162dd29ef720ce80f3e7f018eb72a91c5ed7d2bc8dfaa18f39eaf73f4d81bae1f0d724fa90888020d37236cbe6a24a8d4f1d68eb1d7b82f3933f8fca18a06c606e6b83c6a7a47febb706ac456e63cd0f4474a93e61f5a181998331a5a0d47bff0f3ef814e667fb101616047978fdea7fb5df8f4750ad037eb552fc04fb9f49eda3b3a90cda18bf321bda16c00dc7980143f87141660ca8b16295d88559608de9fe478837fae85cd018847f97905ea63b40d00"/4138, 0x102a}, 0x3, &(0x7f0000000040), 0x83, 0x6}, 0x2, 0x1)
+syz_init_net_socket$bt_sco(0x1f, 0x5, 0x27)
+getsockopt$bt_BT_RCVMTU(r0, 0x112, 0xd, 0x0, &(0x7f0000000240))
+
+2.345414821s ago: executing program 3 (id=4388):
+syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1) (async)
+r0 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+ioctl$sock_bt_hci(r0, 0x400448c9, 0x0)
+
+2.284736678s ago: executing program 0 (id=4391):
+r0 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+ioctl$sock_bt_hci(r0, 0x891f, &(0x7f0000000000)) (async)
+ioctl$sock_bt_hci(r0, 0x891f, &(0x7f0000000000))
+syz_init_net_socket$bt_rfcomm(0x1f, 0x1, 0x3) (async)
+r1 = syz_init_net_socket$bt_rfcomm(0x1f, 0x1, 0x3)
+setsockopt$bt_BT_SECURITY(r1, 0x112, 0x4, &(0x7f00000000c0)={0x7}, 0x2)
+syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6) (async)
+r2 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+ioctl$sock_bt_hidp_HIDPCONNDEL(r2, 0x8912, &(0x7f0000001cc0)={@none})
+connect$bt_l2cap(0xffffffffffffffff, &(0x7f0000000080)={0x1f, 0x401, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}, 0x6, 0x2}, 0xe)
+getsockopt$bt_BT_RCVMTU(r2, 0x112, 0xd, &(0x7f0000000000)=0x9, &(0x7f0000000040)=0x2)
+openat$6lowpan_control(0xffffffffffffff9c, &(0x7f00000010c0), 0x2, 0x0) (async)
+r3 = openat$6lowpan_control(0xffffffffffffff9c, &(0x7f00000010c0), 0x2, 0x0)
+write$6lowpan_control(r3, &(0x7f0000001100)='disconnect aa:aa:aa:aa:aa:11 0', 0x1e)
+r4 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+ioctl$sock_bt_hci(r4, 0x800448d7, &(0x7f0000000100)="50e6de00c8ff1d9fb1e6ff237a4ef390c9156d77011c64c27c60baf8a9a764ee0799b85a65aba42dc80e4f9c4d1077d25db77cf4469d8a328339316ac0d177ee7dc118fe1602bb5ca54d0026aab18e9246da3c359971c61e74058b5a55c75e49a764599288c42ed97b11c8f3883937e07e099358343bd684b3a88dc3e75e103d7a5a30fc5689de539ece1a5aa5ecf39d9243aaca4d2d0008bf8bbc20b2ee38e6da001da05504cb2a6bea88dd3fd91c12bff006d06a645b289e1d398c6f2d9ce5a794a67a44b2ead2c481bc25fb968d427cb5caae1fd04ed68273929ee387829f4c58af177da42f3cd7f5b056bcf1de81c6b84a1e01ebed97395c5b28e9436cd978934754e117f921c400763fb6b4a9079f8a7df3c0d2d462110c95edcf063a1478b9c54d43e7b975af427de4ef5753dff2c034e4a4c080be192a35a356ab2973301d9f70c18204423bec055fc2b47255f76d1c399c77e1c119")
+
+2.284139442s ago: executing program 5 (id=4394):
+r0 = syz_init_net_socket$bt_rfcomm(0x1f, 0x3, 0x3)
+r1 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+ioctl$sock_bt_hidp_HIDPGETCONNINFO(r1, 0x800448d3, &(0x7f00000001c0)={@fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}, 0x9, 0x1, 0x7fff, 0xca, 0x8000, "72199ee09b46e3c7aa083c714b703ad965954ad72b4b51610a2b12e746f6cc7f5af6508da9884a3aa4ece5140f9f5c98c262d4185343287ca6e717c175a6d35eb1374fc0262168a054a6e9298eff69f5ca9dcfc29bb519fbeb0f8588880b1724b1c9abf61db1bcb7046293072170855f14d3a3f7a1573a95324829258615a08c"})
+setsockopt$bt_rfcomm_RFCOMM_LM(r0, 0x12, 0x3, &(0x7f00000003c0)=0x21, 0x4)
+r2 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+r3 = syz_init_net_socket$bt_rfcomm(0x1f, 0x1, 0x3)
+connect$bt_rfcomm(r3, &(0x7f0000000180)={0x1f, @any, 0x3}, 0xa)
+connect$bt_rfcomm(r3, &(0x7f0000000040)={0x1f, @any, 0xb7}, 0xa)
+r4 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+ioctl$sock_bt_hci(r4, 0x400448e1, &(0x7f0000000280))
+bind$bt_hci(r2, &(0x7f0000000600)={0x1f, 0x1}, 0x6)
+ioctl$sock_bt_hci(r2, 0x400448e6, &(0x7f0000000100)="c07498901e039d8080746a605b7a605afb94c41104ceb2d2f384d911f79a")
+r5 = syz_init_net_socket$bt_l2cap(0x1f, 0x5, 0x0)
+r6 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+ioctl$sock_bt_hidp_HIDPCONNDEL(r6, 0x8983, &(0x7f0000001cc0)={@any, 0x8})
+setsockopt$bt_BT_FLUSHABLE(r5, 0x112, 0x8, &(0x7f0000000280)=0x1, 0x4)
+syz_init_net_socket$bt_rfcomm(0x1f, 0x1, 0x3)
+
+2.031014253s ago: executing program 0 (id=4399):
+r0 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+getsockopt$bt_BT_SNDMTU(r0, 0x112, 0xc, 0x0, &(0x7f0000000600))
+syz_init_net_socket$bt_bnep(0x1f, 0x3, 0x4)
+r1 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+r2 = syz_init_net_socket$bt_l2cap(0x1f, 0x2, 0x0)
+recvmsg$bt_l2cap(r2, &(0x7f0000000380)={0x0, 0x0, 0x0, 0x0, 0x0}, 0x6, 0x10060)
+ioctl$sock_bt_hidp_HIDPCONNDEL(r1, 0x401c5820, &(0x7f0000001cc0)={@none, 0x8})
+r3 = syz_init_net_socket$bt_rfcomm(0x1f, 0x3, 0x3)
+setsockopt$bt_rfcomm_RFCOMM_LM(r3, 0x12, 0x3, &(0x7f0000000040)=0x41, 0xffffffffffffff55)
+syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+r4 = syz_init_net_socket$bt_l2cap(0x1f, 0x1, 0x0)
+getsockopt$bt_l2cap_L2CAP_LM(r4, 0x6, 0x3, &(0x7f0000000000), &(0x7f0000000040)=0x4)
+setsockopt$bt_BT_VOICE(r4, 0x112, 0xb, &(0x7f0000000080)=0x3, 0x2)
+getsockopt$bt_BT_SNDMTU(r4, 0x112, 0xc, &(0x7f00000000c0)=0x4, &(0x7f0000000100)=0x2)
+r5 = syz_init_net_socket$bt_bnep(0x1f, 0x3, 0x4)
+ioctl$sock_bt_bnep_BNEPGETCONNLIST(r5, 0x800442d2, &(0x7f0000000180)={0x1, &(0x7f0000000140)=[{0x0, 0x0, 0x0, @link_local}]})
+getsockopt$bt_BT_DEFER_SETUP(r5, 0x112, 0x7, &(0x7f00000001c0), &(0x7f0000000200)=0x4)
+r6 = accept4$bt_l2cap(r4, &(0x7f0000000240)={0x1f, 0x0, @fixed}, &(0x7f0000000280)=0xe, 0x800)
+connect$bt_l2cap(r6, &(0x7f00000002c0)={0x1f, 0x0, @none, 0x4d}, 0xe)
+connect$bt_l2cap(r6, &(0x7f0000000300)={0x1f, 0x5, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x12}, 0x9, 0x1}, 0xe)
+r7 = accept4$bt_l2cap(r4, &(0x7f0000000340)={0x1f, 0x0, @fixed}, &(0x7f0000000380)=0xe, 0x80000)
+getsockopt$bt_l2cap_L2CAP_CONNINFO(r7, 0x6, 0x2, &(0x7f00000003c0), &(0x7f0000000400)=0x6)
+r8 = accept4$bt_sco(0xffffffffffffffff, &(0x7f0000000440), &(0x7f0000000480))
+setsockopt$bt_sco_SCO_CONNINFO(r8, 0x11, 0x2, &(0x7f00000004c0), 0x0)
+getsockopt$bt_l2cap_L2CAP_LM(r4, 0x6, 0x3, &(0x7f0000000500), &(0x7f0000000540)=0x4)
+setsockopt$bt_l2cap_L2CAP_CONNINFO(r6, 0x6, 0x2, &(0x7f00000005c0)={0x0, 'mX5'}, 0x6)
+getsockopt$bt_BT_POWER(r4, 0x112, 0x9, &(0x7f0000000600)=0xf6, &(0x7f0000000640)=0x1)
+r9 = syz_init_net_socket$bt_rfcomm(0x1f, 0x3, 0x3)
+setsockopt$bt_rfcomm_RFCOMM_LM(r9, 0x12, 0x3, &(0x7f0000000680)=0x8, 0x4)
+
+1.947338114s ago: executing program 4 (id=4402):
+r0 = syz_init_net_socket$bt_rfcomm(0x1f, 0x1, 0x3)
+connect$bt_rfcomm(r0, &(0x7f00000002c0)={0x1f, @any, 0x2}, 0xa)
+r1 = syz_init_net_socket$bt_rfcomm(0x1f, 0x1, 0x3)
+bind$bt_rfcomm(r1, &(0x7f0000000600)={0x1f, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}, 0xb0}, 0xa)
+syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+getsockopt$bt_BT_CHANNEL_POLICY(r0, 0x112, 0xa, &(0x7f0000000000)=0x1ff, &(0x7f0000000040)=0x4)
+
+1.863307414s ago: executing program 4 (id=4403):
+syz_init_net_socket$bt_bnep(0x1f, 0x3, 0x4)
+r0 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+bind$bt_hci(r0, &(0x7f0000000880)={0x1f, 0x0, 0x1}, 0x6)
+write$bt_hci(r0, &(0x7f0000000040)=ANY=[], 0x7)
+ioctl$sock_bt_hidp_HIDPCONNADD(0xffffffffffffffff, 0x400448c8, 0x0)
+write$bt_hci(0xffffffffffffffff, &(0x7f0000001400)=ANY=[@ANYBLOB="01380421c9f703000004000000050095087bed00000784ae00020007000300000008000000"], 0x25)
+setsockopt$bt_l2cap_L2CAP_LM(0xffffffffffffffff, 0x6, 0x3, 0x0, 0x0)
+r1 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+ioctl$HCIINQUIRY(r1, 0x800448f0, &(0x7f0000001900)={0x4, 0x3ff, "c97282", 0x9, 0x3})
+ioctl$sock_bt_hidp_HIDPGETCONNLIST(0xffffffffffffffff, 0x800448d2, 0x0)
+ioctl$sock_bt_bnep_BNEPGETSUPPFEAT(0xffffffffffffffff, 0x800442d4, 0x0)
+getsockopt$bt_l2cap_L2CAP_OPTIONS(0xffffffffffffffff, 0x6, 0x1, &(0x7f0000000100), &(0x7f0000000180)=0xfffffffffffffe7f)
+bind$bt_hci(r1, 0x0, 0x0)
+r2 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+ioctl$sock_bt_hci(r2, 0x400448e1, &(0x7f0000000000)="17b7c0163773dd697c5fd8ef126f3b41f28ff0cdd9c499d5")
+ioctl$sock_bt_hci(r2, 0x400448cb, &(0x7f0000000040)="1bbc1a17a6920e940726a96a7c151386c658b212a98d58d11d7e7c976ab00b8e490fb1daf796ae8fa975da98e653d4d7f7cf36aacf5163c5e974b5ed500ce2471b7224af8a109f9aee6c5da9f9f2f983b27ddddfe8c638cc291672200f99d33db2d949f502ee1ba545b845d4647d9f5b34501b60ab0732ad7c433c11c7f9a082b1598b3f7a56e81b07828a76a33688ab5381c4392608")
+
+1.739690396s ago: executing program 6 (id=4405):
+r0 = syz_init_net_socket$bt_l2cap(0x1f, 0x2, 0x0)
+bind$bt_l2cap(r0, &(0x7f0000000000)={0x1f, 0xd6, @none, 0x0, 0x1}, 0xe)
+getsockopt$bt_BT_RCVMTU(r0, 0x112, 0xd, &(0x7f0000000200)=0x1, &(0x7f0000000240)=0x2)
+
+1.688925677s ago: executing program 6 (id=4406):
+r0 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+accept$bt_rfcomm(r0, 0x0, 0x0)
+syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+syz_init_net_socket$bt_l2cap(0x1f, 0x1, 0x0)
+r1 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+ioctl$sock_bt_hci(r1, 0x400448cc, 0x0)
+r2 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+sendmsg$bt_sco(r2, &(0x7f0000000180)={&(0x7f0000000040), 0x4, &(0x7f0000000100)={&(0x7f0000000080)="57522e2e4cdfbcd32aa7ce6c6a992ed9b0b4146ab1f1aa71e779436193290ba9540117abb951006722ccedc4513611b974a258a3a677f5ef5b7e9e80a617a1ddbdd06a51cc6e96368c60da191ef4ba2f", 0x50}, 0xc, &(0x7f0000000140), 0x7, 0x2}, 0x7fffffff)
+sendmsg$bt_rfcomm(r2, &(0x7f0000002400)={0x0, 0xfffffffc, &(0x7f0000000000)={0x0}, 0x4, &(0x7f0000000040), 0x1, 0x9}, 0x8, 0xc4)
+r3 = syz_init_net_socket$bt_rfcomm(0x1f, 0x3, 0x3)
+sendmsg$bt_rfcomm(r3, &(0x7f0000000300)={&(0x7f0000000040), 0x7, &(0x7f0000000140)={&(0x7f00000001c0)="194ccf4ea032dcda4febb236bd9e939fa22f8a95650a5d634001cc379d054e29d5dddef6fcbaf20103b9966ae5d5736bf943e0bd303df52b54404a537bccdbf72982f15f04c4c133b8f2bc96f75627eda04b4ecbd88ed518dc33be1d8776e18073bc2b0b3089c5dd644407476d08654de0edfe5e750023730e0ae82e303efb7f8676444c7de4ec51f294987cb6d85cf36fad6fcc0ad8f33c062dd19ee25e8ba97cc3599d020b4acb306f8438f09a952707ffd921b4e8b781a68c418dda62a4dc77b5f3d47cd7bf", 0xc7}, 0x5, &(0x7f00000002c0), 0x3, 0x4}, 0x80, 0x40019)
+r4 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+ioctl$sock_bt_hci(r4, 0x8910, &(0x7f0000000000)="9473ae693a45fde7bd8282465a778a062c")
+r5 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+sendmsg$bt_sco(0xffffffffffffffff, &(0x7f0000000000)={0x0, 0x1, &(0x7f00000000c0)={0x0}, 0x1, 0x0, 0xfff, 0x3}, 0x757e)
+bind$bt_hci(0xffffffffffffffff, &(0x7f0000000000)={0x1f, 0xffffffffffffffff, 0x3}, 0x6)
+accept4$bt_l2cap(0xffffffffffffffff, &(0x7f0000000080)={0x1f, 0x0, @fixed}, &(0x7f00000000c0)=0xe, 0x80800)
+ioctl$sock_bt_hci(r5, 0x89ff, &(0x7f0000000000))
+r6 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+ioctl$sock_bt_hidp_HIDPCONNDEL(r6, 0x400448c9, &(0x7f0000000000)={@none, 0x69044d2b})
+
+1.599978576s ago: executing program 7 (id=4407):
+r0 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+r1 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+ioctl$sock_bt_hidp_HIDPCONNDEL(r1, 0x8912, 0x0)
+r2 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+bind$bt_hci(r2, &(0x7f0000000240)={0x1f, 0x3, 0x4}, 0x6)
+write$bt_hci(r2, &(0x7f0000000000)=ANY=[@ANYBLOB="012d020309000399a6a08a5946b6a72e35f35b6f040fa3ac48f14ba7c3fb01ffa7ac27"], 0x7)
+r3 = syz_init_net_socket$bt_l2cap(0x1f, 0x2, 0x0)
+ioctl$sock_bt_hci(r2, 0x400448dd, &(0x7f0000000080)="de396fd11ee10fbd5a3e219d5052d5ef2e6b5230c645b73817622feab3e3246d91f93948c1e712102c36db351cd957e0a0a8b9bae192b0d521aa28a4fd2a4f40630923eae24ca984a4c3058f570549a0624a441a2a701aa4479bd2ca4eefc69520fa75f2c8870015892c485d4475863c221aabe96144bd4aa2e27c2b6492f9641f097c1cb0fb71ae2263997506d6b549de08d7d30886c1708ae1519586fd3d5d171fe0578b770e00a8409996205e3a7924e9720cc21e4a")
+r4 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+bind$bt_hci(r4, &(0x7f0000000080)={0x1f, 0xffffffffffffffff, 0x3}, 0x6)
+recvmsg$bt_sco(r4, &(0x7f0000000200)={0x0, 0x0, 0x0, 0x0, 0x0}, 0x6, 0x2)
+write$bt_hci(r4, 0x0, 0x5)
+getsockopt$bt_BT_POWER(r3, 0x112, 0x9, 0x0, &(0x7f0000001980))
+ioctl$sock_bt_hidp_HIDPCONNDEL(r0, 0x89a1, &(0x7f0000000040)={@none, 0x8})
+r5 = syz_init_net_socket$bt_l2cap(0x1f, 0x5, 0x0)
+bind$bt_l2cap(r5, &(0x7f00000007c0)={0x1f, 0x5, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x12}, 0x101, 0x1}, 0xe)
+r6 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+getsockopt$bt_hci(r6, 0x0, 0x3, &(0x7f0000001840)=""/189, &(0x7f0000001900)=0xbd)
+syz_init_net_socket$bt_rfcomm(0x1f, 0x3, 0x3)
+write$bt_hci(r2, &(0x7f0000000180)=ANY=[@ANYBLOB="010d0804c9008708820f5c119dd8a079a01cda249e4f95ea95158a68aba7fd3db25c24ed8dd690232a198d4cdaf8c32b27efe6cef7fb3a4f5c7ed5d916685445f47c6322a12ebd5862d8683dfc3108658e233a35ad3fa3e67d19f76b585e096f40"], 0x8)
+sendmsg$bt_l2cap(0xffffffffffffffff, 0x0, 0xfffffff7, 0x0)
+
+1.13679802s ago: executing program 0 (id=4411):
+syz_init_net_socket$bt_l2cap(0x1f, 0x2, 0x0) (async)
+r0 = syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x0)
+connect$bt_l2cap(r0, &(0x7f00000001c0)={0x1f, 0xfffc, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}}, 0xe) (async)
+r1 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+ioctl$sock_bt_hidp_HIDPCONNADD(r1, 0x400448c8, &(0x7f0000000240)={r0, r0, 0x200, 0x0, 0x0, 0x4, 0x74, 0xfe, 0x7, 0x319, 0x0, 0x1, 'syz0\x00'})
+r2 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6) (async)
+r3 = accept4$bt_l2cap(0xffffffffffffffff, &(0x7f0000000080)={0x1f, 0x0, @none}, &(0x7f0000000100)=0xe, 0x80000)
+setsockopt$bt_l2cap_L2CAP_OPTIONS(r3, 0x6, 0x1, &(0x7f00000000c0)={0x2, 0x8, 0x1, 0xd1, 0x98, 0x4, 0x3}, 0xc) (async)
+ioctl$sock_bt_hidp_HIDPGETCONNLIST(r2, 0x800448d2, &(0x7f0000000940)={0x1, &(0x7f0000000400)=[{}]})
+r4 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+sendmsg$bt_sco(r4, &(0x7f0000001600)={0x0, 0xaf34, 0xfffffffffffffffc, 0xa, 0x0, 0x6, 0x101}, 0x1) (async)
+openat$6lowpan_control(0xffffffffffffff9c, &(0x7f0000000000), 0x2, 0x0)
+
+969.831592ms ago: executing program 0 (id=4412):
+r0 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+r1 = syz_init_net_socket$bt_rfcomm(0x1f, 0x3, 0x3)
+getsockopt$bt_rfcomm_RFCOMM_CONNINFO(r1, 0x12, 0x2, 0x0, 0x0)
+r2 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+ioctl$sock_bt_hci(r2, 0x8946, &(0x7f0000000000))
+ioctl$sock_bt_hci(r0, 0x400448e0, &(0x7f0000001a80))
+r3 = syz_init_net_socket$bt_l2cap(0x1f, 0x1, 0x0)
+getsockopt$bt_BT_VOICE(r3, 0x112, 0xb, 0x0, &(0x7f0000000200))
+r4 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+bind$bt_sco(r4, &(0x7f0000000040)={0x1f, @none}, 0x8)
+ioctl$sock_bt_hci(r0, 0x800448f0, &(0x7f0000000200)="e90d6d545f4a583f222c52c71ed0f81f3d19aee07d4a4dc7715913ebb9751fc9bb24856d2375cb3fbf053db4d6054613a80c151fe175bd38976f5e664c6132f111f2f729485fd3f2fa1462c07bad8e53c0eed63228856c3bc4828a7ee183141e3cda0446cca1896a7d1a5e9f1e4e1e0d09734b1bfc82d6be16640c3870abdf7c3a10abeabd6a62a4bad4dbf8c8e7aaa09d70a2228c88400667818238f4a4de8426b9778bdd2f09f1b252df693aa6bbad81d83f672451959f824f85e8ae4b1ff628ad279942019d0916a9e82a081d825e82c35107cb8207bbf58afcea6061af3b2e3435a091277062e48c2b4586d02b0dcb51d8f559c28f")
+syz_init_net_socket$bt_rfcomm(0x1f, 0x0, 0x3)
+listen$bt_sco(r4, 0x0)
+ioctl$sock_bt_hci(r0, 0x400448e0, &(0x7f0000000080)="b2147d6baba641547774719551f6d1b854f534cc01c73f6318424ddb47b1327a5436e124b6fc05b0bd93af918e776c1e5532cae2eef8060b0e3ae98ace5126422fe54694a4ea06e2766c4a4b13894c6f088e5919fc36cbeb892165644241493b1e41099820c085e2d1d6b836f200d1c729c4720c5f48fd68803aad5042736997f327269775f75e8e9bbb86e77ee11dfe27e8a2d95c8a6f35a1cede255b3b0087db40af7bd68671b56fc587306c20b62962616ce4aae8917d404a242ed826626de03df9587b69320e95f0807d2fefaf8e614bc952d302aeae820ff05c3987236980ba1205488b8df59bb9c77e3bc91cdb7d")
+getsockopt$bt_BT_DEFER_SETUP(r4, 0x112, 0x7, &(0x7f0000000180), &(0x7f00000001c0)=0x4)
+accept4$bt_sco(r4, &(0x7f0000000000), &(0x7f0000000040))
+
+969.40637ms ago: executing program 4 (id=4413):
+syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+r0 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+r1 = syz_init_net_socket$bt_rfcomm(0x1f, 0x1, 0x3)
+bind$bt_rfcomm(r1, &(0x7f0000000000)={0x1f, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x12}, 0x1}, 0xa) (async)
+listen$bt_rfcomm(r1, 0x0)
+getsockopt$bt_BT_DEFER_SETUP(r1, 0x112, 0x7, &(0x7f00000000c0)=0x1, &(0x7f0000000080)=0x4) (async)
+r2 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6) (async)
+r3 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+setsockopt$bt_BT_VOICE(r3, 0x112, 0xb, 0x0, 0x0) (async)
+ioctl$sock_bt_hidp_HIDPGETCONNLIST(r2, 0x800448d2, &(0x7f0000000940)={0x0, 0x0}) (async)
+r4 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+ioctl$sock_bt_hidp_HIDPCONNDEL(r4, 0x89a0, &(0x7f0000001cc0)={@any, 0x8})
+r5 = syz_init_net_socket$bt_l2cap(0x1f, 0x1, 0x0)
+setsockopt$bt_l2cap_L2CAP_OPTIONS(r5, 0x6, 0x1, &(0x7f0000000840)={0xd, 0x5, 0x5, 0x3, 0x1, 0x5, 0x2}, 0xc) (async)
+ioctl$sock_bt_hidp_HIDPCONNDEL(r2, 0x89a0, &(0x7f0000000000)={@fixed={'\xaa\xaa\xaa\xaa\xaa', 0x12}, 0x8001}) (async)
+bind$bt_hci(r0, &(0x7f0000000000)={0x1f, 0xffffffffffffffff, 0x3}, 0xfffffffffffffed9)
+
+518.982417ms ago: executing program 1 (id=4414):
+r0 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+r1 = syz_init_net_socket$bt_l2cap(0x1f, 0x5, 0x0)
+getsockopt$bt_l2cap_L2CAP_LM(r1, 0x6, 0x3, &(0x7f0000000340), &(0x7f0000000380)=0x4) (async)
+r2 = syz_init_net_socket$bt_rfcomm(0x1f, 0x3, 0x3)
+getsockopt$bt_rfcomm_RFCOMM_CONNINFO(r2, 0x12, 0x2, 0x0, 0x0) (async)
+ioctl$sock_bt_hci(r0, 0x400448e0, &(0x7f0000001a80))
+r3 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+bind$bt_sco(r3, &(0x7f0000000200)={0x1f, @none}, 0x8) (async)
+listen$bt_sco(r3, 0x0)
+r4 = syz_init_net_socket$bt_l2cap(0x1f, 0x5, 0x0)
+connect$bt_l2cap(r4, &(0x7f0000000000)={0x1f, 0xb2, @any, 0x0, 0x2}, 0xe) (async)
+ioctl$sock_bt_hci(r0, 0x400448e0, &(0x7f0000000080)="b2147d6baba641547774719551f6d1b854f534cc01c73f6318424ddb47b1327a5436e124b6fc05b0bd93af918e776c1e5532cae2eef8060b0e3ae98ace5126422fe54694a4ea06e2766c4a4b13894c6f088e5919fc36cbeb892165644241493b1e41099820c085e2d1d6b836f200d1c729c4720c5f48fd68803aad5042736997f327269775f75e8e9bbb86e77ee11dfe27e8a2d95c8a6f35a1cede255b3b0087db40af7bd68671b56fc587306c20b62962616ce4aae8917d404a242ed826626de03df9587b69320e95f0807d2fefaf8e614bc952d302aeae820ff05c3987236980ba1205488b8df59bb9c77e3bc91cdb7d") (async)
+getsockopt$bt_BT_DEFER_SETUP(r3, 0x112, 0x7, &(0x7f0000000180), &(0x7f00000001c0)=0x4) (async)
+accept4$bt_sco(r3, &(0x7f0000000000), &(0x7f0000000040))
+
+518.663968ms ago: executing program 6 (id=4415):
+r0 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+ioctl$sock_bt_hidp_HIDPCONNDEL(r0, 0x40086602, 0x0)
+r1 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+accept4$bt_sco(r1, &(0x7f0000000000), &(0x7f0000000040))
+
+518.067738ms ago: executing program 7 (id=4416):
+r0 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+accept$bt_rfcomm(0xffffffffffffffff, 0x0, &(0x7f0000000100)={0x6, 0x1, 0x9, 0x1})
+r1 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+sendmsg$bt_sco(r1, &(0x7f0000000140)={0x0, 0x9, &(0x7f00000000c0)={0x0}, 0x5, &(0x7f0000000100), 0x6f8, 0x9}, 0x0)
+ioctl$sock_bt_hidp_HIDPCONNDEL(r0, 0x89a0, &(0x7f0000001cc0)={@any, 0x8})
+syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6) (async)
+accept$bt_rfcomm(0xffffffffffffffff, 0x0, &(0x7f0000000100)={0x6, 0x1, 0x9, 0x1}) (async)
+syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2) (async)
+sendmsg$bt_sco(r1, &(0x7f0000000140)={0x0, 0x9, &(0x7f00000000c0)={0x0}, 0x5, &(0x7f0000000100), 0x6f8, 0x9}, 0x0) (async)
+ioctl$sock_bt_hidp_HIDPCONNDEL(r0, 0x89a0, &(0x7f0000001cc0)={@any, 0x8}) (async)
+
+517.201364ms ago: executing program 4 (id=4417):
+setsockopt$bt_l2cap_L2CAP_LM(0xffffffffffffffff, 0x6, 0x3, 0x0, 0x0)
+recvmsg$bt_l2cap(0xffffffffffffffff, 0x0, 0xffffffff, 0x0)
+accept4$bt_sco(0xffffffffffffffff, &(0x7f0000000480)=<r0=>0xffffffffffffffff, 0x0)
+syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+r1 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+bind$bt_sco(r1, &(0x7f0000000040)={0x1f, @none}, 0xfffffffffffffded)
+r2 = syz_init_net_socket$bt_l2cap(0x1f, 0x5, 0x0)
+setsockopt$bt_l2cap_L2CAP_OPTIONS(r2, 0x6, 0x1, &(0x7f0000000940)={0x5, 0x81, 0x2, 0x8, 0x75, 0xf4, 0x80}, 0xc)
+listen$bt_sco(r0, 0x0)
+listen$bt_sco(r0, 0x0)
+syz_init_net_socket$bt_l2cap(0x1f, 0x1, 0x0)
+
+438.882498ms ago: executing program 6 (id=4418):
+r0 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+r1 = syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x0)
+setsockopt$bt_l2cap_L2CAP_OPTIONS(r1, 0x6, 0x1, &(0x7f0000000000)={0x4000, 0x0, 0x5, 0x4, 0x40, 0x8, 0x6}, 0xc)
+connect$bt_l2cap(r1, &(0x7f00000001c0)={0x1f, 0xf7fc, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}}, 0xe)
+sendmsg$bt_l2cap(r1, &(0x7f0000000100)={0x0, 0x2, &(0x7f0000000080)={&(0x7f0000000200)="e3", 0x1}, 0x6, &(0x7f00000000c0), 0x9ddd, 0x1}, 0x936, 0x8881)
+shutdown$bt_l2cap(r1, 0x6)
+ioctl$sock_bt_bnep_BNEPCONNDEL(r0, 0x400442c9, 0x0)
+r2 = syz_init_net_socket$bt_l2cap(0x1f, 0x2, 0x0)
+bind$bt_l2cap(r2, &(0x7f0000000380)={0x1f, 0xd6, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}, 0x0, 0x1}, 0xe)
+getsockopt$bt_BT_DEFER_SETUP(r2, 0x112, 0x7, 0x0, &(0x7f0000000080))
+r3 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+r4 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+accept4$bt_sco(r3, &(0x7f0000000000)=<r5=>0xffffffffffffffff, &(0x7f0000000040))
+recvmsg$bt_sco(r5, &(0x7f0000000180)={&(0x7f00000000c0), 0x0, &(0x7f0000000100)={&(0x7f0000001580)="e2eb4a0d9af4014e13c120635a83b64eb3fbd51cbadba136e5a52863a7fc1aa85ab0a714b873e9971ca7039eee327d7993ecbc8084e9c6136d7aa49b0f08288bfefefa034667434b2c90f765fbf4668e109cedc34fcde89a49ed8a67eb794536e8774402914da34e2bc5a237df061da1aa792abad95821693d34fdf4ba187f1fda6be47f27d1eee6249670ffbefb744db4d194d84d50debb35fee463993112b2a8f149c3f0f3d0d654b3d0581651769e63a99681f02b60b4b283fbe4ad7a9f717f4aae3f5f4b61f671cef288f115c0e3241223dd454ddbeaca30337c3e60de01323c29b44b6d2ce89a8a60e7e8ce1cc6f20600856b16bf8a483ff6445bf90d02e9dd7fddd009545b57320bb5149ebeb3f85f364c57f2a3f9569649e872cdbd447fae75bb5403798406241e38d7a4fffe3e4ad1f4e7dd8047f9f722f57244c3db2810c54f077e755ce61477ccbb896bd2c60c2309c1ebbe41d81d8a635e2e57a6eb4486577da13872ce6d6993c05b1ac76fb57f8577b38e14062c995c9f984625f6d2c8d53a725324b68a530b61f952f83041141a366079260e2a66aab84b960b1fd6dcc537612e00e2af597753520bd54f74842f2d4ca4f160a69923c85c78dc09721e22833305348116aee69cf1de33528754052cdca18b6e2accb0f641233fd96f9d21025275973fe289f6313ec313430f3e824534362067457ecd0ba4d87acefa8cd0d5098fea64a9418892773008d25ee0fb185a329f91e7b8869498e8dfcae7729792757bb501ecf97405a83a4f24122cce36b577832b1b525f724944a179225d23dede5ff333323805823e4a97e29c71dea8c9917b6c9b34608595144ebd101abdfdc33ad202f880e4e6147c0aa2c06040331ed81d18f6d11090da03757816c938f9604aabbb09cb878e1c11da11b3524dbf0186c09e5b2562148a8551f62b445b8279aca6b70690629f1fdaa7a80d992b9320fb77ed6c1644f09888f34c9377167cd19ad0b703de792ae5fd2355332df77ba49c42697f0b68fe1b11b89e37067bd71bc2c622df298bab6a8fd8106e47ea71e00eab952345222844f16b058cd32f76160a8ad3379d941f81423c23647c7cfc35be416e608def0332e9b052819e3f467951a36d836fa99c557b0cf1edc5b7e56e6045e5346937d4e3a96c8b4ec7773b639d120e8c023b2e8f0f37a879a7c8399d69a7332a7793ff8f403474617941e8fc25e9ad785049ff44490cadf35d72b0a0bc90684ce1f2b2a359fbb9177bb543aca3de42362ea8b490d942bf490bb01579a844a3deff3dcb51f73aead70259cb345d6dd51627e0ec7f5c4b5e1935064640bb84c44269ee90f6c5c5eb2e6417cccb92cae45700d6a00b60f7a8cc19eec90be5a1fc50607d11710af4f51d09686acec853ccbc8b6c61511442fab2523cdc5041d1f0888ae2d74276aeaeed337e4c9fe1f05aee9a9875331941df89bc007c1b086b316c5b66f0975e4cae4287ffb0016a40581c4729e1e1653c37a786ca1be705c0ce3a3365ebc095547c8e0fc70a5a059f276f2b9a7697f7ed7ccad10cab728405588c5a0edf0609de31344a7cd2c988ce5074b20a0b2f981393555d919c1a9cb6d066ffe5e1e72313f4208bf0e82b56be7d61c0e69becf37e0ee5e6b26aba2fcef99595a1f1f93252641d6ce98f746cdb76dbe3827c16e9d9d65cb5aa235db0ca080a76ad7600cd195c78d733c98012be7d44274f030d0168854c6e9735a5e8aac0b66790b1a381d80e7104124f13b6a0abc7d7ef9a234b1ca7476ac869f18f66aef21f9ff6e7a30a6d3f0dd4b688f7f9d781ea2a01b1ea1ebb4818c69f4817ce5c71338b31fe2666d4569f38d116ebbf6e0fe5854beebab37fdc3902a34c43d3bf64844645f29a04733d235de5dead27a0f8c6dfcf7a98a6c2c47981a818069ac36d9253de6803fc7a4ff94723b6fd573df620798f22422c43adb146b2900bf62fdd64b53df4dfeb943195a30bedbe0a3a3f109b3a5df41500b9d8705e48703cf3e69994ca45597eccd55d221608cd3d5bfcd1c3300131dacb0ce5a686f81ba005ee6ee311bc4a5e3b4f9e9da748465d42585376f1c00d7b0dbaeb87d486107a0a5f37daf35d09ba7f0101b244d8832be1ef5e1c218ae6412219221a8cf758597faa05a340915d36f3a9a136fdc65e657cd6d30b1e53320224a2455414710dbb3b40707b20c776d64c205fe5913112fc265c48d39791f6cf33ee456944b7b8e810ce8df7f656e2b0d18944a4d16ba010904ad1e697593495b7c67900ae27af9eb02ada9d2246294793f643c621890861895d060786f8a9e386364f75622b212ec4985c1111ed6ef16ecaac61471cd1631276074597a33016921bfbb18b10ae8c456ea4fb5cd0b171a41080e2cb64e898ab1e800f2cc132d5489de208949a0e25cab50ab0ca39df620f1688b86f0ec76c15b8f87912aad0deb498e13ab744ff17c4413e355e15d3019b99aad3b32a448ddcca45d3c6e6db17a066b46c6d74a77dc07790501653dd4b5e8f02b18ef8d3ce34632d81ba2a6b3392a954c594ad90666ff383490cec6d8f7bfcd60fd427308bff63907388222ffb22bbb7958a7adcd3b28eedfa77186a04413800947dfb5863b0e7bd271a42728af73c52ae9560d14f02afe9c8cd3b64a2d4c59a3088a520871f9b54dc4e0d64e58facbce20f385865d2bce93706ad5f7e39266f218c4eeb8f3ea91ea700cca1eecea8cc50ae8bef90c797bc4d3831a7a453b678e18f39384e840b4e7476f57674351e9128fad1feab053d725f782fbdac2542e505bf91f14b1beb2f9ad30d662210c05c3a497a04f64a796e356ef295650f493ced28754f3956d4dd7892522bd4bb730a091c23663773765f0f182065a8ecfd88ca753ab20379913ac151472ea857443689aaaa99d9bca3463e3e0489a7833046fc0ddb0bd2bfc369750a1a687a496683aa95e5a13aea373d83d191ddaffd236dfb6e0ea5bdc210aa0f845e598d1d63528d8cd554d70eb58bfeb97778663399734f74f3c54e25d5bb081b003d89451a19afa196605cc78f1675a4c4e3b105ef914e1321347ec21a9081c9fc7c926c7f8fb3d84436fb5ecba114fee37c7277124d9dbb4e9b80da997e54a76dc75f6acdb627083fd8e8795fa871bba03c0a6b78e5b2b1033388090c45f958211244e374b74731e0c0b6e478fd418741ffd5edbd22a4571ade176c51bf05d89e0828800bfac8fdd70294a8fbd0394944c4d0e43b56d66d04bb1256f4858bd04bf6ad45ce061c6483607cb9834205fa31aa3dbfe0fda6977116ae91b51d59e90fe33d40646bfe400cf2cf14fdf9c88bdd1b0414f43936d4d9727e04300a046aaca87d15b190da70158b65345260c06262a9b81d2015e1855fa4893a3b37452925ab0a10885e07fc055a3542a81fc8f58890b8851b29eed6d12260bf58039e98d4c0056dbd841cc8eff5e60cb01408993400becb6d130cae31a8e6e31cf2bb56706d74afc9c1e3fe8d9d9d2fc4614b8f0b0f9b2505fd3fcc29c7f883ce3cf77e1f85ccb6275af4ea0a690545f3434ba7b79f4c6a529643951c70fe5f021ffd0d2930cd7eb90ed03046aba6ae299ff83780425cdef9ec8a023525879ff670472ebfb9f9ee756450a86cb0c14fc954febb8ef81bf02bd4c5ae56cf7b67e81e15126153bbfe1c1b46219c676028ffeb8b4b7e74f2867d5194748f4649a4f1768c1bb6b1d6771ffe555a3b11e6f464402324cf55947b9e7c0515221805f76f13b208900b01fc53a9bf8b1f38602d807a764ab2cc2e3b56846ce307d819f9ab1e29e25e03da1e08c5bed3780c0c97fddcd42f7584be29dbb8f22b6dadb7f7b6bf9966f3c21e211dfaa0e10308b79c6e1aac32ced7a10e221935d7c4dbc272ebcd7c4ccc9555b63fb49fd52d858f879a43e1bb61d18abb48756e161e882c20d5740d47244a0cccf9066f88cc18ceca01161de08a9ca8e0cb57c91fcbc6863f2c7d4665fee0ac2a9520f5cada1e9ee648672be76bc92471d3271654dbf5bacd95c3ad1fced3db90a77205a56f0cb3f3642aa5571236417921c0726100b3d4b2e705c32a54a7f4fd81454f6b7624ee44742abfd0df869512cef56c5a164e68db7af0116e1a7d9b6381bae189759ed2893a750ee3b2cecae2f9fa4131a2cdca164bd963852df00d93a655c578d5d7ec16f274a906fe6217ce583f9a9846f6113da2014681d8f39a6fbab62908b7d3e209587722fb10acdf3e37fe80ff868d42f3d3b443d1ddd9e7296c2a153b31fa1e6b91b3c304dc851a70df2d8b71f78d45e78b38dbb57c673f4740643e5e0b0594dc34de0e4148e2157adf06b4a031b3fbeabdbc6d8e4eff4b71a1af5556bc69f64aa0780c52759905b227d4ed1e91d2a16c223fe54b6c387f4cccc81220bee03aad11e06a65bf1b3d2d26eb0822156e6cb5136238cf87dfb5fa87f1f1b90ca662fd51df3c446cb086eeea0b488590fdc4e4b5bc597e8ad8750b761e9dd90ad79e323078ab9f66366dc63746693758f106baa74f8870376dcde6fe401cdd9802f5ca01d725e2f920778ae53aca54be1f7bdd8d7e8f5fb7d5da36cdae9ad6aa2deb757dc52616d66c6e38ebbfcb4b21bccb521d0a7fb20611a833e8f68a9f38e6bac36d49fff69d0c143eadd90d1d144bf3ca8aba962108b6a423369e01037d042442c36068513a3a911a00338fac0bc2fd4b9cce4402046704337480e8b8a8e84f6a0569ef3c66ef0d6d8bd7861a327fdce1171dc5d9e7cb4f4466c7aa1aa4205a3cb004fb471cf7f4c7c23ade31a8ea0110221e288fafcce737339674d53ae4386dcc3143c26b2fbf80525011bd8092e68e7a98453a2519da1b0fdfd522a32fe40c4be0a3c548ae4a49328d7378cec5a533f6dd987a7242c615393cecd9440be46ae54da79aa778e6eea771a11c916db5ddcfc501798aee1df8d034a64079ad63f0084c4f6ee64de7a82c3908b024130865658e34419471d0eff3cc4840e9f34605c72cee3281d1f4a12e29282c6d03fd069dd1cf2ce6ab9fbb947251e2f50062e63e33c194831f85fc62d13747fa8e42c74409e14044d4a94bd0293b477feecc55c3beca54aee3a53b31f57f6e45ebdb231f493acc154e187a97a112b71450eb6e95da22a15f013c2f72f238a2a7e907e5748cb977af5b3f342c0098e9373dc636ee30607071c546c73ee836a58835cef52a3ac091c2b6a16030a8a7cd2677dd870687eabbd42acb02f0fcfd66f4459b074c312b10fdc8fb161145ad31590872b61460425895b06fec00415f0247b1c1f8cd1d1c2f795c736de0982aaec2f36a06bd0c0a6d2910dc080418ba363e3d9119ac62cbd9475b585ec7c9121387c24639de112e9a77013807365d04a131efaeed554f9c25a04eb7f2e24a07c12e63cefeddc2b4c84d5d3584f55ec7100170deef65cd9379695d5652abfda8e275e604bf8c6a20b8adb20c950b9b745c034b40e9604370d16656178e32bc95b85500af496d1e3fd8d92a8dc653a4be2603071a76292bfc2a58032573ce73f5b6a7cc2cca45ddddf4b140764067bcaca4ac34896204333264d875f8bb4726a0df8ed8a0d35e19762781d0242d37b6c2da4d0358f5a4cb61d286246f32c99a16a1864f814c0b47794808f190be50f076561b5a1894d53cf0f2247ce7a383741799e67f1f8e2a10e0875f38ddc6bef155ab41a981e59f03462f87042bebe7d93a5d652349ddf95027148891a58beb3a42e0d82df63c16778ca1dd3d177144233649ad165a933bfdea439e873c", 0x1000}, 0x0, &(0x7f0000000140)}, 0xd31b, 0x40012140)
+r6 = syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x0)
+recvmsg$bt_l2cap(r6, &(0x7f0000000340)={0x0, 0x0, 0x0, 0x0, 0x0}, 0x100, 0x40000000)
+connect$bt_l2cap(r6, &(0x7f00000007c0)={0x1f, 0x0, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}, 0x5}, 0xe)
+shutdown$bt_l2cap(r6, 0x5cc0)
+bind$bt_hci(r4, &(0x7f0000000600)={0x1f, 0x1}, 0x6)
+r7 = openat$6lowpan_control(0xffffffffffffff9c, &(0x7f0000001540), 0x2, 0x0)
+ioctl$sock_bt_hci(r4, 0x400448e7, &(0x7f00000001c0)="504a5008164e75f2a25af845b85ae802bc52064c1b3c4b268378e52139a587b32765ee59a9eabf7f4ade00884405bbf045e99370d4271d21c85b8c4669a2032c9278894c20cf87e1487db12ab0c795e6cb6afbbf1c99e68c759a4bbbce49")
+accept4$bt_sco(r7, 0x0, 0x0)
+write$bt_hci(r4, &(0x7f0000000000)=ANY=[], 0x7)
+
+438.647855ms ago: executing program 1 (id=4419):
+r0 = openat$6lowpan_control(0xffffffffffffff9c, &(0x7f00000010c0), 0x2, 0x0)
+connect$bt_rfcomm(r0, 0x0, 0x0)
+r1 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+ioctl$sock_bt_hci(r1, 0x800448d7, &(0x7f0000000200)="04007c5961dd79176832d010f638800556b009bf99eeee0b56f7c1f8afb52fb0f560a6d9e6b3964c76193f08be5f13b146ff89dbe49d930d2d388281da8781e2d83a9e498a5de3192b20f4df47ce4e46ebdede0f5ed36cb07fde5e9b6e150f26cfdee8b7143e65f57256203345c89d9efebed56e7182c7165d000000000000000000421bb4b9566bd0b327fc8ac87a11dcf2ffb71f0025593c396f1f5fb4ce9427b467d744d880e5dfd07059ac4f2b0420b8b18b728f73965cf46a55daca0553b815e3fd00031a91de12e93dbe2578daf00383f4e01e6fb44666a05d5d10f0499dfae5c4647a81c5add723c19beb6ca2f094a546c90cff3eba8443fc703ed520c44eaf68d2eb000000cc3200000000000000000000000000000000000000625b6dbc5520c1a3cc3ae1e0eea3fd256a794d3df9fe29d9252689270498e1c1a1f6c7dcb3119a326e4638727cb290d0034dc4e6c1d4eaaa3338b3697aca4491e11d5929c38484cc9098125e201fc844d37633d2e044b65b5b818003bfc72b058979c6394e4dbe506dd4acdc8a29244d03536cee6ebabbf00c9e6f82e426ffc1a39e7111e75f1f88a372259a070b5f5513")
+
+357.603305ms ago: executing program 4 (id=4420):
+r0 = syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x0) (async, rerun: 64)
+r1 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6) (rerun: 64)
+ioctl$sock_bt_hidp_HIDPCONNDEL(r1, 0x8906, 0x0)
+syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1) (async, rerun: 64)
+r2 = syz_init_net_socket$bt_l2cap(0x1f, 0x5, 0x0) (async, rerun: 64)
+r3 = syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x0)
+sendmsg$bt_rfcomm(0xffffffffffffffff, &(0x7f00000000c0)={0x0, 0x5, 0x0, 0x5, 0x0, 0x6, 0x2}, 0x2, 0x0) (async)
+connect$bt_l2cap(r3, &(0x7f00000001c0)={0x1f, 0xfffc, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}}, 0xe) (async)
+sendmsg$bt_l2cap(r3, &(0x7f0000000100)={0x0, 0x2, &(0x7f0000000080)={&(0x7f0000000200)="e34ea7", 0x3}, 0x6, &(0x7f00000000c0), 0x9de0, 0x1}, 0x936, 0x8881) (async, rerun: 64)
+setsockopt$bt_BT_POWER(r2, 0x112, 0x9, 0x0, 0x0) (rerun: 64)
+setsockopt$bt_BT_POWER(r0, 0x112, 0x9, 0x0, 0x0)
+
+357.298368ms ago: executing program 1 (id=4421):
+r0 = syz_init_net_socket$bt_rfcomm(0x1f, 0x3, 0x3)
+recvmsg$bt_rfcomm(r0, &(0x7f0000000100)={0x0, 0x0, 0x0, 0x0, 0x0}, 0x40, 0x2) (async, rerun: 64)
+r1 = syz_init_net_socket$bt_l2cap(0x1f, 0x5, 0x0) (rerun: 64)
+getsockopt$bt_BT_FLUSHABLE(r1, 0x112, 0x8, 0x0, &(0x7f00000000c0)) (async)
+r2 = syz_init_net_socket$bt_l2cap(0x1f, 0x2, 0x0)
+bind$bt_l2cap(r2, &(0x7f0000000380)={0x1f, 0xd6, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}, 0x0, 0x1}, 0xe) (async)
+setsockopt$bt_BT_RCVMTU(r2, 0x112, 0xd, 0x0, 0x0) (async)
+getsockopt$bt_BT_DEFER_SETUP(r2, 0x112, 0x7, &(0x7f0000000040)=0x1, &(0x7f0000000080)=0x4) (async)
+r3 = syz_init_net_socket$bt_l2cap(0x1f, 0x2, 0x0)
+bind$bt_l2cap(r3, &(0x7f0000000380)={0x1f, 0xd6, @none, 0xffff, 0x1}, 0xe)
+setsockopt$bt_BT_RCVMTU(r3, 0x112, 0xd, 0x0, 0x0) (async)
+r4 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1) (async, rerun: 32)
+r5 = syz_init_net_socket$bt_l2cap(0x1f, 0x2, 0x0) (rerun: 32)
+getsockopt$bt_BT_FLUSHABLE(r5, 0x112, 0x8, 0xfffffffffffffffc, &(0x7f0000000740)) (async)
+bind$bt_hci(r4, &(0x7f0000000000)={0x1f, 0x3, 0x3}, 0x6)
+
+286.165931ms ago: executing program 7 (id=4422):
+r0 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+ioctl$sock_bt_hidp_HIDPCONNDEL(r0, 0x5450, 0x0)
+syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+
+230.035114ms ago: executing program 6 (id=4423):
+syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6) (async)
+r0 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+ioctl$sock_bt_hidp_HIDPCONNDEL(r0, 0x8940, 0x0)
+
+229.85434ms ago: executing program 7 (id=4424):
+r0 = syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x0)
+setsockopt$bt_l2cap_L2CAP_OPTIONS(r0, 0x6, 0x1, &(0x7f0000000000)={0x4000, 0x0, 0x5, 0x4, 0x40, 0x8, 0x6}, 0xc)
+connect$bt_l2cap(r0, &(0x7f00000001c0)={0x1f, 0xf7fc, @none, 0xfa, 0x2}, 0xe)
+sendmsg$bt_l2cap(r0, &(0x7f0000000100)={0x0, 0x2, &(0x7f0000000080)={&(0x7f0000000200)="e3", 0x1}, 0x6, &(0x7f00000000c0), 0x9ddd, 0x1}, 0x936, 0x8881)
+shutdown$bt_l2cap(r0, 0x6)
+r1 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+bind$bt_hci(r1, &(0x7f0000000240)={0x1f, 0xffffffffffffffff, 0x2}, 0x6)
+recvmsg$bt_sco(r1, &(0x7f0000000940)={0x0, 0x0, 0x0, 0x0, 0x0}, 0x4, 0x2)
+syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x0) (async)
+setsockopt$bt_l2cap_L2CAP_OPTIONS(r0, 0x6, 0x1, &(0x7f0000000000)={0x4000, 0x0, 0x5, 0x4, 0x40, 0x8, 0x6}, 0xc) (async)
+connect$bt_l2cap(r0, &(0x7f00000001c0)={0x1f, 0xf7fc, @none, 0xfa, 0x2}, 0xe) (async)
+sendmsg$bt_l2cap(r0, &(0x7f0000000100)={0x0, 0x2, &(0x7f0000000080)={&(0x7f0000000200)="e3", 0x1}, 0x6, &(0x7f00000000c0), 0x9ddd, 0x1}, 0x936, 0x8881) (async)
+shutdown$bt_l2cap(r0, 0x6) (async)
+syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1) (async)
+bind$bt_hci(r1, &(0x7f0000000240)={0x1f, 0xffffffffffffffff, 0x2}, 0x6) (async)
+recvmsg$bt_sco(r1, &(0x7f0000000940)={0x0, 0x0, 0x0, 0x0, 0x0}, 0x4, 0x2) (async)
+
+229.026514ms ago: executing program 1 (id=4425):
+r0 = syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x0)
+connect$bt_l2cap(r0, &(0x7f00000001c0)={0x1f, 0xfffc, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}}, 0xe) (async)
+r1 = syz_init_net_socket$bt_rfcomm(0x1f, 0x3, 0x3)
+bind$bt_rfcomm(r1, &(0x7f0000000400)={0x1f, @none, 0x4}, 0xa) (async)
+sendmsg$bt_l2cap(r0, &(0x7f0000000100)={&(0x7f0000000000), 0x2, &(0x7f0000000080)={&(0x7f0000000200)="e34ea727536693", 0x7}, 0x6, &(0x7f00000000c0), 0x9ddd, 0x1}, 0x936, 0x8881)
+
+147.317611ms ago: executing program 4 (id=4426):
+r0 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+r1 = syz_init_net_socket$bt_l2cap(0x1f, 0x2, 0x0)
+getsockopt$bt_BT_POWER(r1, 0x112, 0x9, 0x0, &(0x7f0000001980))
+sendmsg$bt_sco(r0, &(0x7f0000000100)={&(0x7f0000000000), 0x8, &(0x7f0000000080)={&(0x7f0000000040)="b0841728c41f13", 0x7}, 0x0, &(0x7f00000000c0), 0x5, 0x136}, 0x8d)
+r2 = syz_init_net_socket$bt_rfcomm(0x1f, 0x1, 0x3)
+shutdown$bt_sco(r0, 0x0)
+r3 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+sendmsg$bt_sco(r3, &(0x7f0000002940)={0x0, 0x7fffffff, &(0x7f00000028c0)={0x0}, 0x27d, 0x0, 0x8020000007fd, 0x5c7c}, 0x8dd)
+bind$bt_rfcomm(r2, &(0x7f0000001600)={0x1f, @none}, 0xa)
+r4 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+ioctl$sock_bt_hidp_HIDPCONNDEL(r4, 0x8982, &(0x7f0000001cc0)={@fixed={'\xaa\xaa\xaa\xaa\xaa', 0x12}, 0x8})
+r5 = accept$bt_rfcomm(r2, &(0x7f0000000000), &(0x7f00000000c0)={0x4, 0x4cc4, 0x2, 0x1})
+listen$bt_rfcomm(r5, 0x0)
+r6 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+ioctl$HCIINQUIRY(r6, 0x800448f0, 0x0)
+accept4$bt_sco(r0, 0x0, 0x0)
+
+147.185092ms ago: executing program 6 (id=4427):
+r0 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+ioctl$sock_bt_hidp_HIDPCONNDEL(r0, 0x8982, &(0x7f0000001cc0)={@none, 0x8})
+r1 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+r2 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+ioctl$sock_bt_hci(r2, 0x400448e1, &(0x7f0000000140)="8699f0b8")
+r3 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+ioctl$sock_bt_hidp_HIDPCONNDEL(r3, 0x8912, 0x0)
+ioctl$sock_bt_hidp_HIDPCONNDEL(r1, 0x89a1, &(0x7f0000000040)={@none, 0x8})
+r4 = syz_init_net_socket$bt_l2cap(0x1f, 0x1, 0x0)
+shutdown$bt_l2cap(r4, 0x0)
+r5 = syz_init_net_socket$bt_rfcomm(0x1f, 0x3, 0x3)
+accept$bt_rfcomm(r5, 0x0, 0x0)
+r6 = syz_init_net_socket$bt_l2cap(0x1f, 0x2, 0x0)
+r7 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+r8 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+write$bt_hci(r8, &(0x7f0000001500)={0x1, @le_write_def_data_len={{0x2024, 0x4}, {0x1, 0xffff}}}, 0x8)
+r9 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+ioctl$sock_bt_hci(r9, 0x89ff, 0x0)
+syz_init_net_socket$bt_rfcomm(0x1f, 0x3, 0x3)
+ioctl$sock_bt_hidp_HIDPCONNDEL(r7, 0x89a1, &(0x7f0000000040)={@fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}, 0xfffffff9})
+r10 = syz_init_net_socket$bt_bnep(0x1f, 0x3, 0x4)
+ioctl$sock_bt_bnep_BNEPCONNADD(r10, 0x400442c8, &(0x7f00000005c0)={0xffffffffffffffff, 0xce, 0x18})
+sendmsg$bt_l2cap(r6, 0x0, 0xc3, 0x1400c001)
+r11 = syz_init_net_socket$bt_l2cap(0x1f, 0x5, 0x0)
+r12 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+r13 = syz_init_net_socket$bt_l2cap(0x1f, 0x2, 0x0)
+bind$bt_l2cap(r13, &(0x7f0000001680)={0x1f, 0x4b, @none, 0x0, 0x1}, 0xe)
+ioctl$sock_bt_hidp_HIDPCONNADD(r12, 0x400448c8, &(0x7f0000000080)={r13, r11, 0x6, 0x0, 0x0, 0x8, 0x4, 0x7, 0x8001, 0x1ff, 0x0, 0x4, 'syz0\x00'})
+bind$bt_l2cap(r11, &(0x7f0000000000)={0x1f, 0x4c81, @none, 0x7f, 0x1}, 0xe)
+
+147.004186ms ago: executing program 7 (id=4428):
+r0 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+bind$bt_hci(r0, &(0x7f0000000600)={0x1f, 0x1}, 0x6)
+write$bt_hci(r0, &(0x7f0000000100)=ANY=[@ANYRES16=r0, @ANYRES8=r0, @ANYRESOCT=r0], 0x8)
+connect$bt_sco(0xffffffffffffffff, &(0x7f00000000c0)={0x1f, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x12}}, 0x8)
+r1 = syz_init_net_socket$bt_rfcomm(0x1f, 0x3, 0x3)
+ioctl$sock_bt_hci(r1, 0x5411, 0x0)
+r2 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+ioctl$sock_bt_hci(r2, 0x400448dd, &(0x7f0000000000)="b265ea8bab358083ba56300ed9b060d3935b0f74fdd7b316fd5fc561eda91e717e8f2515fa4da0e6c1a6fc7846992dc8214a53580789129191cf261d11e01c5026f24a4c0e9b2a0fc9f2bd83faf5c446bf3a0b2d298b75dfedd6bc747ddf7d8cf7f375ccd984a2706ddb506b800e18e65cde1f5c7909a136db24afa603b317351929c99711335bda57ca017c561b95ceac16a8b3ed7363d506610a")
+r3 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+bind$bt_hci(r3, &(0x7f0000000240)={0x1f, 0xffffffffffffffff}, 0x6)
+r4 = syz_init_net_socket$bt_l2cap(0x1f, 0x1, 0x0)
+bind$bt_l2cap(r4, &(0x7f0000000380)={0x1f, 0xd6, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}, 0x0, 0x1}, 0xe)
+connect$bt_l2cap(r4, &(0x7f0000000000)={0x1f, 0x3, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}}, 0xe)
+r5 = syz_init_net_socket$bt_bnep(0x1f, 0x3, 0x4)
+ioctl$sock_bt_bnep_BNEPCONNADD(r5, 0x400442c8, &(0x7f0000000140)={r4, 0x5b, 0x0, "110aff1fbc72242baa568704"})
+r6 = syz_init_net_socket$bt_l2cap(0x1f, 0x2, 0x0)
+bind$bt_l2cap(r6, &(0x7f0000000380)={0x1f, 0xd6, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}, 0x0, 0x1}, 0xe)
+setsockopt$bt_BT_RCVMTU(r6, 0x112, 0xd, 0x0, 0x0)
+write$bt_hci(r3, 0x0, 0x8)
+r7 = syz_init_net_socket$bt_l2cap(0x1f, 0x5, 0x0)
+setsockopt$bt_BT_POWER(r7, 0x112, 0x9, 0x0, 0x0)
+openat$6lowpan_control(0xffffffffffffff9c, &(0x7f0000000000), 0x2, 0x0)
+write$bt_hci(0xffffffffffffffff, 0x0, 0x0)
+
+71.514223ms ago: executing program 1 (id=4429):
+sendmsg$bt_l2cap(0xffffffffffffffff, 0x0, 0xfffffff7, 0x0)
+r0 = openat$6lowpan_control(0xffffffffffffff9c, &(0x7f0000000c80), 0x2, 0x0)
+syz_init_net_socket$bt_l2cap(0x1f, 0x1, 0x0) (async)
+r1 = syz_init_net_socket$bt_l2cap(0x1f, 0x1, 0x0)
+getsockopt$bt_BT_POWER(r1, 0x112, 0x9, 0x0, &(0x7f0000000640))
+write$6lowpan_control(r0, &(0x7f0000000cc0)='connect aa:aa:aa:aa:aa:11 1', 0x1b)
+
+71.306578ms ago: executing program 0 (id=4430):
+r0 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+r1 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+write$6lowpan_enable(r1, 0x0, 0x0) (async)
+r2 = syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x0)
+connect$bt_l2cap(r2, &(0x7f00000007c0)={0x1f, 0x0, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}, 0x6}, 0xc) (async)
+sendmsg$bt_l2cap(r2, &(0x7f0000000140)={0x0, 0x6, &(0x7f00000000c0)={0x0}, 0x3, &(0x7f0000000100), 0x453, 0x3}, 0xee, 0x4)
+r3 = syz_init_net_socket$bt_rfcomm(0x1f, 0x1, 0x3)
+connect$bt_rfcomm(r3, &(0x7f0000000180)={0x1f, @any, 0x3}, 0xa)
+ioctl$sock_bt_hidp_HIDPCONNDEL(r0, 0x401c5820, 0x0)
+r4 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1) (async)
+r5 = accept4$bt_l2cap(0xffffffffffffffff, &(0x7f0000000000)={0x1f, 0x0, @none}, &(0x7f0000000040)=0xe, 0x800)
+accept4$bt_l2cap(r5, 0x0, &(0x7f0000000080), 0xc0000) (async)
+ioctl$sock_bt_hci(r4, 0x400448cc, &(0x7f0000000200)="37500ac64ea1d7bd223b210d279911b79054951246e1a5e1cdf1cf4be3936c6c1e06b241cce7ebc92c06739a153df26a62d3bfaba31d5c14624cd806b188efda59907a027a30cd9d45856e0f65fd5799260da1347ae667b063b5d20d8a8a1cebc0a6804684a9a079f1be6f5596")
+recvmsg$bt_l2cap(r5, &(0x7f00000001c0)={0x0, 0x0, 0x0, 0x0, 0x0}, 0xfc, 0x10100) (async)
+syz_init_net_socket$bt_l2cap(0x1f, 0x5, 0x0)
+
+254.582Âµs ago: executing program 1 (id=4431):
+r0 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+r1 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+sendmsg$bt_sco(r1, &(0x7f0000000140)={0x0, 0x1, &(0x7f00000000c0)={0x0}, 0x9, 0x0, 0xfff, 0x3}, 0x757e)
+r2 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+r3 = accept4$bt_sco(r1, &(0x7f00000001c0), &(0x7f0000000240))
+listen$bt_sco(r3, 0x0)
+r4 = syz_init_net_socket$bt_l2cap(0x1f, 0x1, 0x0)
+bind$bt_l2cap(r4, &(0x7f00000003c0)={0x1f, 0x0, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x12}, 0x10, 0x1}, 0xe)
+write$bt_hci(r2, &(0x7f0000000200)=ANY=[@ANYRES16=r1], 0x8)
+listen$bt_sco(r0, 0x0)
+r5 = syz_init_net_socket$bt_bnep(0x1f, 0x3, 0x4)
+ioctl$sock_bt_bnep_BNEPCONNDEL(r5, 0x400442c9, &(0x7f0000000100)={0x0, @local})
+r6 = accept4$bt_l2cap(0xffffffffffffffff, &(0x7f0000000000), &(0x7f0000000040)=0xe, 0x800)
+getsockopt$bt_l2cap_L2CAP_LM(r6, 0x6, 0x3, &(0x7f0000000080), &(0x7f00000000c0)=0x4)
+r7 = accept4$bt_sco(r1, &(0x7f0000000280), &(0x7f00000002c0))
+getsockopt$bt_sco_SCO_OPTIONS(r7, 0x11, 0x1, 0x0, &(0x7f0000000380)=0x52)
+getsockopt$bt_BT_FLUSHABLE(r6, 0x112, 0x8, &(0x7f0000000140), &(0x7f0000000180)=0x4)
+
+0s ago: executing program 7 (id=4432):
+syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x0) (async)
+r0 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+ioctl$sock_bt_hidp_HIDPGETCONNLIST(r0, 0x800448d2, &(0x7f0000000380)={0x6, &(0x7f0000000000)=[{@fixed}, {@fixed}, {@fixed}, {@none}, {}, {@fixed}]})
+
+kernel console output (not intermixed with test programs):
+
+Warning: Permanently added '[localhost]:9741' (ED25519) to the list of known hosts.
+syzkaller login: [   57.910325][ T9395] cgroup: Unknown subsys name 'net'
+[   58.027959][ T9395] cgroup: Unknown subsys name 'cpuset'
+[   58.034877][ T9395] cgroup: Unknown subsys name 'rlimit'
+Setting up swapspace version 1, size = 122.1 MiB (127995904 bytes)
+no label, UUID=9c10821a-cdb4-4055-b535-5626fcc96d4e
+[   60.341102][ T9395] Adding 124996k swap on ./swap-file.  Priority:0 extents:1 across:124996k 
+[   66.597113][   T57] Bluetooth: hci0: unexpected cc 0x0c03 length: 249 > 1
+[   66.611180][ T9427] Bluetooth: hci0: unexpected cc 0x1003 length: 249 > 9
+[   66.615067][ T9427] Bluetooth: hci0: unexpected cc 0x1001 length: 249 > 9
+[   66.636307][ T9427] Bluetooth: hci0: unexpected cc 0x0c23 length: 249 > 4
+[   66.638184][ T9434] Bluetooth: hci1: unexpected cc 0x0c03 length: 249 > 1
+[   66.643978][ T9434] Bluetooth: hci1: unexpected cc 0x1003 length: 249 > 9
+[   66.697195][ T9439] Bluetooth: hci0: unexpected cc 0x0c25 length: 249 > 3
+[   66.701187][ T9439] Bluetooth: hci0: unexpected cc 0x0c38 length: 249 > 2
+[   66.702696][ T9439] Bluetooth: hci1: unexpected cc 0x1001 length: 249 > 9
+[   66.707523][ T9439] Bluetooth: hci1: unexpected cc 0x0c23 length: 249 > 4
+[   66.708489][ T9439] Bluetooth: hci1: unexpected cc 0x0c25 length: 249 > 3
+[   66.709240][ T9439] Bluetooth: hci1: unexpected cc 0x0c38 length: 249 > 2
+[   66.714165][ T9439] Bluetooth: hci2: unexpected cc 0x0c03 length: 249 > 1
+[   66.745761][ T9439] Bluetooth: hci2: unexpected cc 0x1003 length: 249 > 9
+[   66.756717][   T57] Bluetooth: hci2: unexpected cc 0x1001 length: 249 > 9
+[   66.862253][   T57] Bluetooth: hci2: unexpected cc 0x0c23 length: 249 > 4
+[   66.872850][   T57] Bluetooth: hci2: unexpected cc 0x0c25 length: 249 > 3
+[   66.875708][   T57] Bluetooth: hci2: unexpected cc 0x0c38 length: 249 > 2
+[   66.919859][ T5162] Bluetooth: hci5: unexpected cc 0x0c03 length: 249 > 1
+[   66.923062][ T5162] Bluetooth: hci4: unexpected cc 0x0c03 length: 249 > 1
+[   66.924902][ T5162] Bluetooth: hci5: unexpected cc 0x1003 length: 249 > 9
+[   66.926062][ T5162] Bluetooth: hci4: unexpected cc 0x1003 length: 249 > 9
+[   66.926901][ T5162] Bluetooth: hci5: unexpected cc 0x1001 length: 249 > 9
+[   66.928442][ T5162] Bluetooth: hci4: unexpected cc 0x1001 length: 249 > 9
+[   66.930292][ T5162] Bluetooth: hci5: unexpected cc 0x0c23 length: 249 > 4
+[   66.934699][ T9434] Bluetooth: hci4: unexpected cc 0x0c23 length: 249 > 4
+[   66.939381][ T5162] Bluetooth: hci5: unexpected cc 0x0c25 length: 249 > 3
+[   66.941059][ T5162] Bluetooth: hci5: unexpected cc 0x0c38 length: 249 > 2
+[   66.945022][ T9427] Bluetooth: hci3: unexpected cc 0x0c03 length: 249 > 1
+[   66.949243][ T9434] Bluetooth: hci4: unexpected cc 0x0c25 length: 249 > 3
+[   66.951972][ T9434] Bluetooth: hci3: unexpected cc 0x1003 length: 249 > 9
+[   66.953494][ T9434] Bluetooth: hci4: unexpected cc 0x0c38 length: 249 > 2
+[   66.962014][ T5162] Bluetooth: hci3: unexpected cc 0x1001 length: 249 > 9
+[   66.992033][ T5162] Bluetooth: hci3: unexpected cc 0x0c23 length: 249 > 4
+[   66.993622][ T5162] Bluetooth: hci3: unexpected cc 0x0c25 length: 249 > 3
+[   66.995137][ T5162] Bluetooth: hci3: unexpected cc 0x0c38 length: 249 > 2
+[   67.121259][ T9439] Bluetooth: hci6: unexpected cc 0x0c03 length: 249 > 1
+[   67.122792][ T9439] Bluetooth: hci6: unexpected cc 0x1003 length: 249 > 9
+[   67.123703][ T9439] Bluetooth: hci6: unexpected cc 0x1001 length: 249 > 9
+[   67.124982][ T9439] Bluetooth: hci6: unexpected cc 0x0c23 length: 249 > 4
+[   67.126211][ T9439] Bluetooth: hci6: unexpected cc 0x0c25 length: 249 > 3
+[   67.127093][ T9439] Bluetooth: hci6: unexpected cc 0x0c38 length: 249 > 2
+[   67.265725][ T9439] Bluetooth: hci7: unexpected cc 0x0c03 length: 249 > 1
+[   67.270326][ T9439] Bluetooth: hci7: unexpected cc 0x1003 length: 249 > 9
+[   67.271389][ T9439] Bluetooth: hci7: unexpected cc 0x1001 length: 249 > 9
+[   67.278492][ T9439] Bluetooth: hci7: unexpected cc 0x0c23 length: 249 > 4
+[   67.279415][ T9439] Bluetooth: hci7: unexpected cc 0x0c25 length: 249 > 3
+[   67.283845][ T9439] Bluetooth: hci7: unexpected cc 0x0c38 length: 249 > 2
+[   68.063234][ T9447] chnl_net:caif_netlink_parms(): no params data found
+[   68.137941][ T9443] chnl_net:caif_netlink_parms(): no params data found
+[   68.165421][ T9465] chnl_net:caif_netlink_parms(): no params data found
+[   68.180013][ T9444] chnl_net:caif_netlink_parms(): no params data found
+[   68.289256][ T9430] chnl_net:caif_netlink_parms(): no params data found
+[   68.297227][ T9431] chnl_net:caif_netlink_parms(): no params data found
+[   68.454869][ T9424] chnl_net:caif_netlink_parms(): no params data found
+[   68.631567][ T9447] bridge0: port 1(bridge_slave_0) entered blocking state
+[   68.632362][ T9447] bridge0: port 1(bridge_slave_0) entered disabled state
+[   68.633128][ T9447] bridge_slave_0: entered allmulticast mode
+[   68.634248][ T9447] bridge_slave_0: entered promiscuous mode
+[   68.686437][ T9443] bridge0: port 1(bridge_slave_0) entered blocking state
+[   68.687679][ T9443] bridge0: port 1(bridge_slave_0) entered disabled state
+[   68.688394][ T9443] bridge_slave_0: entered allmulticast mode
+[   68.699616][ T9443] bridge_slave_0: entered promiscuous mode
+[   68.790093][ T9447] bridge0: port 2(bridge_slave_1) entered blocking state
+[   68.790782][ T9447] bridge0: port 2(bridge_slave_1) entered disabled state
+[   68.791436][ T9447] bridge_slave_1: entered allmulticast mode
+[   68.795435][ T9447] bridge_slave_1: entered promiscuous mode
+[   68.827006][ T9439] Bluetooth: hci0: command tx timeout
+[   68.827830][ T9443] bridge0: port 2(bridge_slave_1) entered blocking state
+[   68.828579][ T9443] bridge0: port 2(bridge_slave_1) entered disabled state
+[   68.829189][ T9443] bridge_slave_1: entered allmulticast mode
+[   68.830274][ T9443] bridge_slave_1: entered promiscuous mode
+[   68.840940][ T9465] bridge0: port 1(bridge_slave_0) entered blocking state
+[   68.841529][ T9465] bridge0: port 1(bridge_slave_0) entered disabled state
+[   68.870048][ T9465] bridge_slave_0: entered allmulticast mode
+[   68.871238][ T9465] bridge_slave_0: entered promiscuous mode
+[   68.872864][ T9465] bridge0: port 2(bridge_slave_1) entered blocking state
+[   68.873529][ T9465] bridge0: port 2(bridge_slave_1) entered disabled state
+[   68.874228][ T9465] bridge_slave_1: entered allmulticast mode
+[   68.875311][ T9465] bridge_slave_1: entered promiscuous mode
+[   68.894937][ T9439] Bluetooth: hci2: command tx timeout
+[   68.921327][ T9505] chnl_net:caif_netlink_parms(): no params data found
+[   68.972928][ T9439] Bluetooth: hci1: command tx timeout
+[   69.020380][ T9443] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[   69.026882][ T9443] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[   69.054433][ T9465] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[   69.056726][ T9465] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[   69.067027][   T57] Bluetooth: hci3: command tx timeout
+[   69.067845][   T57] Bluetooth: hci4: command tx timeout
+[   69.099676][ T9439] Bluetooth: hci5: command tx timeout
+[   69.200569][ T9430] bridge0: port 1(bridge_slave_0) entered blocking state
+[   69.201283][ T9430] bridge0: port 1(bridge_slave_0) entered disabled state
+[   69.208882][ T9430] bridge_slave_0: entered allmulticast mode
+[   69.210118][ T9430] bridge_slave_0: entered promiscuous mode
+[   69.231643][ T9439] Bluetooth: hci6: command tx timeout
+[   69.269621][ T9447] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[   69.307582][ T9439] Bluetooth: hci7: command tx timeout
+[   69.391096][ T9465] team0: Port device team_slave_0 added
+[   69.394730][ T9444] bridge0: port 1(bridge_slave_0) entered blocking state
+[   69.395410][ T9444] bridge0: port 1(bridge_slave_0) entered disabled state
+[   69.396148][ T9444] bridge_slave_0: entered allmulticast mode
+[   69.400393][ T9444] bridge_slave_0: entered promiscuous mode
+[   69.477310][ T9444] bridge0: port 2(bridge_slave_1) entered blocking state
+[   69.478000][ T9444] bridge0: port 2(bridge_slave_1) entered disabled state
+[   69.481778][ T9444] bridge_slave_1: entered allmulticast mode
+[   69.483674][ T9444] bridge_slave_1: entered promiscuous mode
+[   69.501725][ T9430] bridge0: port 2(bridge_slave_1) entered blocking state
+[   69.502916][ T9430] bridge0: port 2(bridge_slave_1) entered disabled state
+[   69.503663][ T9430] bridge_slave_1: entered allmulticast mode
+[   69.507902][ T9430] bridge_slave_1: entered promiscuous mode
+[   69.559825][ T9447] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[   69.564039][ T9443] team0: Port device team_slave_0 added
+[   69.569292][ T9465] team0: Port device team_slave_1 added
+[   69.668265][ T9430] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[   69.675993][ T9431] bridge0: port 1(bridge_slave_0) entered blocking state
+[   69.676953][ T9431] bridge0: port 1(bridge_slave_0) entered disabled state
+[   69.677693][ T9431] bridge_slave_0: entered allmulticast mode
+[   69.678797][ T9431] bridge_slave_0: entered promiscuous mode
+[   69.680452][ T9431] bridge0: port 2(bridge_slave_1) entered blocking state
+[   69.681058][ T9431] bridge0: port 2(bridge_slave_1) entered disabled state
+[   69.686266][ T9431] bridge_slave_1: entered allmulticast mode
+[   69.690859][ T9431] bridge_slave_1: entered promiscuous mode
+[   69.752743][ T9443] team0: Port device team_slave_1 added
+[   69.778871][ T9444] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[   69.883755][ T9430] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[   69.935342][ T9424] bridge0: port 1(bridge_slave_0) entered blocking state
+[   69.936017][ T9424] bridge0: port 1(bridge_slave_0) entered disabled state
+[   69.936734][ T9424] bridge_slave_0: entered allmulticast mode
+[   69.937902][ T9424] bridge_slave_0: entered promiscuous mode
+[   69.945336][ T9447] team0: Port device team_slave_0 added
+[   69.957392][ T9444] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[   69.969963][ T9465] batman_adv: batadv0: Adding interface: batadv_slave_0
+[   69.970565][ T9465] batman_adv: batadv0: The MTU of interface batadv_slave_0 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[   69.973472][ T9465] batman_adv: batadv0: Not using interface batadv_slave_0 (retrying later): interface not active
+[   69.976046][ T9465] batman_adv: batadv0: Adding interface: batadv_slave_1
+[   69.976604][ T9465] batman_adv: batadv0: The MTU of interface batadv_slave_1 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[   69.978426][ T9465] batman_adv: batadv0: Not using interface batadv_slave_1 (retrying later): interface not active
+[   69.998196][ T9505] bridge0: port 1(bridge_slave_0) entered blocking state
+[   69.999554][ T9505] bridge0: port 1(bridge_slave_0) entered disabled state
+[   70.000974][ T9505] bridge_slave_0: entered allmulticast mode
+[   70.004679][ T9505] bridge_slave_0: entered promiscuous mode
+[   70.007209][ T9505] bridge0: port 2(bridge_slave_1) entered blocking state
+[   70.008171][ T9505] bridge0: port 2(bridge_slave_1) entered disabled state
+[   70.008790][ T9505] bridge_slave_1: entered allmulticast mode
+[   70.009836][ T9505] bridge_slave_1: entered promiscuous mode
+[   70.036691][ T9431] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[   70.038985][ T9431] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[   70.040604][ T9424] bridge0: port 2(bridge_slave_1) entered blocking state
+[   70.041251][ T9424] bridge0: port 2(bridge_slave_1) entered disabled state
+[   70.043131][ T9424] bridge_slave_1: entered allmulticast mode
+[   70.044865][ T9424] bridge_slave_1: entered promiscuous mode
+[   70.056426][ T9447] team0: Port device team_slave_1 added
+[   70.078479][ T9443] batman_adv: batadv0: Adding interface: batadv_slave_0
+[   70.079099][ T9443] batman_adv: batadv0: The MTU of interface batadv_slave_0 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[   70.084288][ T9443] batman_adv: batadv0: Not using interface batadv_slave_0 (retrying later): interface not active
+[   70.127081][ T9444] team0: Port device team_slave_0 added
+[   70.129284][ T9444] team0: Port device team_slave_1 added
+[   70.209183][ T9505] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[   70.219130][ T9430] team0: Port device team_slave_0 added
+[   70.282665][ T9447] batman_adv: batadv0: Adding interface: batadv_slave_0
+[   70.283317][ T9447] batman_adv: batadv0: The MTU of interface batadv_slave_0 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[   70.285144][ T9447] batman_adv: batadv0: Not using interface batadv_slave_0 (retrying later): interface not active
+[   70.287019][ T9443] batman_adv: batadv0: Adding interface: batadv_slave_1
+[   70.287659][ T9443] batman_adv: batadv0: The MTU of interface batadv_slave_1 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[   70.289828][ T9443] batman_adv: batadv0: Not using interface batadv_slave_1 (retrying later): interface not active
+[   70.330085][ T9444] batman_adv: batadv0: Adding interface: batadv_slave_0
+[   70.331320][ T9444] batman_adv: batadv0: The MTU of interface batadv_slave_0 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[   70.339419][ T9444] batman_adv: batadv0: Not using interface batadv_slave_0 (retrying later): interface not active
+[   70.365609][ T9505] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[   70.385386][ T9430] team0: Port device team_slave_1 added
+[   70.387711][ T9431] team0: Port device team_slave_0 added
+[   70.390359][ T9424] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[   70.398869][ T9424] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[   70.400508][ T9447] batman_adv: batadv0: Adding interface: batadv_slave_1
+[   70.401130][ T9447] batman_adv: batadv0: The MTU of interface batadv_slave_1 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[   70.406775][ T9447] batman_adv: batadv0: Not using interface batadv_slave_1 (retrying later): interface not active
+[   70.418027][ T9444] batman_adv: batadv0: Adding interface: batadv_slave_1
+[   70.418659][ T9444] batman_adv: batadv0: The MTU of interface batadv_slave_1 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[   70.422878][ T9444] batman_adv: batadv0: Not using interface batadv_slave_1 (retrying later): interface not active
+[   70.454867][ T9505] team0: Port device team_slave_0 added
+[   70.458149][ T9505] team0: Port device team_slave_1 added
+[   70.564034][ T9431] team0: Port device team_slave_1 added
+[   70.704453][ T9465] hsr_slave_0: entered promiscuous mode
+[   70.706233][ T9465] hsr_slave_1: entered promiscuous mode
+[   70.759672][ T9430] batman_adv: batadv0: Adding interface: batadv_slave_0
+[   70.760869][ T9430] batman_adv: batadv0: The MTU of interface batadv_slave_0 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[   70.772316][ T9430] batman_adv: batadv0: Not using interface batadv_slave_0 (retrying later): interface not active
+[   70.782123][ T9430] batman_adv: batadv0: Adding interface: batadv_slave_1
+[   70.782692][ T9430] batman_adv: batadv0: The MTU of interface batadv_slave_1 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[   70.784447][ T9430] batman_adv: batadv0: Not using interface batadv_slave_1 (retrying later): interface not active
+[   70.803215][ T9431] batman_adv: batadv0: Adding interface: batadv_slave_0
+[   70.804584][ T9431] batman_adv: batadv0: The MTU of interface batadv_slave_0 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[   70.806681][ T9431] batman_adv: batadv0: Not using interface batadv_slave_0 (retrying later): interface not active
+[   70.808561][ T9431] batman_adv: batadv0: Adding interface: batadv_slave_1
+[   70.809897][ T9431] batman_adv: batadv0: The MTU of interface batadv_slave_1 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[   70.819068][ T9431] batman_adv: batadv0: Not using interface batadv_slave_1 (retrying later): interface not active
+[   70.823683][ T9424] team0: Port device team_slave_0 added
+[   70.833976][ T9424] team0: Port device team_slave_1 added
+[   70.877740][ T9444] hsr_slave_0: entered promiscuous mode
+[   70.879385][ T9444] hsr_slave_1: entered promiscuous mode
+[   70.880392][ T9444] debugfs: Directory 'hsr0' with parent 'hsr' already present!
+[   70.881135][ T9444] Cannot create hsr debugfs directory
+[   70.888218][ T9505] batman_adv: batadv0: Adding interface: batadv_slave_0
+[   70.892490][ T9439] Bluetooth: hci0: command tx timeout
+[   70.895161][ T9505] batman_adv: batadv0: The MTU of interface batadv_slave_0 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[   70.899281][ T9505] batman_adv: batadv0: Not using interface batadv_slave_0 (retrying later): interface not active
+[   70.930438][ T9424] batman_adv: batadv0: Adding interface: batadv_slave_0
+[   70.931590][ T9424] batman_adv: batadv0: The MTU of interface batadv_slave_0 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[   70.936024][ T9424] batman_adv: batadv0: Not using interface batadv_slave_0 (retrying later): interface not active
+[   70.941257][ T9447] hsr_slave_0: entered promiscuous mode
+[   70.948269][ T9447] hsr_slave_1: entered promiscuous mode
+[   70.949060][ T9447] debugfs: Directory 'hsr0' with parent 'hsr' already present!
+[   70.950248][ T9447] Cannot create hsr debugfs directory
+[   70.956478][ T9443] hsr_slave_0: entered promiscuous mode
+[   70.957555][ T9443] hsr_slave_1: entered promiscuous mode
+[   70.958987][ T9443] debugfs: Directory 'hsr0' with parent 'hsr' already present!
+[   70.960443][ T9443] Cannot create hsr debugfs directory
+[   70.972844][ T9439] Bluetooth: hci2: command tx timeout
+[   70.986964][ T9505] batman_adv: batadv0: Adding interface: batadv_slave_1
+[   70.987783][ T9505] batman_adv: batadv0: The MTU of interface batadv_slave_1 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[   70.989678][ T9505] batman_adv: batadv0: Not using interface batadv_slave_1 (retrying later): interface not active
+[   71.032679][ T9424] batman_adv: batadv0: Adding interface: batadv_slave_1
+[   71.033316][ T9424] batman_adv: batadv0: The MTU of interface batadv_slave_1 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[   71.040594][ T9424] batman_adv: batadv0: Not using interface batadv_slave_1 (retrying later): interface not active
+[   71.065504][ T9439] Bluetooth: hci1: command tx timeout
+[   71.131930][ T9439] Bluetooth: hci5: command tx timeout
+[   71.135119][ T5162] Bluetooth: hci3: command tx timeout
+[   71.135970][ T9439] Bluetooth: hci4: command tx timeout
+[   71.185138][ T9430] hsr_slave_0: entered promiscuous mode
+[   71.186074][ T9430] hsr_slave_1: entered promiscuous mode
+[   71.186723][ T9430] debugfs: Directory 'hsr0' with parent 'hsr' already present!
+[   71.187263][ T9430] Cannot create hsr debugfs directory
+[   71.292104][ T9439] Bluetooth: hci6: command tx timeout
+[   71.375662][ T9439] Bluetooth: hci7: command tx timeout
+[   71.427793][ T9505] hsr_slave_0: entered promiscuous mode
+[   71.428745][ T9505] hsr_slave_1: entered promiscuous mode
+[   71.435268][ T9505] debugfs: Directory 'hsr0' with parent 'hsr' already present!
+[   71.435928][ T9505] Cannot create hsr debugfs directory
+[   71.465211][ T9431] hsr_slave_0: entered promiscuous mode
+[   71.466910][ T9431] hsr_slave_1: entered promiscuous mode
+[   71.468431][ T9431] debugfs: Directory 'hsr0' with parent 'hsr' already present!
+[   71.469285][ T9431] Cannot create hsr debugfs directory
+[   71.576662][ T9424] hsr_slave_0: entered promiscuous mode
+[   71.577546][ T9424] hsr_slave_1: entered promiscuous mode
+[   71.578216][ T9424] debugfs: Directory 'hsr0' with parent 'hsr' already present!
+[   71.578828][ T9424] Cannot create hsr debugfs directory
+[   72.331153][ T9444] netdevsim netdevsim3 netdevsim0: renamed from eth0
+[   72.343705][ T9444] netdevsim netdevsim3 netdevsim1: renamed from eth1
+[   72.358081][ T9444] netdevsim netdevsim3 netdevsim2: renamed from eth2
+[   72.414593][ T9444] netdevsim netdevsim3 netdevsim3: renamed from eth3
+[   72.521327][ T9443] netdevsim netdevsim1 netdevsim0: renamed from eth0
+[   72.539159][ T9443] netdevsim netdevsim1 netdevsim1: renamed from eth1
+[   72.587506][ T9443] netdevsim netdevsim1 netdevsim2: renamed from eth2
+[   72.614676][ T9443] netdevsim netdevsim1 netdevsim3: renamed from eth3
+[   72.763516][ T9465] netdevsim netdevsim0 netdevsim0: renamed from eth0
+[   72.766723][ T9465] netdevsim netdevsim0 netdevsim1: renamed from eth1
+[   72.786843][ T9465] netdevsim netdevsim0 netdevsim2: renamed from eth2
+[   72.792896][ T9465] netdevsim netdevsim0 netdevsim3: renamed from eth3
+[   72.901115][ T9447] netdevsim netdevsim6 netdevsim0: renamed from eth0
+[   72.905694][ T9447] netdevsim netdevsim6 netdevsim1: renamed from eth1
+[   72.911627][ T9447] netdevsim netdevsim6 netdevsim2: renamed from eth2
+[   72.919453][ T9447] netdevsim netdevsim6 netdevsim3: renamed from eth3
+[   72.972562][ T9439] Bluetooth: hci0: command tx timeout
+[   73.000540][ T9430] netdevsim netdevsim5 netdevsim0: renamed from eth0
+[   73.003653][ T9430] netdevsim netdevsim5 netdevsim1: renamed from eth1
+[   73.011132][ T9430] netdevsim netdevsim5 netdevsim2: renamed from eth2
+[   73.022819][ T9443] 8021q: adding VLAN 0 to HW filter on device bond0
+[   73.030644][ T9430] netdevsim netdevsim5 netdevsim3: renamed from eth3
+[   73.052110][ T9439] Bluetooth: hci2: command tx timeout
+[   73.062684][ T9444] 8021q: adding VLAN 0 to HW filter on device bond0
+[   73.101344][ T9505] netdevsim netdevsim4 netdevsim0: renamed from eth0
+[   73.126253][ T9443] 8021q: adding VLAN 0 to HW filter on device team0
+[   73.132334][ T9439] Bluetooth: hci1: command tx timeout
+[   73.157029][ T9444] 8021q: adding VLAN 0 to HW filter on device team0
+[   73.198465][ T9505] netdevsim netdevsim4 netdevsim1: renamed from eth1
+[   73.213165][ T9439] Bluetooth: hci4: command tx timeout
+[   73.213196][ T5162] Bluetooth: hci3: command tx timeout
+[   73.214187][   T57] Bluetooth: hci5: command tx timeout
+[   73.263067][ T9505] netdevsim netdevsim4 netdevsim2: renamed from eth2
+[   73.269322][ T9505] netdevsim netdevsim4 netdevsim3: renamed from eth3
+[   73.290869][ T1115] bridge0: port 1(bridge_slave_0) entered blocking state
+[   73.291899][ T1115] bridge0: port 1(bridge_slave_0) entered forwarding state
+[   73.313082][ T9424] netdevsim netdevsim2 netdevsim0: renamed from eth0
+[   73.335810][ T1115] bridge0: port 2(bridge_slave_1) entered blocking state
+[   73.336993][ T1115] bridge0: port 2(bridge_slave_1) entered forwarding state
+[   73.356402][ T9424] netdevsim netdevsim2 netdevsim1: renamed from eth1
+[   73.372192][ T9439] Bluetooth: hci6: command tx timeout
+[   73.414779][ T1115] bridge0: port 1(bridge_slave_0) entered blocking state
+[   73.415789][ T1115] bridge0: port 1(bridge_slave_0) entered forwarding state
+[   73.417511][ T1115] bridge0: port 2(bridge_slave_1) entered blocking state
+[   73.418672][ T1115] bridge0: port 2(bridge_slave_1) entered forwarding state
+[   73.423368][ T9424] netdevsim netdevsim2 netdevsim2: renamed from eth2
+[   73.459826][ T9465] 8021q: adding VLAN 0 to HW filter on device bond0
+[   73.464668][ T9439] Bluetooth: hci7: command tx timeout
+[   73.476198][ T9424] netdevsim netdevsim2 netdevsim3: renamed from eth3
+[   73.510617][ T9447] 8021q: adding VLAN 0 to HW filter on device bond0
+[   73.540899][ T9465] 8021q: adding VLAN 0 to HW filter on device team0
+[   73.562449][   T32] bridge0: port 1(bridge_slave_0) entered blocking state
+[   73.563140][   T32] bridge0: port 1(bridge_slave_0) entered forwarding state
+[   73.593956][ T9447] 8021q: adding VLAN 0 to HW filter on device team0
+[   73.617340][   T27] bridge0: port 2(bridge_slave_1) entered blocking state
+[   73.618571][   T27] bridge0: port 2(bridge_slave_1) entered forwarding state
+[   73.622607][ T9431] netdevsim netdevsim7 netdevsim0: renamed from eth0
+[   73.633805][ T9431] netdevsim netdevsim7 netdevsim1: renamed from eth1
+[   73.643239][ T9431] netdevsim netdevsim7 netdevsim2: renamed from eth2
+[   73.705583][ T9431] netdevsim netdevsim7 netdevsim3: renamed from eth3
+[   73.721569][   T32] bridge0: port 1(bridge_slave_0) entered blocking state
+[   73.722221][   T32] bridge0: port 1(bridge_slave_0) entered forwarding state
+[   73.754381][ T9430] 8021q: adding VLAN 0 to HW filter on device bond0
+[   73.758537][   T32] bridge0: port 2(bridge_slave_1) entered blocking state
+[   73.759645][   T32] bridge0: port 2(bridge_slave_1) entered forwarding state
+[   73.897870][ T9430] 8021q: adding VLAN 0 to HW filter on device team0
+[   74.024785][   T39] bridge0: port 1(bridge_slave_0) entered blocking state
+[   74.025687][   T39] bridge0: port 1(bridge_slave_0) entered forwarding state
+[   74.027216][   T39] bridge0: port 2(bridge_slave_1) entered blocking state
+[   74.027951][   T39] bridge0: port 2(bridge_slave_1) entered forwarding state
+[   74.078368][ T9505] 8021q: adding VLAN 0 to HW filter on device bond0
+[   74.087139][ T9443] 8021q: adding VLAN 0 to HW filter on device batadv0
+[   74.119595][ T9424] 8021q: adding VLAN 0 to HW filter on device bond0
+[   74.136196][ T9430] hsr0: Slave B (hsr_slave_1) is not up; please bring it up to get a fully working HSR network
+[   74.182956][ T9424] 8021q: adding VLAN 0 to HW filter on device team0
+[   74.185832][ T9505] 8021q: adding VLAN 0 to HW filter on device team0
+[   74.256605][ T9443] veth0_vlan: entered promiscuous mode
+[   74.260454][   T27] bridge0: port 1(bridge_slave_0) entered blocking state
+[   74.261620][   T27] bridge0: port 1(bridge_slave_0) entered forwarding state
+[   74.268811][   T27] bridge0: port 1(bridge_slave_0) entered blocking state
+[   74.270456][   T27] bridge0: port 1(bridge_slave_0) entered forwarding state
+[   74.280775][   T27] bridge0: port 2(bridge_slave_1) entered blocking state
+[   74.281696][   T27] bridge0: port 2(bridge_slave_1) entered forwarding state
+[   74.296326][ T9431] 8021q: adding VLAN 0 to HW filter on device bond0
+[   74.358241][ T9444] 8021q: adding VLAN 0 to HW filter on device batadv0
+[   74.384626][   T27] bridge0: port 2(bridge_slave_1) entered blocking state
+[   74.386052][   T27] bridge0: port 2(bridge_slave_1) entered forwarding state
+[   74.390548][ T9443] veth1_vlan: entered promiscuous mode
+[   74.417653][ T9431] 8021q: adding VLAN 0 to HW filter on device team0
+[   74.445927][ T3536] bridge0: port 1(bridge_slave_0) entered blocking state
+[   74.447385][ T3536] bridge0: port 1(bridge_slave_0) entered forwarding state
+[   74.449771][ T3536] bridge0: port 2(bridge_slave_1) entered blocking state
+[   74.450907][ T3536] bridge0: port 2(bridge_slave_1) entered forwarding state
+[   74.476197][ T9505] hsr0: Slave A (hsr_slave_0) is not up; please bring it up to get a fully working HSR network
+[   74.477576][ T9505] hsr0: Slave B (hsr_slave_1) is not up; please bring it up to get a fully working HSR network
+[   74.499183][ T9447] 8021q: adding VLAN 0 to HW filter on device batadv0
+[   74.517741][ T9430] 8021q: adding VLAN 0 to HW filter on device batadv0
+[   74.655934][ T9444] veth0_vlan: entered promiscuous mode
+[   74.688332][ T9465] 8021q: adding VLAN 0 to HW filter on device batadv0
+[   74.797258][ T9443] veth0_macvtap: entered promiscuous mode
+[   74.800664][ T9443] veth1_macvtap: entered promiscuous mode
+[   74.854202][ T9444] veth1_vlan: entered promiscuous mode
+[   75.010206][ T9443] batman_adv: batadv0: Interface activated: batadv_slave_0
+[   75.020963][ T9444] veth0_macvtap: entered promiscuous mode
+[   75.057679][ T9443] batman_adv: batadv0: Interface activated: batadv_slave_1
+[   75.062041][ T9439] Bluetooth: hci0: command tx timeout
+[   75.104214][ T9444] veth1_macvtap: entered promiscuous mode
+[   75.110465][ T9444] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3e) already exists on: batadv_slave_0
+[   75.115362][ T9444] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   75.117845][ T9444] batman_adv: batadv0: Interface activated: batadv_slave_0
+[   75.124154][ T9444] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3f) already exists on: batadv_slave_1
+[   75.125647][ T9444] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   75.127699][ T9444] batman_adv: batadv0: Interface activated: batadv_slave_1
+[   75.130010][ T9443] netdevsim netdevsim1 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[   75.131769][ T9443] netdevsim netdevsim1 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[   75.139366][ T9443] netdevsim netdevsim1 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[   75.140745][ T9443] netdevsim netdevsim1 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[   75.142018][ T9439] Bluetooth: hci2: command tx timeout
+[   75.176841][ T9505] 8021q: adding VLAN 0 to HW filter on device batadv0
+[   75.181728][ T9444] netdevsim netdevsim3 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[   75.188490][ T9444] netdevsim netdevsim3 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[   75.189282][ T9444] netdevsim netdevsim3 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[   75.199483][ T9444] netdevsim netdevsim3 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[   75.213173][ T9439] Bluetooth: hci1: command tx timeout
+[   75.297254][ T9439] Bluetooth: hci4: command tx timeout
+[   75.297642][   T57] Bluetooth: hci5: command tx timeout
+[   75.297723][ T9439] Bluetooth: hci3: command tx timeout
+[   75.303722][ T9465] veth0_vlan: entered promiscuous mode
+[   75.308039][ T9465] veth1_vlan: entered promiscuous mode
+[   75.393602][ T1324] ieee802154 phy0 wpan0: encryption failed: -22
+[   75.394274][ T1324] ieee802154 phy1 wpan1: encryption failed: -22
+[   75.462597][ T5162] Bluetooth: hci6: command tx timeout
+[   75.475132][ T9424] 8021q: adding VLAN 0 to HW filter on device batadv0
+[   75.553774][ T5162] Bluetooth: hci7: command tx timeout
+[   75.779718][ T3556] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   75.780640][ T3556] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   75.788724][ T9465] veth0_macvtap: entered promiscuous mode
+[   75.830842][ T9430] veth0_vlan: entered promiscuous mode
+[   75.931558][ T9447] veth0_vlan: entered promiscuous mode
+[   75.935915][ T9447] veth1_vlan: entered promiscuous mode
+[   76.017958][   T31] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   76.019241][   T31] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   76.023884][ T9465] veth1_macvtap: entered promiscuous mode
+[   76.037911][ T9430] veth1_vlan: entered promiscuous mode
+[   76.084561][ T9424] veth0_vlan: entered promiscuous mode
+[   76.156375][   T55] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   76.157117][   T55] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   76.251210][ T9431] 8021q: adding VLAN 0 to HW filter on device batadv0
+[   76.273093][ T9465] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3e) already exists on: batadv_slave_0
+[   76.274000][ T9465] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   76.274753][ T9465] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3e) already exists on: batadv_slave_0
+[   76.275537][ T9465] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   76.276956][ T9465] batman_adv: batadv0: Interface activated: batadv_slave_0
+[   76.283299][ T9424] veth1_vlan: entered promiscuous mode
+[   76.303939][ T9465] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3f) already exists on: batadv_slave_1
+[   76.305273][ T9465] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   76.305952][ T9465] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3f) already exists on: batadv_slave_1
+[   76.306678][ T9465] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   76.308160][ T9465] batman_adv: batadv0: Interface activated: batadv_slave_1
+[   76.310255][ T9465] netdevsim netdevsim0 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[   76.311661][ T9465] netdevsim netdevsim0 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[   76.313670][ T9465] netdevsim netdevsim0 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[   76.314309][ T9465] netdevsim netdevsim0 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[   76.386951][ T9424] veth0_macvtap: entered promiscuous mode
+[   76.561236][ T9447] veth0_macvtap: entered promiscuous mode
+[   76.593845][ T9424] veth1_macvtap: entered promiscuous mode
+[   76.600636][ T9424] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3e) already exists on: batadv_slave_0
+[   76.601563][ T9424] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   76.614287][   T31] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   76.617812][   T31] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   76.635252][ T9424] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3e) already exists on: batadv_slave_0
+[   76.636024][ T9424] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   76.636699][ T9424] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3e) already exists on: batadv_slave_0
+[   76.637426][ T9424] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   76.638889][ T9424] batman_adv: batadv0: Interface activated: batadv_slave_0
+[   76.670024][ T9505] veth0_vlan: entered promiscuous mode
+[   76.682881][ T9447] veth1_macvtap: entered promiscuous mode
+[   76.798754][ T9505] veth1_vlan: entered promiscuous mode
+[   76.847375][ T9424] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3f) already exists on: batadv_slave_1
+[   76.848350][ T9424] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   76.849170][ T9424] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3f) already exists on: batadv_slave_1
+[   76.850026][ T9424] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   76.850804][ T9424] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3f) already exists on: batadv_slave_1
+[   76.851525][ T9424] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   76.855061][ T9424] batman_adv: batadv0: Interface activated: batadv_slave_1
+[   76.857990][ T9424] netdevsim netdevsim2 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[   76.858701][ T9424] netdevsim netdevsim2 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[   76.859631][ T9424] netdevsim netdevsim2 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[   76.860245][ T9424] netdevsim netdevsim2 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[   76.930196][ T9505] veth0_macvtap: entered promiscuous mode
+[   77.073555][ T9505] veth1_macvtap: entered promiscuous mode
+[   77.079290][ T9430] veth0_macvtap: entered promiscuous mode
+[   77.095330][ T9430] veth1_macvtap: entered promiscuous mode
+[   77.111636][ T9447] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3e) already exists on: batadv_slave_0
+[   77.135435][ T9447] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   77.137317][ T9447] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3e) already exists on: batadv_slave_0
+[   77.139023][ T9447] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   77.139937][ T9447] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3e) already exists on: batadv_slave_0
+[   77.141234][ T9447] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   77.153835][ T9447] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3e) already exists on: batadv_slave_0
+[   77.156335][ T9447] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   77.159704][ T9447] batman_adv: batadv0: Interface activated: batadv_slave_0
+[   77.194599][ T9505] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3e) already exists on: batadv_slave_0
+[   77.196621][ T9505] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   77.206356][ T9505] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3e) already exists on: batadv_slave_0
+[   77.209002][ T9505] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   77.209727][ T9505] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3e) already exists on: batadv_slave_0
+[   77.210458][ T9505] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   77.211398][ T9505] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3e) already exists on: batadv_slave_0
+[   77.237704][ T9505] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   77.238703][ T9505] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3e) already exists on: batadv_slave_0
+[   77.239712][ T9505] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   77.241271][ T9505] batman_adv: batadv0: Interface activated: batadv_slave_0
+[   77.249380][ T9505] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3f) already exists on: batadv_slave_1
+[   77.250399][ T9505] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   77.251088][ T9505] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3f) already exists on: batadv_slave_1
+[   77.252670][ T9505] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   77.253760][ T9505] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3f) already exists on: batadv_slave_1
+[   77.255824][ T9505] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   77.257482][ T9505] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3f) already exists on: batadv_slave_1
+[   77.258218][ T9505] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   77.259949][ T9505] batman_adv: batadv0: Interface activated: batadv_slave_1
+[   77.321262][ T9431] veth0_vlan: entered promiscuous mode
+[   77.325210][ T9431] veth1_vlan: entered promiscuous mode
+[   77.359162][ T9447] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3f) already exists on: batadv_slave_1
+[   77.360079][ T9447] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   77.360904][ T9447] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3f) already exists on: batadv_slave_1
+[   77.361766][ T9447] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   77.368844][ T9447] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3f) already exists on: batadv_slave_1
+[   77.369622][ T9447] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   77.370297][ T9447] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3f) already exists on: batadv_slave_1
+[   77.371018][ T9447] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   77.371710][ T9447] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3f) already exists on: batadv_slave_1
+[   77.374491][ T9447] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   77.376049][ T9447] batman_adv: batadv0: Interface activated: batadv_slave_1
+[   77.453763][ T9505] netdevsim netdevsim4 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[   77.454545][ T9505] netdevsim netdevsim4 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[   77.455283][ T9505] netdevsim netdevsim4 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[   77.455916][ T9505] netdevsim netdevsim4 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[   77.458964][ T9447] netdevsim netdevsim6 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[   77.459726][ T9447] netdevsim netdevsim6 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[   77.460338][ T9447] netdevsim netdevsim6 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[   77.460962][ T9447] netdevsim netdevsim6 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[   77.485322][ T9430] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3e) already exists on: batadv_slave_0
+[   77.486237][ T9430] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   77.486965][ T9430] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3e) already exists on: batadv_slave_0
+[   77.512375][ T9430] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   77.513101][ T9430] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3e) already exists on: batadv_slave_0
+[   77.513830][ T9430] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   77.514520][ T9430] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3e) already exists on: batadv_slave_0
+[   77.515255][ T9430] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   77.516100][ T9430] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3e) already exists on: batadv_slave_0
+[   77.517028][ T9430] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   77.517872][ T9430] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3e) already exists on: batadv_slave_0
+[   77.518765][ T9430] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   77.526110][ T9430] batman_adv: batadv0: Interface activated: batadv_slave_0
+[   77.530422][ T3556] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   77.531123][ T3556] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   77.665618][ T9431] veth0_macvtap: entered promiscuous mode
+[   77.676340][ T9430] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3f) already exists on: batadv_slave_1
+[   77.677814][ T9430] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   77.678510][ T9430] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3f) already exists on: batadv_slave_1
+[   77.679238][ T9430] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   77.680687][ T9430] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3f) already exists on: batadv_slave_1
+[   77.694064][ T9430] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   77.695595][ T9430] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3f) already exists on: batadv_slave_1
+[   77.696316][ T9430] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   77.696998][ T9430] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3f) already exists on: batadv_slave_1
+[   77.697728][ T9430] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   77.698575][ T9430] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3f) already exists on: batadv_slave_1
+[   77.700186][ T9430] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   77.716235][ T9430] batman_adv: batadv0: Interface activated: batadv_slave_1
+[   77.849190][ T9431] veth1_macvtap: entered promiscuous mode
+[   77.859478][ T9430] netdevsim netdevsim5 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[   77.860262][ T9430] netdevsim netdevsim5 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[   77.867832][ T9430] netdevsim netdevsim5 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[   77.868691][ T9430] netdevsim netdevsim5 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[   77.947566][   T55] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   77.949110][   T55] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   78.036246][   T31] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   78.039714][   T31] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   78.087856][ T9431] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3e) already exists on: batadv_slave_0
+[   78.088709][ T9431] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   78.106954][ T9431] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3e) already exists on: batadv_slave_0
+[   78.107876][ T9431] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   78.116744][ T9431] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3e) already exists on: batadv_slave_0
+[   78.117775][ T9431] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   78.121593][ T9431] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3e) already exists on: batadv_slave_0
+[   78.132022][ T9431] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   78.132925][ T9431] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3e) already exists on: batadv_slave_0
+[   78.133660][ T9431] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   78.135525][ T9431] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3e) already exists on: batadv_slave_0
+[   78.136450][ T9431] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   78.137335][ T9431] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3e) already exists on: batadv_slave_0
+[   78.138062][ T9431] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   78.147761][ T9431] batman_adv: batadv0: Interface activated: batadv_slave_0
+[   78.207064][T12201] ______: renamed from ÿÿÿÿÿÿ
+[   78.280321][   T32] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   78.284938][   T32] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   78.319400][ T9431] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3f) already exists on: batadv_slave_1
+[   78.320326][ T9431] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   78.321065][ T9431] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3f) already exists on: batadv_slave_1
+[   78.358732][ T9431] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   78.364152][ T9431] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3f) already exists on: batadv_slave_1
+[   78.365109][ T9431] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   78.367285][ T9431] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3f) already exists on: batadv_slave_1
+[   78.368263][ T9431] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   78.369214][ T9431] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3f) already exists on: batadv_slave_1
+[   78.371181][ T9431] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   78.378610][ T9431] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3f) already exists on: batadv_slave_1
+[   78.379435][ T9431] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   78.381899][ T9431] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3f) already exists on: batadv_slave_1
+[   78.385089][ T9431] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[   78.388034][ T9431] batman_adv: batadv0: Interface activated: batadv_slave_1
+[   78.390867][ T9431] netdevsim netdevsim7 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[   78.395809][ T9431] netdevsim netdevsim7 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[   78.396608][ T9431] netdevsim netdevsim7 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[   78.397455][ T9431] netdevsim netdevsim7 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[   78.434463][ T1115] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   78.435527][ T1115] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   78.673708][ T1115] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   78.674461][ T1115] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   78.837005][   T39] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   78.837715][   T39] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   78.920072][   T32] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   78.930482][   T32] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   79.066291][ T3556] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   79.067714][ T3556] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   79.208891][   T39] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   79.218283][   T39] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   79.360393][   T55] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   79.361117][   T55] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   79.562626][ T3556] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   79.564843][ T3556] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   79.613016][ T9439] Bluetooth: hci7: command 0x0405 tx timeout
+[   80.252435][ T9439] Bluetooth: hci1: command tx timeout
+[   80.697400][T12384] Bluetooth: hci0: Opcode 0x0c03 failed: -4
+[   80.874787][T12401] Bluetooth: hci2: Opcode 0x0401 failed: -4
+[   81.065164][T12416] Bluetooth: hci1: Opcode 0x0401 failed: -4
+[   81.066526][T12419] Bluetooth: hci0: Opcode 0x0401 failed: -4
+[   81.627272][T12520] Bluetooth: hci0: Opcode 0x0c20 failed: -4
+[   81.633039][T12522] Bluetooth: hci0: Opcode 0x0c20 failed: -4
+[   81.692389][ T9439] Bluetooth: hci7: command 0x0405 tx timeout
+[   81.713523][T12537] Bluetooth: hci2: Opcode 0x0401 failed: -4
+[   81.919403][T12570] input: Bluetooth HID Boot Protocol Device as /devices/virtual/bluetooth/hci7/hci7:200/input4
+[   82.092542][ T9439] Bluetooth: hci2: command 0x0401 tx timeout
+[   82.261980][ T9439] Bluetooth: hci4: command tx timeout
+[   82.331880][ T9439] Bluetooth: hci1: command 0x0401 tx timeout
+[   82.377427][T12521] Bluetooth: hci0: Opcode 0x0c03 failed: -4
+[   82.519497][T12541] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[   83.145825][T12612] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[   83.773421][ T9439] Bluetooth: hci7: command 0x0405 tx timeout
+[   83.828514][T12752] input: Bluetooth HID Boot Protocol Device as /devices/virtual/bluetooth/hci7/hci7:200/input5
+[   83.901437][T12775] Bluetooth: hci0: Opcode 0x0c1a failed: -22
+[   84.173116][ T9439] Bluetooth: hci2: command 0x0401 tx timeout
+[   84.332923][ T9439] Bluetooth: hci4: command 0x0401 tx timeout
+[   84.631441][T12750] Bluetooth: hci3: Opcode 0x0401 failed: -4
+[   84.739399][T12865] ,: renamed from nr21
+[   85.167850][T12823] Bluetooth: hci3: Opcode 0x0401 failed: -4
+[   85.852942][   T57] Bluetooth: hci7: command 0x0405 tx timeout
+[   85.854160][ T9439] Bluetooth: hci3: command 0x0401 tx timeout
+[   85.855490][T12957] Bluetooth: hci3: Opcode 0x0401 failed: -110
+[   86.412275][ T9439] Bluetooth: hci4: command 0x0401 tx timeout
+[   86.813470][ T9439] Bluetooth: hci1: command 0x0401 tx timeout
+[   87.694112][T13182] Bluetooth: hci3: Opcode 0x0401 failed: -4
+[   87.944162][ T9439] Bluetooth: hci3: command 0x0401 tx timeout
+[   87.944689][ T9439] Bluetooth: hci7: command 0x0405 tx timeout
+[   88.664134][T13295] input: Bluetooth HID Boot Protocol Device as /devices/virtual/bluetooth/hci7/hci7:200/input6
+[   89.284979][T13275] Bluetooth: hci1: Opcode 0x0401 failed: -4
+[   89.558274][T13306] Bluetooth: hci2: Opcode 0x0401 failed: -4
+[   90.022048][ T9439] Bluetooth: hci3: command 0x0401 tx timeout
+[   90.023147][   T57] Bluetooth: hci7: command 0x0405 tx timeout
+[   90.491915][ T5162] Bluetooth: hci1: command 0x0401 tx timeout
+[   90.747217][ T5162] Bluetooth: hci2: command 0x0401 tx timeout
+[   90.751863][T13519] Bluetooth: hci2: Opcode 0x0401 failed: -110
+[   91.199302][T13495] Bluetooth: hci0: Opcode 0x0c03 failed: -4
+[   91.200135][T13498] Bluetooth: hci0: Opcode 0x0401 failed: -4
+[   91.215780][T12201] __________: renamed from ªªªªªÿÿ€
+[   91.661995][T13548] Bluetooth: hci0: Opcode 0x0c20 failed: -4
+[   92.092056][ T5162] Bluetooth: hci7: command 0x0405 tx timeout
+[   92.092939][   T57] Bluetooth: hci3: command 0x0401 tx timeout
+[   92.099902][T13610] Bluetooth: hci3: Opcode 0x0401 failed: -110
+[   92.139953][T13581] Bluetooth: hci1: Opcode 0x0401 failed: -4
+[   92.244911][   T85] hid (null): unknown global tag 0xc
+[   92.252358][   T85] hid (null): unknown global tag 0xe
+[   92.258202][   T85] hid-generic 0005:0003:0004.0001: unknown main item tag 0x7
+[   92.271998][   T85] hid-generic 0005:0003:0004.0001: unknown global tag 0xc
+[   92.272559][   T85] hid-generic 0005:0003:0004.0001: item 0 0 1 12 parsing failed
+[   92.273427][   T85] hid-generic 0005:0003:0004.0001: probe with driver hid-generic failed with error -22
+[   92.572788][   T57] Bluetooth: hci1: command 0x0401 tx timeout
+[   92.615962][T13635] Bluetooth: hci0: Opcode 0x0c03 failed: -4
+[   92.811960][   T57] Bluetooth: hci2: command 0x0401 tx timeout
+[   93.855574][T13780] Bluetooth: hci2: Opcode 0x0401 failed: -4
+[   94.173285][ T5162] Bluetooth: hci7: command 0x0405 tx timeout
+[   94.173299][ T9439] Bluetooth: hci3: command 0x0401 tx timeout
+[   94.652197][ T9439] Bluetooth: hci1: command 0x0401 tx timeout
+[   94.654488][T13977] ªªªªª: entered promiscuous mode
+[   94.835077][T13896] Bluetooth: hci2: Opcode 0x0401 failed: -4
+[   94.835808][T13993] Bluetooth: hci2: Opcode 0x0401 failed: -4
+[   95.040138][T14026] ªªªªª: mtu greater than device maximum
+[   95.051940][ T9439] Bluetooth: hci2: command 0x0401 tx timeout
+[   95.197117][T13947] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[   95.296748][T13968] Bluetooth: hci0: Opcode 0x080f failed: -4
+[   96.412027][   T57] Bluetooth: hci4: command 0x0401 tx timeout
+[   96.732486][ T9439] Bluetooth: hci1: command 0x0401 tx timeout
+[   96.938193][T12056] hid (null): unknown global tag 0xd
+[   96.940489][T12056] hid-generic 0005:00FE:0007.0002: unknown global tag 0xd
+[   96.941028][T12056] hid-generic 0005:00FE:0007.0002: item 0 4 1 13 parsing failed
+[   96.946014][T12056] hid-generic 0005:00FE:0007.0002: probe with driver hid-generic failed with error -22
+[   97.132135][ T9439] Bluetooth: hci2: command 0x0401 tx timeout
+[   97.234242][T14184] Bluetooth: hci0: Opcode 0x0c1a failed: -4
+[   97.878865][T12201] bluetooth hci7:200 ____E____: renamed from ‰ëƒüE–ÂÃ
+[   98.210447][T14299] Bluetooth: hci3: Opcode 0x0401 failed: -4
+[   98.921212][T14356] Bluetooth: hci2: Opcode 0x0401 failed: -4
+[   99.198310][T14454] input: Bluetooth HID Boot Protocol Device as /devices/virtual/bluetooth/hci7/hci7:200/input7
+[   99.211920][ T9439] Bluetooth: hci2: command 0x0401 tx timeout
+[   99.311873][T14397] Bluetooth: hci0: Opcode 0x0c1a failed: -4
+[   99.452103][ T9439] Bluetooth: hci3: command 0x0401 tx timeout
+[   99.857982][T14538] input: Bluetooth HID Boot Protocol Device as /devices/virtual/bluetooth/hci7/hci7:200/input8
+[  100.324675][T14502] Bluetooth: hci2: Opcode 0x0401 failed: -4
+[  100.338025][ T9439] Bluetooth: hci1: command 0x0401 tx timeout
+[  100.493375][ T9439] Bluetooth: hci7: command 0x0405 tx timeout
+[  100.547078][T14525] Bluetooth: hci0: Opcode 0x0c03 failed: -4
+[  100.906699][T14629] input: Bluetooth HID Boot Protocol Device as /devices/virtual/bluetooth/hci7/hci7:200/input9
+[  101.291935][ T9439] Bluetooth: hci2: command 0x0401 tx timeout
+[  101.470720][T14611] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  101.666874][T14713] input: Bluetooth HID Boot Protocol Device as /devices/virtual/bluetooth/hci7/hci7:200/input10
+[  102.298954][T14772] Bluetooth: hci0: Opcode 0x0401 failed: -22
+[  102.412281][   T57] Bluetooth: hci1: command 0x0401 tx timeout
+[  102.575959][   T57] Bluetooth: hci7: command 0x0405 tx timeout
+[  102.733686][   T57] Bluetooth: hci4: command 0x0401 tx timeout
+[  102.735408][T14800] Bluetooth: hci4: Opcode 0x0401 failed: -110
+[  103.372015][   T57] Bluetooth: hci2: command 0x0401 tx timeout
+[  103.858437][T14859] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  104.395448][T14914] Bluetooth: hci1: Opcode 0x0c1a failed: -4
+[  104.491977][   T57] Bluetooth: hci1: command 0x0401 tx timeout
+[  104.655977][   T57] Bluetooth: hci7: command 0x0405 tx timeout
+[  104.721726][T15031] Bluetooth: hci0: Opcode 0x0c20 failed: -22
+[  104.813326][   T57] Bluetooth: hci4: command 0x0401 tx timeout
+[  104.814598][T14997] Bluetooth: hci4: Opcode 0x0401 failed: -110
+[  105.080948][T14983] Bluetooth: hci3: Opcode 0x0401 failed: -4
+[  105.197739][T15078] ªªªªª: port 1(bond0) entered blocking state
+[  105.198948][T15078] ªªªªª: port 1(bond0) entered disabled state
+[  105.199513][T15078] bond0: entered allmulticast mode
+[  105.207156][T15078] bond0: entered promiscuous mode
+[  105.451666][T15109] Bluetooth: hci0: Opcode 0x080f failed: -22
+[  105.894885][T15162] Bluetooth: hci0: Opcode 0x0401 failed: -22
+[  106.155833][T15195] input: Bluetooth HID Boot Protocol Device as /devices/virtual/bluetooth/hci7/hci7:200/input11
+[  106.332015][ T9439] Bluetooth: hci3: command 0x0401 tx timeout
+[  106.572038][ T9439] Bluetooth: hci1: command 0x0401 tx timeout
+[  106.573989][T15212] Bluetooth: hci1: Opcode 0x0401 failed: -110
+[  106.616862][T15253] Bluetooth: hci0: Opcode 0x0401 failed: -22
+[  106.741900][ T9439] Bluetooth: hci7: command 0x0405 tx timeout
+[  106.891997][   T57] Bluetooth: hci4: command 0x0401 tx timeout
+[  106.892643][T15249] Bluetooth: hci4: Opcode 0x0401 failed: -110
+[  107.190425][T15315] input: Bluetooth HID Boot Protocol Device as /devices/virtual/bluetooth/hci7/hci7:200/input12
+[  107.209415][T15314] Bluetooth: hci0: Opcode 0x0c1a failed: -22
+[  107.238821][T15314] Bluetooth: hci0: Opcode 0x0c1a failed: -22
+[  107.245317][T15314] Bluetooth: hci0: Opcode 0x0c1a failed: -22
+[  107.259038][T15314] Bluetooth: hci0: Opcode 0x0c1a failed: -22
+[  107.272653][T15314] Bluetooth: hci0: Opcode 0x0c1a failed: -22
+[  107.282225][T15239] Bluetooth: hci2: Opcode 0x0401 failed: -4
+[  107.305884][T15314] Bluetooth: hci0: Opcode 0x0c1a failed: -22
+[  107.551256][T15361] bond0: left allmulticast mode
+[  107.553673][T15361] bond0: left promiscuous mode
+[  107.555491][T15361] ªªªªª: port 1(bond0) entered disabled state
+[  108.572035][ T9439] Bluetooth: hci2: command 0x0401 tx timeout
+[  108.654548][ T9439] Bluetooth: hci1: command 0x0401 tx timeout
+[  108.971968][ T9439] Bluetooth: hci4: command 0x0401 tx timeout
+[  109.105895][T15463] Bluetooth: hci0: Opcode 0x0c03 failed: -4
+[  109.781412][T15583] input: Bluetooth HID Boot Protocol Device as /devices/virtual/bluetooth/hci7/hci7:200/input13
+[  109.984518][T15531] Bluetooth: hci2: Opcode 0x0401 failed: -4
+[  110.732988][ T9439] Bluetooth: hci1: command 0x0401 tx timeout
+[  111.002299][T15625] Bluetooth: hci2: Opcode 0x0401 failed: -4
+[  111.003524][T15632] Bluetooth: hci3: Opcode 0x0401 failed: -4
+[  111.030125][T15722] Bluetooth: hci0: Opcode 0x0c1a failed: -22
+[  111.052327][ T9439] Bluetooth: hci4: command 0x0401 tx timeout
+[  111.382581][ T9439] Bluetooth: hci2: command 0x0401 tx timeout
+[  111.383578][T15721] Bluetooth: hci2: Opcode 0x0401 failed: -110
+[  112.103926][T15838] Bluetooth: hci0: Opcode 0x0c03 failed: -4
+[  112.257753][   T57] Bluetooth: hci3: command 0x0401 tx timeout
+[  112.812244][   T57] Bluetooth: hci1: command 0x0401 tx timeout
+[  113.183815][T15880] Bluetooth: hci0: Opcode 0x0c03 failed: -4
+[  113.451912][   T57] Bluetooth: hci2: command 0x0401 tx timeout
+[  113.531996][   T57] Bluetooth: hci7: command 0x0405 tx timeout
+[  114.891927][ T9439] Bluetooth: hci1: command 0x0401 tx timeout
+[  114.950456][T16096] Bluetooth: hci2: Opcode 0x0401 failed: -4
+[  115.001740][ T9439] Bluetooth: hci7: link tx timeout
+[  115.003055][ T9439] Bluetooth: hci7: killing stalled connection 11:aa:aa:aa:aa:aa
+[  115.084981][T12021] hid (null): unknown global tag 0xd
+[  115.086446][T12021] hid-generic 0005:00FE:0007.0003: unknown global tag 0xd
+[  115.087210][T12021] hid-generic 0005:00FE:0007.0003: item 0 4 1 13 parsing failed
+[  115.088000][T12021] hid-generic 0005:00FE:0007.0003: probe with driver hid-generic failed with error -22
+[  115.368173][   T57] Bluetooth: hci7: link tx timeout
+[  115.368689][   T57] Bluetooth: hci7: killing stalled connection 11:aa:aa:aa:aa:aa
+[  115.533249][   T57] Bluetooth: hci2: command 0x0401 tx timeout
+[  115.562435][   T57] Bluetooth: hci7: link tx timeout
+[  115.562985][   T57] Bluetooth: hci7: killing stalled connection 11:aa:aa:aa:aa:aa
+[  115.740530][T12033] hid (null): unknown global tag 0xd
+[  115.743210][T12033] hid-generic 0005:00FE:0007.0004: unknown global tag 0xd
+[  115.743881][T12033] hid-generic 0005:00FE:0007.0004: item 0 4 1 13 parsing failed
+[  115.744805][T12033] hid-generic 0005:00FE:0007.0004: probe with driver hid-generic failed with error -22
+[  115.897043][T16324] ªªªªª: mtu greater than device maximum
+[  116.057577][   T57] Bluetooth: hci7: link tx timeout
+[  116.058056][   T57] Bluetooth: hci7: killing stalled connection 11:aa:aa:aa:aa:aa
+[  116.284078][T16377] input: Bluetooth HID Boot Protocol Device as /devices/virtual/bluetooth/hci7/hci7:200/input14
+[  116.546923][T16315] Bluetooth: hci2: Opcode 0x0401 failed: -4
+[  116.745641][   T57] Bluetooth: hci7: link tx timeout
+[  116.746536][   T57] Bluetooth: hci7: killing stalled connection 11:aa:aa:aa:aa:aa
+[  116.815202][T16436] Bluetooth: hci2: Opcode 0x0401 failed: -4
+[  116.881359][T16464] input: Bluetooth HID Boot Protocol Device as /devices/virtual/bluetooth/hci7/hci7:200/input15
+[  116.972199][   T57] Bluetooth: hci1: command 0x0401 tx timeout
+[  117.052995][   T57] Bluetooth: hci7: command 0x0405 tx timeout
+[  117.612096][ T9439] Bluetooth: hci2: command 0x0401 tx timeout
+[  117.696935][T16461] Bluetooth: hci0: Opcode 0x0c03 failed: -4
+[  118.306759][T16666] input: Bluetooth HID Boot Protocol Device as /devices/virtual/bluetooth/hci7/hci7:200/input16
+[  118.612903][T16592] Bluetooth: hci0: Opcode 0x080f failed: -4
+[  118.773749][T16730] Bluetooth: hci0: Opcode 0x0401 failed: -22
+[  119.052032][ T9439] Bluetooth: hci1: command 0x0401 tx timeout
+[  119.132418][ T9439] Bluetooth: hci7: command 0x0405 tx timeout
+[  119.647610][T16824] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  119.648500][T16830] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  119.692998][ T9439] Bluetooth: hci2: command 0x0401 tx timeout
+[  119.865421][T16852] input: Bluetooth HID Boot Protocol Device as /devices/virtual/bluetooth/hci7/hci7:200/input17
+[  120.555665][T16940] input: Bluetooth HID Boot Protocol Device as /devices/virtual/bluetooth/hci7/hci7:200/input18
+[  120.754973][T16869] Bluetooth: hci2: Opcode 0x0401 failed: -4
+[  120.811954][ T9439] Bluetooth: hci0: command tx timeout
+[  120.987583][T16898] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  121.068103][T16996] Bluetooth: hci0: Opcode 0x0401 failed: -22
+[  121.071504][T16909] Bluetooth: hci2: Opcode 0x0401 failed: -4
+[  121.326469][T16947] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  121.612970][ T9439] Bluetooth: hci4: command 0x0401 tx timeout
+[  121.704213][T17085] ªªªªª: mtu less than device minimum
+[  121.772452][ T9439] Bluetooth: hci2: command 0x0401 tx timeout
+[  123.157975][T17257] input: Bluetooth HID Boot Protocol Device as /devices/virtual/bluetooth/hci7/hci7:200/input19
+[  123.692449][ T9439] Bluetooth: hci4: command 0x0401 tx timeout
+[  123.851894][ T9439] Bluetooth: hci2: command 0x0401 tx timeout
+[  124.200031][T17372] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  124.476921][T17419] input: Bluetooth HID Boot Protocol Device as /devices/virtual/bluetooth/hci7/hci7:200/input20
+[  124.698830][T17345] Bluetooth: hci1: Opcode 0x0401 failed: -4
+[  124.973323][ T9439] Bluetooth: hci1: command 0x0401 tx timeout
+[  125.772916][ T9439] Bluetooth: hci4: command 0x0401 tx timeout
+[  125.934529][ T9439] Bluetooth: hci2: command 0x0401 tx timeout
+[  126.581719][T17686] Bluetooth: hci0: Opcode 0x0c20 failed: -22
+[  127.051997][ T9439] Bluetooth: hci1: command 0x0401 tx timeout
+[  127.521045][T17695] Bluetooth: hci0: Opcode 0x0c03 failed: -4
+[  127.582979][T17803] input: Bluetooth HID Boot Protocol Device as /devices/virtual/bluetooth/hci7/hci7:200/input21
+[  127.852908][ T9439] Bluetooth: hci4: command 0x0401 tx timeout
+[  127.856920][T17834] Bluetooth: hci4: Opcode 0x0401 failed: -110
+[  128.473589][T17820] Bluetooth: hci0: Opcode 0x0401 failed: -4
+[  128.474646][T17810] Bluetooth: hci0: Opcode 0x0401 failed: -4
+[  128.640074][T17837] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  128.641388][T17901] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  128.645672][T17908] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  129.750697][T17969] Bluetooth: hci3: Opcode 0x0401 failed: -4
+[  129.931901][ T9439] Bluetooth: hci4: command 0x0401 tx timeout
+[  130.015240][ T6793] hid (null): unknown global tag 0xd
+[  130.016791][ T6793] hid-generic 0005:00FE:0007.0005: unknown global tag 0xd
+[  130.017463][ T6793] hid-generic 0005:00FE:0007.0005: item 0 4 1 13 parsing failed
+[  130.018519][ T6793] hid-generic 0005:00FE:0007.0005: probe with driver hid-generic failed with error -22
+[  130.972366][ T9439] Bluetooth: hci3: command 0x0401 tx timeout
+[  132.011972][ T9439] Bluetooth: hci4: command 0x0401 tx timeout
+[  132.364601][T18321] Bluetooth: hci1: Opcode 0x080f failed: -4
+[  132.365539][T18322] Bluetooth: hci1: Opcode 0x080f failed: -4
+[  133.472564][T18461] Bluetooth: hci0: Opcode 0x0c03 failed: -4
+[  133.614216][ T9439] Bluetooth: hci1: command 0x0401 tx timeout
+[  133.615099][T18539] Bluetooth: hci1: Opcode 0x0401 failed: -110
+[  134.092482][ T9439] Bluetooth: hci4: command 0x0401 tx timeout
+[  134.541238][T18689] Bluetooth: hci3: Opcode 0x0401 failed: -4
+[  135.096057][T18768] ªªªªª: port 1(bond0) entered blocking state
+[  135.098900][T18768] ªªªªª: port 1(bond0) entered disabled state
+[  135.101050][T18768] bond0: entered allmulticast mode
+[  135.107773][T18768] bond0: entered promiscuous mode
+[  135.695104][   T57] Bluetooth: hci1: command 0x0401 tx timeout
+[  135.744767][T18749] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  135.859469][T18773] Bluetooth: hci3: Opcode 0x0401 failed: -4
+[  136.172801][   T57] Bluetooth: hci4: command 0x0401 tx timeout
+[  136.576468][   T57] Bluetooth: hci3: command 0x0401 tx timeout
+[  136.577629][T18841] Bluetooth: hci3: Opcode 0x0401 failed: -110
+[  136.814169][ T1324] ieee802154 phy0 wpan0: encryption failed: -22
+[  136.815163][ T1324] ieee802154 phy1 wpan1: encryption failed: -22
+[  136.836679][T18945] input: Bluetooth HID Boot Protocol Device as /devices/virtual/bluetooth/hci7/hci7:200/input22
+[  137.139644][   T57] Bluetooth: hci7: command 0x0405 tx timeout
+[  137.772686][ T9439] Bluetooth: hci1: command 0x0401 tx timeout
+[  137.773208][T19047] Bluetooth: hci1: Opcode 0x0401 failed: -110
+[  138.251957][ T9439] Bluetooth: hci4: command 0x0401 tx timeout
+[  138.471064][T19136] input: Bluetooth HID Boot Protocol Device as /devices/virtual/bluetooth/hci7/hci7:200/input23
+[  138.652010][ T9439] Bluetooth: hci3: command 0x0401 tx timeout
+[  139.537906][T19174] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  139.797503][T19208] Bluetooth: hci0: Opcode 0x0c03 failed: -4
+[  139.839859][T12197] _______: renamed from ªªªªª
+[  139.852025][ T9439] Bluetooth: hci1: command 0x0401 tx timeout
+[  140.113075][T19240] Bluetooth: hci0: Opcode 0x0c20 failed: -4
+[  140.263104][T19253] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  140.331868][ T9439] Bluetooth: hci4: command 0x0401 tx timeout
+[  140.333775][T19274] Bluetooth: hci4: Opcode 0x0401 failed: -110
+[  140.732240][ T9439] Bluetooth: hci3: command 0x0401 tx timeout
+[  140.815087][T19286] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  141.288627][T19421] Bluetooth: hci0: Opcode 0x0401 failed: -22
+[  141.701336][T19453] Bluetooth: hci3: Opcode 0x0401 failed: -4
+[  141.726309][T19372] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  141.942443][ T9439] Bluetooth: hci1: command 0x0401 tx timeout
+[  142.098257][T19495] input: Bluetooth HID Boot Protocol Device as /devices/virtual/bluetooth/hci7/hci7:200/input24
+[  142.323486][T19438] Bluetooth: hci2: Opcode 0x0401 failed: -4
+[  142.411878][ T9439] Bluetooth: hci4: command 0x0401 tx timeout
+[  142.845911][T19486] Bluetooth: hci1: Opcode 0x0401 failed: -4
+[  142.848945][T19523] Bluetooth: hci1: Opcode 0x0401 failed: -4
+[  142.849038][T19487] Bluetooth: hci2: Opcode 0x0401 failed: -4
+[  142.850090][T19489] Bluetooth: hci2: Opcode 0x0401 failed: -4
+[  143.000606][T19543] Bluetooth: hci0: Opcode 0x0401 failed: -22
+[  143.264190][T19522] Bluetooth: hci3: Opcode 0x0401 failed: -4
+[  143.303206][ T9439] Bluetooth: hci0: command tx timeout
+[  143.313407][T19578] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  143.531993][ T9439] Bluetooth: hci2: command 0x0401 tx timeout
+[  143.771957][ T9439] Bluetooth: hci3: command 0x0401 tx timeout
+[  143.772987][T19547] Bluetooth: hci3: Opcode 0x0401 failed: -110
+[  144.013949][ T9439] Bluetooth: hci1: command 0x0401 tx timeout
+[  144.502438][   T57] Bluetooth: hci4: command 0x0401 tx timeout
+[  144.722021][T19726] Bluetooth: hci0: Opcode 0x0c20 failed: -22
+[  144.856080][T19747] input: Bluetooth HID Boot Protocol Device as /devices/virtual/bluetooth/hci7/hci7:200/input25
+[  145.612441][   T57] Bluetooth: hci2: command 0x0401 tx timeout
+[  145.718993][T19850] Bluetooth: hci0: Opcode 0x0c1a failed: -22
+[  145.852031][   T57] Bluetooth: hci3: command 0x0401 tx timeout
+[  145.853011][T19861] Bluetooth: hci3: Opcode 0x0401 failed: -110
+[  146.102462][   T57] Bluetooth: hci1: command 0x0401 tx timeout
+[  146.114576][T19801] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  146.572014][   T57] Bluetooth: hci4: command 0x0401 tx timeout
+[  146.574456][T19871] Bluetooth: hci4: Opcode 0x0401 failed: -110
+[  146.656297][T19876] Bluetooth: hci0: Opcode 0x0c03 failed: -4
+[  146.709102][T12021] hid (null): invalid report_count 59763
+[  146.710690][T12021] hid-generic 0005:FFFE:0009.0006: unknown main item tag 0x6
+[  146.711460][T12021] hid-generic 0005:FFFE:0009.0006: unknown main item tag 0x3
+[  146.712040][T12021] hid-generic 0005:FFFE:0009.0006: invalid report_count 59763
+[  146.712714][T12021] hid-generic 0005:FFFE:0009.0006: item 0 2 1 9 parsing failed
+[  146.713577][T12021] hid-generic 0005:FFFE:0009.0006: probe with driver hid-generic failed with error -22
+[  147.207151][T19928] Bluetooth: hci1: Opcode 0x0401 failed: -4
+[  147.208338][T19938] Bluetooth: hci0: Opcode 0x0401 failed: -4
+[  147.419686][T19959] Bluetooth: hci3: Opcode 0x0401 failed: -4
+[  147.691961][   T57] Bluetooth: hci2: command 0x0401 tx timeout
+[  147.838059][T20008] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  147.838788][T20006] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  147.931988][   T57] Bluetooth: hci3: command 0x0401 tx timeout
+[  148.171955][   T57] Bluetooth: hci1: command 0x0401 tx timeout
+[  148.651908][ T9439] Bluetooth: hci4: command 0x0401 tx timeout
+[  148.846861][T20209] input: Bluetooth HID Boot Protocol Device as /devices/virtual/bluetooth/hci7/hci7:200/input26
+[  149.308372][T20170] Bluetooth: hci1: Opcode 0x0401 failed: -4
+[  149.585690][T20285] Bluetooth: hci0: Opcode 0x0401 failed: -22
+[  149.661539][T20306] input: Bluetooth HID Boot Protocol Device as /devices/virtual/bluetooth/hci7/hci7:200/input27
+[  150.012452][   T57] Bluetooth: hci3: command 0x0401 tx timeout
+[  150.013296][T20357] Bluetooth: hci3: Opcode 0x0401 failed: -110
+[  150.237220][T20383] Bluetooth: hci0: Opcode 0x080f failed: -22
+[  150.252058][   T57] Bluetooth: hci1: command 0x0401 tx timeout
+[  150.256855][T20277] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  150.266686][T20284] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  150.732679][ T9439] Bluetooth: hci4: command 0x0401 tx timeout
+[  150.804653][    T9] hid (null): unknown global tag 0xd
+[  150.839417][    T9] hid-generic 0005:00FE:0007.0007: unknown global tag 0xd
+[  150.850276][    T9] hid-generic 0005:00FE:0007.0007: item 0 4 1 13 parsing failed
+[  150.856194][    T9] hid-generic 0005:00FE:0007.0007: probe with driver hid-generic failed with error -22
+[  151.561126][T20445] Bluetooth: hci0: Opcode 0x0c03 failed: -4
+[  151.562619][T20448] Bluetooth: hci0: Opcode 0x0c1a failed: -4
+[  151.618313][T20453] Bluetooth: hci0: Opcode 0x0c1a failed: -4
+[  151.739986][T20467] Bluetooth: hci0: Opcode 0x0401 failed: -4
+[  152.091946][   T57] Bluetooth: hci3: command 0x0401 tx timeout
+[  152.333444][   T57] Bluetooth: hci1: command 0x0401 tx timeout
+[  152.811948][   T57] Bluetooth: hci4: command 0x0401 tx timeout
+[  152.983457][T20615] Bluetooth: hci0: Opcode 0x0c1a failed: -4
+[  153.344240][T20743] Bluetooth: hci0: Opcode 0x0c03 failed: -4
+[  153.410449][T20756] input: Bluetooth HID Boot Protocol Device as /devices/virtual/bluetooth/hci7/hci7:200/input28
+[  154.172018][ T9439] Bluetooth: hci3: command 0x0401 tx timeout
+[  154.412309][ T9439] Bluetooth: hci1: command 0x0401 tx timeout
+[  154.412973][T20836] Bluetooth: hci1: Opcode 0x0401 failed: -110
+[  154.654273][T20837] Bluetooth: hci1: Opcode 0x0401 failed: -4
+[  154.901948][   T57] Bluetooth: hci4: command 0x0401 tx timeout
+[  155.343018][T20929] Bluetooth: hci3: Opcode 0x0401 failed: -4
+[  155.433690][T20940] Bluetooth: hci2: Opcode 0x0401 failed: -4
+[  155.863859][T20993] Bluetooth: hci3: Opcode 0x0401 failed: -4
+[  156.030803][T21105] bond0: left allmulticast mode
+[  156.031645][T21105] bond0: left promiscuous mode
+[  156.036890][T21105] ªªªªª: port 1(bond0) entered disabled state
+[  156.492080][   T57] Bluetooth: hci1: command 0x0401 tx timeout
+[  156.652128][   T57] Bluetooth: hci3: command 0x0401 tx timeout
+[  156.692660][T21180] Bluetooth: hci2: Opcode 0x0401 failed: -4
+[  156.696162][T21179] Bluetooth: hci2: Opcode 0x0401 failed: -4
+[  156.732346][   T57] Bluetooth: hci2: command 0x0401 tx timeout
+[  156.982066][   T57] Bluetooth: hci4: command 0x0401 tx timeout
+[  158.281111][T21387] ªªªªª: mtu greater than device maximum
+[  158.322464][T21393] Bluetooth: hci0: Opcode 0x0c1a failed: -22
+[  158.572126][   T57] Bluetooth: hci1: command 0x0401 tx timeout
+[  158.680637][T21326] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  158.723748][T21445] Bluetooth: hci0: Opcode 0x0401 failed: -22
+[  158.732164][   T57] Bluetooth: hci3: command 0x0401 tx timeout
+[  158.800593][T21450] input: Bluetooth HID Boot Protocol Device as /devices/virtual/bluetooth/hci7/hci7:200/input29
+[  158.812180][   T57] Bluetooth: hci2: command 0x0401 tx timeout
+[  158.814609][T21438] Bluetooth: hci2: Opcode 0x0401 failed: -110
+[  159.053034][   T57] Bluetooth: hci4: command 0x0401 tx timeout
+[  160.083625][T21521] Bluetooth: hci3: Opcode 0x0401 failed: -4
+[  160.084628][T21532] Bluetooth: hci2: Opcode 0x0401 failed: -4
+[  160.130920][T12033] hid (null): unknown global tag 0xd
+[  160.137697][T12033] hid-generic 0005:00FE:0007.0008: unknown global tag 0xd
+[  160.151532][T12033] hid-generic 0005:00FE:0007.0008: item 0 4 1 13 parsing failed
+[  160.152451][T12033] hid-generic 0005:00FE:0007.0008: probe with driver hid-generic failed with error -22
+[  160.654415][   T57] Bluetooth: hci1: command 0x0401 tx timeout
+[  160.894303][   T57] Bluetooth: hci2: command 0x0401 tx timeout
+[  161.061581][T21615] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  161.131979][   T57] Bluetooth: hci4: command 0x0401 tx timeout
+[  161.132687][T21674] Bluetooth: hci4: Opcode 0x0401 failed: -110
+[  161.292928][   T57] Bluetooth: hci3: command 0x0401 tx timeout
+[  161.764205][T21775] input: Bluetooth HID Boot Protocol Device as /devices/virtual/bluetooth/hci7/hci7:200/input30
+[  162.184117][T21832] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  162.187465][T21848] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  162.732294][   T57] Bluetooth: hci1: command 0x0401 tx timeout
+[  162.974869][   T57] Bluetooth: hci2: command 0x0401 tx timeout
+[  162.975573][T21920] Bluetooth: hci2: Opcode 0x0401 failed: -110
+[  163.214164][   T57] Bluetooth: hci4: command 0x0401 tx timeout
+[  163.214723][T21921] Bluetooth: hci4: Opcode 0x0401 failed: -110
+[  163.247088][T21977] input: Bluetooth HID Boot Protocol Device as /devices/virtual/bluetooth/hci7/hci7:200/input31
+[  163.350286][T21990] ªªªªª: mtu greater than device maximum
+[  163.528455][T22019] Bluetooth: hci6: Opcode 0x0401 failed: -4
+[  163.547245][   T57] Bluetooth: hci7: link tx timeout
+[  163.547643][   T57] Bluetooth: hci7: killing stalled connection 10:aa:aa:aa:aa:aa
+[  163.582657][T21937] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  163.772455][T22059] input: Bluetooth HID Boot Protocol Device as /devices/virtual/bluetooth/hci7/hci7:200/input32
+[  164.735634][T22171] Bluetooth: hci0: Opcode 0x0401 failed: -22
+[  164.812102][   T57] Bluetooth: hci1: command 0x0401 tx timeout
+[  164.895011][T22197] input: Bluetooth HID Boot Protocol Device as /devices/virtual/bluetooth/hci7/hci7:200/input33
+[  165.052335][   T57] Bluetooth: hci2: command 0x0401 tx timeout
+[  165.292026][   T57] Bluetooth: hci4: command 0x0401 tx timeout
+[  165.531958][   T57] Bluetooth: hci6: command 0x0401 tx timeout
+[  165.618698][   T57] Bluetooth: hci7: command 0x0405 tx timeout
+[  165.703895][T22212] Bluetooth: hci0: Opcode 0x0c03 failed: -4
+[  166.211157][T22275] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  166.591786][T22324] Bluetooth: hci0: Opcode 0x0401 failed: -4
+[  166.893186][   T57] Bluetooth: hci1: command 0x0401 tx timeout
+[  166.956914][T22463] ªªªªª: mtu greater than device maximum
+[  166.963565][T22464] ªªªªª: mtu greater than device maximum
+[  167.131974][   T57] Bluetooth: hci2: command 0x0401 tx timeout
+[  167.334115][T22505] ªªªªª: mtu less than device minimum
+[  167.372900][   T57] Bluetooth: hci4: command 0x0401 tx timeout
+[  168.334922][T22524] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  168.563897][T22603] Bluetooth: hci0: Opcode 0x0c03 failed: -4
+[  168.732889][   T57] Bluetooth: hci7: command 0x0405 tx timeout
+[  168.971957][   T57] Bluetooth: hci1: command 0x0401 tx timeout
+[  169.238986][T12349] _________: renamed from ÿÿÿÿÿÿÿÿÔ
+[  169.451937][ T9439] Bluetooth: hci4: command 0x0401 tx timeout
+[  169.806376][T22714] ªªªªª: mtu less than device minimum
+[  170.291786][T22766] ªªªªª: port 1(bond0) entered blocking state
+[  170.292561][T22766] ªªªªª: port 1(bond0) entered disabled state
+[  170.293182][T22766] bond0: entered allmulticast mode
+[  170.294298][T22766] bond0: entered promiscuous mode
+[  170.593803][T22710] Bluetooth: hci2: Opcode 0x0401 failed: -4
+[  170.623547][T22783] ªªªªª: mtu less than device minimum
+[  170.748197][T22726] Bluetooth: hci0: Opcode 0x0c03 failed: -4
+[  171.053341][ T9439] Bluetooth: hci1: command 0x0401 tx timeout
+[  171.421468][T22849] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  171.424502][T22856] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  171.532128][ T9439] Bluetooth: hci4: command 0x0401 tx timeout
+[  171.767017][T22817] Bluetooth: hci0: Opcode 0x0c1a failed: -4
+[  171.773622][ T9439] Bluetooth: hci2: command 0x0401 tx timeout
+[  171.948640][T22829] Bluetooth: hci0: Opcode 0x0c03 failed: -4
+[  171.949819][T22885] Bluetooth: hci0: Opcode 0x0401 failed: -4
+[  172.683333][T22895] Bluetooth: hci1: Opcode 0x0401 failed: -4
+[  173.132506][ T9439] Bluetooth: hci1: command 0x0401 tx timeout
+[  173.241351][T22947] Bluetooth: hci3: Opcode 0x0401 failed: -4
+[  173.612008][ T9439] Bluetooth: hci4: command 0x0401 tx timeout
+[  173.613314][T23072] Bluetooth: hci4: Opcode 0x0401 failed: -110
+[  174.363202][T23080] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  174.494206][ T9439] Bluetooth: hci3: command 0x0401 tx timeout
+[  175.213060][ T9439] Bluetooth: hci1: command 0x0401 tx timeout
+[  175.697085][ T9439] Bluetooth: hci4: command 0x0401 tx timeout
+[  176.363843][T23352] À: renamed from ªªªªª
+[  176.857735][T23408] Bluetooth: hci0: Opcode 0x0c20 failed: -22
+[  177.081880][T23435] Bluetooth: hci0: Opcode 0x0c1a failed: -22
+[  177.292214][ T9439] Bluetooth: hci1: command 0x0401 tx timeout
+[  177.406001][T23375] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  177.408519][T23382] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  177.772307][ T9439] Bluetooth: hci4: command 0x0401 tx timeout
+[  178.827724][T23559] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  178.828589][T23570] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  179.371959][ T9439] Bluetooth: hci1: command 0x0401 tx timeout
+[  179.573547][T23772] Bluetooth: hci0: Opcode 0x0c1a failed: -22
+[  179.851980][ T9439] Bluetooth: hci4: command 0x0401 tx timeout
+[  180.178440][T23750] Bluetooth: hci2: Opcode 0x0401 failed: -4
+[  180.855150][T23937] Bluetooth: hci0: Opcode 0x0c20 failed: -22
+[  181.021336][T23961] Bluetooth: hci0: Opcode 0x0401 failed: -22
+[  181.454903][   T57] Bluetooth: hci1: command 0x0401 tx timeout
+[  181.532022][   T57] Bluetooth: hci2: command 0x0401 tx timeout
+[  181.932092][   T57] Bluetooth: hci4: command 0x0401 tx timeout
+[  181.933906][T24041] Bluetooth: hci4: Opcode 0x0401 failed: -110
+[  183.535638][ T9439] Bluetooth: hci1: command 0x0401 tx timeout
+[  184.011912][ T9439] Bluetooth: hci4: command 0x0401 tx timeout
+[  185.148684][T24284] Bluetooth: hci2: Opcode 0x0401 failed: -4
+[  185.611955][ T9439] Bluetooth: hci1: command 0x0401 tx timeout
+[  186.094101][ T9439] Bluetooth: hci4: command 0x0401 tx timeout
+[  186.412085][ T9439] Bluetooth: hci2: command 0x0401 tx timeout
+[  186.914221][T24467] Bluetooth: hci3: Opcode 0x0401 failed: -4
+[  187.692500][ T9439] Bluetooth: hci1: command 0x0401 tx timeout
+[  187.967758][T24662] ÿÿÿÿÿÿ: mtu greater than device maximum
+[  188.092700][T24678] Bluetooth: hci3: command 0x0401 tx timeout
+[  188.182261][   T57] Bluetooth: hci4: command 0x0401 tx timeout
+[  190.093233][ T5162] Bluetooth: hci2: command 0x0401 tx timeout
+[  190.094299][ T5162] Bluetooth: hci1: command 0x0401 tx timeout
+[  190.094860][ T5162] Bluetooth: hci5: command 0x0406 tx timeout
+[  190.095484][ T5162] Bluetooth: hci6: command 0x0401 tx timeout
+[  190.172189][   T57] Bluetooth: hci3: command 0x0401 tx timeout
+[  190.175103][T24847] Bluetooth: hci3: Opcode 0x0401 failed: -110
+[  190.182711][T24854] Bluetooth: hci3: Opcode 0x0401 failed: -4
+[  190.251893][ T9439] Bluetooth: hci4: command 0x0401 tx timeout
+[  190.292482][T24938] Bluetooth: hci0: Opcode 0x0401 failed: -22
+[  190.706673][T24985] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  191.963218][T25040] Bluetooth: hci2: Opcode 0x0401 failed: -4
+[  192.172232][ T9440] Bluetooth: hci1: command 0x0401 tx timeout
+[  192.240655][T25092] Bluetooth: hci0: Opcode 0x0c03 failed: -4
+[  192.240701][T25066] Bluetooth: hci2: Opcode 0x0401 failed: -4
+[  192.252513][ T9440] Bluetooth: hci3: command 0x0401 tx timeout
+[  192.331900][ T9440] Bluetooth: hci4: command 0x0401 tx timeout
+[  193.212285][ T9440] Bluetooth: hci2: command 0x0401 tx timeout
+[  193.213411][T25187] Bluetooth: hci2: Opcode 0x0401 failed: -110
+[  193.372049][ T9440] Bluetooth: hci7: command 0x0405 tx timeout
+[  194.243102][T25258] Bluetooth: hci0: Opcode 0x0c03 failed: -4
+[  194.252025][ T9440] Bluetooth: hci1: command 0x0401 tx timeout
+[  194.333548][ T9440] Bluetooth: hci3: command 0x0401 tx timeout
+[  194.412284][ T9440] Bluetooth: hci4: command 0x0401 tx timeout
+[  194.413293][T25308] Bluetooth: hci4: Opcode 0x0401 failed: -110
+[  194.940791][T25331] Bluetooth: hci2: Opcode 0x0401 failed: -4
+[  195.146055][T25434] ªªªªª: mtu less than device minimum
+[  195.215993][T25360] Bluetooth: hci0: Opcode 0x0c1a failed: -4
+[  195.291941][ T9440] Bluetooth: hci2: command 0x0401 tx timeout
+[  196.076247][T25449] Bluetooth: hci0: Opcode 0x0c03 failed: -4
+[  196.172782][ T9440] Bluetooth: hci7: command 0x0405 tx timeout
+[  196.498170][ T9439] Bluetooth: hci4: command 0x0401 tx timeout
+[  196.811341][T25517] Bluetooth: hci0: Opcode 0x0c03 failed: -4
+[  197.019757][T25546] Bluetooth: hci2: Opcode 0x0401 failed: -4
+[  197.371991][ T9440] Bluetooth: hci2: command 0x0401 tx timeout
+[  198.258387][ T1324] ieee802154 phy0 wpan0: encryption failed: -22
+[  198.258970][ T1324] ieee802154 phy1 wpan1: encryption failed: -22
+[  198.571901][ T9440] Bluetooth: hci4: command 0x0401 tx timeout
+[  198.600418][T25694] Bluetooth: hci3: Opcode 0x0401 failed: -4
+[  199.453236][ T9440] Bluetooth: hci2: command 0x0401 tx timeout
+[  199.699264][T25924] ªªªªª: mtu greater than device maximum
+[  199.851946][ T9440] Bluetooth: hci3: command 0x0401 tx timeout
+[  200.651990][ T9440] Bluetooth: hci4: command 0x0401 tx timeout
+[  201.504575][T26138] ªªªªª: mtu less than device minimum
+[  201.532857][ T9440] Bluetooth: hci2: command 0x0401 tx timeout
+[  201.533983][T26135] Bluetooth: hci2: Opcode 0x0401 failed: -110
+[  201.674132][T26153] Bluetooth: hci0: Opcode 0x0401 failed: -22
+[  201.862086][T26085] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  202.155743][T26209] ªªªªª: mtu less than device minimum
+[  202.580182][T26167] Bluetooth: hci3: Opcode 0x0401 failed: -4
+[  202.732118][ T9440] Bluetooth: hci4: command 0x0401 tx timeout
+[  202.939672][T26211] Bluetooth: hci0: Opcode 0x0c03 failed: -4
+[  203.612692][ T9440] Bluetooth: hci2: command 0x0401 tx timeout
+[  203.773574][ T9440] Bluetooth: hci3: command 0x0401 tx timeout
+[  203.881917][T26374] Bluetooth: hci2: Opcode 0x0401 failed: -4
+[  204.122638][T26311] Bluetooth: hci0: Opcode 0x0c20 failed: -4
+[  204.123882][T26370] Bluetooth: hci0: Opcode 0x0c1a failed: -4
+[  204.812069][ T9440] Bluetooth: hci4: command 0x0401 tx timeout
+[  205.187239][T26430] Bluetooth: hci1: Opcode 0x0401 failed: -4
+[  205.406184][T26467] Bluetooth: hci1: Opcode 0x0401 failed: -4
+[  205.932217][ T9440] Bluetooth: hci2: command 0x0401 tx timeout
+[  206.426999][ T9440] Bluetooth: hci1: command 0x0401 tx timeout
+[  206.681798][T26579] Bluetooth: hci3: Opcode 0x0401 failed: -4
+[  206.901969][ T9440] Bluetooth: hci4: command 0x0401 tx timeout
+[  207.933157][ T9440] Bluetooth: hci3: command 0x0401 tx timeout
+[  207.933712][T26741] Bluetooth: hci3: Opcode 0x0401 failed: -110
+[  208.388316][T26829] Bluetooth: hci0: Opcode 0x0401 failed: -22
+[  208.497801][ T9440] Bluetooth: hci1: command 0x0401 tx timeout
+[  208.501775][T26740] Bluetooth: hci2: Opcode 0x0401 failed: -4
+[  208.802462][T26768] Bluetooth: hci3: Opcode 0x0401 failed: -4
+[  208.972032][ T9440] Bluetooth: hci4: command 0x0401 tx timeout
+[  209.692473][ T9440] Bluetooth: hci2: command 0x0401 tx timeout
+[  210.027179][ T9440] Bluetooth: hci3: command 0x0401 tx timeout
+[  210.572766][ T9440] Bluetooth: hci1: command 0x0401 tx timeout
+[  210.686701][T26994] Bluetooth: hci5: Opcode 0x0401 failed: -4
+[  210.725864][T27084] Bluetooth: hci0: Opcode 0x0401 failed: -22
+[  210.957783][T27113] Bluetooth: hci0: Opcode 0x0c1a failed: -22
+[  211.051985][ T9440] Bluetooth: hci4: command 0x0401 tx timeout
+[  211.511187][T27151] Bluetooth: hci0: Opcode 0x0c20 failed: -22
+[  211.512236][T27150] Bluetooth: hci0: Opcode 0x0c20 failed: -22
+[  211.907952][T27124] Bluetooth: hci3: Opcode 0x0401 failed: -4
+[  211.931934][ T9440] Bluetooth: hci5: command 0x0406 tx timeout
+[  212.102626][ T9440] Bluetooth: hci3: command 0x0401 tx timeout
+[  212.814342][T27204] Bluetooth: hci0: Opcode 0x0c03 failed: -4
+[  213.313873][T27266] Bluetooth: hci0: Opcode 0x0c1a failed: -4
+[  214.175459][ T9439] Bluetooth: hci3: command 0x0401 tx timeout
+[  214.812219][ T9439] Bluetooth: hci7: command 0x0405 tx timeout
+[  214.858024][T27477] ªªªªª: mtu less than device minimum
+[  215.658395][T27472] Bluetooth: hci2: Opcode 0x0401 failed: -4
+[  216.699737][T27594] Bluetooth: hci0: Opcode 0x0c03 failed: -4
+[  216.902119][ T9440] Bluetooth: hci2: command 0x0401 tx timeout
+[  217.605393][T27667] Bluetooth: hci0: Opcode 0x0c03 failed: -4
+[  219.144560][T27813] Bluetooth: hci1: Opcode 0x0401 failed: -4
+[  219.420314][T27955] Bluetooth: hci0: Opcode 0x0c20 failed: -22
+[  219.846758][T27898] Bluetooth: hci1: Opcode 0x0401 failed: -4
+[  219.966217][T27912] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  220.392822][T28044] Bluetooth: hci0: Opcode 0x0c1a failed: -22
+[  220.412974][ T9440] Bluetooth: hci1: command 0x0401 tx timeout
+[  220.562940][T28065] ªªªªª: mtu less than device minimum
+[  221.212067][ T9440] Bluetooth: hci4: command 0x0401 tx timeout
+[  221.452011][ T9440] Bluetooth: hci0: command tx timeout
+[  222.501948][ T9440] Bluetooth: hci1: command 0x0401 tx timeout
+[  224.572084][ T9440] Bluetooth: hci1: command 0x0401 tx timeout
+[  226.388077][T28704] Bluetooth: hci0: Opcode 0x0c03 failed: -4
+[  226.652088][ T9440] Bluetooth: hci1: command 0x0401 tx timeout
+[  226.939508][T28668] Bluetooth: hci3: Opcode 0x0401 failed: -4
+[  226.940783][T28685] Bluetooth: hci3: Opcode 0x0401 failed: -4
+[  227.672250][T28762] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  228.006768][T28881] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  228.172069][ T9440] Bluetooth: hci3: command 0x0401 tx timeout
+[  228.731922][ T9440] Bluetooth: hci1: command 0x0401 tx timeout
+[  228.762989][T28886] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  228.892103][ T9440] Bluetooth: hci4: command 0x0401 tx timeout
+[  229.043570][T28911] Bluetooth: hci0: Opcode 0x0401 failed: -4
+[  229.245153][T13549] _______2__: renamed from ÿÿÿÿÿÿ2€
+[  229.751565][T28978] Bluetooth: hci1: Opcode 0x0401 failed: -4
+[  229.852004][ T9440] Bluetooth: hci2: command 0x0401 tx timeout
+[  230.251940][ T9440] Bluetooth: hci3: command 0x0401 tx timeout
+[  230.813735][ T9440] Bluetooth: hci1: command 0x0401 tx timeout
+[  230.973997][ T9440] Bluetooth: hci4: command 0x0401 tx timeout
+[  232.891954][ T9440] Bluetooth: hci1: command 0x0401 tx timeout
+[  232.893195][T29307] Bluetooth: hci1: Opcode 0x0401 failed: -110
+[  233.028462][T29310] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  233.059216][ T9440] Bluetooth: hci4: command 0x0401 tx timeout
+[  233.059712][T29370] Bluetooth: hci4: Opcode 0x0401 failed: -110
+[  233.217130][T29430] Bluetooth: hci0: Opcode 0x0c1a failed: -22
+[  233.939911][T29540] ªªªªª: mtu greater than device maximum
+[  234.134900][T29554] Bluetooth: hci0: Opcode 0x0c1a failed: -22
+[  234.298535][T29474] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  234.972631][ T9440] Bluetooth: hci1: command 0x0401 tx timeout
+[  235.123689][T29625] ªªªªª: mtu greater than device maximum
+[  235.133378][ T9440] Bluetooth: hci4: command 0x0401 tx timeout
+[  235.291985][ T9439] Bluetooth: hci0: command tx timeout
+[  235.516902][T29653] Bluetooth: hci0: Opcode 0x0c20 failed: -22
+[  235.520458][T29653] Bluetooth: hci0: Opcode 0x0c20 failed: -22
+[  235.844695][T29613] Bluetooth: hci1: Opcode 0x0401 failed: -4
+[  236.032971][ T9427] Bluetooth: hci0: unexpected cc 0x0c03 length: 249 > 1
+[  236.034905][ T9427] Bluetooth: hci0: unexpected cc 0x1003 length: 249 > 9
+[  236.036971][ T9427] Bluetooth: hci0: unexpected cc 0x1001 length: 249 > 9
+[  236.038843][ T9427] Bluetooth: hci0: unexpected cc 0x0c23 length: 249 > 4
+[  236.040901][ T9427] Bluetooth: hci0: unexpected cc 0x0c25 length: 249 > 3
+[  236.043196][ T9427] Bluetooth: hci0: unexpected cc 0x0c38 length: 249 > 2
+[  236.084144][T12076] netdevsim netdevsim2 netdevsim3 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  236.140854][T12076] netdevsim netdevsim2 netdevsim2 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  236.220184][T12076] netdevsim netdevsim2 netdevsim1 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  236.297378][T12076] netdevsim netdevsim2 netdevsim0 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  236.386648][T29743] input: Bluetooth HID Boot Protocol Device as /devices/virtual/bluetooth/hci0/hci0:200/input34
+[  236.412781][T12076] bridge_slave_1: left allmulticast mode
+[  236.416204][T12076] bridge_slave_1: left promiscuous mode
+[  236.424562][T12076] bridge0: port 2(bridge_slave_1) entered disabled state
+[  236.469295][T12076] bridge_slave_0: left allmulticast mode
+[  236.475223][T12076] bridge_slave_0: left promiscuous mode
+[  236.477455][T12076] bridge0: port 1(bridge_slave_0) entered disabled state
+[  237.052593][ T9439] Bluetooth: hci1: command 0x0401 tx timeout
+[  237.222055][ T9439] Bluetooth: hci4: command 0x0401 tx timeout
+[  237.265108][T12076] bond0 (unregistering): (slave bond_slave_0): Releasing backup interface
+[  237.270434][T12076] bond0 (unregistering): (slave bond_slave_1): Releasing backup interface
+[  237.280389][T12076] bond0 (unregistering): Released all slaves
+[  237.292189][ T9439] Bluetooth: hci7: command 0x0405 tx timeout
+[  237.705144][T29692] chnl_net:caif_netlink_parms(): no params data found
+[  238.092344][ T9440] Bluetooth: hci0: command tx timeout
+[  238.156103][T12076] hsr_slave_0: left promiscuous mode
+[  238.161606][T12076] hsr_slave_1: left promiscuous mode
+[  238.171042][T12076] batman_adv: batadv0: Interface deactivated: batadv_slave_0
+[  238.171670][T12076] batman_adv: batadv0: Removing interface: batadv_slave_0
+[  238.192965][T12076] batman_adv: batadv0: Interface deactivated: batadv_slave_1
+[  238.197087][T12076] batman_adv: batadv0: Removing interface: batadv_slave_1
+[  238.225125][T12076] veth1_macvtap: left promiscuous mode
+[  238.227337][T12076] veth0_macvtap: left promiscuous mode
+[  238.228235][T12076] veth1_vlan: left promiscuous mode
+[  238.229852][T12076] veth0_vlan: left promiscuous mode
+[  238.394825][T29930] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  238.930744][T12076] team0 (unregistering): Port device team_slave_1 removed
+[  238.969259][T30084] input: Bluetooth HID Boot Protocol Device as /devices/virtual/bluetooth/hci0/hci0:200/input35
+[  238.990917][T12076] team0 (unregistering): Port device team_slave_0 removed
+[  239.033090][T30044] Bluetooth: hci4: Opcode 0x0401 failed: -4
+[  239.132471][ T9440] Bluetooth: hci1: command 0x0401 tx timeout
+[  239.305292][ T9440] Bluetooth: hci4: command 0x0401 tx timeout
+[  239.880342][T29692] bridge0: port 1(bridge_slave_0) entered blocking state
+[  239.889099][T29692] bridge0: port 1(bridge_slave_0) entered disabled state
+[  239.899520][T29692] bridge_slave_0: entered allmulticast mode
+[  239.908795][T29692] bridge_slave_0: entered promiscuous mode
+[  239.910962][T29692] bridge0: port 2(bridge_slave_1) entered blocking state
+[  239.922823][T29692] bridge0: port 2(bridge_slave_1) entered disabled state
+[  239.924058][T29692] bridge_slave_1: entered allmulticast mode
+[  239.925088][T29692] bridge_slave_1: entered promiscuous mode
+[  239.988733][T13549] _: renamed from 
+[  240.093154][T12056] Oops: general protection fault, probably for non-canonical address 0xdffffc000000004b: 0000 [#1] PREEMPT SMP KASAN NOPTI
+[  240.095225][T12056] KASAN: null-ptr-deref in range [0x0000000000000258-0x000000000000025f]
+[  240.095815][T12056] CPU: 0 UID: 0 PID: 12056 Comm: kworker/0:5 Not tainted 6.14.0-rc1 #1
+[  240.097527][T12056] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.15.0-1 04/01/2014
+[  240.098302][T12056] Workqueue: events l2cap_info_timeout
+[  240.098714][T12056] RIP: 0010:__lock_acquire+0xe2/0x3c80
+[  240.099120][T12056] Code: d0 7c 08 84 d2 0f 85 d2 13 00 00 8b 05 5b 0b ab 0e 85 c0 0f 84 35 0e 00 00 48 b8 00 00 00 00 00 fc ff df 4c 89 e2 48 c1 ea 03 <80> 3c 02 00 0f 85 8c 2c 00 00 49 8b 04 24 48 3d a0 c7 56 93 0f 84
+[  240.100748][T12056] RSP: 0018:ffffc90005f9f880 EFLAGS: 00010006
+[  240.101202][T12056] RAX: dffffc0000000000 RBX: 1ffff92000bf3f22 RCX: 0000000000000000
+[  240.101747][T12056] RDX: 000000000000004b RSI: 0000000000000000 RDI: 0000000000000258
+[  240.102301][T12056] RBP: 0000000000000000 R08: 0000000000000001 R09: 0000000000000000
+[  240.102850][T12056] R10: ffffffff903fca17 R11: 0000000000000000 R12: 0000000000000258
+[  240.104216][T12056] R13: 0000000000000000 R14: 0000000000000000 R15: ffff888029d80000
+[  240.104764][T12056] FS:  0000000000000000(0000) GS:ffff88802b800000(0000) knlGS:0000000000000000
+[  240.105545][T12056] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  240.106355][T12056] CR2: 00007fab66622000 CR3: 000000007544e000 CR4: 0000000000352ef0
+[  240.108831][T12056] DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
+[  240.110051][T12056] DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400
+[  240.111256][T12056] Call Trace:
+[  240.111769][T12056]  <TASK>
+[  240.112240][T12056]  ? die_addr+0x3c/0xa0
+[  240.112849][T12056]  ? exc_general_protection+0x1a3/0x320
+[  240.113259][T12056]  ? asm_exc_general_protection+0x26/0x30
+[  240.113678][T12056]  ? __lock_acquire+0xe2/0x3c80
+[  240.114041][T12056]  ? __pfx_mark_lock+0x10/0x10
+[  240.114396][T12056]  ? __mutex_trylock_common+0xfc/0x260
+[  240.114793][T12056]  ? __pfx___lock_acquire+0x10/0x10
+[  240.115522][T12056]  ? __timer_delete+0xed/0x1b0
+[  240.116354][T12056]  ? __pfx___timer_delete+0x10/0x10
+[  240.117158][T12056]  ? rcu_is_watching+0x12/0xc0
+[  240.117889][T12056]  lock_acquire.part.0+0x11b/0x370
+[  240.118682][T12056]  ? l2cap_sock_ready_cb+0x42/0x170
+[  240.119606][T12056]  ? __pfx_lock_acquire.part.0+0x10/0x10
+[  240.120137][T12056]  ? rcu_is_watching+0x12/0xc0
+[  240.120550][T12056]  ? trace_lock_acquire+0x14e/0x200
+[  240.120933][T12056]  ? __pfx___cancel_work+0x10/0x10
+[  240.121311][T12056]  ? lock_acquire+0x32/0xc0
+[  240.121705][T12056]  ? l2cap_sock_ready_cb+0x42/0x170
+[  240.122108][T12056]  lock_sock_nested+0x3a/0xf0
+[  240.122459][T12056]  ? l2cap_sock_ready_cb+0x42/0x170
+[  240.122840][T12056]  l2cap_sock_ready_cb+0x42/0x170
+[  240.123211][T12056]  l2cap_conn_start+0x176/0xa40
+[  240.123568][T12056]  ? __pfx_l2cap_conn_start+0x10/0x10
+[  240.123961][T12056]  ? __pfx_lock_acquire.part.0+0x10/0x10
+[  240.124375][T12056]  ? rcu_is_watching+0x12/0xc0
+[  240.124728][T12056]  ? trace_lock_acquire+0x14e/0x200
+[  240.125178][T12056]  ? lock_acquire+0x32/0xc0
+[  240.125876][T12056]  ? process_one_work+0x8ba/0x1b60
+[  240.126658][T12056]  process_one_work+0x957/0x1b60
+[  240.127375][T12056]  ? __pfx_lock_acquire.part.0+0x10/0x10
+[  240.128188][T12056]  ? __pfx_process_one_work+0x10/0x10
+[  240.129017][T12056]  ? assign_work+0x194/0x240
+[  240.129730][T12056]  worker_thread+0x677/0xe90
+[  240.130444][T12056]  ? __pfx_worker_thread+0x10/0x10
+[  240.131228][T12056]  kthread+0x3b0/0x760
+[  240.131856][T12056]  ? __pfx_kthread+0x10/0x10
+[  240.132567][T12056]  ? _raw_spin_unlock_irq+0x23/0x50
+[  240.133186][T12056]  ? __pfx_kthread+0x10/0x10
+[  240.133523][T12056]  ret_from_fork+0x45/0x80
+[  240.133850][T12056]  ? __pfx_kthread+0x10/0x10
+[  240.134189][T12056]  ret_from_fork_asm+0x1a/0x30
+[  240.134542][T12056]  </TASK>
+[  240.134792][T12056] Modules linked in:
+[  240.135096][T12056] ---[ end trace 0000000000000000 ]---
+[  240.135480][T12056] RIP: 0010:__lock_acquire+0xe2/0x3c80
+[  240.135880][T12056] Code: d0 7c 08 84 d2 0f 85 d2 13 00 00 8b 05 5b 0b ab 0e 85 c0 0f 84 35 0e 00 00 48 b8 00 00 00 00 00 fc ff df 4c 89 e2 48 c1 ea 03 <80> 3c 02 00 0f 85 8c 2c 00 00 49 8b 04 24 48 3d a0 c7 56 93 0f 84
+[  240.137683][T12056] RSP: 0018:ffffc90005f9f880 EFLAGS: 00010006
+[  240.138604][T12056] RAX: dffffc0000000000 RBX: 1ffff92000bf3f22 RCX: 0000000000000000
+[  240.139794][T12056] RDX: 000000000000004b RSI: 0000000000000000 RDI: 0000000000000258
+[  240.140985][T12056] RBP: 0000000000000000 R08: 0000000000000001 R09: 0000000000000000
+[  240.142178][T12056] R10: ffffffff903fca17 R11: 0000000000000000 R12: 0000000000000258
+[  240.143246][T12056] R13: 0000000000000000 R14: 0000000000000000 R15: ffff888029d80000
+[  240.143797][T12056] FS:  0000000000000000(0000) GS:ffff88802b800000(0000) knlGS:0000000000000000
+[  240.144841][T12056] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  240.145333][T12056] CR2: 00007fab66622000 CR3: 000000007544e000 CR4: 0000000000352ef0
+[  240.145885][T12056] DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
+[  240.146438][T12056] DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400
+[  240.146996][T12056] Kernel panic - not syncing: Fatal exception
+[  240.147562][T12056] Kernel Offset: disabled
+[  240.147908][T12056] Rebooting in 86400 seconds..
+
+VM DIAGNOSIS:
+03:25:13  Registers:
+info registers vcpu 0
+RAX=0000000000000030 RBX=00000000000003f8 RCX=0000000000000000 RDX=00000000000003f8
+RSI=ffffffff852f2bd5 RDI=ffffffff9a8ace60 RBP=ffffffff9a8ace20 RSP=ffffc90005f9f208
+R8 =0000000000000000 R9 =ffffed10040c7046 R10=0000000000000000 R11=205d363530323154
+R12=0000000000000000 R13=0000000000000030 R14=ffffffff9a8ace20 R15=0000000000000000
+RIP=ffffffff852f2bff RFL=00000002 [-------] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 ffffffff 00c00100
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 ffffffff 00c00100
+FS =0000 0000000000000000 ffffffff 00c00100
+GS =0000 ffff88802b800000 ffffffff 00c00100
+LDT=0000 0000000000000000 ffffffff 00c00000
+TR =0040 fffffe0000003000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe0000001000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007fab66622000 CR3=000000007544e000 CR4=00352ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000fffe0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+YMM00=0000000000000000 0000000000000000 00000000000f4240 0000000000000000
+YMM01=0000000000000000 0000000000000000 0000000000000000 00000000000f4240
+YMM02=0000000000000000 0000000000000000 ffffffffffffffff ffffffffffffffff
+YMM03=0000000000000000 0000000000000000 00000000003ffde8 0000000a00000000
+YMM04=0000000000000000 0000000000000000 00000000000000c4 000000000000000a
+YMM05=0000000000000000 0000000000000000 000000000000000a 00000000000000b8
+YMM06=0000000000000000 0000000000000000 00007fe062a689b9 00000000000000b8
+YMM07=0000000000000000 0000000000000000 000000000000000a 00000000000014fa
+YMM08=0000000000000000 0000000000000000 000a747261745374 6f687370616e5300
+YMM09=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM10=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM11=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM12=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM13=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM14=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM15=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+info registers vcpu 1
+RAX=0000000000000000 RBX=0000000000000000 RCX=ffffffff81ab9ec2 RDX=ffff888021021e80
+RSI=ffffffff81ab9e9c RDI=0000000000000005 RBP=ffff88802b846880 RSP=ffffc9000a20f828
+R8 =0000000000000000 R9 =0000000000000000 R10=0000000000000001 R11=00000000000a388f
+R12=0000000000000003 R13=ffffed1005708d11 R14=0000000000000001 R15=dffffc0000000000
+RIP=ffffffff81ab9e9e RFL=00000293 [--S-A-C] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 ffffffff 00c00000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 ffffffff 00c00000
+FS =0000 00007fab6662b580 ffffffff 00c00000
+GS =0000 ffff88807ee00000 ffffffff 00c00000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe000004a000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe0000048000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007fab66525b30 CR3=0000000012394000 CR4=00352ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000fffe0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+YMM00=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM01=0000000000000000 0000000000000000 007574203a687300 878684828183883a
+YMM02=0000000000000000 0000000000000000 ffffffff0f0e0d0c 0b0a090807060504
+YMM03=0000000000000000 0000000000000000 676f72705f6b6365 686300843d454341
+YMM04=0000000000000000 0000000000000000 ffffffffffffffff ffffffffffffffff
+YMM05=0000000000000000 0000000000000000 ffffffffffffffff ffffffffffffffff
+YMM06=0000000000000000 0000000000000000 ffffffffffffffff ffffffffffffffff
+YMM07=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM08=0000000000000000 0000000000000000 000000002a707070 00006e7275746572
+YMM09=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM10=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM11=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM12=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM13=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM14=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM15=0000000000000000 0000000000000000 0000000000000000 0000000000000000

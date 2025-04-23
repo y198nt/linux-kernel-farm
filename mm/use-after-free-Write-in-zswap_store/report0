@@ -1,0 +1,112 @@
+==================================================================
+BUG: KASAN: use-after-free in register_lock_class+0xca7/0xfb0 kernel/locking/lockdep.c:1380
+Write of size 8 at addr ffff888071f28030 by task kswapd0/106
+
+CPU: 1 UID: 0 PID: 106 Comm: kswapd0 Not tainted 6.14.0-rc1-dirty #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.15.0-1 04/01/2014
+Call Trace:
+ <TASK>
+ __dump_stack lib/dump_stack.c:94 [inline]
+ dump_stack_lvl+0x116/0x1b0 lib/dump_stack.c:120
+ print_address_description mm/kasan/report.c:378 [inline]
+ print_report+0xc0/0x5e0 mm/kasan/report.c:489
+ kasan_report+0xbd/0xf0 mm/kasan/report.c:602
+ register_lock_class+0xca7/0xfb0 kernel/locking/lockdep.c:1380
+ __lock_acquire+0x139/0x3c80 kernel/locking/lockdep.c:5103
+ lock_acquire.part.0+0x11b/0x370 kernel/locking/lockdep.c:5851
+ __raw_spin_lock include/linux/spinlock_api_smp.h:133 [inline]
+ _raw_spin_lock+0x2e/0x40 kernel/locking/spinlock.c:154
+ spin_lock include/linux/spinlock.h:351 [inline]
+ z3fold_page_lock mm/z3fold.c:223 [inline]
+ z3fold_alloc mm/z3fold.c:1060 [inline]
+ z3fold_zpool_malloc+0xdab/0x1500 mm/z3fold.c:1388
+ zswap_compress mm/zswap.c:971 [inline]
+ zswap_store_page mm/zswap.c:1462 [inline]
+ zswap_store+0xb43/0x25a0 mm/zswap.c:1569
+ swap_writepage+0x3a8/0xe50 mm/page_io.c:278
+ pageout+0x3b6/0xaa0 mm/vmscan.c:696
+ shrink_folio_list+0x2816/0x40d0 mm/vmscan.c:1402
+ shrink_inactive_list mm/vmscan.c:2000 [inline]
+ shrink_list mm/vmscan.c:2238 [inline]
+ shrink_lruvec+0xe30/0x2b40 mm/vmscan.c:5749
+ shrink_node_memcgs mm/vmscan.c:5951 [inline]
+ shrink_node+0xabc/0x26c0 mm/vmscan.c:5992
+ kswapd_shrink_node mm/vmscan.c:6807 [inline]
+ balance_pgdat+0x8c7/0x1350 mm/vmscan.c:6999
+ kswapd+0x690/0xcf0 mm/vmscan.c:7264
+ kthread+0x3b0/0x760 kernel/kthread.c:464
+ ret_from_fork+0x45/0x80 arch/x86/kernel/process.c:148
+ ret_from_fork_asm+0x1a/0x30
+ </TASK>
+
+The buggy address belongs to the physical page:
+page: refcount:1 mapcount:0 mapping:ffff888000d59000 index:0xffff888000000000 pfn:0x71f28
+memcg:ffff888041768000
+aops:swap_aops
+flags: 0x4fff00000020428(uptodate|lru|owner_priv_1|swapbacked|node=1|zone=1|lastcpupid=0x7ff)
+raw: 04fff00000020428 ffffea00012b5388 ffff888049452848 0000000000000000
+raw: ffff888000000000 0000000000000876 00000001ffffffff ffff888041768000
+page dumped because: kasan: bad access detected
+page_owner tracks the page as allocated
+page last allocated via order 0, migratetype Unmovable, gfp_mask 0x40cc0(GFP_KERNEL|__GFP_COMP), pid 107, tgid 107 (kswapd1), ts 3091823394368, free_ts 3091803354809
+ set_page_owner include/linux/page_owner.h:32 [inline]
+ post_alloc_hook+0x193/0x1c0 mm/page_alloc.c:1551
+ prep_new_page mm/page_alloc.c:1559 [inline]
+ get_page_from_freelist+0xe4e/0x2b10 mm/page_alloc.c:3477
+ __alloc_frozen_pages_noprof+0x219/0x21f0 mm/page_alloc.c:4739
+ alloc_pages_mpol+0x1f2/0x540 mm/mempolicy.c:2270
+ folio_alloc_mpol_noprof+0x38/0x2f0 mm/mempolicy.c:2289
+ __read_swap_cache_async+0x42f/0x630 mm/swap_state.c:476
+ zswap_writeback_entry+0xf6/0x860 mm/zswap.c:1060
+ shrink_memcg_cb+0x213/0x360 mm/zswap.c:1199
+ __list_lru_walk_one+0x15b/0x490 mm/list_lru.c:300
+ list_lru_walk_one+0x3e/0x50 mm/list_lru.c:337
+ list_lru_shrink_walk include/linux/list_lru.h:262 [inline]
+ zswap_shrinker_scan+0x135/0x220 mm/zswap.c:1233
+ do_shrink_slab+0x44b/0x11b0 mm/shrinker.c:437
+ shrink_slab_memcg mm/shrinker.c:550 [inline]
+ shrink_slab+0xb61/0x12a0 mm/shrinker.c:628
+ shrink_node_memcgs mm/vmscan.c:5953 [inline]
+ shrink_node+0xb25/0x26c0 mm/vmscan.c:5992
+ kswapd_shrink_node mm/vmscan.c:6807 [inline]
+ balance_pgdat+0x8c7/0x1350 mm/vmscan.c:6999
+ kswapd+0x690/0xcf0 mm/vmscan.c:7264
+page last free pid 168945 tgid 168944 stack trace:
+ reset_page_owner include/linux/page_owner.h:25 [inline]
+ free_pages_prepare mm/page_alloc.c:1127 [inline]
+ free_frozen_pages+0x70f/0xfe0 mm/page_alloc.c:2660
+ __folio_put+0x321/0x440 mm/swap.c:112
+ folio_put include/linux/mm.h:1489 [inline]
+ migrate_folio_done+0x29d/0x340 mm/migrate.c:1180
+ migrate_folio_move mm/migrate.c:1402 [inline]
+ migrate_folios_move mm/migrate.c:1712 [inline]
+ migrate_pages_batch+0x1c95/0x31e0 mm/migrate.c:1959
+ migrate_pages_sync+0x10c/0x890 mm/migrate.c:1989
+ migrate_pages+0x19fd/0x21c0 mm/migrate.c:2098
+ compact_zone+0x1b3d/0x3e70 mm/compaction.c:2663
+ compact_zone_order+0x16b/0x240 mm/compaction.c:2798
+ try_to_compact_pages+0x362/0xa90 mm/compaction.c:2859
+ __alloc_pages_direct_compact+0x12f/0x5a0 mm/page_alloc.c:3685
+ __alloc_pages_slowpath mm/page_alloc.c:4388 [inline]
+ __alloc_frozen_pages_noprof+0xbad/0x21f0 mm/page_alloc.c:4752
+ alloc_pages_mpol+0x1f2/0x540 mm/mempolicy.c:2270
+ alloc_frozen_pages_noprof mm/mempolicy.c:2341 [inline]
+ alloc_pages_noprof+0x12d/0x390 mm/mempolicy.c:2361
+ io_mem_alloc_compound io_uring/memmap.c:29 [inline]
+ io_region_allocate_pages io_uring/memmap.c:167 [inline]
+ io_create_region+0x6fb/0xc60 io_uring/memmap.c:223
+ io_allocate_scq_urings io_uring/io_uring.c:3479 [inline]
+ io_uring_create io_uring/io_uring.c:3701 [inline]
+ io_uring_setup+0x10f2/0x2180 io_uring/io_uring.c:3791
+ __do_sys_io_uring_setup io_uring/io_uring.c:3818 [inline]
+ __se_sys_io_uring_setup io_uring/io_uring.c:3812 [inline]
+ __x64_sys_io_uring_setup+0x98/0x160 io_uring/io_uring.c:3812
+
+Memory state around the buggy address:
+ ffff888071f27f00: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+ ffff888071f27f80: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+>ffff888071f28000: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                                     ^
+ ffff888071f28080: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+ ffff888071f28100: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+==================================================================

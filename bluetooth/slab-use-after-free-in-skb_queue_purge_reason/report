@@ -1,0 +1,139 @@
+BUG: KASAN: slab-use-after-free in skb_queue_purge_reason+0x375/0x410
+Read of size 8 at addr ffff888022321058 by task syz.8.11043/47309
+CPU: 0 UID: 0 PID: 47309 Comm: syz.8.11043 Not tainted 6.14.0-rc1 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.15.0-1 04/01/2014
+Call Trace:
+ <TASK>
+ dump_stack_lvl+0x116/0x1b0
+ print_report+0xc0/0x5e0
+ ? __phys_addr+0xc9/0x150
+ ? skb_queue_purge_reason+0x375/0x410
+ ? skb_queue_purge_reason+0x375/0x410
+ kasan_report+0xbd/0xf0
+ ? skb_queue_purge_reason+0x375/0x410
+ skb_queue_purge_reason+0x375/0x410
+ ? __mutex_unlock_slowpath+0x156/0x660
+ ? __pfx_skb_queue_purge_reason+0x10/0x10
+ ? __pfx___mutex_unlock_slowpath+0x10/0x10
+ ? __pfx_hci_conn_hash_flush+0x10/0x10
+ ? drain_workqueue+0x30c/0x3d0
+ ? hci_inquiry_cache_flush+0x177/0x310
+ ? __pfx_vhci_flush+0x10/0x10
+ vhci_flush+0x40/0x50
+ hci_dev_reset+0x261/0x530
+ hci_sock_ioctl+0x3d6/0x830
+ ? __pfx_hci_sock_ioctl+0x10/0x10
+ ? tomoyo_path_number_perm+0x16a/0x580
+ sock_do_ioctl+0x10d/0x290
+ ? do_vfs_ioctl+0x4ad/0x1810
+ ? __pfx_sock_do_ioctl+0x10/0x10
+ ? __pfx_do_vfs_ioctl+0x10/0x10
+ sock_ioctl+0x270/0x700
+ ? __pfx_lock_release+0x10/0x10
+ ? __pfx_sock_ioctl+0x10/0x10
+ ? lock_acquire+0x32/0xc0
+ ? __fget_files+0x40/0x3a0
+ ? __fget_files+0x1f2/0x3a0
+ ? __pfx_sock_ioctl+0x10/0x10
+ __x64_sys_ioctl+0x1a7/0x210
+ do_syscall_64+0xcb/0x250
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f7ca6fac22d
+Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48
+RSP: 002b:00007f7ca7e98f98 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
+RAX: ffffffffffffffda RBX: 00007f7ca71e5fa0 RCX: 00007f7ca6fac22d
+RDX: 0000400000000000 RSI: 00000000400448cb RDI: 0000000000000004
+RBP: 00007f7ca70445d6 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 0000000000000000 R14: 00007f7ca71e5fa0 R15: 00007f7ca7e79000
+ </TASK>
+Allocated by task 44052:
+ kasan_save_stack+0x24/0x50
+ kasan_save_track+0x14/0x30
+ __kasan_kmalloc+0xaa/0xb0
+ vhci_open+0x4c/0x430
+ misc_open+0x321/0x420
+ chrdev_open+0x237/0x730
+ do_dentry_open+0x734/0x1c20
+ vfs_open+0x82/0x3f0
+ path_openat+0x1d4d/0x2960
+ do_filp_open+0x1f8/0x460
+ do_sys_openat2+0x164/0x1d0
+ __x64_sys_openat+0x140/0x1f0
+ do_syscall_64+0xcb/0x250
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+Freed by task 44557:
+ kasan_save_stack+0x24/0x50
+ kasan_save_track+0x14/0x30
+ kasan_save_free_info+0x3b/0x60
+ __kasan_slab_free+0x54/0x70
+ kfree+0x14e/0x4d0
+ vhci_release+0xbc/0xf0
+ __fput+0x402/0xb50
+ task_work_run+0x16c/0x260
+ do_exit+0xade/0x2d00
+ do_group_exit+0xd3/0x2a0
+ get_signal+0x23a3/0x24b0
+ arch_do_signal_or_restart+0x90/0x7e0
+ syscall_exit_to_user_mode+0x150/0x2a0
+ do_syscall_64+0xd8/0x250
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+The buggy address belongs to the object at ffff888022321000
+ which belongs to the cache kmalloc-1k of size 1024
+The buggy address is located 88 bytes inside of
+ freed 1024-byte region [ffff888022321000, ffff888022321400)
+The buggy address belongs to the physical page:
+page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x22320
+head: order:3 mapcount:0 entire_mapcount:0 nr_pages_mapped:0 pincount:0
+flags: 0xfff00000000040(head|node=0|zone=1|lastcpupid=0x7ff)
+page_type: f5(slab)
+raw: 00fff00000000040 ffff88801ac41dc0 dead000000000100 dead000000000122
+raw: 0000000000000000 0000000000100010 00000000f5000000 0000000000000000
+head: 00fff00000000040 ffff88801ac41dc0 dead000000000100 dead000000000122
+head: 0000000000000000 0000000000100010 00000000f5000000 0000000000000000
+head: 00fff00000000003 ffffea000088c801 ffffffffffffffff 0000000000000000
+head: 0000000000000008 0000000000000000 00000000ffffffff 0000000000000000
+page dumped because: kasan: bad access detected
+page_owner tracks the page as allocated
+page last allocated via order 3, migratetype Unmovable, gfp_mask 0xd2040(__GFP_IO|__G5
+ post_alloc_hook+0x193/0x1c0
+ get_page_from_freelist+0xe4e/0x2b20
+ __alloc_frozen_pages_noprof+0x219/0x21f0
+ alloc_pages_mpol+0x1f2/0x540
+ new_slab+0x248/0x350
+ ___slab_alloc+0xb66/0x16e0
+ __slab_alloc.constprop.0+0x56/0xb0
+ __kmalloc_noprof+0x2ac/0x540
+ tomoyo_init_log+0x1227/0x1ef0
+ tomoyo_supervisor+0x360/0x1570
+ tomoyo_env_perm+0x187/0x200
+ tomoyo_find_next_domain+0x12ba/0x20a0
+ tomoyo_bprm_check_security+0x13a/0x1d0
+ security_bprm_check+0x1d0/0x200
+ bprm_execve+0x82a/0x16d0
+ do_execveat_common.isra.0+0x4c9/0x630
+page last free pid 9396 tgid 9396 stack trace:
+ free_frozen_pages+0x718/0xfd0
+ qlist_free_all+0x50/0x120
+ kasan_quarantine_reduce+0x195/0x1e0
+ __kasan_slab_alloc+0x67/0x90
+ __kmalloc_cache_noprof+0x15a/0x420
+ tomoyo_init_log+0xcae/0x1ef0
+ tomoyo_supervisor+0x360/0x1570
+ tomoyo_env_perm+0x187/0x200
+ tomoyo_find_next_domain+0x12ba/0x20a0
+ tomoyo_bprm_check_security+0x13a/0x1d0
+ security_bprm_check+0x1d0/0x200
+ bprm_execve+0x82a/0x16d0
+ do_execveat_common.isra.0+0x4c9/0x630
+ __x64_sys_execve+0x8c/0xb0
+ do_syscall_64+0xcb/0x250
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+Memory state around the buggy address:
+ ffff888022320f00: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+ ffff888022320f80: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+>ffff888022321000: fa fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+                                                    ^
+ ffff888022321080: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+ ffff888022321100: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+==================================================================

@@ -1,0 +1,49 @@
+list_add corruption. next->prev should be prev (ffffe8ffac721170), but was ffffffff8478cf20. (next=ffff888023081a00).
+------------[ cut here ]------------
+kernel BUG at lib/list_debug.c:29!
+Oops: invalid opcode: 0000 [#1] PREEMPT SMP KASAN NOPTI
+CPU: 2 UID: 0 PID: 65208 Comm: kworker/u12:2 Not tainted 6.14.0-rc1-dirty #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.15.0-1 04/01/2014
+Workqueue: zswap1 compact_page_work
+RIP: 0010:__list_add_valid_or_report+0xf0/0x1a0 lib/list_debug.c:29
+Code: 00 00 00 00 fc ff df 48 c1 ea 03 80 3c 02 00 0f 85 a6 00 00 00 49 8b 54 24 08 4c 89 e1 48 c7 c7 a0 eb b1 8b e8 21 21 e3 fc 90 <0f> 0b 48 89 f7 48 89 34 24 e8 82 61 41 fd 48 8b 34 24 48 b8 00 00
+RSP: 0018:ffffc900062afb98 EFLAGS: 00010286
+RAX: 0000000000000075 RBX: ffff8880570c8000 RCX: ffffffff8197e509
+RDX: 0000000000000000 RSI: ffffffff81984801 RDI: 0000000000000005
+RBP: ffff888027573c08 R08: 0000000000000001 R09: ffffed1005725181
+R10: 0000000000000002 R11: fffffffffffc8790 R12: ffff888023081a00
+R13: ffff8880570c8000 R14: ffff888023081a08 R15: ffffea00015c3200
+FS:  0000000000000000(0000) GS:ffff88802b900000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007fa876b93e70 CR3: 000000007d256000 CR4: 0000000000352ef0
+DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
+DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400
+Call Trace:
+ <TASK>
+ __list_add_valid include/linux/list.h:88 [inline]
+ __list_add include/linux/list.h:150 [inline]
+ list_add include/linux/list.h:169 [inline]
+ add_to_unbuddied mm/z3fold.c:550 [inline]
+ do_compact_page+0x1176/0x2710 mm/z3fold.c:772
+ process_one_work+0x99f/0x1bb0 kernel/workqueue.c:3236
+ process_scheduled_works kernel/workqueue.c:3317 [inline]
+ worker_thread+0x677/0xe90 kernel/workqueue.c:3398
+ kthread+0x3b0/0x760 kernel/kthread.c:464
+ ret_from_fork+0x45/0x80 arch/x86/kernel/process.c:148
+ ret_from_fork_asm+0x1a/0x30
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:__list_add_valid_or_report+0xf0/0x1a0 lib/list_debug.c:29
+Code: 00 00 00 00 fc ff df 48 c1 ea 03 80 3c 02 00 0f 85 a6 00 00 00 49 8b 54 24 08 4c 89 e1 48 c7 c7 a0 eb b1 8b e8 21 21 e3 fc 90 <0f> 0b 48 89 f7 48 89 34 24 e8 82 61 41 fd 48 8b 34 24 48 b8 00 00
+RSP: 0018:ffffc900062afb98 EFLAGS: 00010286
+RAX: 0000000000000075 RBX: ffff8880570c8000 RCX: ffffffff8197e509
+RDX: 0000000000000000 RSI: ffffffff81984801 RDI: 0000000000000005
+RBP: ffff888027573c08 R08: 0000000000000001 R09: ffffed1005725181
+R10: 0000000000000002 R11: fffffffffffc8790 R12: ffff888023081a00
+R13: ffff8880570c8000 R14: ffff888023081a08 R15: ffffea00015c3200
+FS:  0000000000000000(0000) GS:ffff88802b900000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007fa876b93e70 CR3: 000000007d256000 CR4: 0000000000352ef0
+DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
+DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400

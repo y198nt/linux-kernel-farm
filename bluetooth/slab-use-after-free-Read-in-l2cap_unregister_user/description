@@ -1,0 +1,1 @@
+KASAN: slab-use-after-free Read in l2cap_unregister_user
