@@ -15,18 +15,62 @@ define ETH_P_ALL_BE	htons(ETH_P_ALL)
 
 resource sock_packet[sock]
 
+syz_init_net_socket$packet(fam const[AF_PACKET], type flags[packet_socket_type], proto const[ETH_P_ALL_BE]) sock_packet
 socket$packet(domain const[AF_PACKET], type flags[packet_socket_type], proto const[ETH_P_ALL_BE]) sock_packet
 bind$packet(fd sock_packet, addr ptr[in, sockaddr_ll], addrlen len[addr])
 connect$packet(fd sock_packet, addr ptr[in, sockaddr_ll], addrlen len[addr])
 accept$packet(fd sock_packet, peer ptr[out, sockaddr_ll, opt], peerlen ptr[inout, len[peer, int32]]) sock_packet
 accept4$packet(fd sock_packet, peer ptr[out, sockaddr_ll, opt], peerlen ptr[inout, len[peer, int32]], flags flags[accept_flags]) sock_packet
-
+poll$packet(fd_sock_packet fd, fd sock_packet, events const[POLLIN], revents ptr[out, int32])
 sendto$packet(fd sock_packet, buf buffer[in], len len[buf], f flags[send_flags], addr ptr[in, sockaddr_ll, opt], addrlen len[addr])
 recvfrom$packet(fd sock_packet, buf buffer[out], len len[buf], f flags[recv_flags], addr ptr[in, sockaddr_ll, opt], addrlen len[addr])
 getsockname$packet(fd sock_packet, addr ptr[out, sockaddr_ll], addrlen ptr[inout, len[addr, int32]])
 getpeername$packet(fd sock_packet, peer ptr[out, sockaddr_ll], peerlen ptr[inout, len[peer, int32]])
+ioctl$packet(fd sock_packet, cmd flags[packet_ops], arg ptr[inout, ioctl_packet_arg])
+close$packet(fd sock_packet)
+ioctl$packet_gettstamp(fd sock_packet, cmd flags[packet_gettstamp_flag], arg ptr[out, timespec])
+mmap$packet(fd sock_packet, addr ptr[inout, array[int8]], length len[addr], prot flags[mmap_prot], flags flags[mmap_flags], offset const[0])
+mmap2$packet(addr intptr, len intptr, prot intptr, flags intptr, fd fd, pgoff intptr)
+sendmsg$packet(fd sock_packet, msg ptr[in, msghdr], len len[msg])
+recvmsg$packet(fd sock_packet, msg ptr[out, msghdr], len len[msg], flags flags[recv_flags])
+# Define mmap protection flags
+# mmap_prot = PROT_READ, PROT_WRITE
 
-packet_socket_type = SOCK_RAW, SOCK_DGRAM
+# Define mmap flags
+# mmap_flags = MAP_SHARED, MAP_PRIVATE
+
+packet_gettstamp_flag = SIOCGSTAMP, SIOCGSTAMPNS, SIOCGSTAMP, SIOCGSTAMPNS
+packet_ops = SIOCOUTQ, SIOCINQ, SIOCADDRT, SIOCDELRT, SIOCDARP, SIOCGARP, SIOCSARP, SIOCGIFADDR, SIOCSIFADDR, SIOCGIFBRDADDR, SIOCSIFBRDADDR, SIOCGIFNETMASK, SIOCSIFNETMASK, SIOCGIFDSTADDR, SIOCSIFDSTADDR, SIOCSIFFLAGS
+resource sock_packet_spkt[sock]
+syz_init_net_socket$packet_spkt(fam const[AF_PACKET], type flags[packet_socket_type], proto const[ETH_P_ALL_BE]) sock_packet_spkt
+close$packet_spkt(fd sock_packet_spkt)
+bind$packet_spkt(fd sock_packet_spkt, addr ptr[in, sockaddr], addr_len len[addr])
+getsockname$packet_spkt(fd sock_packet_spkt, addr ptr[out, sockaddr], addrlen ptr[inout, len[addr, int32]])
+getpeername$packet_spkt(fd sock_packet_spkt, peer ptr[out, sockaddr], peerlen ptr[inout, len[peer, int32]])
+poll$packet_spkt(sock_packet_spkt fd, fd sock_packet_spkt, events const[POLLIN], revents ptr[out, int32])
+ioctl$packet_spkt(fd sock_packet_spkt, cmd flags[packet_ops], arg ptr[inout, ioctl_packet_arg])
+ioctl$packet_spkt_gettstamp(fd sock_packet_spkt, cmd flags[packet_gettstamp_flag], arg ptr[out, timespec])
+sendmsg$packet_spkt(fd sock_packet_spkt, msg ptr[in, msghdr], len len[msg])
+recvmsg$packet_spkt(fd sock_packet_spkt, msg ptr[out, msghdr], len len[msg], flags flags[recv_flags])
+
+ioctl_packet_arg {
+	siocinq_outq	ptr[out, int32]
+	ifreq		ptr[inout, ifreq]
+	rtentry		ptr[inout, rtentry]
+}
+
+# ifreq {
+# 	ifr_name array[16,int8]
+# 	ifr_addr sockaddr
+# }
+# rtentry {
+# 	rt_dst sockaddr
+# 	rt_gateway sockaddr
+# 	rt_flags flags[rt_flags]
+# 	rt_dev ptr[in,string]
+# }
+
+packet_socket_type = SOCK_RAW, SOCK_DGRAM, SOCK_PACKET
 packet_protocols = ETH_P_802_3, ETH_P_AX25, ETH_P_ALL, ETH_P_802_2, ETH_P_SNAP, ETH_P_DDCMP, ETH_P_WAN_PPP, ETH_P_PPP_MP, ETH_P_LOCALTALK, ETH_P_CAN, ETH_P_CANFD, ETH_P_PPPTALK, ETH_P_TR_802_2, ETH_P_MOBITEX, ETH_P_CONTROL, ETH_P_IRDA, ETH_P_ECONET, ETH_P_HDLC, ETH_P_ARCNET, ETH_P_DSA, ETH_P_TRAILER, ETH_P_PHONET, ETH_P_IEEE802154, ETH_P_CAIF, ETH_P_XDSA
 
 sockaddr_ll {
@@ -42,9 +86,9 @@ sockaddr_ll {
 
 # Generic options
 
-packet_option_types_int = PACKET_RECV_OUTPUT, PACKET_COPY_THRESH, PACKET_AUXDATA, PACKET_ORIGDEV, PACKET_VERSION, PACKET_HDRLEN, PACKET_RESERVE, PACKET_LOSS, PACKET_VNET_HDR, PACKET_TX_TIMESTAMP, PACKET_TIMESTAMP, PACKET_FANOUT, PACKET_TX_HAS_OFF, PACKET_QDISC_BYPASS
+packet_option_types_int = PACKET_RECV_OUTPUT, PACKET_COPY_THRESH, PACKET_AUXDATA, PACKET_ORIGDEV, PACKET_VERSION, PACKET_HDRLEN, PACKET_RESERVE, PACKET_LOSS, PACKET_VNET_HDR, PACKET_VNET_HDR_SZ, PACKET_TX_TIMESTAMP, PACKET_TIMESTAMP, PACKET_FANOUT, PACKET_IGNORE_OUTGOING, PACKET_TX_HAS_OFF, PACKET_QDISC_BYPASS
 
-packet_option_types_buf = PACKET_ADD_MEMBERSHIP, PACKET_DROP_MEMBERSHIP, PACKET_RX_RING, PACKET_STATISTICS, PACKET_TX_RING, PACKET_FANOUT_DATA
+packet_option_types_buf = PACKET_ADD_MEMBERSHIP, PACKET_DROP_MEMBERSHIP, PACKET_RX_RING, PACKET_STATISTICS, PACKET_TX_RING, PACKET_FANOUT_DATA, PACKET_ROLLOVER_STATS
 
 getsockopt$packet_int(fd sock_packet, level const[SOL_PACKET], optname flags[packet_option_types_int], optval ptr[out, int32], optlen ptr[inout, len[optval, int32]])
 setsockopt$packet_int(fd sock_packet, level const[SOL_PACKET], optname flags[packet_option_types_int], optval ptr[in, int32], optlen len[optval])
@@ -57,8 +101,8 @@ packet_mreq {
 	mr_ifindex	ifindex
 	mr_type		const[ARPHRD_ETHER, int16]
 	mr_alen		len[mr_address, int16]
-	mr_address	mac_addr
-	pad		array[const[0, int8], 2]
+	mr_address	array[string, 32]
+# pad		array[const[0, int8], 2]
 }
 
 setsockopt$packet_add_memb(fd sock_packet, level const[SOL_PACKET], optname const[PACKET_ADD_MEMBERSHIP], optval ptr[in, packet_mreq], optlen len[optval])
@@ -95,8 +139,9 @@ packet_fanout_types = PACKET_FANOUT_HASH, PACKET_FANOUT_LB, PACKET_FANOUT_CPU, P
 _ = PACKET_MR_MULTICAST, PACKET_MR_PROMISC, PACKET_MR_ALLMULTI, PACKET_MR_UNICAST
 
 packet_fanout_val {
-	id	int16[0:4]
-	type	flags[packet_fanout_types, int16]
+	id		int16[0:4]
+	type		flags[packet_fanout_types, int16]
+	max_num_members	int32
 }
 
 setsockopt$packet_fanout(fd sock_packet, level const[SOL_PACKET], optname const[PACKET_FANOUT], optval ptr[in, packet_fanout_val], optlen len[optval])

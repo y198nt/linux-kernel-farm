@@ -22,11 +22,11 @@ sendmsg$tipc(fd sock_tipc, msg ptr[in, msghdr_tipc], f flags[send_flags])
 # ioctl$tipc(fd sock_tipc, cmd flags[ioctl_tipc], arg ptr[in, int32])
 poll$tipc(fd_tipc fd, fd sock_tipc, events const[POLLIN], revents ptr[out, int32])
 shutdown$tipc(fd sock_tipc, how const[SHUT_RDWR])
-recvmsg$tipc(fd sock_tipc, msg ptr[out, msghdr_tipc], len len[msg],flags flags[recv_flags])
-getsockopt$tipc(fd sock_tipc, level const[SOL_TIPC], opt flags[getsockopt_tipc], 	val ptr[out, int32], len ptr[inout, bytesize[val, int32]])
+recvmsg$tipc(fd sock_tipc, msg ptr[out, msghdr_tipc], len len[msg], flags flags[recv_flags])
+getsockopt$tipc(fd sock_tipc, level const[SOL_TIPC], opt flags[getsockopt_tipc], val ptr[out, int32], len ptr[inout, bytesize[val, int32]])
 setsockopt$tipc(fd sock_tipc, level const[SOL_TIPC], opt flags[setsockopt_tipc], val ptr[in, int32], len bytesize[val])
 setsockopt$TIPC_GROUP_JOIN(fd sock_tipc, level const[SOL_TIPC], opt const[TIPC_GROUP_JOIN], val ptr[in, tipc_group_req], len bytesize[val])
-setsockopt_tipc =  TIPC_GROUP_LEAVE,TIPC_MCAST_REPLICAST ,TIPC_IMPORTANCE, TIPC_SRC_DROPPABLE, TIPC_DEST_DROPPABLE, TIPC_CONN_TIMEOUT,TIPC_NODELAY, TIPC_NODE_RECVQ_DEPTH, TIPC_SOCK_RECVQ_DEPTH, TIPC_SOCK_RECVQ_USED, TIPC_GROUP_JOIN,TIPC_MCAST_BROADCAST
+setsockopt_tipc = TIPC_GROUP_LEAVE, TIPC_MCAST_REPLICAST, TIPC_IMPORTANCE, TIPC_SRC_DROPPABLE, TIPC_DEST_DROPPABLE, TIPC_CONN_TIMEOUT, TIPC_NODELAY, TIPC_NODE_RECVQ_DEPTH, TIPC_SOCK_RECVQ_DEPTH, TIPC_SOCK_RECVQ_USED, TIPC_GROUP_JOIN, TIPC_MCAST_BROADCAST
 getsockopt_tipc = TIPC_IMPORTANCE, TIPC_SRC_DROPPABLE, TIPC_DEST_DROPPABLE, TIPC_CONN_TIMEOUT, TIPC_NODE_RECVQ_DEPTH, TIPC_SOCK_RECVQ_DEPTH, TIPC_SOCK_RECVQ_USED
 # ioctl_tipc = SIOCGETLINKNAME, SIOCGETNODEID
 
@@ -41,7 +41,6 @@ ioctl$SIOCGETNODEID(fd sock_tipc, cmd const[SIOCGETNODEID], arg ptr[in, tipc_sio
 # setsockopt$TIPC_MCAST_REPLICAST(fd sock_tipc, level const[SOL_TIPC], opt const[TIPC_MCAST_REPLICAST])
 # setsockopt$TIPC_GROUP_LEAVE(fd sock_tipc, level const[SOL_TIPC], opt const[TIPC_GROUP_LEAVE])
 # setsockopt$TIPC_GROUP_JOIN(fd sock_tipc, level const[SOL_TIPC], opt const[TIPC_GROUP_JOIN], val ptr[in, tipc_group_req], len bytesize[val])
-
 
 # getsockopt$TIPC_IMPORTANCE(fd sock_tipc, level const[SOL_TIPC], opt const[TIPC_IMPORTANCE], val ptr[out, int32], len ptr[inout, bytesize[val, int32]])
 # getsockopt$TIPC_SRC_DROPPABLE(fd sock_tipc, level const[SOL_TIPC], opt const[TIPC_SRC_DROPPABLE], val ptr[out, int32], len ptr[inout, bytesize[val, int32]])

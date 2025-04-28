@@ -10,7 +10,6 @@ include <uapi/linux/netfilter/nfnetlink.h>
 
 resource sock_nl_netfilter[sock_netlink]
 
-
 socket$nl_netfilter(domain const[AF_NETLINK], type const[SOCK_RAW], proto const[NETLINK_NETFILTER]) sock_nl_netfilter
 
 sendmsg$nl_netfilter(fd sock_nl_netfilter, msg ptr[in, msghdr_nl_netfilter], f flags[send_flags])

@@ -1397,8 +1397,7 @@ flatbuffers::span<uint8_t> finish_output(OutputData* output, int proc_id, uint64
 					 uint64 freshness, uint32 status, bool hanged, const std::vector<uint8_t>* process_output)
 {
 	// In snapshot mode the output size is fixed and output_size is always initialized, so use it.
-	int out_size = flag_snapshot ? output_size : output->size.load(std::memory_order_relaxed) ?
-												  : kMaxOutput;
+	int out_size = flag_snapshot ? output_size : output->size.load(std::memory_order_relaxed) ?: kMaxOutput;
 	uint32 completed = output->completed.load(std::memory_order_relaxed);
 	completed = std::min(completed, kMaxCalls);
 	debug("handle completion: completed=%u output_size=%u\n", completed, out_size);

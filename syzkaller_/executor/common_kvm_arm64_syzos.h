@@ -235,7 +235,7 @@ guest_handle_mrs(uint64 reg)
 	// Make a call to the generated MSR instruction and clobber x0.
 	asm("blr %[pc]\n"
 	    :
-	    : [pc] "r"(insn)
+	    : [ pc ] "r"(insn)
 	    : "x0", "x30");
 }
 
@@ -253,7 +253,7 @@ guest_handle_msr(uint64 reg, uint64 val)
 	// Put `val` into x0 and make a call to the generated MSR instruction.
 	asm("mov x0, %[val]\nblr %[pc]\n"
 	    :
-	    : [val] "r"(val), [pc] "r"(insn)
+	    : [ val ] "r"(val), [ pc ] "r"(insn)
 	    : "x0", "x30", "memory");
 }
 
@@ -271,10 +271,10 @@ GUEST_CODE static noinline void guest_handle_smc(struct api_call_smccc* cmd)
 	    // they are ignored as per the calling convention.
 	    "smc #0\n"
 	    : // Ignore the outputs for now
-	    : [func_id] "r"((uint64)cmd->func_id),
-	      [arg1] "r"(cmd->params[0]), [arg2] "r"(cmd->params[1]),
-	      [arg3] "r"(cmd->params[2]), [arg4] "r"(cmd->params[3]),
-	      [arg5] "r"(cmd->params[4])
+	    : [ func_id ] "r"((uint64)cmd->func_id),
+	      [ arg1 ] "r"(cmd->params[0]), [ arg2 ] "r"(cmd->params[1]),
+	      [ arg3 ] "r"(cmd->params[2]), [ arg4 ] "r"(cmd->params[3]),
+	      [ arg5 ] "r"(cmd->params[4])
 	    : "x0", "x1", "x2", "x3", "x4", "x5",
 	      // These registers are not used above, but may be clobbered by the SMC call.
 	      "x6", "x7", "x8", "x9", "x10", "x11", "x12", "x13", "x14", "x15", "x16", "x17",
@@ -293,10 +293,10 @@ GUEST_CODE static noinline void guest_handle_hvc(struct api_call_smccc* cmd)
 	    // TODO(glider): nonzero immediate values are designated for use by hypervisor vendors.
 	    "hvc #0\n"
 	    : // Ignore the outputs for now
-	    : [func_id] "r"((uint64)cmd->func_id),
-	      [arg1] "r"(cmd->params[0]), [arg2] "r"(cmd->params[1]),
-	      [arg3] "r"(cmd->params[2]), [arg4] "r"(cmd->params[3]),
-	      [arg5] "r"(cmd->params[4])
+	    : [ func_id ] "r"((uint64)cmd->func_id),
+	      [ arg1 ] "r"(cmd->params[0]), [ arg2 ] "r"(cmd->params[1]),
+	      [ arg3 ] "r"(cmd->params[2]), [ arg4 ] "r"(cmd->params[3]),
+	      [ arg5 ] "r"(cmd->params[4])
 	    : "x0", "x1", "x2", "x3", "x4", "x5",
 	      // These registers are not used above, but may be clobbered by the HVC call.
 	      "x6", "x7", "x8", "x9", "x10", "x11", "x12", "x13", "x14", "x15", "x16", "x17",

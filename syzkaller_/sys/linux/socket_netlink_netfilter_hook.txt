@@ -13,12 +13,12 @@ type msghdr_nf_hook[CMD] msghdr_netlink[netlink_msg_netfilter_t[NFNL_SUBSYS_HOOK
 sendmsg$NFNL_MSG_HOOK_GET(fd sock_nl_netfilter, msg ptr[in, msghdr_nf_hook[NFNL_MSG_HOOK_GET]], f flags[send_flags])
 
 nfnl_hook_policy {
-	NFNLA_HOOK_HOOKNUM	nlattr[NFNLA_HOOK_HOOKNUM, int32be]
-	NFNLA_HOOK_PRIORITY nlattr[NFNLA_HOOK_PRIORITY, int32be]
-	NFNLA_HOOK_DEV 	nlattr[NFNLA_HOOK_DEV, string[nfnla_hook_dev]]
-	NFNLA_HOOK_FUNCTION_NAME 	nlattr[NFNLA_HOOK_FUNCTION_NAME, string[nfnl_hook_function_name]]
-	NFNLA_HOOK_MODULE_NAME 	nlattr[NFNLA_HOOK_MODULE_NAME, string[nfnl_hook_module_name]]
-	NFNLA_HOOK_CHAIN_INFO 	nlattr[NFNLA_HOOK_CHAIN_INFO, string[nfnl_hook_chain_info]]
+	NFNLA_HOOK_HOOKNUM		nlattr[NFNLA_HOOK_HOOKNUM, int32be]
+	NFNLA_HOOK_PRIORITY		nlattr[NFNLA_HOOK_PRIORITY, int32be]
+	NFNLA_HOOK_DEV			nlattr[NFNLA_HOOK_DEV, string[nfnla_hook_dev]]
+	NFNLA_HOOK_FUNCTION_NAME	nlattr[NFNLA_HOOK_FUNCTION_NAME, string[nfnl_hook_function_name]]
+	NFNLA_HOOK_MODULE_NAME		nlattr[NFNLA_HOOK_MODULE_NAME, string[nfnl_hook_module_name]]
+	NFNLA_HOOK_CHAIN_INFO		nlattr[NFNLA_HOOK_CHAIN_INFO, string[nfnl_hook_chain_info]]
 }
 
 nfnla_hook_dev = "syz0", "syz1"
