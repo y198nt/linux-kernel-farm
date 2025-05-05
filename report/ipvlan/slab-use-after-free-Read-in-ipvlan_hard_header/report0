@@ -1,0 +1,224 @@
+==================================================================
+BUG: KASAN: slab-use-after-free in dev_hard_header include/linux/netdevice.h:3399 [inline]
+BUG: KASAN: slab-use-after-free in ipvlan_hard_header+0x12c/0x150 drivers/net/ipvlan/ipvlan_main.c:383
+Read of size 8 at addr ffff8880001e2010 by task systemd-udevd/6834
+
+CPU: 1 UID: 0 PID: 6834 Comm: systemd-udevd Not tainted 6.15.0-rc3 #1 PREEMPT(full) 
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.15.0-1 04/01/2014
+Call Trace:
+ <IRQ>
+ __dump_stack lib/dump_stack.c:94 [inline]
+ dump_stack_lvl+0x10e/0x1f0 lib/dump_stack.c:120
+ print_address_description mm/kasan/report.c:408 [inline]
+ print_report+0xc3/0x680 mm/kasan/report.c:521
+ kasan_report+0xe0/0x110 mm/kasan/report.c:634
+ dev_hard_header include/linux/netdevice.h:3399 [inline]
+ ipvlan_hard_header+0x12c/0x150 drivers/net/ipvlan/ipvlan_main.c:383
+ dev_hard_header include/linux/netdevice.h:3402 [inline]
+ tipc_l2_send_msg+0x2f6/0x480 net/tipc/bearer.c:514
+ tipc_bearer_xmit_skb+0x1bd/0x430 net/tipc/bearer.c:575
+ tipc_disc_timeout+0x5b2/0x850 net/tipc/discover.c:338
+ call_timer_fn+0x197/0x610 kernel/time/timer.c:1789
+ expire_timers kernel/time/timer.c:1840 [inline]
+ __run_timers+0x6ef/0x960 kernel/time/timer.c:2414
+ __run_timer_base kernel/time/timer.c:2426 [inline]
+ __run_timer_base kernel/time/timer.c:2418 [inline]
+ run_timer_base+0x114/0x190 kernel/time/timer.c:2435
+ run_timer_softirq+0x1a/0x40 kernel/time/timer.c:2445
+ handle_softirqs+0x216/0x8f0 kernel/softirq.c:579
+ __do_softirq kernel/softirq.c:613 [inline]
+ invoke_softirq kernel/softirq.c:453 [inline]
+ __irq_exit_rcu+0x109/0x170 kernel/softirq.c:680
+ irq_exit_rcu+0x9/0x30 kernel/softirq.c:696
+ instr_sysvec_apic_timer_interrupt arch/x86/kernel/apic/apic.c:1049 [inline]
+ sysvec_apic_timer_interrupt+0xa4/0xc0 arch/x86/kernel/apic/apic.c:1049
+ </IRQ>
+ <TASK>
+ asm_sysvec_apic_timer_interrupt+0x1a/0x20
+RIP: 0010:migrate_enable+0x195/0x260 kernel/sched/core.c:2427
+Code: 00 31 c0 66 89 85 40 04 00 00 48 c7 c5 00 df a7 93 e8 1f 1a e2 09 41 89 c4 83 f8 07 0f 87 bc 00 00 00 4a 8d 3c e5 00 dd cf 8d <48> b8 00 00 00 00 00 fc ff df 48 89 fa 48 c1 ea 03 80 3c 02 00 0f
+RSP: 0018:ffffc90007fb7d20 EFLAGS: 00000297
+RAX: 0000000000000001 RBX: 1ffff92000ff6fa4 RCX: 1ffffffff356b4bc
+RDX: 1ffff110084b7828 RSI: ffffffff8bf4bc80 RDI: ffffffff8dcfdd08
+RBP: ffffffff93a7df00 R08: 0000000000000004 R09: 000000007fff0000
+R10: 000000007fff0000 R11: 0000000000000000 R12: 0000000000000001
+R13: ffff8880425bc130 R14: 000000007fff0000 R15: 000000007fff0000
+ bpf_prog_run_pin_on_cpu include/linux/filter.h:743 [inline]
+ seccomp_run_filters kernel/seccomp.c:424 [inline]
+ __seccomp_filter+0x230/0xeb0 kernel/seccomp.c:1258
+ __secure_computing+0x215/0x320 kernel/seccomp.c:1388
+ syscall_trace_enter+0x8b/0x280 kernel/entry/common.c:52
+ syscall_enter_from_user_mode_work include/linux/entry-common.h:169 [inline]
+ syscall_enter_from_user_mode include/linux/entry-common.h:199 [inline]
+ do_syscall_64+0x1ee/0x230 arch/x86/entry/syscall_64.c:90
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f07d8e3f342
+Code: c0 f6 c2 40 75 52 89 d0 45 31 d2 25 00 00 41 00 3d 00 00 41 00 74 41 64 8b 04 25 18 00 00 00 85 c0 75 65 b8 01 01 00 00 0f 05 <48> 3d 00 f0 ff ff 0f 87 a2 00 00 00 48 8b 4c 24 38 64 48 2b 0c 25
+RSP: 002b:00007fffc3b6cf70 EFLAGS: 00000246 ORIG_RAX: 0000000000000101
+RAX: ffffffffffffffda RBX: 0000000000000001 RCX: 00007f07d8e3f342
+RDX: 00000000002a0000 RSI: 0000559b00912d41 RDI: 0000000000000013
+RBP: 0000559b00912d40 R08: 0000559ada9d2950 R09: 006c617574726976
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000559b0096f24c
+R13: 0000000000000013 R14: 0000000000000008 R15: 0000559b00912d41
+ </TASK>
+
+Allocated by task 180898:
+ kasan_save_stack+0x33/0x60 mm/kasan/common.c:47
+ kasan_save_track+0x14/0x30 mm/kasan/common.c:68
+ poison_kmalloc_redzone mm/kasan/common.c:377 [inline]
+ __kasan_kmalloc+0xaa/0xb0 mm/kasan/common.c:394
+ kasan_kmalloc include/linux/kasan.h:260 [inline]
+ __do_kmalloc_node mm/slub.c:4341 [inline]
+ __kvmalloc_node_noprof+0x262/0x650 mm/slub.c:5026
+ alloc_netdev_mqs+0xd9/0x1570 net/core/dev.c:11616
+ rtnl_create_link+0xc10/0xfa0 net/core/rtnetlink.c:3641
+ rtnl_newlink_create net/core/rtnetlink.c:3823 [inline]
+ __rtnl_newlink net/core/rtnetlink.c:3950 [inline]
+ rtnl_newlink+0xb69/0x2000 net/core/rtnetlink.c:4065
+ rtnetlink_rcv_msg+0x95b/0xe90 net/core/rtnetlink.c:6955
+ netlink_rcv_skb+0x16a/0x440 net/netlink/af_netlink.c:2534
+ netlink_unicast_kernel net/netlink/af_netlink.c:1313 [inline]
+ netlink_unicast+0x53a/0x7f0 net/netlink/af_netlink.c:1339
+ netlink_sendmsg+0x8d1/0xdd0 net/netlink/af_netlink.c:1883
+ sock_sendmsg_nosec net/socket.c:712 [inline]
+ __sock_sendmsg net/socket.c:727 [inline]
+ __sys_sendto+0x495/0x510 net/socket.c:2180
+ __do_sys_sendto net/socket.c:2187 [inline]
+ __se_sys_sendto net/socket.c:2183 [inline]
+ __x64_sys_sendto+0xe0/0x1c0 net/socket.c:2183
+ do_syscall_x64 arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xcd/0x230 arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+Freed by task 189679:
+ kasan_save_stack+0x33/0x60 mm/kasan/common.c:47
+ kasan_save_track+0x14/0x30 mm/kasan/common.c:68
+ kasan_save_free_info+0x3b/0x60 mm/kasan/generic.c:576
+ poison_slab_object mm/kasan/common.c:247 [inline]
+ __kasan_slab_free+0x4f/0x70 mm/kasan/common.c:264
+ kasan_slab_free include/linux/kasan.h:233 [inline]
+ slab_free_hook mm/slub.c:2398 [inline]
+ slab_free mm/slub.c:4656 [inline]
+ kfree+0x29c/0x4d0 mm/slub.c:4855
+ device_release+0xa1/0x240 drivers/base/core.c:2568
+ kobject_cleanup lib/kobject.c:689 [inline]
+ kobject_release lib/kobject.c:720 [inline]
+ kref_put include/linux/kref.h:65 [inline]
+ kobject_put+0x1e4/0x5a0 lib/kobject.c:737
+ netdev_run_todo+0x817/0x1330 net/core/dev.c:11317
+ rtnl_unlock net/core/rtnetlink.c:157 [inline]
+ rtnl_net_unlock include/linux/rtnetlink.h:135 [inline]
+ rtnl_dellink+0x3da/0xa80 net/core/rtnetlink.c:3572
+ rtnetlink_rcv_msg+0x95b/0xe90 net/core/rtnetlink.c:6955
+ netlink_rcv_skb+0x16a/0x440 net/netlink/af_netlink.c:2534
+ netlink_unicast_kernel net/netlink/af_netlink.c:1313 [inline]
+ netlink_unicast+0x53a/0x7f0 net/netlink/af_netlink.c:1339
+ netlink_sendmsg+0x8d1/0xdd0 net/netlink/af_netlink.c:1883
+ sock_sendmsg_nosec net/socket.c:712 [inline]
+ __sock_sendmsg net/socket.c:727 [inline]
+ ____sys_sendmsg+0xaa1/0xc80 net/socket.c:2566
+ ___sys_sendmsg+0x134/0x1d0 net/socket.c:2620
+ __sys_sendmsg+0x16d/0x220 net/socket.c:2652
+ do_syscall_x64 arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xcd/0x230 arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+The buggy address belongs to the object at ffff8880001e2000
+ which belongs to the cache kmalloc-cg-4k of size 4096
+The buggy address is located 16 bytes inside of
+ freed 4096-byte region [ffff8880001e2000, ffff8880001e3000)
+
+The buggy address belongs to the physical page:
+page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x1e0
+head: order:3 mapcount:0 entire_mapcount:0 nr_pages_mapped:0 pincount:0
+memcg:ffff888000d30481
+ksm flags: 0x7ff00000000040(head|node=0|zone=0|lastcpupid=0x7ff)
+page_type: f5(slab)
+raw: 007ff00000000040 ffff88801b44b500 ffffea0000ab1400 dead000000000003
+raw: 0000000000000000 0000000000040004 00000000f5000000 ffff888000d30481
+head: 007ff00000000040 ffff88801b44b500 ffffea0000ab1400 dead000000000003
+head: 0000000000000000 0000000000040004 00000000f5000000 ffff888000d30481
+head: 007ff00000000003 ffffea0000007801 00000000ffffffff 00000000ffffffff
+head: ffffffffffffffff 0000000000000000 00000000ffffffff 0000000000000008
+page dumped because: kasan: bad access detected
+page_owner tracks the page as allocated
+page last allocated via order 3, migratetype Unmovable, gfp_mask 0xd20c0(__GFP_IO|__GFP_FS|__GFP_NOWARN|__GFP_NORETRY|__GFP_COMP|__GFP_NOMEMALLOC), pid 53444, tgid 53444 (syz-executor), ts 564524981492, free_ts 563337883151
+ set_page_owner include/linux/page_owner.h:32 [inline]
+ post_alloc_hook+0x181/0x1b0 mm/page_alloc.c:1718
+ prep_new_page mm/page_alloc.c:1726 [inline]
+ get_page_from_freelist+0xec6/0x3c50 mm/page_alloc.c:3688
+ __alloc_frozen_pages_noprof+0x259/0x22e0 mm/page_alloc.c:4970
+ alloc_pages_mpol+0x1fb/0x550 mm/mempolicy.c:2301
+ alloc_slab_page mm/slub.c:2468 [inline]
+ allocate_slab mm/slub.c:2632 [inline]
+ new_slab+0x244/0x350 mm/slub.c:2686
+ ___slab_alloc+0xda9/0x1930 mm/slub.c:3872
+ __slab_alloc.isra.0+0x56/0xb0 mm/slub.c:3962
+ __slab_alloc_node mm/slub.c:4037 [inline]
+ slab_alloc_node mm/slub.c:4198 [inline]
+ __kmalloc_cache_noprof+0x25e/0x3f0 mm/slub.c:4367
+ kmalloc_noprof include/linux/slab.h:905 [inline]
+ kzalloc_noprof include/linux/slab.h:1039 [inline]
+ snmp6_alloc_dev net/ipv6/addrconf.c:360 [inline]
+ ipv6_add_dev+0x6b7/0x15f0 net/ipv6/addrconf.c:411
+ addrconf_notify+0x555/0x1a10 net/ipv6/addrconf.c:3651
+ notifier_call_chain+0xb9/0x410 kernel/notifier.c:85
+ call_netdevice_notifiers_info+0xbe/0x140 net/core/dev.c:2176
+ call_netdevice_notifiers_extack net/core/dev.c:2214 [inline]
+ call_netdevice_notifiers net/core/dev.c:2228 [inline]
+ register_netdevice+0x172b/0x2270 net/core/dev.c:11047
+ macsec_newlink+0x50c/0x1cb0 drivers/net/macsec.c:4203
+ rtnl_newlink_create net/core/rtnetlink.c:3833 [inline]
+ __rtnl_newlink net/core/rtnetlink.c:3950 [inline]
+ rtnl_newlink+0xc42/0x2000 net/core/rtnetlink.c:4065
+ rtnetlink_rcv_msg+0x95b/0xe90 net/core/rtnetlink.c:6955
+page last free pid 5228 tgid 5228 stack trace:
+ reset_page_owner include/linux/page_owner.h:25 [inline]
+ free_pages_prepare mm/page_alloc.c:1262 [inline]
+ __free_frozen_pages+0x709/0x1030 mm/page_alloc.c:2725
+ qlink_free mm/kasan/quarantine.c:163 [inline]
+ qlist_free_all+0x54/0x120 mm/kasan/quarantine.c:179
+ kasan_quarantine_reduce+0x195/0x1e0 mm/kasan/quarantine.c:286
+ __kasan_slab_alloc+0x69/0x90 mm/kasan/common.c:329
+ kasan_slab_alloc include/linux/kasan.h:250 [inline]
+ slab_post_alloc_hook mm/slub.c:4161 [inline]
+ slab_alloc_node mm/slub.c:4210 [inline]
+ kmem_cache_alloc_node_noprof+0x153/0x3d0 mm/slub.c:4262
+ __alloc_skb+0x2b2/0x380 net/core/skbuff.c:658
+ alloc_skb include/linux/skbuff.h:1340 [inline]
+ netlink_alloc_large_skb+0x69/0x130 net/netlink/af_netlink.c:1187
+ netlink_sendmsg+0x6a1/0xdd0 net/netlink/af_netlink.c:1858
+ sock_sendmsg_nosec net/socket.c:712 [inline]
+ __sock_sendmsg net/socket.c:727 [inline]
+ ____sys_sendmsg+0xaa1/0xc80 net/socket.c:2566
+ ___sys_sendmsg+0x134/0x1d0 net/socket.c:2620
+ __sys_sendmsg+0x16d/0x220 net/socket.c:2652
+ do_syscall_x64 arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xcd/0x230 arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+Memory state around the buggy address:
+ ffff8880001e1f00: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+ ffff8880001e1f80: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+>ffff8880001e2000: fa fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+                         ^
+ ffff8880001e2080: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+ ffff8880001e2100: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+==================================================================
+----------------
+Code disassembly (best guess), 1 bytes skipped:
+   0:	31 c0                	xor    %eax,%eax
+   2:	66 89 85 40 04 00 00 	mov    %ax,0x440(%rbp)
+   9:	48 c7 c5 00 df a7 93 	mov    $0xffffffff93a7df00,%rbp
+  10:	e8 1f 1a e2 09       	call   0x9e21a34
+  15:	41 89 c4             	mov    %eax,%r12d
+  18:	83 f8 07             	cmp    $0x7,%eax
+  1b:	0f 87 bc 00 00 00    	ja     0xdd
+  21:	4a 8d 3c e5 00 dd cf 	lea    -0x72302300(,%r12,8),%rdi
+  28:	8d
+* 29:	48 b8 00 00 00 00 00 	movabs $0xdffffc0000000000,%rax <-- trapping instruction
+  30:	fc ff df
+  33:	48 89 fa             	mov    %rdi,%rdx
+  36:	48 c1 ea 03          	shr    $0x3,%rdx
+  3a:	80 3c 02 00          	cmpb   $0x0,(%rdx,%rax,1)
+  3e:	0f                   	.byte 0xf
