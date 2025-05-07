@@ -6,6 +6,7 @@
 include <linux/net.h>
 include <linux/socket.h>
 include <linux/virtio_vsock.h>
+include <linux/vhost.h>
 include <uapi/linux/fcntl.h>
 include <uapi/linux/vhost.h>
 include <uapi/linux/vm_sockets.h>
@@ -15,7 +16,7 @@ include <uapi/linux/virtio_config.h>
 resource sock_vsock[sock]
 resource sock_vsock_stream[sock_vsock]
 resource sock_vsock_dgram[sock_vsock]
-
+resource sock_vsock_seqpacket[sock_vsock]
 resource fd_vhost[fd]
 resource vhost_vsock[fd_vhost]
 resource vhost_net[fd_vhost]
@@ -24,20 +25,140 @@ socket$vsock_stream(domain const[AF_VSOCK], type const[SOCK_STREAM], proto const
 bind$vsock_stream(fd sock_vsock_stream, addr ptr[in, sockaddr_vm], addrlen len[addr])
 connect$vsock_stream(fd sock_vsock_stream, addr ptr[in, sockaddr_vm], addrlen len[addr])
 accept4$vsock_stream(fd sock_vsock_stream, addr ptr[in, sockaddr_vm], addrlen len[addr], flags flags[accept_flags]) sock_vsock_stream
-setsockopt$SO_VM_SOCKETS_BUFFER_SIZE(fd sock_vsock_stream, level const[AF_VSOCK], opt const[SO_VM_SOCKETS_BUFFER_SIZE], val ptr[in, int64], len len[val])
-setsockopt$SO_VM_SOCKETS_BUFFER_MAX_SIZE(fd sock_vsock_stream, level const[AF_VSOCK], opt const[SO_VM_SOCKETS_BUFFER_MAX_SIZE], val ptr[in, int64], len len[val])
-setsockopt$SO_VM_SOCKETS_BUFFER_MIN_SIZE(fd sock_vsock_stream, level const[AF_VSOCK], opt const[SO_VM_SOCKETS_BUFFER_MIN_SIZE], val ptr[in, int64], len len[val])
-setsockopt$SO_VM_SOCKETS_CONNECT_TIMEOUT_OLD(fd sock_vsock_stream, level const[AF_VSOCK], opt const[SO_VM_SOCKETS_CONNECT_TIMEOUT_OLD], val ptr[in, timeval], len len[val])
+accept$vsock_stream(fd sock_vsock_stream, addr ptr[in, sockaddr_vm], addrlen len[addr]) sock_vsock_stream
+getsockname$vsock_stream(fd sock_vsock_stream, addr ptr[out, sockaddr_vm], addrlen ptr[inout, len[addr, int32]])
+getpeername$vsock_stream(fd sock_vsock_stream, peer ptr[out, sockaddr_vm], peerlen ptr[inout, len[peer, int32]])
+poll$vsock_stream(fds ptr[in, array[pollfd_vsock_stream]], nfds len[fds], timeout int32)
+
+pollfd_vsock_stream {
+	fd	sock_vsock_stream
+	events	flags[poll_events, int32]
+	revents	int16
+}
+
+ioctl$vsock_stream(fd sock_vsock_stream, cmd flags[vsock_ioctl], arg ptr[inout, vsock_ioctl_arg])
+vsock_ioctl = SIOCOUTQ
+
+vsock_ioctl_arg {
+	unsent_bytes	int64
+}
+
+listen$vsock_stream(fd sock_vsock_stream, backlog int32)
+shutdown$vsock_stream(fd sock_vsock_stream, how flags[shutdown_flags])
+# shutdown_flags = SHUT_RD, SHUT_WR
+
+setsockopt$SO_VM_SOCKETS_BUFFER_SIZE(fd sock_vsock_stream, level const[SOL_SOCKET], opt const[SO_VM_SOCKETS_BUFFER_SIZE], val ptr[in, int64], len len[val])
+setsockopt$SO_VM_SOCKETS_BUFFER_MAX_SIZE(fd sock_vsock_stream, level const[SOL_SOCKET], opt const[SO_VM_SOCKETS_BUFFER_MAX_SIZE], val ptr[in, int64], len len[val])
+setsockopt$SO_VM_SOCKETS_BUFFER_MIN_SIZE(fd sock_vsock_stream, level const[SOL_SOCKET], opt const[SO_VM_SOCKETS_BUFFER_MIN_SIZE], val ptr[in, int64], len len[val])
+setsockopt$SO_VM_SOCKETS_CONNECT_TIMEOUT_NEW(fd sock_vsock_stream, level const[SOL_SOCKET], opt const[SO_VM_SOCKETS_CONNECT_TIMEOUT_NEW], val ptr[in, timeval], len len[val])
+setsockopt$SO_VM_SOCKETS_CONNECT_TIMEOUT_OLD(fd sock_vsock_stream, level const[SOL_SOCKET], opt const[SO_VM_SOCKETS_CONNECT_TIMEOUT_OLD], val ptr[in, timeval], len len[val])
+close$vsock_stream(fd sock_vsock_stream)
+
+getsockopt$SO_VM_SOCKETS_BUFFER_SIZE(fd sock_vsock_stream, level const[SOL_SOCKET], opt const[SO_VM_SOCKETS_BUFFER_SIZE], val ptr[out, int64], len len[val])
+getsockopt$SO_VM_SOCKETS_BUFFER_MAX_SIZE(fd sock_vsock_stream, level const[SOL_SOCKET], opt const[SO_VM_SOCKETS_BUFFER_MAX_SIZE], val ptr[out, int64], len len[val])
+getsockopt$SO_VM_SOCKETS_BUFFER_MIN_SIZE(fd sock_vsock_stream, level const[SOL_SOCKET], opt const[SO_VM_SOCKETS_BUFFER_MIN_SIZE], val ptr[out, int64], len len[val])
+getsockopt$SO_VM_SOCKETS_CONNECT_TIMEOUT_NEW(fd sock_vsock_stream, level const[SOL_SOCKET], opt const[SO_VM_SOCKETS_CONNECT_TIMEOUT_NEW], val ptr[out, timeval], len len[val])
+getsockopt$SO_VM_SOCKETS_CONNECT_TIMEOUT_OLD(fd sock_vsock_stream, level const[SOL_SOCKET], opt const[SO_VM_SOCKETS_CONNECT_TIMEOUT_OLD], val ptr[out, timeval], len len[val])
+
+sendmsg$vsock_stream(fd sock_vsock_stream, msg ptr[in, msghdr], len len[msg])
+recvmsg$vsock_stream(fd sock_vsock_stream, msg ptr[out, msghdr], len len[msg], flags flags[recv_flags])
+setsockopt$vsock_rcvlowat(fd sock_vsock_stream, level int32[SOL_SOCKET], optname int32[SO_RCVLOWAT], optval ptr[in, vsock_rcvlowat_optval], optlen len[optval])
+
+vsock_rcvlowat_optval {
+	val	int32
+}
+
+syz_vsock_read_skb$vsock_stream(fd sock_vsock_stream, actor ptr[in, vsock_read_actor], len len[actor])
+
+vsock_read_actor {
+	addr	ptr[out, int32]
+	len	int32
+}
 
 socket$vsock_dgram(domain const[AF_VSOCK], type const[SOCK_DGRAM], proto const[0]) sock_vsock_dgram
 bind$vsock_dgram(fd sock_vsock_dgram, addr ptr[in, sockaddr_vm], addrlen len[addr])
 connect$vsock_dgram(fd sock_vsock_dgram, addr ptr[in, sockaddr_vm], addrlen len[addr])
+close$vsock_dgram(fd sock_vsock_dgram)
+getsockname$vsock_dgram(fd sock_vsock_dgram, addr ptr[out, sockaddr_vm], addrlen ptr[inout, len[addr, int32]])
+getpeername$vsock_dgram(fd sock_vsock_dgram, peer ptr[out, sockaddr_vm], peerlen ptr[inout, len[peer, int32]])
+poll$vsock_dgram(fds ptr[in, array[pollfd_vsock_dgram]], nfds len[fds], timeout int32)
+
+pollfd_vsock_dgram {
+	fd	sock_vsock_dgram
+	events	flags[poll_events, int32]
+	revents	int16
+}
+
+ioctl$vsock_dgram(fd sock_vsock_dgram, cmd flags[vsock_ioctl], arg ptr[inout, vsock_ioctl_arg])
+shutdown$vsock_dgram(fd sock_vsock_dgram, how flags[shutdown_flags])
+sendmsg$vsock_dgram(fd sock_vsock_dgram, msg ptr[in, msghdr], len len[msg])
+recvmsg$vsock_dgram(fd sock_vsock_dgram, msg ptr[out, msghdr], len len[msg], flag flags[recv_flags])
+syz_vsock_read_skb$sock_vsock_dgram(fd sock_vsock_dgram, actor ptr[in, vsock_read_actor], len len[actor])
+
+socket$sock_vsock_seqpacket(domain const[AF_VSOCK], type const[SOCK_SEQPACKET], proto const[0]) sock_vsock_seqpacket
+close$sock_vsock_seqpacket(fd sock_vsock_seqpacket)
+bind$sock_vsock_seqpacket(fd sock_vsock_seqpacket, addr ptr[in, sockaddr_vm], addrlen len[addr])
+connect$sock_vsock_seqpacket(fd sock_vsock_seqpacket, addr ptr[in, sockaddr_vm], addrlen len[addr])
+accept$sock_vsock_seqpacket(fd sock_vsock_seqpacket, addr ptr[in, sockaddr_vm], addrlen len[addr]) sock_vsock_seqpacket
+accept4$sock_vsock_seqpacket(fd sock_vsock_seqpacket, addr ptr[in, sockaddr_vm], addrlen len[addr], flag flags[accept_flags]) sock_vsock_seqpacket
+getsockname$sock_vsock_seqpacket(fd sock_vsock_seqpacket, addr ptr[out, sockaddr_vm], addrlen ptr[inout, len[addr, int32]])
+getpeername$sock_vsock_seqpacket(fd sock_vsock_seqpacket, peer ptr[out, sockaddr_vm], peerlen ptr[inout, len[peer, int32]])
+poll$sock_vsock_seqpacket(fds ptr[in, array[pollfd_vsock_seqpacket]], nfds len[fds], timeout int32)
+
+pollfd_vsock_seqpacket {
+	fd	sock_vsock_seqpacket
+	events	flags[poll_events, int32]
+	revents	int16
+}
+
+ioctl$sock_vsock_seqpacket(fd sock_vsock_seqpacket, cmd flags[vsock_ioctl], arg ptr[inout, vsock_ioctl_arg])
+listen$sock_vsock_seqpacket(fd sock_vsock_seqpacket, backlog int32)
+shutdown$sock_vsock_seqpacket(fd sock_vsock_seqpacket, how flags[shutdown_flags])
+
+setsockopt$sock_vsock_seqpacket_SO_VM_SOCKETS_BUFFER_SIZE(fd sock_vsock_seqpacket, level const[SOL_SOCKET], opt const[SO_VM_SOCKETS_BUFFER_SIZE], val ptr[in, int64], len len[val])
+setsockopt$sock_vsock_seqpacket_SO_VM_SOCKETS_BUFFER_MAX_SIZE(fd sock_vsock_seqpacket, level const[SOL_SOCKET], opt const[SO_VM_SOCKETS_BUFFER_MAX_SIZE], val ptr[in, int64], len len[val])
+setsockopt$sock_vsock_seqpacket_SO_VM_SOCKETS_BUFFER_MIN_SIZE(fd sock_vsock_seqpacket, level const[SOL_SOCKET], opt const[SO_VM_SOCKETS_BUFFER_MIN_SIZE], val ptr[in, int64], len len[val])
+setsockopt$sock_vsock_seqpacket_SO_VM_SOCKETS_CONNECT_TIMEOUT_NEW(fd sock_vsock_seqpacket, level const[SOL_SOCKET], opt const[SO_VM_SOCKETS_CONNECT_TIMEOUT_NEW], val ptr[in, timeval], len len[val])
+setsockopt$sock_vsock_seqpacket_SO_VM_SOCKETS_CONNECT_TIMEOUT_OLD(fd sock_vsock_seqpacket, level const[SOL_SOCKET], opt const[SO_VM_SOCKETS_CONNECT_TIMEOUT_OLD], val ptr[in, timeval], len len[val])
+
+getsockopt$sock_vsock_seqpacket_SO_VM_SOCKETS_BUFFER_SIZE(fd sock_vsock_seqpacket, level const[SOL_SOCKET], opt const[SO_VM_SOCKETS_BUFFER_SIZE], val ptr[out, int64], len len[val])
+getsockopt$sock_vsock_seqpacket_SO_VM_SOCKETS_BUFFER_MAX_SIZE(fd sock_vsock_seqpacket, level const[SOL_SOCKET], opt const[SO_VM_SOCKETS_BUFFER_MAX_SIZE], val ptr[out, int64], len len[val])
+getsockopt$sock_vsock_seqpacket_SO_VM_SOCKETS_BUFFER_MIN_SIZE(fd sock_vsock_seqpacket, level const[SOL_SOCKET], opt const[SO_VM_SOCKETS_BUFFER_MIN_SIZE], val ptr[out, int64], len len[val])
+getsockopt$sock_vsock_seqpacket_SO_VM_SOCKETS_CONNECT_TIMEOUT_NEW(fd sock_vsock_seqpacket, level const[SOL_SOCKET], opt const[SO_VM_SOCKETS_CONNECT_TIMEOUT_NEW], val ptr[out, timeval], len len[val])
+getsockopt$sock_vsock_seqpacket_SO_VM_SOCKETS_CONNECT_TIMEOUT_OLD(fd sock_vsock_seqpacket, level const[SOL_SOCKET], opt const[SO_VM_SOCKETS_CONNECT_TIMEOUT_OLD], val ptr[out, timeval], len len[val])
+
+sendmsg$sock_vsock_seqpacket(fd sock_vsock_seqpacket, msg ptr[in, msghdr], len len[msg])
+recvmsg$sock_vsock_seqpacket(fd sock_vsock_seqpacket, msg ptr[out, msghdr], len len[msg])
+syz_vsock_read_skb$sock_vsock_seqpacket(fd sock_vsock_seqpacket, actor ptr[in, vsock_read_actor], len len[actor])
 
 openat$vsock(fd const[AT_FDCWD], file ptr[in, string["/dev/vsock"]], flags flags[open_flags], mode const[0]) fd
+close$vsock(fd fd)
+read$vsock(fd fd, buf buffer[out], count len[buf])
+readv$vsock(fd fd, iov ptr[in, array[iovec_out]], iovcnt len[iov])
+write$vsock(fd fd, buf buffer[in], count len[buf])
+writev$vsock(fd fd, iov ptr[in, array[iovec_in]], iovcnt len[iov])
 
 openat$vhost_vsock(fd const[AT_FDCWD], file ptr[in, string["/dev/vhost-vsock"]], flags const[O_RDWR], mode const[0]) vhost_vsock
 ioctl$VHOST_VSOCK_SET_GUEST_CID(fd vhost_vsock, cmd const[VHOST_VSOCK_SET_GUEST_CID], arg ptr[in, vmaddr_cid64])
 ioctl$VHOST_VSOCK_SET_RUNNING(fd vhost_vsock, cmd const[VHOST_VSOCK_SET_RUNNING], arg ptr[in, bool32])
+ioctl$vhost_vsock_VHOST_GET_FEATURES(fd vhost_vsock, cmd const[VHOST_GET_FEATURES], arg ptr[out, int64])
+ioctl$vhost_vsock_VHOST_SET_FEATURES(fd vhost_vsock, cmd const[VHOST_SET_FEATURES], arg ptr[in, flags[vhost_features, int64]])
+ioctl$vhost_vsock_VHOST_GET_BACKEND_FEATURES(fd vhost_vsock, cmd const[VHOST_GET_BACKEND_FEATURES], arg ptr[out, int64])
+ioctl$vhost_vsock_VHOST_SET_BACKEND_FEATURES(fd vhost_vsock, cmd const[VHOST_SET_BACKEND_FEATURES], arg ptr[in, flags[vhost_features, int64]])
+close$vhost_vsock(fd vhost_vsock)
+read$vhost_vsock(fd vhost_vsock, buf buffer[out], count len[buf])
+readv$vhost_vsock(fd vhost_vsock, iov ptr[in, array[iovec_out]], iovcnt len[iov])
+write$vhost_vsock(fd vhost_vsock, buf buffer[in], count len[buf])
+writev$vhost_vsock(fd vhost_vsock, iov ptr[in, array[iovec_in]], iovcnt len[iov])
+poll$vhost_vsock(fds ptr[in, array[pollfd_vhost_vsock]], nfds len[fds], timeout int32)
+
+pollfd_vhost_vsock {
+	fd	vhost_vsock
+	events	flags[poll_events, int32]
+	revents	int16
+}
+
+poll_events = POLLIN, POLLOUT, POLLERR, POLLHUP, POLLPRI
 
 openat$vnet(fd const[AT_FDCWD], file ptr[in, string["/dev/vhost-net"]], flags const[O_RDWR], mode const[0]) vhost_net
 write$vhost_msg(fd vhost_net, buf ptr[in, vhost_msg], size len[buf])
@@ -46,6 +167,10 @@ ioctl$VHOST_NET_SET_BACKEND(fd vhost_net, cmd const[VHOST_NET_SET_BACKEND], arg 
 
 ioctl$VHOST_GET_FEATURES(fd fd_vhost, cmd const[VHOST_GET_FEATURES], arg ptr[out, int64])
 ioctl$VHOST_SET_FEATURES(fd fd_vhost, cmd const[VHOST_SET_FEATURES], arg ptr[in, flags[vhost_features, int64]])
+
+ioctl$VHOST_SET_BACKEND_FEATURES(fd fd_vhost, cmd const[VHOST_SET_BACKEND_FEATURES], arg ptr[in, flags[vhost_features, int64]])
+ioctl$VHOST_GET_BACKEND_FEATURES(fd fd_vhost, cmd const[VHOST_GET_BACKEND_FEATURES], arg ptr[out, int64])
+
 ioctl$VHOST_SET_OWNER(fd fd_vhost, cmd const[VHOST_SET_OWNER], arg const[0])
 ioctl$VHOST_RESET_OWNER(fd fd_vhost, cmd const[VHOST_RESET_OWNER], arg const[0])
 ioctl$VHOST_SET_MEM_TABLE(fd fd_vhost, cmd const[VHOST_SET_MEM_TABLE], arg ptr[in, vhost_memory])
@@ -61,6 +186,7 @@ ioctl$VHOST_SET_VRING_ERR(fd fd_vhost, cmd const[VHOST_SET_VRING_ERR], arg ptr[i
 ioctl$VHOST_SET_VRING_ENDIAN(fd fd_vhost, cmd const[VHOST_SET_VRING_ENDIAN], arg ptr[in, vhost_vring_state])
 ioctl$VHOST_GET_VRING_ENDIAN(fd fd_vhost, cmd const[VHOST_GET_VRING_ENDIAN], arg ptr[in, vhost_vring_state])
 ioctl$VHOST_SET_VRING_BUSYLOOP_TIMEOUT(fd fd_vhost, cmd const[VHOST_SET_VRING_BUSYLOOP_TIMEOUT], arg ptr[in, vhost_vring_state])
+ioctl$VHOST_GET_VRING_BUSYLOOP_TIMEOUT(fd fd_vhost, cmd const[VHOST_GET_VRING_BUSYLOOP_TIMEOUT], arg ptr[out, vhost_vring_state])
 
 ioctl$VHOST_VDPA_GET_DEVICE_ID(fd fd_vhost, cmd const[VHOST_VDPA_GET_DEVICE_ID], arg ptr[out, int32])
 ioctl$VHOST_VDPA_GET_STATUS(fd fd_vhost, cmd const[VHOST_VDPA_GET_STATUS], arg ptr[out, int8])
@@ -72,11 +198,33 @@ ioctl$VHOST_VDPA_GET_VRING_NUM(fd fd_vhost, cmd const[VHOST_VDPA_GET_VRING_NUM],
 ioctl$VHOST_VDPA_SET_CONFIG_CALL(fd fd_vhost, cmd const[VHOST_VDPA_SET_CONFIG_CALL], arg ptr[in, int32])
 ioctl$VHOST_VDPA_GET_IOVA_RANGE(fd fd_vhost, cmd const[VHOST_VDPA_GET_IOVA_RANGE], arg ptr[out, vhost_vdpa_iova_range])
 ioctl$VHOST_VDPA_GET_CONFIG_SIZE(fd fd_vhost, cmd const[VHOST_VDPA_GET_CONFIG_SIZE], arg ptr[out, int32])
+ioctl$VHOST_VDPA_SUSPEND(fd fd_vhost, cmd const[VHOST_VDPA_SUSPEND])
+ioctl$VHOST_VDPA_RESUME(fd fd_vhost, cmd const[VHOST_VDPA_RESUME])
+
 ioctl$VHOST_VDPA_GET_VQS_COUNT(fd fd_vhost, cmd const[VHOST_VDPA_GET_VQS_COUNT], arg ptr[out, int32])
 ioctl$VHOST_VDPA_GET_GROUP_NUM(fd fd_vhost, cmd const[VHOST_VDPA_GET_GROUP_NUM], arg ptr[out, int32])
 ioctl$VHOST_VDPA_GET_AS_NUM(fd fd_vhost, cmd const[VHOST_VDPA_GET_AS_NUM], arg ptr[out, int32])
 ioctl$VHOST_VDPA_GET_VRING_GROUP(fd fd_vhost, cmd const[VHOST_VDPA_GET_VRING_GROUP], arg ptr[inout, vhost_vring_state])
 ioctl$VHOST_VDPA_SET_GROUP_ASID(fd fd_vhost, cmd const[VHOST_VDPA_SET_GROUP_ASID], arg ptr[in, vhost_vring_state])
+
+ioctl$VHOST_IOTLB_UPDATE(fd fd_vhost, cmd const[VHOST_IOTLB_UPDATE], arg ptr[in, vhost_iotlb_msg])
+ioctl$VHOST_IOTLB_INVALIDATE(fd fd_vhost, cmd const[VHOST_IOTLB_INVALIDATE], arg ptr[out, vhost_iotlb_msg])
+ioctl$VHOST_IOTLB_BATCH_BEGIN(fd fd_vhost, cmd const[VHOST_IOTLB_BATCH_BEGIN])
+ioctl$VHOST_IOTLB_BATCH_END(fd fd_vhost, cmd const[VHOST_IOTLB_BATCH_END], arg ptr[in, int32])
+
+define VHOST_SCSI_ABI_VERSION	1
+ioctl$VHOST_SCSI_SET_ENDPOINT(fd fd_vhost, cmd const[VHOST_SCSI_SET_ENDPOINT], arg ptr[in, vhost_scsi_target])
+ioctl$VHOST_SCSI_CLEAR_ENDPOINT(fd fd_vhost, cmd const[VHOST_SCSI_CLEAR_ENDPOINT], arg ptr[in, vhost_scsi_target])
+ioctl$VHOST_SCSI_GET_ABI_VERSION(fd fd_vhost, cmd const[VHOST_SCSI_GET_ABI_VERSION], arg ptr[out, const[VHOST_SCSI_ABI_VERSION, int32]])
+ioctl$VHOST_SCSI_SET_EVENTS_MISSED(fd fd_vhost, cmd const[VHOST_SCSI_SET_EVENTS_MISSED], arg ptr[in, int32])
+ioctl$VHOST_SCSI_GET_EVENTS_MISSED(fd fd_vhost, cmd const[VHOST_SCSI_GET_EVENTS_MISSED], arg ptr[out, int32])
+
+vhost_scsi_target {
+	abi_version	int32
+	vhost_wwpn	array[int8, 224]
+	vhost_tpgt	int16
+	reserved	int16
+}
 
 sockaddr_vm {
 	svm_family	const[AF_VSOCK, int16]
@@ -169,7 +317,7 @@ vhost_iotlb_msg {
 vmaddr_port = VMADDR_PORT_ANY, 0, 10000, 10001
 vhost_features = VHOST_LOG_ALL, VIRTIO_NOTIFY_ON_EMPTY, VIRTIO_RING_F_INDIRECT_DESC, VIRTIO_RING_F_EVENT_IDX, VIRTIO_ANY_LAYOUT, VIRTIO_VERSION_1, VHOST_NET_VIRTIO_NET_HDR, VIRTIO_NET_MRG_RXBUF, VIRTIO_IOMMU_PLATFORM
 vhost_vring_index = VSOCK_VQ_RX, VSOCK_VQ_TX, VSOCK_VQ_EVENT, VSOCK_VQ_MAX
-vhost_iotlb_type = VHOST_IOTLB_MISS, VHOST_IOTLB_UPDATE, VHOST_IOTLB_INVALIDATE, VHOST_IOTLB_ACCESS_FAIL
+vhost_iotlb_type = VHOST_IOTLB_MISS, VHOST_IOTLB_UPDATE, VHOST_IOTLB_INVALIDATE, VHOST_IOTLB_ACCESS_FAIL, VHOST_IOTLB_BATCH_BEGIN, VHOST_IOTLB_BATCH_END
 vhost_iotlb_perm = VHOST_ACCESS_RO, VHOST_ACCESS_WO, VHOST_ACCESS_RW
 kvm_guest_addrs = 0, 1, 2, 4, 0x1000, 0x2000, 0x3000, 0x4000, 0x5000, 0x6000, 0xd000, 0xf000, 0x10000, 0x100000, 0x8000000, 0x8080000, 0x80a0000, 0xdddd0000, 0xdddd1000, 0xeeee0000, 0xeeee8000, 0xeeef0000, 0xffff1000
 
