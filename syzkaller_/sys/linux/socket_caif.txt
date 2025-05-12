@@ -5,13 +5,40 @@ include <linux/socket.h>
 include <linux/net.h>
 include <uapi/linux/caif/caif_socket.h>
 
-resource sock_caif[sock]
+resource sock_caif_stream[sock]
+resource sock_caif_seqpacket[sock]
 
-socket$caif_seqpacket(domain const[AF_CAIF], type const[SOCK_SEQPACKET], proto int32[CAIFPROTO_AT:CAIFPROTO_DEBUG]) sock_caif
-socket$caif_stream(domain const[AF_CAIF], type const[SOCK_STREAM], proto int32[CAIFPROTO_AT:CAIFPROTO_DEBUG]) sock_caif
-connect$caif(fd sock_caif, addr ptr[in, sockaddr_caif], addrlen len[addr])
-setsockopt$CAIFSO_LINK_SELECT(fd sock_caif, level const[SOL_CAIF], opt const[CAIFSO_LINK_SELECT], arg ptr[in, int32], arglen len[arg])
-setsockopt$CAIFSO_REQ_PARAM(fd sock_caif, level const[SOL_CAIF], opt const[CAIFSO_REQ_PARAM], arg ptr[in, array[int8, 0:256]], arglen len[arg])
+socket$caif_seqpacket(domain const[AF_CAIF], type const[SOCK_SEQPACKET], proto int32[CAIFPROTO_AT:CAIFPROTO_DEBUG]) sock_caif_seqpacket
+close$caif_seqpacket(fd sock_caif_seqpacket)
+connect$caif_seqpacket(fd sock_caif_seqpacket, addr ptr[in, sockaddr_caif], addrlen len[addr])
+poll$caif_seqpacket(fds ptr[in, array[pollfd_caif_seqpacket]], nfds len[fds], timeout int32)
+sendmsg$caif_seqpacket(fd sock_caif_seqpacket, msg ptr[in, msghdr], len len[msg])
+recvmsg$caif_seqpacket(fd sock_caif_seqpacket, msg ptr[out, msghdr], len len[msg], flags flags[recv_flags])
+
+pollfd_caif_seqpacket {
+	fd	sock_caif_seqpacket
+	events	flags[poll_events, int32]
+	revents	int16
+}
+
+setsockopt$caif_seqpacket_CAIFSO_LINK_SELECT(fd sock_caif_seqpacket, level const[SOL_CAIF], opt const[CAIFSO_LINK_SELECT], arg ptr[in, int32], arglen len[arg])
+setsockopt$caif_seqpacket_CAIFSO_REQ_PARAM(fd sock_caif_seqpacket, level const[SOL_CAIF], opt const[CAIFSO_REQ_PARAM], arg ptr[in, array[int8, 0:256]], arglen len[arg])
+
+socket$caif_stream(domain const[AF_CAIF], type const[SOCK_STREAM], proto int32[CAIFPROTO_AT:CAIFPROTO_DEBUG]) sock_caif_stream
+connect$caif_stream(fd sock_caif_stream, addr ptr[in, sockaddr_caif], addrlen len[addr])
+close$caif_stream(fd sock_caif_stream)
+poll$caif_stream(fds ptr[in, array[pollfd_caif_stream]], nfds len[fds], timeout int32)
+
+pollfd_caif_stream {
+	fd	sock_caif_stream
+	events	flags[poll_events, int32]
+	revents	int16
+}
+
+sendmsg$caif_stream(fd sock_caif_stream, msg ptr[in, msghdr], len len[msg])
+recvmsg$caif_stream(fd sock_caif_stream, msg ptr[out, msghdr], len len[msg], flags flags[recv_flags])
+setsockopt$caif_stream_CAIFSO_LINK_SELECT(fd sock_caif_stream, level const[SOL_CAIF], opt const[CAIFSO_LINK_SELECT], arg ptr[in, int32], arglen len[arg])
+setsockopt$caif_stream_CAIFSO_REQ_PARAM(fd sock_caif_stream, level const[SOL_CAIF], opt const[CAIFSO_REQ_PARAM], arg ptr[in, array[int8, 0:256]], arglen len[arg])
 
 sockaddr_caif [
 	at	sockaddr_caif_at
