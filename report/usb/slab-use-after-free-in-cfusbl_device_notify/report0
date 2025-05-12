@@ -1,0 +1,209 @@
+==================================================================
+BUG: KASAN: slab-use-after-free in cfusbl_device_notify+0x883/0x900 net/caif/caif_usb.c:142
+Read of size 8 at addr ffff888077a8cc50 by task syz.5.48311/284501
+
+CPU: 1 UID: 0 PID: 284501 Comm: syz.5.48311 Not tainted 6.15.0-rc3 #1 PREEMPT(full) 
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.15.0-1 04/01/2014
+Call Trace:
+ <TASK>
+ __dump_stack lib/dump_stack.c:94 [inline]
+ dump_stack_lvl+0x10e/0x1f0 lib/dump_stack.c:120
+ print_address_description mm/kasan/report.c:408 [inline]
+ print_report+0xc3/0x680 mm/kasan/report.c:521
+ kasan_report+0xe0/0x110 mm/kasan/report.c:634
+ cfusbl_device_notify+0x883/0x900 net/caif/caif_usb.c:142
+ notifier_call_chain+0xb9/0x410 kernel/notifier.c:85
+ call_netdevice_notifiers_info+0xbe/0x140 net/core/dev.c:2176
+ call_netdevice_notifiers_extack net/core/dev.c:2214 [inline]
+ call_netdevice_notifiers net/core/dev.c:2228 [inline]
+ register_netdevice+0x1398/0x2270 net/core/dev.c:11068
+ register_netdev+0x34/0x50 net/core/dev.c:11126
+ bnep_add_connection+0x71c/0xd20 net/bluetooth/bnep/core.c:624
+ do_bnep_sock_ioctl.isra.0+0x382/0x590 net/bluetooth/bnep/sock.c:83
+ sock_do_ioctl+0x115/0x280 net/socket.c:1190
+ sock_ioctl+0x599/0x6b0 net/socket.c:1311
+ vfs_ioctl fs/ioctl.c:51 [inline]
+ __do_sys_ioctl fs/ioctl.c:906 [inline]
+ __se_sys_ioctl fs/ioctl.c:892 [inline]
+ __x64_sys_ioctl+0x190/0x200 fs/ioctl.c:892
+ do_syscall_x64 arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xcd/0x230 arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f81141bb6ad
+Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 a8 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f811505dfa8 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
+RAX: ffffffffffffffda RBX: 00007f81143f5fa0 RCX: 00007f81141bb6ad
+RDX: 0000400000000140 RSI: 00000000400442c8 RDI: 0000000000000007
+RBP: 00007f8114253e9e R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 0000000000000000 R14: 00007f81143f5fa0 R15: 00007f811503e000
+ </TASK>
+
+Allocated by task 261592:
+ kasan_save_stack+0x33/0x60 mm/kasan/common.c:47
+ kasan_save_track+0x14/0x30 mm/kasan/common.c:68
+ poison_kmalloc_redzone mm/kasan/common.c:377 [inline]
+ __kasan_kmalloc+0xaa/0xb0 mm/kasan/common.c:394
+ kmalloc_noprof include/linux/slab.h:905 [inline]
+ kzalloc_noprof include/linux/slab.h:1039 [inline]
+ __hci_conn_add+0x17c/0x1b80 net/bluetooth/hci_conn.c:936
+ hci_conn_add_unset+0x6d/0x100 net/bluetooth/hci_conn.c:1047
+ hci_conn_request_evt+0x88a/0xaf0 net/bluetooth/hci_event.c:3289
+ hci_event_func net/bluetooth/hci_event.c:7493 [inline]
+ hci_event_packet+0x9ee/0x1170 net/bluetooth/hci_event.c:7545
+ hci_rx_work+0x859/0x16f0 net/bluetooth/hci_core.c:4020
+ process_one_work+0x9c6/0x1b50 kernel/workqueue.c:3238
+ process_scheduled_works kernel/workqueue.c:3319 [inline]
+ worker_thread+0x6ce/0xf10 kernel/workqueue.c:3400
+ kthread+0x3c2/0x780 kernel/kthread.c:464
+ ret_from_fork+0x45/0x80 arch/x86/kernel/process.c:153
+ ret_from_fork_asm+0x1a/0x30
+
+Freed by task 284501:
+ kasan_save_stack+0x33/0x60 mm/kasan/common.c:47
+ kasan_save_track+0x14/0x30 mm/kasan/common.c:68
+ kasan_save_free_info+0x3b/0x60 mm/kasan/generic.c:576
+ poison_slab_object mm/kasan/common.c:247 [inline]
+ __kasan_slab_free+0x4f/0x70 mm/kasan/common.c:264
+ kasan_slab_free include/linux/kasan.h:233 [inline]
+ slab_free_hook mm/slub.c:2398 [inline]
+ slab_free mm/slub.c:4656 [inline]
+ kfree+0x29c/0x4d0 mm/slub.c:4855
+ device_release+0xa1/0x240 drivers/base/core.c:2568
+ kobject_cleanup lib/kobject.c:689 [inline]
+ kobject_release lib/kobject.c:720 [inline]
+ kref_put include/linux/kref.h:65 [inline]
+ kobject_put+0x1e4/0x5a0 lib/kobject.c:737
+ put_device drivers/base/core.c:3774 [inline]
+ device_add+0x344/0x1a70 drivers/base/core.c:3719
+ netdev_register_kobject+0x182/0x3a0 net/core/net-sysfs.c:2336
+ register_netdevice+0x1315/0x2270 net/core/dev.c:11009
+ register_netdev+0x34/0x50 net/core/dev.c:11126
+ bnep_add_connection+0x71c/0xd20 net/bluetooth/bnep/core.c:624
+ do_bnep_sock_ioctl.isra.0+0x382/0x590 net/bluetooth/bnep/sock.c:83
+ sock_do_ioctl+0x115/0x280 net/socket.c:1190
+ sock_ioctl+0x599/0x6b0 net/socket.c:1311
+ vfs_ioctl fs/ioctl.c:51 [inline]
+ __do_sys_ioctl fs/ioctl.c:906 [inline]
+ __se_sys_ioctl fs/ioctl.c:892 [inline]
+ __x64_sys_ioctl+0x190/0x200 fs/ioctl.c:892
+ do_syscall_x64 arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xcd/0x230 arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+Last potentially related work creation:
+ kasan_save_stack+0x33/0x60 mm/kasan/common.c:47
+ kasan_record_aux_stack+0xb8/0xd0 mm/kasan/generic.c:548
+ insert_work+0x36/0x230 kernel/workqueue.c:2183
+ __queue_work+0x99f/0x1120 kernel/workqueue.c:2341
+ __queue_delayed_work+0x35b/0x460 kernel/workqueue.c:2509
+ queue_delayed_work_on+0x181/0x1e0 kernel/workqueue.c:2561
+ queue_delayed_work include/linux/workqueue.h:677 [inline]
+ hci_conn_drop include/net/bluetooth/hci_core.h:1663 [inline]
+ hci_conn_drop include/net/bluetooth/hci_core.h:1637 [inline]
+ l2cap_chan_del+0x588/0x8e0 net/bluetooth/l2cap_core.c:671
+ l2cap_conn_del+0x37a/0x730 net/bluetooth/l2cap_core.c:1786
+ l2cap_disconn_cfm net/bluetooth/l2cap_core.c:7300 [inline]
+ l2cap_disconn_cfm+0x9b/0xe0 net/bluetooth/l2cap_core.c:7293
+ hci_disconn_cfm include/net/bluetooth/hci_core.h:2069 [inline]
+ hci_conn_hash_flush+0x10b/0x260 net/bluetooth/hci_conn.c:2701
+ hci_dev_close_sync+0x5aa/0x11d0 net/bluetooth/hci_sync.c:5225
+ hci_dev_do_close+0x2e/0x90 net/bluetooth/hci_core.c:483
+ hci_dev_close+0x183/0x1e0 net/bluetooth/hci_core.c:508
+ hci_sock_ioctl+0x1d7/0x7c0 net/bluetooth/hci_sock.c:1128
+ sock_do_ioctl+0x115/0x280 net/socket.c:1190
+ sock_ioctl+0x599/0x6b0 net/socket.c:1311
+ vfs_ioctl fs/ioctl.c:51 [inline]
+ __do_sys_ioctl fs/ioctl.c:906 [inline]
+ __se_sys_ioctl fs/ioctl.c:892 [inline]
+ __x64_sys_ioctl+0x190/0x200 fs/ioctl.c:892
+ do_syscall_x64 arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xcd/0x230 arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+The buggy address belongs to the object at ffff888077a8c000
+ which belongs to the cache kmalloc-8k of size 8192
+The buggy address is located 3152 bytes inside of
+ freed 8192-byte region [ffff888077a8c000, ffff888077a8e000)
+
+The buggy address belongs to the physical page:
+page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x77a88
+head: order:3 mapcount:0 entire_mapcount:0 nr_pages_mapped:0 pincount:0
+flags: 0x4fff00000000040(head|node=1|zone=1|lastcpupid=0x7ff)
+page_type: f5(slab)
+raw: 04fff00000000040 ffff88801b442280 ffffea00004e7400 0000000000000002
+raw: 0000000000000000 0000000080020002 00000000f5000000 0000000000000000
+head: 04fff00000000040 ffff88801b442280 ffffea00004e7400 0000000000000002
+head: 0000000000000000 0000000080020002 00000000f5000000 0000000000000000
+head: 04fff00000000003 ffffea0001dea201 00000000ffffffff 00000000ffffffff
+head: ffffffffffffffff 0000000000000000 00000000ffffffff 0000000000000008
+page dumped because: kasan: bad access detected
+page_owner tracks the page as allocated
+page last allocated via order 3, migratetype Unmovable, gfp_mask 0xd20c0(__GFP_IO|__GFP_FS|__GFP_NOWARN|__GFP_NORETRY|__GFP_COMP|__GFP_NOMEMALLOC), pid 281178, tgid 281177 (syz.7.47609), ts 2521266755180, free_ts 2520631537894
+ set_page_owner include/linux/page_owner.h:32 [inline]
+ post_alloc_hook+0x181/0x1b0 mm/page_alloc.c:1718
+ prep_new_page mm/page_alloc.c:1726 [inline]
+ get_page_from_freelist+0xec6/0x3c50 mm/page_alloc.c:3688
+ __alloc_frozen_pages_noprof+0x259/0x22e0 mm/page_alloc.c:4970
+ alloc_pages_mpol+0x1fb/0x550 mm/mempolicy.c:2301
+ alloc_slab_page mm/slub.c:2468 [inline]
+ allocate_slab mm/slub.c:2632 [inline]
+ new_slab+0x244/0x350 mm/slub.c:2686
+ ___slab_alloc+0xda9/0x1930 mm/slub.c:3872
+ __slab_alloc.isra.0+0x56/0xb0 mm/slub.c:3962
+ __slab_alloc_node mm/slub.c:4037 [inline]
+ slab_alloc_node mm/slub.c:4198 [inline]
+ __do_kmalloc_node mm/slub.c:4340 [inline]
+ __kmalloc_node_track_caller_noprof+0x2b0/0x540 mm/slub.c:4360
+ kmalloc_reserve+0xef/0x2c0 net/core/skbuff.c:599
+ __alloc_skb+0x166/0x380 net/core/skbuff.c:668
+ alloc_skb include/linux/skbuff.h:1340 [inline]
+ nlmsg_new include/net/netlink.h:1019 [inline]
+ tipc_nl_net_addr_legacy_get+0x7e/0x5a0 net/tipc/net.c:330
+ genl_family_rcv_msg_doit+0x206/0x2f0 net/netlink/genetlink.c:1115
+ genl_family_rcv_msg net/netlink/genetlink.c:1195 [inline]
+ genl_rcv_msg+0x55c/0x800 net/netlink/genetlink.c:1210
+ netlink_rcv_skb+0x16a/0x440 net/netlink/af_netlink.c:2534
+ genl_rcv+0x28/0x40 net/netlink/genetlink.c:1219
+ netlink_unicast_kernel net/netlink/af_netlink.c:1313 [inline]
+ netlink_unicast+0x53a/0x7f0 net/netlink/af_netlink.c:1339
+page last free pid 275726 tgid 275726 stack trace:
+ reset_page_owner include/linux/page_owner.h:25 [inline]
+ free_pages_prepare mm/page_alloc.c:1262 [inline]
+ __free_frozen_pages+0x709/0x1030 mm/page_alloc.c:2725
+ discard_slab mm/slub.c:2730 [inline]
+ __put_partials+0x16d/0x1c0 mm/slub.c:3199
+ qlink_free mm/kasan/quarantine.c:163 [inline]
+ qlist_free_all+0x54/0x120 mm/kasan/quarantine.c:179
+ kasan_quarantine_reduce+0x195/0x1e0 mm/kasan/quarantine.c:286
+ __kasan_slab_alloc+0x69/0x90 mm/kasan/common.c:329
+ kasan_slab_alloc include/linux/kasan.h:250 [inline]
+ slab_post_alloc_hook mm/slub.c:4161 [inline]
+ slab_alloc_node mm/slub.c:4210 [inline]
+ __kmalloc_cache_node_noprof+0x158/0x420 mm/slub.c:4380
+ kmalloc_node_noprof include/linux/slab.h:928 [inline]
+ __get_vm_area_node+0x101/0x300 mm/vmalloc.c:3127
+ __vmalloc_node_range_noprof+0x271/0x1520 mm/vmalloc.c:3804
+ __vmalloc_node_noprof mm/vmalloc.c:3907 [inline]
+ vzalloc_noprof+0x6b/0x90 mm/vmalloc.c:3980
+ alloc_counters net/ipv4/netfilter/ip_tables.c:799 [inline]
+ copy_entries_to_user net/ipv4/netfilter/ip_tables.c:821 [inline]
+ get_entries net/ipv4/netfilter/ip_tables.c:1022 [inline]
+ do_ipt_get_ctl+0x632/0xa10 net/ipv4/netfilter/ip_tables.c:1668
+ nf_getsockopt+0x79/0xe0 net/netfilter/nf_sockopt.c:116
+ ip_getsockopt+0x18c/0x1e0 net/ipv4/ip_sockglue.c:1777
+ tcp_getsockopt+0x9e/0x100 net/ipv4/tcp.c:4727
+ do_sock_getsockopt+0x3b3/0x770 net/socket.c:2357
+ __sys_getsockopt+0x123/0x1a0 net/socket.c:2386
+ __do_sys_getsockopt net/socket.c:2393 [inline]
+ __se_sys_getsockopt net/socket.c:2390 [inline]
+ __x64_sys_getsockopt+0xbd/0x160 net/socket.c:2390
+
+Memory state around the buggy address:
+ ffff888077a8cb00: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+ ffff888077a8cb80: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+>ffff888077a8cc00: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+                                                 ^
+ ffff888077a8cc80: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+ ffff888077a8cd00: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+==================================================================
