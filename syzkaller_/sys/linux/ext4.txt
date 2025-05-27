@@ -1,0 +1,154 @@
+include <uapi/linux/fs.h>
+include <uapi/linux/fsmap.h>
+include <fs/ext4/ext4.h>
+include <uapi/linux/quota.h>
+include <uapi/linux/stat.h>
+include <linux/swap.h>
+resource fd_ext4[fd]
+
+openat$ext4(fd const[AT_FDCWD], file ptr[in, filename], flag flags[open_flags], mode const[0]) fd_ext4
+mkdirat$ext4(fd const[AT_FDCWD], path ptr[in, filename], mode const[755])
+creat$ext4(file ptr[in, filename], mode const[644]) fd_ext4
+
+setxattr$ext4(path ptr[in, filename], name ptr[in, string[ext4_xattr_names]], value ptr[in, array[int8]], size len[value], flags flags[setxattr_flags])
+getxattr$ext4(path ptr[in, filename], name ptr[in, string[ext4_xattr_names]], value ptr[out, array[int8]], size len[value])
+listxattr$ext4(path ptr[in, filename], list ptr[out, array[int8]], size len[list])
+removexattr$ext4(path ptr[in, filename], name ptr[in, string[ext4_xattr_names]])
+
+ext4_xattr_names = "security.selinux", "system.posix_acl_access", "system.posix_acl_default", "trusted.ext4", "user.test"
+
+fallocate$ext4(fd fd_ext4, mode flags[fallocate_flags], offset intptr, len intptr)
+ftruncate$ext4(fd fd_ext4, length intptr)
+truncate$ext4(path ptr[in, filename], length intptr)
+pwrite64$ext4(fd fd_ext4, buf ptr[in, array[int8]], count len[buf], pos intptr)
+pread64$ext4(fd fd_ext4, buf ptr[out, array[int8]], count len[buf], pos intptr)
+preadv$ext4(fd fd_ext4, vec ptr[in, array[iovec_out]], vlen len[vec], offset int32)
+pwritev$ext4(fd fd_ext4, vec ptr[out, array[iovec_in]], vlen len[vec], offset int32)
+write$ext4(fd fd_ext4, buf ptr[in, array[int8]], count len[buf])
+read$ext4(fd fd_ext4, buf ptr[out, array[int8]], count len[buf])
+writev$ext4(fd fd_ext4, vec ptr[in, array[iovec_in]], vlen len[vec])
+readv$ext4(fd fd_ext4, vec ptr[out, array[iovec_out]], vlen len[vec])
+
+# Copy operation (modern linux)
+copy_file_range$ext4(fd_in fd_ext4, off_in ptr[inout, int64], fd_out fd_ext4, off_out ptr[inout, int64], len intptr, flags const[0])
+
+# Direct I/O operations (bypass page cache, stress extent mapping)
+resource fd_ext4_direct[fd]
+openat$ext4_direct(fd const[AT_FDCWD], file ptr[in, filename], flags flags[open_flags_direct], mode const[0]) fd_ext4_direct
+pread64$ext4_direct(fd fd_ext4_direct, buf ptr[out, array[int8]], count len[buf], offset intptr)
+pwrite64$ext4_direct(fd fd_ext4_direct, buf ptr[in, array[int8]], count len[buf], offset intptr)
+open_flags_direct = O_RDWR, O_CREAT, O_DIRECT, O_SYNC, O_DSYNC
+
+# Sync operation
+fsync$ext4(fd fd_ext4)
+fdatasync$ext4(fd fd_ext4)
+syncfs$ext4(fd fd_ext4)
+sync_file_range$ext4(fd fd_ext4, offset intptr, nbytes intptr, flags flags[sync_file_range_flags])
+sync_file_range_flags = SYNC_FILE_RANGE_WAIT_BEFORE, SYNC_FILE_RANGE_WRITE, SYNC_FILE_RANGE_WAIT_AFTER
+
+fallocate_flags = FALLOC_FL_KEEP_SIZE, FALLOC_FL_PUNCH_HOLE, FALLOC_FL_COLLAPSE_RANGE, FALLOC_FL_ZERO_RANGE, FALLOC_FL_INSERT_RANGE, FALLOC_FL_UNSHARE_RANGE
+
+# Memory mapping operation
+mmap$ext4(addr vma, len len[addr], prot flags[mmap_prot], flags flags[mmap_flags], fd fd_ext4, offset fileoff)
+mmap2$ext4(addr vma, len len[addr], prot flags[mmap_prot], flags flags[mmap_flags], fd fd_ext4, offset intptr)
+munmap$ext4(addr vma, len len[addr])
+msync$ext4(addr vma, len len[addr], flags flags[msync_flags])
+# msync_flags = MS_ASYNC, MS_SYNC, MS_INVALIDATE
+madvise$ext4(addr vma, len len[addr], advice flags[madvise_flags])
+# madvise_flags = MADV_NORMAL, MADV_RANDOM, MADV_SEQUENTIAL, MADV_WILLNEED, MADV_DONTNEED
+
+# Directory operations
+readdir$ext4(fd fd_ext4, buf ptr[out, array[int8]], count len[buf])
+getdents$ext4(fd fd_ext4, dirp ptr[out, array[int8]], count len[dirp])
+getdents64$ext4(fd fd_ext4, dirp ptr[out, array[int8]], count len[dirp])
+
+# File Attributes and status
+stat$ext4(path ptr[in, filename], statbuf ptr[out, stat])
+fstat$ext4(fd fd_ext4, statbuf ptr[out, stat])
+lstat$ext4(path ptr[in, filename], statbuf ptr[out, stat])
+statx$ext4(dirfd const[AT_FDCWD], path ptr[in, filename], flag flags[statx_flags], mask flags[statx_mask], statxbuf ptr[out, statx])
+
+# statx_flags = AT_SYMLINK_NOFOLLOW, AT_NO_AUTOMOUNT, AT_EMPTY_PATH, AT_STATX_SYNC_AS_STAT, AT_STATX_FORCE_SYNC, AT_STATX_DONT_SYNC
+# statx_mask = STATX_TYPE, STATX_MODE, STATX_NLINK, STATX_UID, STATX_GID, STATX_ATIME, STATX_MTIME, STATX_CTIME, STATX_INO, STATX_SIZE, STATX_BLOCKS, STATX_BASIC_STATS, STATX_BTIME, STATX_ALL
+
+# Link Operation
+link$ext4(oldpath ptr[in, filename], newpath ptr[in, filename])
+symlink$ext4(oldpath ptr[in, filename], newpath ptr[in, filename])
+readlink$ext4(path ptr[in, filename], buf ptr[out, array[int8]], bufsize len[buf])
+unlink$ext4(path ptr[in, filename])
+rmdir$ext4(path ptr[in, filename])
+rename$ext4(oldpath ptr[in, filename], newpath ptr[in, filename])
+
+# Access and Permission
+access$ext4(file ptr[in, filename], mode flags[access_mode])
+faccessat$ext4(dirfd const[AT_FDCWD], file ptr[in, filename], mode flags[access_mode], flags const[0])
+chmod$ext4(file ptr[in, filename], mode int32)
+fchmod$ext4(fd fd_ext4, mode int32)
+chown$ext4(file ptr[in, filename], owner uid, group gid)
+fchown$ext4(fd fd_ext4, owner uid, group gid)
+access_mode = 0, 1, 2, 4
+# F_OK=0, X_OK=1, W_OK=2, R_OK=4
+
+# Time operation
+
+utimes$ext4(file ptr[in, filename], times ptr[in, array[timeval, 2]])
+futimesat$ext4(dirfd const[AT_FDCWD], file ptr[in, filename], times ptr[in, array[timeval, 2]])
+utimensat$ext4(dirfd const[AT_FDCWD], file ptr[in, filename], times ptr[in, array[timeval, 2]], flags flags[utimensat_flags])
+# utimensat_flags = 0, AT_SYMLINK_NOFOLLOW
+
+quotactl$ext4_on(cmd const[Q_QUOTAON], special ptr[in, filename], format const[QFMT_VFS_V1], addr ptr[in, filename])
+quotactl$ext4_off(cmd const[Q_QUOTAOFF], special ptr[in, filename], id const[0], addr const[0])
+quotactl$ext4_getquota(cmd const[Q_GETQUOTA], special ptr[in, filename], id int32, addr ptr[out, dqblk])
+quotactl$ext4_setquota(cmd const[Q_SETQUOTA], special ptr[in, filename], id int32, addr ptr[in, dqblk])
+
+dqblk {
+	d_fieldmask		int32
+	d_spc_hardlimit		int64
+	d_spc_softlimit		int64
+	d_ino_hardlimit		int64
+	d_ino_softlimit		int64
+	d_space			int64
+	d_ino_count		int64
+	d_ino_timer		int64
+	d_spc_timer		int64
+	d_ino_warns		int32
+	d_spc_warns		int32
+	d_rt_spc_hardlimit	int64
+	d_rt_spc_softlimit	int64
+	d_rt_space		int64
+	d_rt_spc_timer		int64
+	d_rt_spc_warns		int64
+}
+
+ioctl$EXT4_FS_IOC_FIEMAP(fd fd_ext4, cmd const[FS_IOC_FIEMAP], arg ptr[inout, fiemap_struct])
+ioctl$EXT4_FIBMAP(fd fd_ext4, cmd const[FIBMAP], arg ptr[inout, int32])
+
+fiemap_struct {
+	fm_start		int64
+	fm_length		int64
+	fm_flags		flags[fiemap_flags, int32]
+	fm_mapped_extents	int32
+	fm_extent_count		int32[0:100]
+	fm_reserved		int32
+	fm_extent		array[fm_extents, 100]
+}
+
+fm_extents {
+	fe_logical	int64
+	fe_physical	int64
+	fe_length	int64
+	fe_reserved64	array[int64, 2]
+	fe_flags	flags[fe_extents_flags, int32]
+	fe_reserved	array[int32, 3]
+}
+
+fe_extents_flags = FIEMAP_EXTENT_LAST, FIEMAP_EXTENT_UNKNOWN, FIEMAP_EXTENT_DELALLOC, FIEMAP_EXTENT_ENCODED, FIEMAP_EXTENT_DATA_ENCRYPTED, FIEMAP_EXTENT_NOT_ALIGNED, FIEMAP_EXTENT_DATA_INLINE, FIEMAP_EXTENT_DATA_TAIL, FIEMAP_EXTENT_UNWRITTEN, FIEMAP_EXTENT_MERGED, FIEMAP_EXTENT_SHARED
+
+lseek$ext4(fd fd_ext4, offset fileoff, whence flags[seek_whence])
+# ioctl$FIGETBSZ(fd fd_ext4, cmd const[FIGETBSZ], arg ptr[out, int32])
+
+swapon$ext4(path ptr[in, filename], flag flags[swap_flags])
+swapoff$ext4(path ptr[in, filename])
+mprotect$ext4(addr vma, len len[addr], prot flags[mmap_prot])
+
+swap_flags = SWAP_FLAG_PREFER, SWAP_FLAG_PRIO_MASK, SWAP_FLAG_DISCARD
