@@ -4,6 +4,7 @@ include <fs/ext4/ext4.h>
 include <uapi/linux/quota.h>
 include <uapi/linux/stat.h>
 include <linux/swap.h>
+include <uapi/linux/genetlink.h>
 resource fd_ext4[fd]
 
 openat$ext4(fd const[AT_FDCWD], file ptr[in, filename], flag flags[open_flags], mode const[0]) fd_ext4
@@ -74,6 +75,7 @@ statx$ext4(dirfd const[AT_FDCWD], path ptr[in, filename], flag flags[statx_flags
 # Link Operation
 link$ext4(oldpath ptr[in, filename], newpath ptr[in, filename])
 symlink$ext4(oldpath ptr[in, filename], newpath ptr[in, filename])
+symlinkat$ext4(oldpath ptr[in, filename], newfd const[AT_FDCWD], newpath ptr[in, filename])
 readlink$ext4(path ptr[in, filename], buf ptr[out, array[int8]], bufsize len[buf])
 unlink$ext4(path ptr[in, filename])
 rmdir$ext4(path ptr[in, filename])
@@ -100,6 +102,30 @@ quotactl$ext4_on(cmd const[Q_QUOTAON], special ptr[in, filename], format const[Q
 quotactl$ext4_off(cmd const[Q_QUOTAOFF], special ptr[in, filename], id const[0], addr const[0])
 quotactl$ext4_getquota(cmd const[Q_GETQUOTA], special ptr[in, filename], id int32, addr ptr[out, dqblk])
 quotactl$ext4_setquota(cmd const[Q_SETQUOTA], special ptr[in, filename], id int32, addr ptr[in, dqblk])
+resource fd_quota_netlink[fd]
+syz_init_net_socket$quota(fd ptr[out, fd_quota_netlink], family const[AF_NETLINK], protocol const[GENL_ID_VFS_DQUOT], flags flags[socket_flags])
+bind$quota_netlink(fd fd_quota_netlink, addr ptr[in, sockaddr_nl_quota], addrlen len[addr])
+
+sockaddr_nl_quota {
+	nl_family	const[AF_NETLINK, int16]
+	nl_pad		const[0, int16]
+	nl_pid		pid
+	nl_groups	flags[quota_nl_groups, int32]
+}
+
+quota_nl_groups = 1
+sendmsg$quota_netlink(fd fd_quota_netlink, msg ptr[in, msghdr_quota], flags flags[send_flags])
+recvmsg$quota_netlink(fd fd_quota_netlink, msg ptr[out, msghdr_quota], flags flags[recv_flags])
+
+msghdr_quota {
+	msg_name	ptr[in, sockaddr_nl_quota]
+	msg_namelen	len[msg_name, int32]
+	msg_iov		ptr[in, array[iovec_in]]
+	msg_iovlen	len[msg_iov, int32]
+	msg_control	ptr[in, array[int8], opt]
+	msg_controllen	len[msg_control, intptr]
+	msg_flags	int32
+}
 
 dqblk {
 	d_fieldmask		int32
@@ -152,3 +178,132 @@ swapoff$ext4(path ptr[in, filename])
 mprotect$ext4(addr vma, len len[addr], prot flags[mmap_prot])
 
 swap_flags = SWAP_FLAG_PREFER, SWAP_FLAG_PRIO_MASK, SWAP_FLAG_DISCARD
+
+# Block layer & Device Mapper
+ioctl$EXT4_BLKGETSIZE64(fd fd_ext4, cmd const[BLKGETSIZE64], arg ptr[out, int64])
+ioctl$EXT4_BLKFLSBUF(fd fd_ext4, cmd const[BLKFLSBUF], arg const[0])
+ioctl$EXT4_BLKDISCARD(fd fd_ext4, cmd const[BLKDISCARD], arg ptr[in, array[int64, 2]])
+
+# pipe thing
+pipe$ext4(pipefd ptr[in, array[int32, 2]])
+pipe2$ext4(pipefd ptr[in, array[int32, 2]], flags flags[pipe_flags])
+sendfile$ext4(out_fd fd_ext4, in_fd fd_ext4, offset ptr[inout, int64], count intptr)
+
+umount2$ext4(target ptr[in, filename], flag flags[umount_flags])
+splice$ext4(in_fd fd_ext4, offin ptr[in, intptr], out_fd fd_ext4, offout ptr[in, intptr], len intptr, flags flags[splice_flags])
+vmsplice$ext4(fd fd_ext4, iov ptr[in, array[iovec_in]], nr_segs int32, flags flags[splice_flags])
+tee$ext4(in_fd fd_ext4, out_fd fd_ext4, len intptr, flags flags[splice_flags])
+
+mlock$ext4(start vma, len len[start])
+munlock$ext4(start vma, len len[start])
+mlockall$ext4(flags flags[mlockall_flags])
+munlockall$ext4()
+
+# Interrupt I/O
+# Process creation for pid resource
+clone$ext4(flags flags[clone_flags], stack vma, parent_tid ptr[out, pid], child_tid ptr[out, pid], tls ptr[in, int64]) pid
+fork$ext4() pid
+vfork$ext4() pid
+
+# Then you can use:
+kill$ext4_interrupt(pid pid, sig const[SIGINT])
+
+# clone_flags = CLONE_VM, CLONE_FS, CLONE_FILES, CLONE_SIGHAND, CLONE_PTRACE, CLONE_VFORK, CLONE_PARENT
+fcntl$ext4_setfl(fd fd_ext4, cmd const[F_SETFL], flags flags[fcntl_flags])
+
+# VFAT SHIT
+
+resource fd_vfat[fd]
+resource fd_vfat_dir[fd]
+openat$vfat(fd const[AT_FDCWD], file ptr[in, string[vfat_filename]], flags flags[open_flags], mode const[0]) fd_vfat
+creat$vfat(file ptr[in, string[vfat_filename]], mode const[644]) fd_vfat
+mkdirat$vfat(fd const[AT_FDCWD], path ptr[in, string[vfat_filename]], mode const[755]) fd_vfat_dir
+vfat_filename = "cc.test", "syz.test", "boobbibi.test"
+# attribute
+setxattr$vfat(path ptr[in, filename], name ptr[in, string[vfat_xattr_names]], value ptr[in, array[int8]], size len[value], flags flags[setxattr_flags])
+getxattr$vfat(path ptr[in, filename], name ptr[in, string[vfat_xattr_names]], value ptr[out, array[int8]], size len[value])
+
+vfat_xattr_names = "user.test", "security.test"
+
+# File I/O operations
+write$vfat(fd fd_vfat, buf ptr[in, array[int8]], count len[buf])
+read$vfat(fd fd_vfat, buf ptr[out, array[int8]], count len[buf])
+pwrite64$vfat(fd fd_vfat, buf ptr[in, array[int8]], count len[buf], pos intptr)
+pread64$vfat(fd fd_vfat, buf ptr[out, array[int8]], count len[buf], post intptr)
+preadv$vfat(fd fd_vfat, vec ptr[in, array[iovec_out]], vlen len[vec], offset int32)
+pwritev$vfat(fd fd_vfat, vec ptr[out, array[iovec_in]], vlen len[vec], offset int32)
+lseek$vfat(fd fd_vfat, offset fileoff, whence flags[seek_whence])
+
+# mapping mem
+mmap$vfat(addr vma, len len[addr], prot flags[mmap_prot], flags flags[mmap_flags], fd fd_vfat, offset fileoff)
+munmap$vfat(addr vma, len len[addr])
+
+# IOCTL
+ioctl$vfat_VFAT_IOCTL_READDIR_BOTH(fd fd_vfat, cmd const[VFAT_IOCTL_READDIR_BOTH], arg ptr[out, array[__fat_dirent, 2]])
+ioctl$vfat_VFAT_IOCTL_READDIR_SHORT(fd fd_vfat, cmd const[VFAT_IOCTL_READDIR_SHORT], arg ptr[out, array[__fat_dirent, 2]])
+ioctl$vfat_FAT_IOCTL_GET_ATTRIBUTES(fd fd_vfat, cmd const[FAT_IOCTL_GET_ATTRIBUTES], arg ptr[out, int32])
+ioctl$vfat_FAT_IOCTL_SET_ATTRIBUTES(fd fd_vfat, cmd const[FAT_IOCTL_SET_ATTRIBUTES], arg ptr[in, flags[fat_attrs, int32]])
+ioctl$vfat_FAT_IOCTL_GET_VOLUME_ID(fd fd_vfat, cmd const[FAT_IOCTL_GET_VOLUME_ID], arg ptr[out, int32])
+
+readdir$vfat(fd fd_vfat_dir, buf ptr[out, array[int8]], count len[buf])
+getdents$vfat(fd fd_vfat_dir, dirp ptr[out, array[int8]], count len[dirp])
+getdents64$vfat(fd fd_vfat_dir, dirp ptr[out, array[int8]], count len[dirp])
+
+ftruncate$vfat(fd fd_vfat, length intptr)
+truncate$vfat(path ptr[in, string[vfat_filename]], length intptr)
+fallocate$vfat(fd fd_vfat, mode flags[fallocate_flags], offset intptr, len intptr)
+
+link$vfat(oldpath ptr[in, string[vfat_filename]], newpath ptr[in, string[vfat_filename]])
+unlink$vfat(path ptr[in, string[vfat_filename]])
+rename$vfat(oldpath ptr[in, string[vfat_filename]], newpath ptr[in, string[vfat_filename]])
+rmdir$vfat(path ptr[in, string[vfat_filename]])
+
+fsync$vfat(fd fd_vfat)
+fdatasync$vfat(fd fd_vfat)
+sync_file_range$vfat(fd fd_vfat, offset intptr, nbytes intptr, flags flags[sync_file_range_flags])
+
+write$vfat_utf8(fd fd_vfat, buf ptr[in, string[utf8_text]], count len[buf])
+write$vfat_latin1(fd fd_vfat, buf ptr[in, string[latin1_text]], count len[buf])
+
+utf8_text = "\xc3\xa9\xc3\xa7\xc3\xa0", "\xe2\x9c\x93\xe2\x9c\x97", "\xf0\x9f\x98\x80\xf0\x9f\x98\x81"
+latin1_text = "\xe9\xe7\xe0\xf1", "\xa1\xa2\xa3\xa4"
+
+# Cluster boundary operation
+writev$vfat_cluster_boundary(fd fd_vfat, buf ptr[in, array[int8, 4096]], count len[buf])
+
+statfs$vfat(path ptr[in, string[vfat_filename]], buf ptr[out, statvfs])
+stat$vfat(path ptr[in, string[vfat_filename]], statbuf ptr[out, stat])
+fstat$vfat(fd fd_vfat, statbuf ptr[out, stat])
+lstat$vfat(path ptr[in, string[vfat_filename]], statbuf ptr[out, stat])
+
+statvfs {
+	f_bsize		intptr
+	f_frssize	intptr
+	f_blocks	intptr
+	f_bfree		intptr
+	f_bavail	intptr
+	f_files		intptr
+	f_ffree		intptr
+	f_favail	intptr
+	f_fsid		intptr
+	f_flag		intptr
+	f_namemax	intptr
+}
+
+setxattr$ext4_hurd(path ptr[in, filename], name ptr[in, string[hurd_xattr_names]], value ptr[in, array[int8]], size len[value], flags flags[setxattr_flags])
+fsetxattr$ext4_hurd(fd fd_ext4, name ptr[in, string[hurd_xattr_names]], value ptr[in, array[int8]], size len[value], flags flags[setxattr_flags])
+lsetxattr$ext4_hurd(path ptr[in, filename], name ptr[in, string[hurd_xattr_names]], value ptr[in, array[int8]], size len[value], flags flags[setxattr_flags])
+
+getxattr$ext4_hurd(path ptr[in, filename], name ptr[in, string[hurd_xattr_names]], value ptr[out, array[int8]], size len[value])
+fgetxattr$ext4_hurd(fd fd_ext4, name ptr[in, string[hurd_xattr_names]], value ptr[out, array[int8]], size len[value])
+lgetxattr$ext4_hurd(path ptr[in, filename], name ptr[in, string[hurd_xattr_names]], value ptr[out, array[int8]], size len[value])
+
+listxattr$ext4_hurd(path ptr[in, filename], list ptr[out, array[int8]], size len[list])
+flistxattr$ext4_hurd(fd fd_ext4, list ptr[out, array[int8]], size len[list])
+llistxattr$ext4_hurd(path ptr[in, filename], list ptr[out, array[int8]], size len[list])
+
+removexattr$ext4_hurd(path ptr[in, filename], name ptr[in, string[hurd_xattr_names]])
+fremovexattr$ext4_hurd(fd fd_ext4, name ptr[in, string[hurd_xattr_names]])
+lremovexattr$ext4_hurd(path ptr[in, filename], name ptr[in, string[hurd_xattr_names]])
+
+hurd_xattr_names = "gnu.translator", "gnu.author", "gnu.md5sum", "gnu.fs.stat", "gnu.stat"
