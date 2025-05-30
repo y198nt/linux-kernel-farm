@@ -103,7 +103,8 @@ quotactl$ext4_off(cmd const[Q_QUOTAOFF], special ptr[in, filename], id const[0],
 quotactl$ext4_getquota(cmd const[Q_GETQUOTA], special ptr[in, filename], id int32, addr ptr[out, dqblk])
 quotactl$ext4_setquota(cmd const[Q_SETQUOTA], special ptr[in, filename], id int32, addr ptr[in, dqblk])
 resource fd_quota_netlink[fd]
-syz_init_net_socket$quota(fd ptr[out, fd_quota_netlink], family const[AF_NETLINK], protocol const[NETLINK_GENERIC], flags flags[socket_flags])
+socket$quota_netlink(domain const[AF_NETLINK], type const[SOCK_RAW], proto const[NETLINK_GENERIC]) fd_quota_netlink
+syz_genetlink_get_family_id$quota(name ptr[in, string["VFS_DQUOT"]], fd fd_quota_netlink)
 
 bind$quota_netlink(fd fd_quota_netlink, addr ptr[in, sockaddr_nl_quota], addrlen len[addr])
 
