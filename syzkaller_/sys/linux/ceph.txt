@@ -1,0 +1,273 @@
+include <uapi/linux/fs.h>
+include <linux/ceph/libceph.h>
+include <linux/fscrypt.h>
+include <fs/ceph/ioctl.h>
+include <fs/crypto/fscrypt_private.h>
+resource fd_ceph[fd]
+
+syz_mount_image$ceph(fs ptr[in, string[ceph_types]], dir ptr[in, filename], flags flags[mount_flags], opts ptr[in, fs_options[ceph_options]], chdir bool8, size len[img], img ptr[in, compressed_image]) fd_dir (timeout[SYZ_MOUNT_IMAGE_TIMEOUT], no_generate, no_minimize)
+define SYZ_MOUNT_IMAGE_TIMEOUT	4000
+ceph_types = "ceph"
+
+ceph_options [
+	wsize			stringnoz["wsize"]
+	rsize			stringnoz["rsize"]
+	rasize			stringnoz["rasize"]
+	caps_wanted_delay_min	stringnoz["caps_wanted_delay_min"]
+	caps_wanted_delay_max	stringnoz["caps_wanted_delay_max"]
+	caps_max		stringnoz["caps_max"]
+	readdir_max_entries	stringnoz["readdir_max_entries"]
+	readdir_max_bytes	stringnoz["readdir_max_bytes"]
+	write_congestion_kb	stringnoz["write_congestion_kb"]
+	snapdirname		stringnoz["snapdirname"]
+	mds_namespace		stringnoz["mds_namespace"]
+	recover_session		stringnoz["recover_session"]
+	source			stringnoz["source"]
+	mon_addr		stringnoz["mon_addr"]
+	test_dummy_encryption	stringnoz["test_dummy_encryption"]
+	dirstat			stringnoz["dirstat"]
+	nodirstat		stringnoz["nodirstat"]
+	rbytes			stringnoz["rbytes"]
+	norbytes		stringnoz["norbytes"]
+	asyncreaddir		stringnoz["asyncreaddir"]
+	noasyncreaddir		stringnoz["noasyncreaddir"]
+	dcache			stringnoz["dcache"]
+	nodcache		stringnoz["nodcache"]
+	ino32			stringnoz["ino32"]
+	noino32			stringnoz["noino32"]
+	fsc			stringnoz["fsc"]
+	nofsc			stringnoz["nofsc"]
+	poolperm		stringnoz["poolperm"]
+	nopoolperm		stringnoz["nopoolperm"]
+	require_active_mds	stringnoz["require_active_mds"]
+	norequire_active_mds	stringnoz["norequire_active_mds"]
+	acl			stringnoz["acl"]
+	noacl			stringnoz["noacl"]
+	quotadf			stringnoz["quotadf"]
+	noquotadf		stringnoz["noquotadf"]
+	copyfrom		stringnoz["copyfrom"]
+	nocopyfrom		stringnoz["nocopyfrom"]
+	wsync			stringnoz["wsync"]
+	nowsync			stringnoz["nowsync"]
+	pagecache		stringnoz["pagecache"]
+	nopagecache		stringnoz["nopagecache"]
+	sparseread		stringnoz["sparseread"]
+	nosparseread		stringnoz["nosparseread"]
+]
+
+openat$ceph(fd const[AT_FDCWD], file ptr[in, filename], flags flags[open_flags], mode const[0]) fd_ceph
+creat$ceph(file ptr[in, filename], mode const[644]) fd_ceph
+mkdirat$ceph(fd const[AT_FDCWD], path ptr[in, filename], mode const[755])
+
+# File I/O
+
+read$ceph(fd fd_ceph, buf ptr[out, array[int8]], count len[buf])
+write$ceph(fd fd_ceph, buf ptr[in, array[int8]], count len[buf])
+pread64$ceph(fd fd_ceph, buf ptr[out, array[int8]], count len[buf], pos intptr)
+pwrite64$ceph(fd fd_ceph, buf ptr[in, array[int8]], count len[buf], pos intptr)
+lseek$ceph(fd fd_ceph, offset fileoff, whence flags[seek_whence])
+
+# Mem mapping
+mmap$ceph(addr vma, len len[addr], prot flags[mmap_prot], flags flags[mmap_flags], fd fd_ceph, offset fileoff)
+mmap2$ceph(addr vma, len len[addr], prot flags[mmap_prot], flags flags[mmap_flags], fd fd_ceph, offset intptr)
+munmap$ceph(addr vma, len len[addr])
+
+# resource fd_ceph_dir[fd_ceph]
+# getdents$ceph(fd fd_ceph_dir, dirp ptr[out, array[int8]],count len[dirp])
+# getdents64$ceph(fd fd_ceph_dir,dirp ptr[out, array[int8]], count len[dirp])
+
+# Link operations
+link$ceph(oldpath ptr[in, filename], newpath ptr[in, filename])
+symlink$ceph(target ptr[in, filename], linkpath ptr[in, filename])
+readlink$ceph(path ptr[in, filename], buf ptr[out, array[int8]], bufsiz len[buf])
+unlink$ceph(pathname ptr[in, filename])
+rmdir$ceph(pathname ptr[in, filename])
+rename$ceph(oldpath ptr[in, filename], newpath ptr[in, filename])
+
+# File attributes
+stat$ceph(pathname ptr[in, filename], statbuf ptr[out, stat])
+fstat$ceph(fd fd_ceph, statbuf ptr[out, stat])
+lstat$ceph(pathname ptr[in, filename], statbuf ptr[out, stat])
+statx$ceph(dirfd const[AT_FDCWD], pathname ptr[in, filename], flags flags[statx_flags], mask flags[statx_mask], statxbuf ptr[out, statx])
+
+# Permissions and ownership
+chmod$ceph(pathname ptr[in, filename], mode int32)
+fchmod$ceph(fd fd_ceph, mode int32)
+chown$ceph(pathname ptr[in, filename], owner uid, group gid)
+fchown$ceph(fd fd_ceph, owner uid, group gid)
+
+# Extended attributes
+setxattr$ceph(path ptr[in, filename], name ptr[in, string[ceph_xattr_names]], value ptr[in, array[int8]], size len[value], flags flags[setxattr_flags])
+getxattr$ceph(path ptr[in, filename], name ptr[in, string[ceph_xattr_names]], value ptr[out, array[int8]], size len[value])
+listxattr$ceph(path ptr[in, filename], list ptr[out, array[int8]], size len[list])
+removexattr$ceph(path ptr[in, filename], name ptr[in, string[ceph_xattr_names]])
+
+ceph_xattr_names = "ceph.layout", "ceph.layout.stripe_unit", "ceph.layout.stripe_count", "ceph.layout.object_size", "ceph.layout.pool", "ceph.dir.layout", "ceph.file.layout", "user.test", "security.test"
+
+# Sync operations
+fsync$ceph(fd fd_ceph)
+fdatasync$ceph(fd fd_ceph)
+sync_file_range$ceph(fd fd_ceph, offset intptr, nbytes intptr, flags flags[sync_file_range_flags])
+
+# File allocation
+fallocate$ceph(fd fd_ceph, mode flags[fallocate_flags], offset intptr, len intptr)
+ftruncate$ceph(fd fd_ceph, length intptr)
+truncate$ceph(path ptr[in, filename], length intptr)
+
+# Mount operations
+mount$ceph(source ptr[in, string[ceph_source]], target ptr[in, filename], filesystemtype ptr[in, string["ceph"]], mountflags flags[mount_flags], data ptr[in, string[ceph_mount_options]])
+ceph_source = "mon1:6789,mon2:6789,mon3:6789:/", "192.168.1.1:6789:/", "ceph-mon.example.com:6789:/"
+ceph_mount_options = "name=client.admin", "secret=AQABC123", "rsize=65536", "wsize=65536", "mount_timeout=60", "osd_request_timeout=60", "osdkeepalive=30", "ms_mode=prefer-crc", "ms_mode=secure", "recover_session=no", "recover_session=clean"
+
+# IOCTL
+
+ioctl$pro_CEPH_IOC_GET_LAYOUT(fd fd_ceph, cmd const[CEPH_IOC_GET_LAYOUT], arg ptr[out, ceph_ioctl_layout])
+
+ceph_ioctl_layout {
+	stripe_unit	int64
+	stripe_count	int64
+	object_size	int64
+	data_pool	int64
+	preferred_osd	int64
+}
+
+ioctl$pro_CEPH_IOC_SET_LAYOUT(fd fd_ceph, cmd const[CEPH_IOC_SET_LAYOUT], arg ptr[in, ceph_ioctl_layout])
+ioctl$pro_CEPH_IOC_SET_LAYOUT_POLICY(fd fd_ceph, cmd const[CEPH_IOC_SET_LAYOUT_POLICY], arg ptr[in, ceph_ioctl_layout])
+ioctl$pro_CEPH_IOC_GET_DATALOC(fd fd_ceph, cmd const[CEPH_IOC_GET_DATALOC], arg ptr[in, ceph_ioctl_dataloc])
+
+ceph_ioctl_dataloc {
+	file_offset	int64
+	object_offset	int64
+	object_no	int64
+	object_size	int64
+	object_name	array[int8, 64]
+	block_offset	int64
+	block_size	int64
+	osd		int64
+	osd_addr	sockaddr_storage_generic
+}
+
+ioctl$pro_CEPH_IOC_LAZYIO(fd fd_ceph, cmd const[CEPH_IOC_LAZYIO])
+ioctl$pro_CEPH_IOC_SYNCIO(fd fd_ceph, cmd const[CEPH_IOC_SYNCIO])
+
+# Define fscrypt constants first
+fscrypt_policy_version = 1, 2
+fscrypt_mode = 1, 2, 3, 4, 5, 6
+pro_fscrypt_policy_flags = 0, 1, 2, 4, 8
+
+# Now define the structures using proper integer types
+pro_fscrypt_policy_v1 {
+	version				flags[fscrypt_policy_version, int8]
+	contents_encryption_mode	flags[fscrypt_mode, int8]
+	filenames_encryption_mode	flags[fscrypt_mode, int8]
+	flags				flags[pro_fscrypt_policy_flags, int8]
+	master_key_descriptor		array[int8, 8]
+}
+
+pro_fscrypt_policy_v2 {
+	version				flags[fscrypt_policy_version, int8]
+	contents_encryption_mode	flags[fscrypt_mode, int8]
+	filenames_encryption_mode	flags[fscrypt_mode, int8]
+	flags				flags[pro_fscrypt_policy_flags, int8]
+	log2_data_unit_size		int8
+	reserved			array[int8, 3]
+	master_key_identifier		array[int8, 16]
+}
+
+# Define the union and other structures
+fscrypt_policy_union [
+	version	fscrypt_policy_version_struct
+	v1	pro_fscrypt_policy_v1
+	v2	pro_fscrypt_policy_v2
+]
+
+fscrypt_policy_version_struct {
+	version	flags[fscrypt_policy_version, int8]
+}
+
+pro_fscrypt_get_policy_ex_arg {
+	policy_size	int64
+	policy		fscrypt_policy_union
+}
+
+# Encryption ioctls
+ioctl$pro_FS_IOC_SET_ENCRYPTION_POLICY(fd fd_ceph, cmd const[FS_IOC_SET_ENCRYPTION_POLICY], arg ptr[in, fscrypt_policy_v1])
+ioctl$pro_FS_IOC_GET_ENCRYPTION_POLICY(fd fd_ceph, cmd const[FS_IOC_GET_ENCRYPTION_POLICY], arg ptr[out, fscrypt_policy_v1])
+ioctl$pro_FS_IOC_GET_ENCRYPTION_POLICY_EX(fd fd_ceph, cmd const[FS_IOC_GET_ENCRYPTION_POLICY_EX], arg ptr[inout, pro_fscrypt_get_policy_ex_arg])
+ioctl$pro_FS_IOC_ADD_ENCRYPTION_KEY(fd fd_ceph, cmd const[FS_IOC_ADD_ENCRYPTION_KEY], arg ptr[in, pro_fscrypt_add_key_arg])
+
+pro_fscrypt_add_key_arg {
+	key_spec	pro_fscrypt_key_specifier
+	raw_size	int32
+	key_id		int32
+	__reserved	array[int32, 8]
+	raw		array[int8]
+}
+
+pro_fscrypt_key_specifier {
+	type		flags[fscrypt_key_type, int32]
+	__reserved	int32
+	u		pro_fscrypt_key_specifier_union
+}
+
+pro_fscrypt_key_specifier_union [
+	__reserved	array[int8, 32]
+	descriptor	array[int8, 8]
+	identified	array[int8, 16]
+]
+
+fscrypt_key_type = FSCRYPT_KEY_SPEC_TYPE_DESCRIPTOR, FSCRYPT_KEY_SPEC_TYPE_IDENTIFIER
+
+ioctl$pro_FS_IOC_REMOVE_ENCRYPTION_KEY(fd fd_ceph, cmd const[FS_IOC_REMOVE_ENCRYPTION_KEY], arg ptr[in, pro_fscrypt_remove_key_arg])
+
+pro_fscrypt_remove_key_arg {
+	key_spec		pro_fscrypt_key_specifier
+	removal_status_flags	flags[fscrypt_remove_key_status_flags, int32]
+	__reserved		array[int32, 5]
+}
+
+fscrypt_remove_key_status_flags = FSCRYPT_KEY_REMOVAL_STATUS_FLAG_FILES_BUSY, FSCRYPT_KEY_REMOVAL_STATUS_FLAG_OTHER_USERS
+ioctl$pro_FS_IOC_REMOVE_ENCRYPTION_KEY_ALL_USERS(fd fd_ceph, cmd const[FS_IOC_REMOVE_ENCRYPTION_KEY_ALL_USERS], arg ptr[in, pro_fscrypt_remove_key_arg])
+ioctl$pro_FS_IOC_GET_ENCRYPTION_KEY_STATUS(fd fd_ceph, cmd const[FS_IOC_GET_ENCRYPTION_KEY_STATUS], arg ptr[in, pro_fscrypt_get_key_status_arg])
+
+pro_fscrypt_get_key_status_arg {
+	key_spec	pro_fscrypt_key_specifier
+	__reserved	array[int32, 6]
+}
+
+ioctl$pro_FS_IOC_GET_ENCRYPTION_NONCE(fd fd_ceph, cmd const[FS_IOC_GET_ENCRYPTION_NONCE], arg ptr[out, pro_fscrypt_context])
+
+pro_fscrypt_context [
+	version	pro_fscrypt_context_version_struct
+	v1	pro_fscrypt_context_v1
+	v2	pro_fscrypt_context_v2
+]
+
+# Version-only struct for the union
+pro_fscrypt_context_version_struct {
+	version	flags[fscrypt_context_version, int8]
+}
+
+# Define fscrypt_context_v1 structure
+pro_fscrypt_context_v1 {
+	version				const[FSCRYPT_CONTEXT_V1, int8]
+	contents_encryption_mode	flags[fscrypt_mode, int8]
+	filenames_encryption_mode	flags[fscrypt_mode, int8]
+	flags				flags[fscrypt_policy_flags, int8]
+	master_key_descriptor		array[int8, 8]
+	nonce				array[int8, 16]
+}
+
+# Define fscrypt_context_v2 structure
+pro_fscrypt_context_v2 {
+	version				const[FSCRYPT_CONTEXT_V2, int8]
+	contents_encryption_mode	flags[fscrypt_mode, int8]
+	filenames_encryption_mode	flags[fscrypt_mode, int8]
+	flags				flags[fscrypt_policy_flags, int8]
+	log2_data_unit_size		int8
+	reserved			array[int8, 3]
+	master_key_identifier		array[int8, 16]
+	nonce				array[int8, 16]
+}
+
+fscrypt_context_version = FSCRYPT_CONTEXT_V1, FSCRYPT_CONTEXT_V2
