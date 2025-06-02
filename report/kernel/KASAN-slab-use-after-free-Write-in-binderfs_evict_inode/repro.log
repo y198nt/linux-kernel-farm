@@ -1,0 +1,874 @@
+Warning: Permanently added '[localhost]:25685' (ED25519) to the list of known hosts.
+2025/05/30 21:35:13 ignoring optional flag "sandboxArg"="0"
+2025/05/30 21:35:14 parsed 1 programs
+syzkaller login: [   46.871923][ T8803] Adding 124996k swap on ./swap-file.  Priority:0 extents:1 across:124996k 
+[   48.556284][ T8822] chnl_net:caif_netlink_parms(): no params data found
+[   48.710070][ T9056] Bluetooth: hci0: unexpected cc 0x0c03 length: 249 > 1
+[   48.711769][ T9056] Bluetooth: hci0: unexpected cc 0x1003 length: 249 > 9
+[   48.713577][ T9056] Bluetooth: hci0: unexpected cc 0x1001 length: 249 > 9
+[   48.716930][ T9056] Bluetooth: hci0: unexpected cc 0x0c23 length: 249 > 4
+[   48.717802][ T9056] Bluetooth: hci0: unexpected cc 0x0c38 length: 249 > 2
+[   48.919037][ T8822] bridge0: port 1(bridge_slave_0) entered blocking state
+[   48.920916][ T8822] bridge0: port 1(bridge_slave_0) entered disabled state
+[   48.921677][ T8822] bridge_slave_0: entered allmulticast mode
+[   48.923494][ T8822] bridge_slave_0: entered promiscuous mode
+[   48.937760][ T8822] bridge0: port 2(bridge_slave_1) entered blocking state
+[   48.938484][ T8822] bridge0: port 2(bridge_slave_1) entered disabled state
+[   48.939152][ T8822] bridge_slave_1: entered allmulticast mode
+[   48.940508][ T8822] bridge_slave_1: entered promiscuous mode
+[   49.026520][ T8822] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[   49.034915][ T1346] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   49.036135][ T1346] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   49.037293][ T8822] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[   49.184714][ T8822] team0: Port device team_slave_0 added
+[   49.188891][ T8822] team0: Port device team_slave_1 added
+[   49.239731][  T254] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   49.240360][  T254] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   49.310525][ T8822] batman_adv: batadv0: Adding interface: batadv_slave_0
+[   49.311079][ T8822] batman_adv: batadv0: The MTU of interface batadv_slave_0 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[   49.312969][ T8822] batman_adv: batadv0: Not using interface batadv_slave_0 (retrying later): interface not active
+[   49.319001][ T8822] batman_adv: batadv0: Adding interface: batadv_slave_1
+[   49.319574][ T8822] batman_adv: batadv0: The MTU of interface batadv_slave_1 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[   49.321464][ T8822] batman_adv: batadv0: Not using interface batadv_slave_1 (retrying later): interface not active
+[   49.410953][ T8822] hsr_slave_0: entered promiscuous mode
+[   49.412118][ T8822] hsr_slave_1: entered promiscuous mode
+[   50.288743][ T8822] netdevsim netdevsim3 netdevsim0: renamed from eth0
+[   50.300444][ T8822] netdevsim netdevsim3 netdevsim1: renamed from eth1
+[   50.309113][ T8822] netdevsim netdevsim3 netdevsim2: renamed from eth2
+[   50.374250][ T8822] netdevsim netdevsim3 netdevsim3: renamed from eth3
+[   50.497978][ T8822] 8021q: adding VLAN 0 to HW filter on device bond0
+[   50.507934][ T8822] 8021q: adding VLAN 0 to HW filter on device team0
+[   50.511933][ T1403] bridge0: port 1(bridge_slave_0) entered blocking state
+[   50.512659][ T1403] bridge0: port 1(bridge_slave_0) entered forwarding state
+[   50.519537][   T14] bridge0: port 2(bridge_slave_1) entered blocking state
+[   50.520146][   T14] bridge0: port 2(bridge_slave_1) entered forwarding state
+[   50.712874][ T8822] 8021q: adding VLAN 0 to HW filter on device batadv0
+[   50.752664][ T8822] veth0_vlan: entered promiscuous mode
+[   50.835610][ T8822] veth1_vlan: entered promiscuous mode
+[   50.966898][ T8822] veth0_macvtap: entered promiscuous mode
+[   50.970307][ T8822] veth1_macvtap: entered promiscuous mode
+[   50.979829][ T8822] batman_adv: batadv0: Interface activated: batadv_slave_0
+[   50.984781][ T8822] batman_adv: batadv0: Interface activated: batadv_slave_1
+[   50.993405][ T8822] netdevsim netdevsim3 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[   50.997477][ T8822] netdevsim netdevsim3 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[   50.998132][ T8822] netdevsim netdevsim3 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[   50.998760][ T8822] netdevsim netdevsim3 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+2025/05/30 21:35:21 executed programs: 0
+[   51.080457][ T4721] Bluetooth: hci0: unexpected cc 0x0c03 length: 249 > 1
+[   51.081822][ T4721] Bluetooth: hci0: unexpected cc 0x1003 length: 249 > 9
+[   51.082637][ T4721] Bluetooth: hci0: unexpected cc 0x1001 length: 249 > 9
+[   51.087865][ T4721] Bluetooth: hci0: unexpected cc 0x0c23 length: 249 > 4
+[   51.088821][ T4721] Bluetooth: hci0: unexpected cc 0x0c38 length: 249 > 2
+[   51.154143][ T9056] Bluetooth: hci1: unexpected cc 0x0c03 length: 249 > 1
+[   51.157766][ T9056] Bluetooth: hci1: unexpected cc 0x1003 length: 249 > 9
+[   51.162782][ T9056] Bluetooth: hci1: unexpected cc 0x1001 length: 249 > 9
+[   51.164349][ T9426] ==================================================================
+[   51.164962][ T9426] BUG: KASAN: slab-use-after-free in binderfs_evict_inode+0x335/0x340
+[   51.165595][ T9426] Write of size 8 at addr ffff88803ceff808 by task syz-executor/9426
+[   51.166183][ T9426] 
+[   51.166461][ T9426] CPU: 0 UID: 0 PID: 9426 Comm: syz-executor Not tainted 6.15.0-dirty #2 PREEMPT 
+[   51.166479][ T9426] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.15.0-1 04/01/2014
+[   51.166490][ T9426] Call Trace:
+[   51.166495][ T9426]  <TASK>
+[   51.166500][ T9426]  dump_stack_lvl+0x10e/0x1f0
+[   51.166526][ T9426]  print_report+0xcd/0x6a0
+[   51.166541][ T9426]  ? binderfs_evict_inode+0x335/0x340
+[   51.166555][ T9426]  ? __virt_addr_valid+0x81/0x610
+[   51.166570][ T9426]  ? __phys_addr+0xe8/0x180
+[   51.166585][ T9426]  ? binderfs_evict_inode+0x335/0x340
+[   51.166599][ T9426]  kasan_report+0xe0/0x110
+[   51.166614][ T9426]  ? binderfs_evict_inode+0x335/0x340
+[   51.166630][ T9426]  ? __pfx_binderfs_evict_inode+0x10/0x10
+[   51.166644][ T9426]  binderfs_evict_inode+0x335/0x340
+[   51.166659][ T9426]  evict+0x3e3/0x910
+[   51.166674][ T9426]  ? __pfx_evict+0x10/0x10
+[   51.166690][ T9426]  ? iput.part.0+0x5b9/0x800
+[   51.166707][ T9426]  iput.part.0+0x5c1/0x800
+[   51.166724][ T9426]  iput+0x62/0x80
+[   51.166738][ T9426]  dentry_unlink_inode+0x29c/0x480
+[   51.166753][ T9426]  __dentry_kill+0x1d0/0x600
+[   51.166768][ T9426]  ? shrink_dentry_list+0x10e/0x5e0
+[   51.166785][ T9426]  shrink_dentry_list+0x134/0x5e0
+[   51.166804][ T9426]  ? shrink_dcache_parent+0x22/0x530
+[   51.166822][ T9426]  shrink_dcache_parent+0xe1/0x530
+[   51.166840][ T9426]  ? __pfx_shrink_dcache_parent+0x10/0x10
+[   51.166859][ T9426]  ? find_held_lock+0x2b/0x80
+[   51.166884][ T9426]  shrink_dcache_for_umount+0xa2/0x3e0
+[   51.166902][ T9426]  ? _raw_spin_unlock+0x28/0x50
+[   51.166985][ T9426]  generic_shutdown_super+0x76/0x3d0
+[   51.167002][ T9426]  kill_litter_super+0x70/0xa0
+[   51.167017][ T9426]  binderfs_kill_super+0x3b/0xa0
+[   51.167040][ T9426]  deactivate_locked_super+0xbe/0x1a0
+[   51.167057][ T9426]  deactivate_super+0xe2/0x100
+[   51.167073][ T9426]  cleanup_mnt+0x21f/0x440
+[   51.167092][ T9426]  task_work_run+0x14d/0x240
+[   51.167110][ T9426]  ? __pfx_task_work_run+0x10/0x10
+[   51.167126][ T9426]  ? switch_task_namespaces+0xe6/0x100
+[   51.167139][ T9426]  ? __put_net+0x61/0x70
+[   51.167162][ T9426]  do_exit+0xafb/0x29a0
+[   51.167179][ T9426]  ? __pfx_do_exit+0x10/0x10
+[   51.167202][ T9426]  ? do_raw_spin_lock+0x12b/0x270
+[   51.167220][ T9426]  ? find_held_lock+0x2b/0x80
+[   51.167244][ T9426]  do_group_exit+0xd3/0x2a0
+[   51.167260][ T9426]  get_signal+0x24da/0x2640
+[   51.167280][ T9426]  ? vfs_read+0x238/0xc60
+[   51.167302][ T9426]  ? __pfx_get_signal+0x10/0x10
+[   51.167320][ T9426]  ? __pfx_vfs_read+0x10/0x10
+[   51.167342][ T9426]  arch_do_signal_or_restart+0x8f/0x5f0
+[   51.167365][ T9426]  ? __pfx_arch_do_signal_or_restart+0x10/0x10
+[   51.167391][ T9426]  ? ksys_read+0x1b9/0x240
+[   51.167410][ T9426]  ? __pfx_ksys_read+0x10/0x10
+[   51.167432][ T9426]  syscall_exit_to_user_mode+0x105/0x210
+[   51.167454][ T9426]  do_syscall_64+0x80/0x1a0
+[   51.167477][ T9426]  entry_SYSCALL_64_after_hwframe+0x76/0x7e
+[   51.167492][ T9426] RIP: 0033:0x7f9e975bb042
+[   51.167506][ T9426] Code: Unable to access opcode bytes at 0x7f9e975bb018.
+[   51.167513][ T9426] RSP: 002b:00007f9e9792fd68 EFLAGS: 00000246 ORIG_RAX: 0000000000000000
+[   51.167526][ T9426] RAX: fffffffffffffe00 RBX: 0000000000000003 RCX: 00007f9e975bb042
+[   51.167535][ T9426] RDX: 0000000000000030 RSI: 00007f9e9792fdc0 RDI: 00000000000000f9
+[   51.167544][ T9426] RBP: 00007f9e9792fdc0 R08: 00007f9e9792f69c R09: 00007f9e9792fc00
+[   51.167554][ T9426] R10: 00007f9e9792f700 R11: 0000000000000246 R12: 00007f9e9792fe30
+[   51.167563][ T9426] R13: 000000000000c395 R14: 0000000000000001 R15: 000000000000c389
+[   51.167578][ T9426]  </TASK>
+[   51.167582][ T9426] 
+[   51.193076][ T9426] Allocated by task 8822:
+[   51.193427][ T9426]  kasan_save_stack+0x33/0x60
+[   51.193798][ T9426]  kasan_save_track+0x14/0x30
+[   51.194166][ T9426]  __kasan_kmalloc+0xaa/0xb0
+[   51.194541][ T9426]  __kmalloc_noprof+0x20e/0x620
+[   51.194923][ T9426]  fib6_info_alloc+0x40/0x160
+[   51.195306][ T9426]  ip6_route_info_create+0x33c/0x1c50
+[   51.195723][ T9426]  ip6_route_add+0x26/0x1c0
+[   51.196080][ T9426]  addrconf_add_mroute+0x1dd/0x350
+[   51.196486][ T9426]  addrconf_add_dev+0x14e/0x1c0
+[   51.196898][ T9426]  inet6_addr_add+0xfe/0x9e0
+[   51.197241][ T9426]  inet6_rtm_newaddr+0x1637/0x1c90
+[   51.197606][ T9426]  rtnetlink_rcv_msg+0x95e/0xe90
+[   51.197985][ T9426]  netlink_rcv_skb+0x16d/0x440
+[   51.198354][ T9426]  netlink_unicast+0x6cc/0xa10
+[   51.198721][ T9426]  netlink_sendmsg+0x8d1/0xdd0
+[   51.199088][ T9426]  __sys_sendto+0x494/0x510
+[   51.199460][ T9426]  __x64_sys_sendto+0xe0/0x1c0
+[   51.199835][ T9426]  do_syscall_64+0x74/0x1a0
+[   51.200191][ T9426]  entry_SYSCALL_64_after_hwframe+0x76/0x7e
+[   51.200645][ T9426] 
+[   51.200832][ T9426] Freed by task 4780:
+[   51.201138][ T9426]  kasan_save_stack+0x33/0x60
+[   51.201505][ T9426]  kasan_save_track+0x14/0x30
+[   51.201871][ T9426]  kasan_save_free_info+0x3b/0x60
+[   51.202253][ T9426]  __kasan_slab_free+0x4f/0x70
+[   51.202598][ T9426]  kfree+0x290/0x4c0
+[   51.202884][ T9426]  rcu_core+0x7a9/0x16a0
+[   51.203226][ T9426]  handle_softirqs+0x216/0x970
+[   51.203599][ T9426]  __irq_exit_rcu+0x109/0x170
+[   51.203973][ T9426]  irq_exit_rcu+0x9/0x30
+[   51.204314][ T9426]  sysvec_apic_timer_interrupt+0x8e/0xb0
+[   51.204751][ T9426]  asm_sysvec_apic_timer_interrupt+0x1a/0x20
+[   51.205204][ T9426] 
+[   51.205393][ T9426] Last potentially related work creation:
+[   51.205828][ T9426]  kasan_save_stack+0x33/0x60
+[   51.206194][ T9426]  kasan_record_aux_stack+0xa7/0xc0
+[   51.206600][ T9426]  __call_rcu_common.constprop.0+0x9a/0x9c0
+[   51.207044][ T9426]  ip6_route_info_create+0x15d9/0x1c50
+[   51.207453][ T9426]  ip6_route_add+0x26/0x1c0
+[   51.207804][ T9426]  addrconf_add_mroute+0x1dd/0x350
+[   51.208197][ T9426]  addrconf_add_dev+0x14e/0x1c0
+[   51.208566][ T9426]  inet6_addr_add+0xfe/0x9e0
+[   51.208899][ T9426]  inet6_rtm_newaddr+0x1637/0x1c90
+[   51.209283][ T9426]  rtnetlink_rcv_msg+0x95e/0xe90
+[   51.209670][ T9426]  netlink_rcv_skb+0x16d/0x440
+[   51.210039][ T9426]  netlink_unicast+0x6cc/0xa10
+[   51.210405][ T9426]  netlink_sendmsg+0x8d1/0xdd0
+[   51.210864][ T9426]  __sys_sendto+0x494/0x510
+[   51.211237][ T9426]  __x64_sys_sendto+0xe0/0x1c0
+[   51.211585][ T9426]  do_syscall_64+0x74/0x1a0
+[   51.211924][ T9426]  entry_SYSCALL_64_after_hwframe+0x76/0x7e
+[   51.212370][ T9426] 
+[   51.212556][ T9426] The buggy address belongs to the object at ffff88803ceff800
+[   51.212556][ T9426]  which belongs to the cache kmalloc-512 of size 512
+[   51.213535][ T9426] The buggy address is located 8 bytes inside of
+[   51.213535][ T9426]  freed 512-byte region [ffff88803ceff800, ffff88803ceffa00)
+[   51.214513][ T9426] 
+[   51.214700][ T9426] The buggy address belongs to the physical page:
+[   51.215182][ T9426] page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x3cefc
+[   51.215826][ T9426] head: order:2 mapcount:0 entire_mapcount:0 nr_pages_mapped:0 pincount:0
+[   51.216446][ T9426] flags: 0x3ffc00000000040(head|node=0|zone=1|lastcpupid=0x7ff)
+[   51.217017][ T9426] page_type: f5(slab)
+[   51.217331][ T9426] raw: 03ffc00000000040 ffff888019c41c80 ffffea00009f7700 dead000000000002
+[   51.217963][ T9426] raw: 0000000000000000 0000000000100010 00000000f5000000 0000000000000000
+[   51.218602][ T9426] head: 03ffc00000000040 ffff888019c41c80 ffffea00009f7700 dead000000000002
+[   51.219259][ T9426] head: 0000000000000000 0000000000100010 00000000f5000000 0000000000000000
+[   51.219886][ T9426] head: 03ffc00000000002 ffffea0000f3bf01 00000000ffffffff 00000000ffffffff
+[   51.220529][ T9426] head: ffffffffffffffff 0000000000000000 00000000ffffffff 0000000000000004
+[   51.221162][ T9426] page dumped because: kasan: bad access detected
+[   51.221621][ T9426] 
+[   51.221796][ T9426] Memory state around the buggy address:
+[   51.222191][ T9426]  ffff88803ceff700: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+[   51.222746][ T9426]  ffff88803ceff780: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+[   51.223325][ T9426] >ffff88803ceff800: fa fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+[   51.223987][ T9426]                       ^
+[   51.224370][ T9426]  ffff88803ceff880: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+[   51.225351][ T9426]  ffff88803ceff900: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+[   51.226603][ T9426] ==================================================================
+[   51.256008][ T9426] Disabling lock debugging due to kernel taint
+[   51.264039][ T9602] Bluetooth: hci2: unexpected cc 0x0c03 length: 249 > 1
+[   51.264761][ T9602] Bluetooth: hci3: unexpected cc 0x0c03 length: 249 > 1
+[   51.269054][ T9602] Bluetooth: hci1: unexpected cc 0x0c23 length: 249 > 4
+[   51.269970][ T9602] Bluetooth: hci2: unexpected cc 0x1003 length: 249 > 9
+[   51.270534][ T9602] Bluetooth: hci3: unexpected cc 0x1003 length: 249 > 9
+[   51.271165][ T9602] Bluetooth: hci2: unexpected cc 0x1001 length: 249 > 9
+[   51.271717][ T9602] Bluetooth: hci3: unexpected cc 0x1001 length: 249 > 9
+[   51.272272][ T9602] Bluetooth: hci1: unexpected cc 0x0c38 length: 249 > 2
+[   51.273400][ T9602] Bluetooth: hci2: unexpected cc 0x0c23 length: 249 > 4
+[   51.273589][ T4721] Bluetooth: hci3: unexpected cc 0x0c23 length: 249 > 4
+[   51.276740][ T9605] Bluetooth: hci3: unexpected cc 0x0c38 length: 249 > 2
+[   51.277806][   T53] Bluetooth: hci2: unexpected cc 0x0c38 length: 249 > 2
+[   51.466966][ T9570] chnl_net:caif_netlink_parms(): no params data found
+[   51.499479][ T9590] chnl_net:caif_netlink_parms(): no params data found
+[   51.536724][ T9599] chnl_net:caif_netlink_parms(): no params data found
+[   51.809642][ T9570] bridge0: port 1(bridge_slave_0) entered blocking state
+[   51.810274][ T9570] bridge0: port 1(bridge_slave_0) entered disabled state
+[   51.811024][ T9570] bridge_slave_0: entered allmulticast mode
+[   51.811922][ T9570] bridge_slave_0: entered promiscuous mode
+[   51.816799][ T9590] bridge0: port 1(bridge_slave_0) entered blocking state
+[   51.817399][ T9590] bridge0: port 1(bridge_slave_0) entered disabled state
+[   51.817954][ T9590] bridge_slave_0: entered allmulticast mode
+[   51.818829][ T9590] bridge_slave_0: entered promiscuous mode
+[   51.874849][   T14] netdevsim netdevsim3 netdevsim3 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[   51.877072][ T9570] bridge0: port 2(bridge_slave_1) entered blocking state
+[   51.877607][ T9570] bridge0: port 2(bridge_slave_1) entered disabled state
+[   51.878149][ T9570] bridge_slave_1: entered allmulticast mode
+[   51.879088][ T9570] bridge_slave_1: entered promiscuous mode
+[   51.894185][ T9590] bridge0: port 2(bridge_slave_1) entered blocking state
+[   51.894802][ T9590] bridge0: port 2(bridge_slave_1) entered disabled state
+[   51.895422][ T9590] bridge_slave_1: entered allmulticast mode
+[   51.896392][ T9590] bridge_slave_1: entered promiscuous mode
+[   51.929277][ T9570] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[   51.951286][ T9590] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[   51.953024][ T9570] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[   51.956107][ T9590] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[   51.963868][ T9599] bridge0: port 1(bridge_slave_0) entered blocking state
+[   51.964559][ T9599] bridge0: port 1(bridge_slave_0) entered disabled state
+[   51.965284][ T9599] bridge_slave_0: entered allmulticast mode
+[   51.966508][ T9599] bridge_slave_0: entered promiscuous mode
+[   51.968026][ T9599] bridge0: port 2(bridge_slave_1) entered blocking state
+[   51.968781][ T9599] bridge0: port 2(bridge_slave_1) entered disabled state
+[   51.969548][ T9599] bridge_slave_1: entered allmulticast mode
+[   51.970611][ T9599] bridge_slave_1: entered promiscuous mode
+[   51.992272][ T9590] team0: Port device team_slave_0 added
+[   52.015940][ T9570] team0: Port device team_slave_0 added
+[   52.017414][ T9570] team0: Port device team_slave_1 added
+[   52.018751][ T9590] team0: Port device team_slave_1 added
+[   52.031498][ T9599] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[   52.033484][ T9570] batman_adv: batadv0: Adding interface: batadv_slave_0
+[   52.035756][ T9570] batman_adv: batadv0: The MTU of interface batadv_slave_0 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[   52.037689][ T9570] batman_adv: batadv0: Not using interface batadv_slave_0 (retrying later): interface not active
+[   52.038637][ T9595] chnl_net:caif_netlink_parms(): no params data found
+[   52.051262][ T9590] batman_adv: batadv0: Adding interface: batadv_slave_0
+[   52.051812][ T9590] batman_adv: batadv0: The MTU of interface batadv_slave_0 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[   52.053692][ T9590] batman_adv: batadv0: Not using interface batadv_slave_0 (retrying later): interface not active
+[   52.056773][ T9599] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[   52.057759][ T9570] batman_adv: batadv0: Adding interface: batadv_slave_1
+[   52.058257][ T9570] batman_adv: batadv0: The MTU of interface batadv_slave_1 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[   52.060137][ T9570] batman_adv: batadv0: Not using interface batadv_slave_1 (retrying later): interface not active
+[   52.063821][ T9590] batman_adv: batadv0: Adding interface: batadv_slave_1
+[   52.064576][ T9590] batman_adv: batadv0: The MTU of interface batadv_slave_1 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[   52.066647][ T9590] batman_adv: batadv0: Not using interface batadv_slave_1 (retrying later): interface not active
+[   52.103096][ T9599] team0: Port device team_slave_0 added
+[   52.124773][ T9590] hsr_slave_0: entered promiscuous mode
+[   52.125585][ T9590] hsr_slave_1: entered promiscuous mode
+[   52.126217][ T9590] debugfs: Directory 'hsr0' with parent 'hsr' already present!
+[   52.126743][ T9590] Cannot create hsr debugfs directory
+[   52.127884][ T9599] team0: Port device team_slave_1 added
+[   52.168378][ T9570] hsr_slave_0: entered promiscuous mode
+[   52.169247][ T9570] hsr_slave_1: entered promiscuous mode
+[   52.169879][ T9570] debugfs: Directory 'hsr0' with parent 'hsr' already present!
+[   52.170432][ T9570] Cannot create hsr debugfs directory
+[   52.180271][ T9599] batman_adv: batadv0: Adding interface: batadv_slave_0
+[   52.180811][ T9599] batman_adv: batadv0: The MTU of interface batadv_slave_0 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[   52.182709][ T9599] batman_adv: batadv0: Not using interface batadv_slave_0 (retrying later): interface not active
+[   52.198655][ T9599] batman_adv: batadv0: Adding interface: batadv_slave_1
+[   52.199190][ T9599] batman_adv: batadv0: The MTU of interface batadv_slave_1 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[   52.200951][ T9599] batman_adv: batadv0: Not using interface batadv_slave_1 (retrying later): interface not active
+[   52.210396][ T9595] bridge0: port 1(bridge_slave_0) entered blocking state
+[   52.211053][ T9595] bridge0: port 1(bridge_slave_0) entered disabled state
+[   52.211726][ T9595] bridge_slave_0: entered allmulticast mode
+[   52.212745][ T9595] bridge_slave_0: entered promiscuous mode
+[   52.230404][ T9595] bridge0: port 2(bridge_slave_1) entered blocking state
+[   52.231073][ T9595] bridge0: port 2(bridge_slave_1) entered disabled state
+[   52.231638][ T9595] bridge_slave_1: entered allmulticast mode
+[   52.232569][ T9595] bridge_slave_1: entered promiscuous mode
+[   52.278587][ T9599] hsr_slave_0: entered promiscuous mode
+[   52.279379][ T9599] hsr_slave_1: entered promiscuous mode
+[   52.280310][ T9599] debugfs: Directory 'hsr0' with parent 'hsr' already present!
+[   52.280916][ T9599] Cannot create hsr debugfs directory
+[   52.287041][ T9595] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[   52.296075][ T9595] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[   52.355270][ T9595] team0: Port device team_slave_0 added
+[   52.356873][ T9595] team0: Port device team_slave_1 added
+[   52.388615][ T9595] batman_adv: batadv0: Adding interface: batadv_slave_0
+[   52.389157][ T9595] batman_adv: batadv0: The MTU of interface batadv_slave_0 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[   52.391038][ T9595] batman_adv: batadv0: Not using interface batadv_slave_0 (retrying later): interface not active
+[   52.397690][ T9595] batman_adv: batadv0: Adding interface: batadv_slave_1
+[   52.398271][ T9595] batman_adv: batadv0: The MTU of interface batadv_slave_1 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[   52.400184][ T9595] batman_adv: batadv0: Not using interface batadv_slave_1 (retrying later): interface not active
+[   52.404024][ T9590] netdevsim netdevsim1 netdevsim0: renamed from eth0
+[   52.406422][ T9590] netdevsim netdevsim1 netdevsim1: renamed from eth1
+[   52.409063][ T9590] netdevsim netdevsim1 netdevsim2: renamed from eth2
+[   52.422817][ T9590] netdevsim netdevsim1 netdevsim3: renamed from eth3
+[   52.435610][ T9595] hsr_slave_0: entered promiscuous mode
+[   52.436513][ T9595] hsr_slave_1: entered promiscuous mode
+[   52.437167][ T9595] debugfs: Directory 'hsr0' with parent 'hsr' already present!
+[   52.437752][ T9595] Cannot create hsr debugfs directory
+[   52.466665][ T9570] netdevsim netdevsim0 netdevsim0: renamed from eth0
+[   52.468570][ T9570] netdevsim netdevsim0 netdevsim1: renamed from eth1
+[   52.470510][ T9590] bridge0: port 2(bridge_slave_1) entered blocking state
+[   52.471219][ T9590] bridge0: port 2(bridge_slave_1) entered forwarding state
+[   52.471846][ T9590] bridge0: port 1(bridge_slave_0) entered blocking state
+[   52.472413][ T9590] bridge0: port 1(bridge_slave_0) entered forwarding state
+[   52.473666][ T9570] netdevsim netdevsim0 netdevsim2: renamed from eth2
+[   52.481572][ T9570] netdevsim netdevsim0 netdevsim3: renamed from eth3
+[   52.521787][ T9570] bridge0: port 2(bridge_slave_1) entered blocking state
+[   52.522387][ T9570] bridge0: port 2(bridge_slave_1) entered forwarding state
+[   52.523005][ T9570] bridge0: port 1(bridge_slave_0) entered blocking state
+[   52.523576][ T9570] bridge0: port 1(bridge_slave_0) entered forwarding state
+[   52.531177][ T9590] 8021q: adding VLAN 0 to HW filter on device bond0
+[   52.538563][   T12] bridge0: port 1(bridge_slave_0) entered disabled state
+[   52.539404][   T12] bridge0: port 1(bridge_slave_0) entered disabled state
+[   52.540217][   T12] bridge0: port 2(bridge_slave_1) entered disabled state
+[   52.541573][   T12] bridge0: port 2(bridge_slave_1) entered disabled state
+[   52.548431][ T9590] 8021q: adding VLAN 0 to HW filter on device team0
+[   52.558253][   T12] bridge0: port 1(bridge_slave_0) entered blocking state
+[   52.558835][   T12] bridge0: port 1(bridge_slave_0) entered forwarding state
+[   52.560131][   T12] bridge0: port 2(bridge_slave_1) entered blocking state
+[   52.560690][   T12] bridge0: port 2(bridge_slave_1) entered forwarding state
+[   52.583595][ T9570] 8021q: adding VLAN 0 to HW filter on device bond0
+[   52.589477][ T9570] 8021q: adding VLAN 0 to HW filter on device team0
+[   52.592262][   T62] bridge0: port 1(bridge_slave_0) entered blocking state
+[   52.592873][   T62] bridge0: port 1(bridge_slave_0) entered forwarding state
+[   52.597570][ T1403] bridge0: port 2(bridge_slave_1) entered blocking state
+[   52.598157][ T1403] bridge0: port 2(bridge_slave_1) entered forwarding state
+[   52.610000][ T9570] hsr0: Slave A (hsr_slave_0) is not up; please bring it up to get a fully working HSR network
+[   52.610794][ T9570] hsr0: Slave B (hsr_slave_1) is not up; please bring it up to get a fully working HSR network
+[   52.655885][ T9590] 8021q: adding VLAN 0 to HW filter on device batadv0
+[   52.671471][ T9590] veth0_vlan: entered promiscuous mode
+[   52.675868][ T9590] veth1_vlan: entered promiscuous mode
+[   52.682100][ T9570] 8021q: adding VLAN 0 to HW filter on device batadv0
+[   52.688941][ T9590] veth0_macvtap: entered promiscuous mode
+[   52.690760][ T9590] veth1_macvtap: entered promiscuous mode
+[   52.698757][ T9590] batman_adv: batadv0: Interface activated: batadv_slave_0
+[   52.701783][ T9590] batman_adv: batadv0: Interface activated: batadv_slave_1
+[   52.706423][ T9590] netdevsim netdevsim1 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[   52.707122][ T9590] netdevsim netdevsim1 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[   52.707804][ T9590] netdevsim netdevsim1 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[   52.708516][ T9590] netdevsim netdevsim1 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[   52.718257][ T9570] veth0_vlan: entered promiscuous mode
+[   52.725114][ T9570] veth1_vlan: entered promiscuous mode
+[   52.740492][ T9570] veth0_macvtap: entered promiscuous mode
+[   52.748113][ T9570] veth1_macvtap: entered promiscuous mode
+[   52.755581][  T254] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   52.756175][  T254] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   52.762794][ T9570] batman_adv: batadv0: Interface activated: batadv_slave_0
+[   52.766383][ T9570] batman_adv: batadv0: Interface activated: batadv_slave_1
+[   52.768625][ T9570] netdevsim netdevsim0 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[   52.769315][ T9570] netdevsim netdevsim0 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[   52.770049][ T9570] netdevsim netdevsim0 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[   52.770737][ T9570] netdevsim netdevsim0 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[   52.780648][   T62] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   52.781373][   T62] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   52.811138][  T254] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   52.815520][  T254] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   52.824671][T10891] loop1: detected capacity change from 0 to 2048
+[   52.828755][ T1403] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   52.829367][ T1403] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   52.846147][T10891] EXT4-fs (loop1): mounted filesystem 00000000-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   52.850735][ T9590] EXT4-fs (loop1): unmounting filesystem 00000000-0000-0000-0000-000000000000.
+[   52.873194][T10907] loop1: detected capacity change from 0 to 2048
+[   52.875480][T10905] loop0: detected capacity change from 0 to 2048
+[   52.888419][T10905] EXT4-fs (loop0): mounted filesystem 00000000-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   52.898938][T10907] EXT4-fs (loop1): mounted filesystem 00000000-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   52.903010][ T9570] EXT4-fs (loop0): unmounting filesystem 00000000-0000-0000-0000-000000000000.
+[   52.906771][ T9590] EXT4-fs (loop1): unmounting filesystem 00000000-0000-0000-0000-000000000000.
+[   52.925308][   T14] netdevsim netdevsim3 netdevsim2 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[   52.936903][T10919] loop1: detected capacity change from 0 to 2048
+[   52.948532][T10919] EXT4-fs (loop1): mounted filesystem 00000000-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   52.958321][T10928] loop0: detected capacity change from 0 to 2048
+[   52.960583][ T9590] EXT4-fs (loop1): unmounting filesystem 00000000-0000-0000-0000-000000000000.
+[   52.968705][T10928] EXT4-fs (loop0): mounted filesystem 00000000-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   52.985308][T10936] loop1: detected capacity change from 0 to 2048
+[   52.988026][ T9570] EXT4-fs (loop0): unmounting filesystem 00000000-0000-0000-0000-000000000000.
+[   53.010057][T10936] EXT4-fs (loop1): mounted filesystem 00000000-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   53.017771][T10944] loop0: detected capacity change from 0 to 2048
+[   53.021642][ T9590] EXT4-fs (loop1): unmounting filesystem 00000000-0000-0000-0000-000000000000.
+[   53.040652][T10944] EXT4-fs (loop0): mounted filesystem 00000000-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   53.051007][ T9570] EXT4-fs (loop0): unmounting filesystem 00000000-0000-0000-0000-000000000000.
+[   53.063217][T10949] loop1: detected capacity change from 0 to 2048
+[   53.078205][T10949] EXT4-fs (loop1): mounted filesystem 00000000-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   53.080800][T10957] loop0: detected capacity change from 0 to 2048
+[   53.089541][ T9590] EXT4-fs (loop1): unmounting filesystem 00000000-0000-0000-0000-000000000000.
+[   53.091016][T10957] EXT4-fs (loop0): mounted filesystem 00000000-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   53.100419][ T9570] EXT4-fs (loop0): unmounting filesystem 00000000-0000-0000-0000-000000000000.
+[   53.112319][T10967] loop1: detected capacity change from 0 to 2048
+[   53.113876][   T53] Bluetooth: hci0: command tx timeout
+[   53.142436][T10971] loop0: detected capacity change from 0 to 2048
+[   53.148435][T10967] EXT4-fs (loop1): mounted filesystem 00000000-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   53.155074][ T9590] EXT4-fs (loop1): unmounting filesystem 00000000-0000-0000-0000-000000000000.
+[   53.168076][T10971] EXT4-fs (loop0): mounted filesystem 00000000-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   53.180415][ T9570] EXT4-fs (loop0): unmounting filesystem 00000000-0000-0000-0000-000000000000.
+[   53.188650][T10983] loop1: detected capacity change from 0 to 2048
+[   53.209224][T10988] loop0: detected capacity change from 0 to 2048
+[   53.228786][T10983] EXT4-fs (loop1): mounted filesystem 00000000-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   53.229920][T10988] EXT4-fs (loop0): mounted filesystem 00000000-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   53.241694][ T9590] EXT4-fs (loop1): unmounting filesystem 00000000-0000-0000-0000-000000000000.
+[   53.243262][ T9570] EXT4-fs (loop0): unmounting filesystem 00000000-0000-0000-0000-000000000000.
+[   53.273038][T10999] loop0: detected capacity change from 0 to 2048
+[   53.274657][T10997] loop1: detected capacity change from 0 to 2048
+[   53.287915][T10997] EXT4-fs (loop1): mounted filesystem 00000000-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   53.290133][T10999] EXT4-fs (loop0): mounted filesystem 00000000-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   53.299905][ T9570] EXT4-fs (loop0): unmounting filesystem 00000000-0000-0000-0000-000000000000.
+[   53.301498][ T9590] EXT4-fs (loop1): unmounting filesystem 00000000-0000-0000-0000-000000000000.
+[   53.338281][T11017] loop1: detected capacity change from 0 to 2048
+[   53.354392][ T9056] Bluetooth: hci1: command tx timeout
+[   53.354400][ T9605] Bluetooth: hci3: command tx timeout
+[   53.355365][   T53] Bluetooth: hci2: command tx timeout
+[   53.355828][T11017] EXT4-fs (loop1): mounted filesystem 00000000-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   53.364745][T11020] loop0: detected capacity change from 0 to 2048
+[   53.368700][ T9590] EXT4-fs (loop1): unmounting filesystem 00000000-0000-0000-0000-000000000000.
+[   53.382300][T11030] loop1: detected capacity change from 0 to 2048
+[   53.389883][T11020] EXT4-fs (loop0): mounted filesystem 00000000-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   53.395931][ T9570] EXT4-fs (loop0): unmounting filesystem 00000000-0000-0000-0000-000000000000.
+[   53.417783][T11030] EXT4-fs (loop1): mounted filesystem 00000000-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   53.417927][T11037] loop0: detected capacity change from 0 to 2048
+[   53.424441][ T9590] EXT4-fs (loop1): unmounting filesystem 00000000-0000-0000-0000-000000000000.
+[   53.439978][T11037] EXT4-fs (loop0): mounted filesystem 00000000-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   53.447101][T11046] loop1: detected capacity change from 0 to 2048
+[   53.452480][ T9570] EXT4-fs (loop0): unmounting filesystem 00000000-0000-0000-0000-000000000000.
+[   53.464317][T11046] EXT4-fs (loop1): mounted filesystem 00000000-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   53.481869][ T9590] EXT4-fs (loop1): unmounting filesystem 00000000-0000-0000-0000-000000000000.
+[   53.484199][T11053] loop0: detected capacity change from 0 to 2048
+[   53.501794][T11053] EXT4-fs (loop0): mounted filesystem 00000000-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   53.508732][ T9570] EXT4-fs (loop0): unmounting filesystem 00000000-0000-0000-0000-000000000000.
+[   53.541393][T11066] loop1: detected capacity change from 0 to 2048
+[   53.552803][T11068] loop0: detected capacity change from 0 to 2048
+[   53.556326][T11066] EXT4-fs (loop1): mounted filesystem 00000000-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   53.560461][ T9590] EXT4-fs (loop1): unmounting filesystem 00000000-0000-0000-0000-000000000000.
+[   53.567113][T11068] EXT4-fs (loop0): mounted filesystem 00000000-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   53.581453][T11080] loop1: detected capacity change from 0 to 2048
+[   53.588140][ T9570] EXT4-fs (loop0): unmounting filesystem 00000000-0000-0000-0000-000000000000.
+[   53.613060][T11080] EXT4-fs (loop1): mounted filesystem 00000000-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   53.616851][T11087] loop0: detected capacity change from 0 to 2048
+[   53.631517][ T9590] EXT4-fs (loop1): unmounting filesystem 00000000-0000-0000-0000-000000000000.
+[   53.647391][T11087] EXT4-fs (loop0): mounted filesystem 00000000-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   53.661333][T11096] loop1: detected capacity change from 0 to 2048
+[   53.670543][T11096] EXT4-fs (loop1): mounted filesystem 00000000-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   53.673407][ T9570] EXT4-fs (loop0): unmounting filesystem 00000000-0000-0000-0000-000000000000.
+[   53.706158][ T9590] EXT4-fs (loop1): unmounting filesystem 00000000-0000-0000-0000-000000000000.
+[   53.707745][T11106] loop0: detected capacity change from 0 to 2048
+[   53.730648][T11106] EXT4-fs (loop0): mounted filesystem 00000000-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   53.740018][T11109] loop1: detected capacity change from 0 to 2048
+[   53.747935][ T9570] EXT4-fs (loop0): unmounting filesystem 00000000-0000-0000-0000-000000000000.
+[   53.768421][T11116] loop0: detected capacity change from 0 to 2048
+[   53.770122][T11109] EXT4-fs (loop1): mounted filesystem 00000000-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   53.784099][ T9590] EXT4-fs (loop1): unmounting filesystem 00000000-0000-0000-0000-000000000000.
+[   53.802938][T11116] EXT4-fs (loop0): mounted filesystem 00000000-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   53.809527][T11124] loop1: detected capacity change from 0 to 2048
+[   53.819181][ T9570] EXT4-fs (loop0): unmounting filesystem 00000000-0000-0000-0000-000000000000.
+[   53.836470][T11124] EXT4-fs (loop1): mounted filesystem 00000000-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   53.840909][T11136] loop0: detected capacity change from 0 to 2048
+[   53.840911][ T9590] EXT4-fs (loop1): unmounting filesystem 00000000-0000-0000-0000-000000000000.
+[   53.867630][T11142] loop1: detected capacity change from 0 to 2048
+[   53.875654][T11136] EXT4-fs (loop0): mounted filesystem 00000000-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   53.888974][ T9570] EXT4-fs (loop0): unmounting filesystem 00000000-0000-0000-0000-000000000000.
+[   53.896103][T11142] EXT4-fs (loop1): mounted filesystem 00000000-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   53.922510][ T9590] EXT4-fs (loop1): unmounting filesystem 00000000-0000-0000-0000-000000000000.
+[   53.926104][T11152] loop0: detected capacity change from 0 to 2048
+[   53.940726][T11155] loop1: detected capacity change from 0 to 2048
+[   53.978437][T11165] loop0: detected capacity change from 0 to 2048
+[   53.982900][T11169] loop1: detected capacity change from 0 to 2048
+[   54.009626][T11182] loop0: detected capacity change from 0 to 2048
+[   54.030345][T11188] loop1: detected capacity change from 0 to 2048
+[   54.040857][T11195] loop0: detected capacity change from 0 to 2048
+[   54.088007][T11206] loop1: detected capacity change from 0 to 2048
+[   54.117983][T11217] loop0: detected capacity change from 0 to 2048
+[   54.132327][T11222] loop1: detected capacity change from 0 to 2048
+[   54.172339][T11234] loop0: detected capacity change from 0 to 2048
+[   54.198622][T11240] loop1: detected capacity change from 0 to 2048
+[   54.217665][T11248] loop0: detected capacity change from 0 to 2048
+[   54.271215][T11258] loop1: detected capacity change from 0 to 2048
+[   54.331541][T11273] loop0: detected capacity change from 0 to 2048
+[   54.336131][T11269] loop1: detected capacity change from 0 to 2048
+[   54.397847][T11287] loop0: detected capacity change from 0 to 2048
+[   54.412889][T11292] loop1: detected capacity change from 0 to 2048
+[   54.455012][T11303] loop0: detected capacity change from 0 to 2048
+[   54.458711][T11305] loop1: detected capacity change from 0 to 2048
+[   54.497264][T11321] loop1: detected capacity change from 0 to 2048
+[   54.509020][T11323] loop0: detected capacity change from 0 to 2048
+[   54.515392][   T14] netdevsim netdevsim3 netdevsim1 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[   54.575410][   T14] netdevsim netdevsim3 netdevsim0 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[   54.577126][T11334] loop0: detected capacity change from 0 to 2048
+[   54.599965][T11339] loop1: detected capacity change from 0 to 2048
+[   54.666819][T11355] loop0: detected capacity change from 0 to 2048
+[   54.673093][T11361] loop1: detected capacity change from 0 to 2048
+[   54.817721][T11396] loop1: detected capacity change from 0 to 2048
+[   54.829441][T11401] loop0: detected capacity change from 0 to 2048
+[   54.835108][   T14] bridge_slave_1: left allmulticast mode
+[   54.835608][   T14] bridge_slave_1: left promiscuous mode
+[   54.836121][   T14] bridge0: port 2(bridge_slave_1) entered disabled state
+[   54.841164][   T14] bridge_slave_0: left allmulticast mode
+[   54.841675][   T14] bridge_slave_0: left promiscuous mode
+[   54.842183][   T14] bridge0: port 1(bridge_slave_0) entered disabled state
+[   54.874223][T11414] loop1: detected capacity change from 0 to 2048
+[   54.893226][T11419] loop0: detected capacity change from 0 to 2048
+[   54.910446][T11428] loop1: detected capacity change from 0 to 2048
+[   54.971285][T11439] loop0: detected capacity change from 0 to 2048
+[   54.982056][T11442] loop1: detected capacity change from 0 to 2048
+[   55.004659][T11451] loop0: detected capacity change from 0 to 2048
+[   55.026782][T11460] loop1: detected capacity change from 0 to 2048
+[   55.061394][T11467] loop0: detected capacity change from 0 to 2048
+[   55.070780][T11472] loop1: detected capacity change from 0 to 2048
+[   55.106880][T11487] loop1: detected capacity change from 0 to 2048
+[   55.118644][T11490] loop0: detected capacity change from 0 to 2048
+[   55.179540][T11502] loop0: detected capacity change from 0 to 2048
+[   55.189363][T11506] loop1: detected capacity change from 0 to 2048
+[   55.194521][   T53] Bluetooth: hci0: command tx timeout
+[   55.220177][T11517] loop0: detected capacity change from 0 to 2048
+[   55.225382][T11519] loop1: detected capacity change from 0 to 2048
+[   55.260209][T11530] loop0: detected capacity change from 0 to 2048
+[   55.310224][T11546] loop0: detected capacity change from 0 to 2048
+[   55.326287][T11549] loop1: detected capacity change from 0 to 2048
+[   55.378679][T11563] loop1: detected capacity change from 0 to 2048
+[   55.383093][T11564] loop0: detected capacity change from 0 to 2048
+[   55.425154][T11576] loop0: detected capacity change from 0 to 2048
+[   55.435103][   T53] Bluetooth: hci3: command tx timeout
+[   55.435310][ T9056] Bluetooth: hci2: command tx timeout
+[   55.435568][   T53] Bluetooth: hci1: command tx timeout
+[   55.440692][T11583] loop1: detected capacity change from 0 to 2048
+[   55.481940][T11593] loop0: detected capacity change from 0 to 2048
+[   55.502386][T11598] loop1: detected capacity change from 0 to 2048
+[   55.567564][T11613] loop0: detected capacity change from 0 to 2048
+[   55.586533][T11619] loop1: detected capacity change from 0 to 2048
+[   55.609462][T11627] loop0: detected capacity change from 0 to 2048
+[   55.637992][T11638] loop1: detected capacity change from 0 to 2048
+[   55.653292][T11640] loop0: detected capacity change from 0 to 2048
+[   55.694525][T11654] loop1: detected capacity change from 0 to 2048
+[   55.695823][T11650] loop0: detected capacity change from 0 to 2048
+[   55.776011][T11671] loop1: detected capacity change from 0 to 2048
+[   55.779063][T11674] loop0: detected capacity change from 0 to 2048
+[   55.820491][T11685] loop1: detected capacity change from 0 to 2048
+[   55.826383][T11692] loop0: detected capacity change from 0 to 2048
+[   55.855041][   T14] bond0 (unregistering): (slave bond_slave_0): Releasing backup interface
+[   55.897709][T11707] loop1: detected capacity change from 0 to 2048
+[   55.899390][   T14] bond0 (unregistering): (slave bond_slave_1): Releasing backup interface
+[   55.913494][T11714] loop0: detected capacity change from 0 to 2048
+[   55.916184][   T14] bond0 (unregistering): Released all slaves
+[   55.985940][T11733] loop1: detected capacity change from 0 to 2048
+[   56.029255][T11745] loop1: detected capacity change from 0 to 2048
+[   56.037797][   T14] hsr_slave_0: left promiscuous mode
+[   56.041413][   T14] hsr_slave_1: left promiscuous mode
+[   56.042138][   T14] batman_adv: batadv0: Interface deactivated: batadv_slave_0
+[   56.042721][   T14] batman_adv: batadv0: Removing interface: batadv_slave_0
+[   56.043552][   T14] batman_adv: batadv0: Interface deactivated: batadv_slave_1
+[   56.045722][   T14] batman_adv: batadv0: Removing interface: batadv_slave_1
+[   56.049710][T11748] loop0: detected capacity change from 0 to 2048
+[   56.049792][   T14] veth1_macvtap: left promiscuous mode
+[   56.050673][   T14] veth0_macvtap: left promiscuous mode
+[   56.051148][   T14] veth1_vlan: left promiscuous mode
+[   56.051589][   T14] veth0_vlan: left promiscuous mode
+2025/05/30 21:35:26 executed programs: 131
+[   56.113868][T11761] loop0: detected capacity change from 0 to 2048
+[   56.152540][T11769] loop1: detected capacity change from 0 to 2048
+[   56.209850][T11777] loop1: detected capacity change from 0 to 2048
+[   56.211636][T11781] loop0: detected capacity change from 0 to 2048
+[   56.255168][T11796] loop0: detected capacity change from 0 to 2048
+[   56.282077][T11801] loop1: detected capacity change from 0 to 2048
+[   56.311409][T11813] loop0: detected capacity change from 0 to 2048
+[   56.331822][T11819] loop1: detected capacity change from 0 to 2048
+[   56.371645][T11832] loop1: detected capacity change from 0 to 2048
+[   56.378157][T11833] loop0: detected capacity change from 0 to 2048
+[   56.432145][T11845] loop0: detected capacity change from 0 to 2048
+[   56.446323][T11850] loop1: detected capacity change from 0 to 2048
+[   56.469066][T11861] loop0: detected capacity change from 0 to 2048
+[   56.480591][T11866] loop1: detected capacity change from 0 to 2048
+[   56.529822][T11876] loop1: detected capacity change from 0 to 2048
+[   56.537959][T11877] loop0: detected capacity change from 0 to 2048
+[   56.606908][T11896] loop0: detected capacity change from 0 to 2048
+[   56.612498][T11898] loop1: detected capacity change from 0 to 2048
+[   56.679275][T11911] loop1: detected capacity change from 0 to 2048
+[   56.692423][T11916] loop0: detected capacity change from 0 to 2048
+[   56.743359][T11931] loop0: detected capacity change from 0 to 2048
+[   56.746970][T11928] loop1: detected capacity change from 0 to 2048
+[   56.781639][T11944] loop1: detected capacity change from 0 to 2048
+[   56.811534][T11951] loop0: detected capacity change from 0 to 2048
+[   56.853618][T11961] loop0: detected capacity change from 0 to 2048
+[   56.866483][T11967] loop1: detected capacity change from 0 to 2048
+[   56.924741][T11979] loop1: detected capacity change from 0 to 2048
+[   56.934617][T11984] loop0: detected capacity change from 0 to 2048
+[   56.985924][T11994] loop1: detected capacity change from 0 to 2048
+[   56.989875][T11996] loop0: detected capacity change from 0 to 2048
+[   57.048916][T12015] loop0: detected capacity change from 0 to 2048
+[   57.051665][T12016] loop1: detected capacity change from 0 to 2048
+[   57.087552][T12025] loop1: detected capacity change from 0 to 2048
+[   57.095929][T12030] loop0: detected capacity change from 0 to 2048
+[   57.134330][T12042] loop1: detected capacity change from 0 to 2048
+[   57.148937][T12049] loop0: detected capacity change from 0 to 2048
+[   57.199483][T12060] loop1: detected capacity change from 0 to 2048
+[   57.231071][T12068] loop0: detected capacity change from 0 to 2048
+[   57.263683][T12077] loop1: detected capacity change from 0 to 2048
+[   57.274057][   T53] Bluetooth: hci0: command tx timeout
+[   57.298784][T12086] loop0: detected capacity change from 0 to 2048
+[   57.317081][T12094] loop1: detected capacity change from 0 to 2048
+[   57.345231][T12100] loop0: detected capacity change from 0 to 2048
+[   57.371654][T12110] loop1: detected capacity change from 0 to 2048
+[   57.378105][   T14] team0 (unregistering): Port device team_slave_1 removed
+[   57.401812][T12117] loop0: detected capacity change from 0 to 2048
+[   57.447327][T12127] loop1: detected capacity change from 0 to 2048
+[   57.457209][T12130] loop0: detected capacity change from 0 to 2048
+[   57.501092][T12145] loop1: detected capacity change from 0 to 2048
+[   57.516183][   T53] Bluetooth: hci1: command tx timeout
+[   57.516201][ T9605] Bluetooth: hci2: command tx timeout
+[   57.516634][   T53] Bluetooth: hci3: command tx timeout
+[   57.518501][   T14] team0 (unregistering): Port device team_slave_0 removed
+[   57.522107][T12152] loop0: detected capacity change from 0 to 2048
+[   57.574211][T12165] loop0: detected capacity change from 0 to 2048
+[   57.575539][T12167] loop1: detected capacity change from 0 to 2048
+[   57.628692][T12179] loop1: detected capacity change from 0 to 2048
+[   57.629886][T12183] loop0: detected capacity change from 0 to 2048
+[   57.681975][T12196] loop0: detected capacity change from 0 to 2048
+[   57.707206][T12202] loop1: detected capacity change from 0 to 2048
+[   57.772226][T12210] loop0: detected capacity change from 0 to 2048
+[   57.778058][T12216] loop1: detected capacity change from 0 to 2048
+[   57.817052][T12226] loop1: detected capacity change from 0 to 2048
+[   57.850309][T12235] loop0: detected capacity change from 0 to 2048
+[   57.880638][T12238] loop1: detected capacity change from 0 to 2048
+[   57.945858][T12249] loop0: detected capacity change from 0 to 2048
+[   57.952643][T12255] loop1: detected capacity change from 0 to 2048
+[   57.991759][T12264] loop0: detected capacity change from 0 to 2048
+[   58.011959][T12267] loop1: detected capacity change from 0 to 2048
+[   58.048108][T12279] loop0: detected capacity change from 0 to 2048
+[   58.110914][T12289] loop0: detected capacity change from 0 to 2048
+[   58.133557][T12296] loop1: detected capacity change from 0 to 2048
+[   58.173000][T12304] loop0: detected capacity change from 0 to 2048
+[   58.182792][T12308] loop1: detected capacity change from 0 to 2048
+[   58.220741][T12322] loop0: detected capacity change from 0 to 2048
+[   58.239749][T12327] loop1: detected capacity change from 0 to 2048
+[   58.270893][T12338] loop0: detected capacity change from 0 to 2048
+[   58.287736][T12343] loop1: detected capacity change from 0 to 2048
+[   58.324402][T12351] loop0: detected capacity change from 0 to 2048
+[   58.335276][T12355] loop1: detected capacity change from 0 to 2048
+[   58.375768][T12366] loop0: detected capacity change from 0 to 2048
+[   58.401428][T12376] loop1: detected capacity change from 0 to 2048
+[   58.470948][T12389] loop0: detected capacity change from 0 to 2048
+[   58.508206][T12398] loop1: detected capacity change from 0 to 2048
+[   58.542361][T12403] loop0: detected capacity change from 0 to 2048
+[   58.560897][T12411] loop1: detected capacity change from 0 to 2048
+[   58.622688][T12424] loop1: detected capacity change from 0 to 2048
+[   58.630657][T12428] loop0: detected capacity change from 0 to 2048
+[   58.683435][T12443] loop1: detected capacity change from 0 to 2048
+[   58.685329][T12444] loop0: detected capacity change from 0 to 2048
+[   58.749250][T12456] loop1: detected capacity change from 0 to 2048
+[   58.756658][T12460] loop0: detected capacity change from 0 to 2048
+[   58.808107][T12469] loop1: detected capacity change from 0 to 2048
+[   58.830898][T12478] loop0: detected capacity change from 0 to 2048
+[   58.886916][T12493] loop0: detected capacity change from 0 to 2048
+[   58.899037][T12497] loop1: detected capacity change from 0 to 2048
+[   58.936468][T12508] loop0: detected capacity change from 0 to 2048
+[   58.959924][T12514] loop1: detected capacity change from 0 to 2048
+[   58.974981][T12519] loop0: detected capacity change from 0 to 2048
+[   59.020786][T12530] loop0: detected capacity change from 0 to 2048
+[   59.060768][T12541] loop1: detected capacity change from 0 to 2048
+[   59.088747][T12551] loop0: detected capacity change from 0 to 2048
+[   59.117927][T12561] loop1: detected capacity change from 0 to 2048
+[   59.142179][T12568] loop0: detected capacity change from 0 to 2048
+[   59.169217][T12573] loop1: detected capacity change from 0 to 2048
+[   59.212476][T12580] loop0: detected capacity change from 0 to 2048
+[   59.220871][T12587] loop1: detected capacity change from 0 to 2048
+[   59.265581][ T9599] netdevsim netdevsim3 netdevsim0: renamed from eth0
+[   59.272786][ T9599] netdevsim netdevsim3 netdevsim1: renamed from eth1
+[   59.296247][ T9599] netdevsim netdevsim3 netdevsim2: renamed from eth2
+[   59.299840][ T9599] netdevsim netdevsim3 netdevsim3: renamed from eth3
+[   59.318309][T12626] loop1: detected capacity change from 0 to 2048
+[   59.323572][T12629] loop0: detected capacity change from 0 to 2048
+[   59.354077][   T53] Bluetooth: hci0: command tx timeout
+[   59.395801][ T9595] netdevsim netdevsim2 netdevsim0: renamed from eth0
+[   59.401794][T12650] loop0: detected capacity change from 0 to 2048
+[   59.402145][T12645] loop1: detected capacity change from 0 to 2048
+[   59.416984][ T9595] netdevsim netdevsim2 netdevsim1: renamed from eth1
+[   59.420633][ T9595] netdevsim netdevsim2 netdevsim2: renamed from eth2
+[   59.422666][ T9595] netdevsim netdevsim2 netdevsim3: renamed from eth3
+[   59.483618][ T9599] 8021q: adding VLAN 0 to HW filter on device bond0
+[   59.500305][ T9599] 8021q: adding VLAN 0 to HW filter on device team0
+[   59.510761][ T9595] 8021q: adding VLAN 0 to HW filter on device bond0
+[   59.519731][ T1403] bridge0: port 1(bridge_slave_0) entered blocking state
+[   59.520352][ T1403] bridge0: port 1(bridge_slave_0) entered forwarding state
+[   59.521596][ T1403] bridge0: port 2(bridge_slave_1) entered blocking state
+[   59.522182][ T1403] bridge0: port 2(bridge_slave_1) entered forwarding state
+[   59.527710][ T9595] 8021q: adding VLAN 0 to HW filter on device team0
+[   59.532459][ T1403] bridge0: port 1(bridge_slave_0) entered blocking state
+[   59.533064][ T1403] bridge0: port 1(bridge_slave_0) entered forwarding state
+[   59.537752][ T1403] bridge0: port 2(bridge_slave_1) entered blocking state
+[   59.538357][ T1403] bridge0: port 2(bridge_slave_1) entered forwarding state
+[   59.592334][T12666] loop0: detected capacity change from 0 to 2048
+[   59.593822][   T53] Bluetooth: hci3: command tx timeout
+[   59.594294][   T53] Bluetooth: hci2: command tx timeout
+[   59.594740][   T53] Bluetooth: hci1: command tx timeout
+[   59.602689][T12672] loop1: detected capacity change from 0 to 2048
+[   59.666487][T12685] loop1: detected capacity change from 0 to 2048
+[   59.711840][T12697] loop0: detected capacity change from 0 to 2048
+[   59.716508][ T9599] 8021q: adding VLAN 0 to HW filter on device batadv0
+[   59.733008][ T9599] veth0_vlan: entered promiscuous mode
+[   59.738214][ T9599] veth1_vlan: entered promiscuous mode
+[   59.749295][ T9599] veth0_macvtap: entered promiscuous mode
+[   59.752918][ T9599] veth1_macvtap: entered promiscuous mode
+[   59.759668][ T9599] batman_adv: batadv0: Interface activated: batadv_slave_0
+[   59.764834][ T9599] batman_adv: batadv0: Interface activated: batadv_slave_1
+[   59.767812][ T9599] netdevsim netdevsim3 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[   59.768511][ T9599] netdevsim netdevsim3 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[   59.769392][ T9599] netdevsim netdevsim3 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[   59.770060][ T9599] netdevsim netdevsim3 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[   59.791393][T12704] loop1: detected capacity change from 0 to 2048
+[   59.810591][ T9595] 8021q: adding VLAN 0 to HW filter on device batadv0
+[   59.827474][ T9595] veth0_vlan: entered promiscuous mode
+[   59.830359][ T9595] veth1_vlan: entered promiscuous mode
+[   59.838114][ T9595] veth0_macvtap: entered promiscuous mode
+[   59.839877][ T9595] veth1_macvtap: entered promiscuous mode
+[   59.849216][ T9595] batman_adv: batadv0: Interface activated: batadv_slave_0
+[   59.851676][ T9595] batman_adv: batadv0: Interface activated: batadv_slave_1
+[   59.853264][ T9595] netdevsim netdevsim2 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[   59.854150][ T9595] netdevsim netdevsim2 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[   59.854820][ T9595] netdevsim netdevsim2 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[   59.855484][ T9595] netdevsim netdevsim2 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[   59.908843][T12317] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   59.910396][T12317] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   59.921372][T12721] loop1: detected capacity change from 0 to 2048
+[   59.953357][   T43] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   59.954279][   T43] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   59.975352][T12317] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   59.975984][T12317] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   59.977875][T12742] loop0: detected capacity change from 0 to 2048
+[   59.996448][   T14] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   59.997082][   T14] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   60.004554][T12752] loop1: detected capacity change from 0 to 2048
+[   60.049375][T12763] loop3: detected capacity change from 0 to 2048
+[   60.081141][T12770] loop2: detected capacity change from 0 to 2048
+[   60.082959][T12775] loop0: detected capacity change from 0 to 2048
+[   60.121801][T12789] loop1: detected capacity change from 0 to 2048
+[   60.133424][T12780] loop3: detected capacity change from 0 to 2048
+[   60.173471][T12803] loop2: detected capacity change from 0 to 2048
+[   60.182700][T12804] loop0: detected capacity change from 0 to 2048
+[   60.217597][T12815] loop3: detected capacity change from 0 to 2048
+[   60.231042][T12822] loop1: detected capacity change from 0 to 2048
+[   60.266846][T12830] loop0: detected capacity change from 0 to 2048
+[   60.443566][T12863] loop3: detected capacity change from 0 to 2048
+[   60.495798][T12872] loop0: detected capacity change from 0 to 2048
+[   60.507230][T12873] loop2: detected capacity change from 0 to 2048
+[   60.556837][T12889] loop1: detected capacity change from 0 to 2048
+[   60.600528][T12899] loop3: detected capacity change from 0 to 2048
+[   60.611852][T12902] loop0: detected capacity change from 0 to 2048
+[   60.647185][T12919] loop2: detected capacity change from 0 to 2048
+[   60.665157][T12927] loop1: detected capacity change from 0 to 2048
+[   60.685899][T12937] loop0: detected capacity change from 0 to 2048
+[   60.705695][T12938] loop3: detected capacity change from 0 to 2048
+[   60.751023][T12951] loop2: detected capacity change from 0 to 2048
+[   60.779635][T12959] loop1: detected capacity change from 0 to 2048
+[   60.792722][T12967] loop3: detected capacity change from 0 to 2048
+[   60.795418][T12963] loop0: detected capacity change from 0 to 2048
+[   60.876609][T12986] loop3: detected capacity change from 0 to 2048
+[   60.879625][T12987] loop0: detected capacity change from 0 to 2048
+[   60.885800][T12989] loop2: detected capacity change from 0 to 2048
+[   60.926962][T13007] loop1: detected capacity change from 0 to 2048
+[   60.938605][T13014] loop3: detected capacity change from 0 to 2048
+[   60.958543][T13022] loop0: detected capacity change from 0 to 2048
+[   60.966873][T13026] loop2: detected capacity change from 0 to 2048
+[   60.989246][T13041] loop3: detected capacity change from 0 to 2048
+[   61.004783][T13045] loop1: detected capacity change from 0 to 2048
+[   61.008636][T13047] loop0: detected capacity change from 0 to 2048
+[   61.069301][T13064] loop3: detected capacity change from 0 to 2048
+[   61.077720][T13067] loop2: detected capacity change from 0 to 2048
+2025/05/30 21:35:31 executed programs: 324
+[   61.118332][T13077] loop1: detected capacity change from 0 to 2048
+[   61.145393][T13087] loop0: detected capacity change from 0 to 2048
+
+VM DIAGNOSIS:
+04:35:21  Registers:
+info registers vcpu 0
+RAX=0000000000000000 RBX=ffffffff8e3856e4 RCX=ffffffff817b1cc0 RDX=ffff8880211dd7c0
+RSI=ffffffff817b1ccf RDI=0000000000000007 RBP=0000000000000063 RSP=ffffc900074fea68
+R8 =0000000000000007 R9 =0000000000000001 R10=00000000000001f2 R11=000000000000fd59
+R12=0000000000000001 R13=ffffc900074fec66 R14=00000000000001f2 R15=dffffc0000000000
+RIP=ffffffff8186fd01 RFL=00000046 [---Z-P-] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 ffffffff 00c00000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 ffffffff 00c00000
+FS =0000 0000000000000000 ffffffff 00c00000
+GS =0000 ffff8880d3e1e000 ffffffff 00c00000
+LDT=0000 0000000000000000 ffffffff 00c00000
+TR =0040 fffffe0000003000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe0000001000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007ffe09475d88 CR3=0000000022bb8005 CR4=00370ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000fffe0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+YMM00=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM01=0000000000000000 0000000000000000 00007fbb81b3d570 00007fbb81b3d570
+YMM02=0000000000000000 0000000000000000 00007fbb81b3d580 00007fbb81b3d580
+YMM03=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM04=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM05=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM06=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM07=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM08=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM09=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM10=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM11=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM12=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM13=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM14=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM15=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+info registers vcpu 1
+RAX=0000000000000000 RBX=0000000000000025 RCX=ffffffff8bda5b76 RDX=ffff8880207ed7c0
+RSI=0000000000000000 RDI=0000000000000001 RBP=ffffc9000829f668 RSP=ffffc9000829f5c0
+R8 =0000000000000001 R9 =0000000000000000 R10=0000000000000025 R11=fffffffffffdacf0
+R12=ffffffff8c09bb41 R13=ffffc9000829f6e8 R14=ffffffff8c09bb41 R15=dffffc0000000000
+RIP=ffffffff8186fcc0 RFL=00000202 [-------] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 ffffffff 00c00000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0000 0000000000000000 ffffffff 00c00000
+DS =0000 0000000000000000 ffffffff 00c00000
+FS =0000 00007f7ed94fa700 ffffffff 00c00000
+GS =0000 ffff8880d3f1e000 ffffffff 00c00000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe000004a000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe0000048000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007fbb80fd23a0 CR3=00000000136e7001 CR4=00370ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000fffe0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+YMM00=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM01=0000000000000000 0000000000000000 00007fbb81b3d570 00007fbb81b3d570
+YMM02=0000000000000000 0000000000000000 00007fbb81b3d580 00007fbb81b3d580
+YMM03=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM04=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM05=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM06=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM07=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM08=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM09=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM10=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM11=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM12=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM13=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM14=0000000000000000 0000000000000000 0000000000000000 0000000000000000
+YMM15=0000000000000000 0000000000000000 0000000000000000 0000000000000000
